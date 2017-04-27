@@ -1,9 +1,9 @@
 package spring.siroragi.myPage;
 
-public interface MyPageDAO {
+public class MyPageDAO {
 
-	//°³ÀÎ Á¤º¸ ÆûÀ¸·Î ÀÌµ¿
+	//ê°œì¸ ì •ë³´ í¼ìœ¼ë¡œ ì´ë™
 	
-	//¾ÏÈ£°¡ ÀÏÄ¡ÇÏ¸é °³ÀÎ Á¤º¸ ¼öÁ¤
-	
+	//ê°œì¸ ì •ë³´ ìˆ˜ì •
+	 
 }

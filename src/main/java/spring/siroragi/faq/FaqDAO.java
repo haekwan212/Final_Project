@@ -1,19 +1,19 @@
 package spring.siroragi.faq;
 
-public interface FaqDAO {
+public class FaqDAO {
 
-	//FAQ ÀüÃ¼¸ñ·Ï ºÒ·¯¿À±â
+	//FAQ ì „ì²´ ëª©ë¡ ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//FAQ µî·Ï ÆûÀ¸·Î ÀÌµ¿
+	//FAQ ë“±ë¡ í¼ìœ¼ë¡œ ì´ë™
 	
-	//FAQ µî·Ï
+	//FAQ ë“±ë¡
 	
-	//FAQ ¼öÁ¤
+	//FAQ ìˆ˜ì •
 	
-	//FAQ »èÁ¦
+	//FAQ ìƒì„¸ë³´ê¸°
 	
-	//FAQ »ó¼¼º¸±â
+	//FAQ ì‚­ì œ
 	
-	//FAQ °Ë»ö
+	//FAQ ê²€ìƒ‰
 	
 }

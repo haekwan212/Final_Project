@@ -1,19 +1,19 @@
 package spring.siroragi.notice;
 
-public interface NoticeDAO {
+public class NoticeDAO {
 
-	//°øÁö»çÇ× ÀüÃ¼ ¸ñ·Ï ºÒ·¯¿À±â
+	//ê³µì§€ì‚¬í•­ ëª©ë¡ ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//°øÁö»çÇ× ÆûÀ¸·ÎÀÌµ¿
+	//ê³µì§€ì‚¬í•­ í¼ìœ¼ë¡œ ì´ë™
 	
-	//°øÁö»çÇ× µî·Ï
+	//ê³µì§€ì‚¬í•­ ë“±ë¡
 	
-	//°øÁö»çÇ× »ó¼¼º¸±â
+	//ê³µì§€ì‚¬í•­ ìƒì„¸ë³´ê¸°
 	
-	//°øÁö»çÇ× ¼öÁ¤
+	//ê³µì§€ì‚¬í•­ ìˆ˜ì •
 	
-	//°øÁö»çÇ× »èÁ¦
+	//ê³µì§€ì‚¬í•­ ì‚­ì œ
 	
-	//°øÁö»çÇ× °Ë»ö
+	//ê³µì§€ì‚¬í•­ ê²€ìƒ‰
 	
 }

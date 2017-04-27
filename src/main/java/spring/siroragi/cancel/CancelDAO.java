@@ -1,14 +1,14 @@
 package spring.siroragi.cancel;
 
-public interface CancelDAO {
+public class CancelDAO {
 
-	//Ãë¼Ò,¹ÝÇ°,±³È¯ ÀüÃ¼ ³»¿ª ºÒ·¯¿À±â
+	//ì·¨ì†Œ,ë°˜í’ˆ,êµí™˜ ë‚´ì—­ ì „ì²´ ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//Ãë¼Ò,¹ÝÇ°,±³È¯ È¸¿ø ÇÑ¸íÀÇ ³»¿ª¸¸ ºÒ·¯¿À±â
+	//ì·¨ì†Œ,ë°˜í’ˆ,êµí™˜  ë‚´ì—­ ìƒì„¸ë³´ê¸°
 	
-	//Ãë¼Ò,¹ÝÇ°,±³È¯ ³»¿ª »ó¼¼º¸±â
+	//ì·¨ì†Œ,ë°˜í’ˆ,êµí™˜  ì‹ ì²­ í¼
 	
-	//Ãë¼Ò,¹ÝÇ°,±³È¯ ½ÅÃ» ÆûÀ¸·Î ÀÌµ¿
+	//ì·¨ì†Œ,ë°˜í’ˆ,êµí™˜  ì‹ ì²­
 	
-	//Ãë¼Ò,¹ÝÇ°,±³È¯ ½ÅÃ» DB¿¡ µî·Ï
+	//íšŒì› ê°œì¸ì˜ ì·¨ì†Œ,ë°˜í’ˆ,êµí™˜ ë‚´ì—­ ë¶ˆëŸ¬ì˜¤ê¸°
 }

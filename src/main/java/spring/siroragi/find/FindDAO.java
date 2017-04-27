@@ -1,12 +1,12 @@
 package spring.siroragi.find;
 
-public interface FindDAO {
+public class FindDAO {
 
-	//���̵� ã�� ������ �̵�
+	//아이디 찾기 폼으로 이동
 	
-	//�ش� ������ �ش��ϴ� ���̵� ã��
+	//입력한 정보가 맞으면 아이디 불러옴(아이디 4자공개 + 나머지는 *로 처리)
 	
-	//��й�ȣ ã�� ������ �̵�
+	//비밀번호 찾기 폼으로 이동
 	
-	//�ش� ������ �ش��ϴ� �ڷ������� �̸��Ϸ� �ӽú�й�ȣ ����
+	//이메일로 임시 비밀번호 전송
 }

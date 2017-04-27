@@ -1,16 +1,18 @@
 package spring.siroragi.review;
 
-public interface ReviewDAO {
+public class ReviewDAO {
 
-	//ÀüÃ¼ ¸®ºä¸ñ·Ï ºÒ·¯¿À±â
+	//ì „ì²´ ë¦¬ë·° ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//°³ÀÎ È¸¿øÀÌ ¾´ ¸®ºä ¸ñ·Ï °¡Á®¿À±â
+	//íšŒì› ê°œì¸ì˜ ë¦¬ë·° ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//¸®ºä µî·ÏÇÏ±â
+	//ë¦¬ë·° ì½”ë©˜íŠ¸ í¼ìœ¼ë¡œ ì´ë™
 	
-	//¸®ºä ÄÚ¸àÆ® ÆûÀ¸·Î ÀÌµ¿
+	//ë¦¬ë·° ì½”ë©˜íŠ¸ ë“±ë¡(ë“±ë¡í•˜ë©´ì„œ ì ë¦½ê¸ˆ ì£¼ì–´ì•¼í•¨)
 	
-	//¸®ºä¿¡ ÄÚ¸àÆ® µî·Ï
+	//ë¦¬ë·° ê²€ìƒ‰
 	
-	//¸®ºä °Ë»ö
+	//ë¦¬ë·° í‰ì  ê³„ì‚°
+	
+	//ë¦¬ë·° ìƒì„¸ë³´ê¸°
 }

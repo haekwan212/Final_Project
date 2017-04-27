@@ -1,15 +1,15 @@
 package spring.siroragi.common;
 
-public interface CommonDAO {
+public class CommonDAO {
 
-	//¸ÞÀÎÈ­¸éÀ¸·Î ÀÌµ¿
+	//ë©”ì¸íŽ˜ì´ì§€ë¡œ ì´ë™
 	
-	//±â¾÷¼Ò°³·Î ÀÌµ¿
+	//ê¸°ì—… ì†Œê°œë¡œ ì´ë™
 	
-	//ÀÌ¿ë¾à°üÀ¸·Î ÀÌµ¿
+	//ì´ìš©ì•½ê´€ìœ¼ë¡œ ì´ë™
 	
-	//°³ÀÎÁ¤º¸ Ãë±Þ¹æÄ§À¸·Î ÀÌµ¿
+	//ê°œì¸ì •ë³´ ì·¨ê¸‰ë°©ì¹¨ìœ¼ë¡œ ì´ë™
 	
-	//ÀÌ¿ë¾È³»·Î ÀÌµ¿
+	//ì´ìš©ì•ˆë‚´ë¡œ ì´ë™
 	
 }

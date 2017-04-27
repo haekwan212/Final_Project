@@ -1,16 +1,15 @@
 package spring.siroragi.goods;
 
-public interface GoodsDAO {
+public class GoodsDAO {
 
-	//Ä«Å×°í¸®º° »óÇ° ¸ñ·Ï ²¨³»¿À±â
+	//ì¹´í…Œê³ ë¦¬ë³„ ìƒí’ˆ ì •ë ¬
 	
-	//°Ë»ö°á°ú¿¡ ÇØ´çÇÏ´Â »óÇ° ¸ñ·Ï ²¨³»¿À±â
+	//ê²€ìƒ‰ ê²°ê³¼ì— ëŒ€í•œ ìƒí’ˆ ì •ë ¬
 	
-	//³·Àº °¡°Ý,³ôÀº°¡°Ý,»óÇ°¸í,¸®ºä¼ø,ÆòÁ¡¼ø,ÀÎ±â¼ø,½Å»ó¼øÀ¸·Î Á¤·Ä
+	//ë‚®ì€ê°€ê²©/ë†’ì€ê°€ê²©/ìƒí’ˆëª…/ë¦¬ë·°ìˆ˜/í‰ì ìˆœ/ì¸ê¸°ìˆœ/ì‹ ìƒìˆœ ì •ë ¬
 	
-	//»óÇ° »ó¼¼º¸±â ÆäÀÌÁö·Î ÀÌµ¿
+	//ìƒí’ˆ ìƒì„¸ë³´ê¸° íŽ˜ì´ì§€ë¡œ ì´ë™
 	
-	//ÄÚµðµÈ »óÇ° º¸¿©ÁÖ±â
-	
-	//»óÇ°À» OFF·Î ÇÒ ¶§, Àå¹Ù±¸´Ï¿Í À§½Ã¸®½ºÆ®¿¡¼­ »èÁ¦ È¤Àº Àå¹Ù±¸´Ï, À§½Ã¸®½ºÆ®¿¡¼­ ¾È°¡Á®¿Àµµ·Ï ¼³°è
+	//ì½”ë””ëœ ìƒí’ˆ ë³´ì—¬ì£¼ê¸°
+
 }

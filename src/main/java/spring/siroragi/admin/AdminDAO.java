@@ -1,7 +1,7 @@
 package spring.siroragi.admin;
 
-public interface AdminDAO {
+public class AdminDAO {
 
-	//°ü¸®ÀÚ ÆäÀÌÁö·Î ÀÌµ¿
+	//ê´€ë¦¬ì í˜ì´ì§€ë¡œ ì´ë™
 	
 }

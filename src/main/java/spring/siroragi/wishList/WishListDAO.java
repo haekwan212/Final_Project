@@ -1,12 +1,12 @@
 package spring.siroragi.wishList;
 
-public interface WishListDAO {
+public class WishListDAO {
 
-	//È¸¿ø °³ÀÎÀÇ À§½Ã¸®½ºÆ® È®ÀÎ(»óÇ°ÀÌ º¸ÀÌµµ·Ï ¼³Á¤µÈ °æ¿ì¸¸ °¡Á®¿Í¾ß ÇÔ)
+	//ìœ„ì‹œë¦¬ìŠ¤íŠ¸ í™•ì¸(ë¬¼í’ˆì´ OFFê°€ ëœ ê²½ìš° ë¶ˆëŸ¬ì˜¤ë©´ ì•ˆëœë‹¤)
 	
-	//»óÇ° À§½Ã¸®½ºÆ® µî·Ï
+	//ìƒí’ˆì„ ìœ„ì‹œë¦¬ìŠ¤íŠ¸ì— ë“±ë¡
 	
-	//»óÇ° À§½Ã¸®½ºÆ® ÇØÁ¦
+	//ìƒí’ˆì„ ìœ„ì‹œë¦¬ìŠ¤íŠ¸ì—ì„œ í•´ì œ
 	
-	//À§½Ã¸®½ºÆ®¿¡ ´ã±ä ¹°Ç° Ä«¿îÆ®
+	//ìœ„ì‹œë¦¬ìŠ¤íŠ¸ì— ìžˆëŠ” ìƒí’ˆìˆ˜ ì¹´ìš´íŠ¸
 }

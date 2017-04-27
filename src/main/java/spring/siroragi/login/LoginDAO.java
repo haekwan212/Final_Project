@@ -1,10 +1,10 @@
 package spring.siroragi.login;
 
-public interface LoginDAO {
+public class LoginDAO {
 
-	//·Î±×ÀÎ ÆûÀ¸·Î ÀÌµ¿
+	//ë¡œê·¸ì¸ í¼ìœ¼ë¡œ ì´ë™
 	
-	//·Î±×ÀÎ ÇÏ±â
+	//ë¡œê·¸ì¸ í•˜ê¸°
 	
-	//·Î±×¾Æ¿ô ÇÏ±â
+	//ë¡œê·¸ì•„ì›ƒ í•˜ê¸°
 }

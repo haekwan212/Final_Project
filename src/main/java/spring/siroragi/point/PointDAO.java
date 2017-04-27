@@ -1,17 +1,19 @@
 package spring.siroragi.point;
 
-public interface PointDAO {
+public class PointDAO {
 
-	//È¸¿ø °³ÀÎÀÇ Àû¸³±Ý ³»¿ª ºÒ·¯¿À±â
+	//ë‚˜ì˜ ì ë¦½ê¸ˆ ë‚´ì—­ ë¶ˆëŸ¬ì˜¤ê¸°(1ë…„)
 	
-	//ÀüÃ¼ Àû¸³±Ý ±Ý¾× °è»ê
+	//ì ë¦½ê¸ˆ ë¶€ì—¬
 	
-	//»ç¿ëÇÑ Àû¸²±Ý ±Ý¾× °è»ê
+	//ì ë¦½ê¸ˆ ì°¨ê°
 	
-	//Àû¸³±Ý ºÎ¿© ÆûÀ¸·Î ÀÌµ¿(°ü¸®ÀÚ)
+	//ì ë¦½ê¸ˆ ë¶€ì—¬í•˜ê¸° í¼ìœ¼ë¡œ ì´ë™
 	
-	//Àû¸³±Ý ºÎ¿©
+	//ì „ì²´ ì ë¦½ê¸ˆ ê¸ˆì•¡ ê³„ì‚°
 	
-	//Àû¸³±Ý Â÷°¨
+	//ì‚¬ìš©í•œ ì ë¦½ê¸ˆ ê¸ˆì•¡ ê³„ì‚°
+	
+	//ì´ìš©ê°€ëŠ¥í•œ ì ë¦½ê¸ˆ ê¸ˆì•¡ ê³„ì‚°
 	
 }

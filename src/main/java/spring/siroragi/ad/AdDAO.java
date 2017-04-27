@@ -1,6 +1,6 @@
 package spring.siroragi.ad;
 
-public interface AdDAO {
+public class AdDAO {
 
 	//메인에서 사용할 광고 불러오기
 	

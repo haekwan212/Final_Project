@@ -1,12 +1,12 @@
 package spring.siroragi.cart;
 
-public interface CartDAO {
+public class CartDAO {
 
-	//Àå¹Ù±¸´Ï È¸¿ø ¸ñ·Ï ²¨³»¿À±â(»óÇ°ÀÌ º¸ÀÌµµ·Ï ¼³Á¤µÈ °æ¿ì¸¸ °¡Á®¿Í¾ß ÇÔ)
+	//íšŒì› ê°œì¸ì˜ ìž¥ë°”êµ¬ë‹ˆ ëª©ë¡ ë¶ˆëŸ¬ì˜¤ê¸°(OFFëœ ìƒí’ˆì€ ì œì™¸)
 	
-	//»ïÇ° Àå¹Ù±¸´Ï¿¡ µî·Ï
+	//ìž¥ë°”êµ¬ë‹ˆ ë“±ë¡
 	
-	//»óÇ° Àå¹Ù±¸´Ï¿¡¼­ ÇØÁ¦
+	//ìž¥ë°”êµ¬ë‹ˆ í•´ì œ
 	
-	//Àå¹Ù±¸´Ï¿¡ ´ã±ä ¹°Ç° ¼ö Ä«¿îÆ®
+	//ìž¥ë°”êµ¬ë‹ˆ ì¹´ìš´íŠ¸
 }

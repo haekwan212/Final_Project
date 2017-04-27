@@ -1,16 +1,19 @@
 package spring.siroragi.adminGoods;
 
-public interface AdminGoodsDAO {
+public class AdminGoodsDAO {
 
-	//��ǰ ��� ��ü �ҷ�����
+	//상품 목록 전체 불러오기
 	
-	//��ǰ ��� ������ �̵�
+	//상품 등록 폼으로 이동
 	
-	//��ǰ ���
+	//상품 등록
 	
-	//��ǰ ����
+	//상품 수정
 	
-	//��ǰ ����
+	//상품 수정 OFF시, 장바구니와 위시리스트에서 제외
 	
-	//��ǰ �˻�
+	//상품 삭제
+	
+	//상품 검색
+	
 }

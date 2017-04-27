@@ -1,14 +1,14 @@
 package spring.siroragi.join;
 
-public interface JoinDAO {
+public class JoinDAO {
 
-	//È¸¿ø°¡ÀÔ ÆûÀ¸·Î ÀÌµ¿
+	//íšŒì›ê°€ìž… í¼ìœ¼ë¡œ ì´ë™
 	
-	//È¸¿ø°¡ÀÔ½Ã, IDÁßº¹Ã¼Å© ÆûÀ¸·Î ÀÌµ¿
+	//íšŒì›ê°€ìž…ì‹œ, IDì¤‘ë³µì²´í¬ í¼ìœ¼ë¡œ ì´ë™
 	
-	//È¸¿ø°¡ÀÔ½Ã, IDÁßº¹Ã¼Å©
+	//íšŒì›ê°€ìž…ì‹œ, IDì¤‘ë³µì²´í¬
 	
-	//È¸¿øÁ¤º¸¸¦ DB¿¡ µî·Ï(È¸¿ø°¡ÀÔ)
+	//íšŒì›ì •ë³´ë¥¼ DBì— ë“±ë¡(íšŒì›ê°€ìž…)
 	
-	//È¸¿øÁ¤º¸¸¦ DB¿¡¼­ º¸ÀÌÁö ¾Ê°Ô ÇÏ±â·Î ¼öÁ¤(È¸¿øÅ»Åð)
+	//íšŒì›ë¹„ë°€ë²ˆí˜¸ í™•ì¸í•˜ê³  íšŒì›ì •ë³´ë¥¼ DBì—ì„œ OFFë¡œ ìˆ˜ì •(íšŒì›íƒˆí‡´)
 }

@@ -1,28 +1,28 @@
 package spring.siroragi.qna;
 
-public interface QnaDAO {
+public class QnaDAO {
 
-	//ÇØ´ç »óÇ°¿¡ ÇØ´çÇÏ´Â ¹®ÀÇ±Û °¡Á®¿À±â
+	//Q&A ì „ì²´ ê¸€ ëª©ë¡ ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//»óÇ°¿¡ ´ëÇÑ Q&A µî·ÏÇÏ±â
+	//íšŒì› ê°œì¸ì˜ Q&A ëª©ë¡ ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//È¸¿ø °³ÀÎÀÇ Q&A °¡Á®¿À±â
+	//ìƒí’ˆì— í•´ë‹¹í•˜ëŠ” Q&A ëª©ë¡ ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//Q&A »ó¼¼º¸±â
+	//Q&A ë“±ë¡í•˜ê¸° í¼ìœ¼ë¡œ ì´ë™
 	
-	//Q&A »ó¼¼º¸±â½Ã, ºñ¹Ð¹øÈ£ È®ÀÎ(ºñÈ¸¿ø¶§¹®¿¡ ÇØ¾ßÇÔ)
+	//Q&A ë“±ë¡í•˜ê¸°
 	
-	//Q&A µî·ÏÇÏ±â
+	//Q&A ìˆ˜ì •í•˜ê¸°
 	
-	//ÀüÃ¼ Q&A ºÒ·¯¿À±â
+	//Q&Aì— ë‹µë³€ë‹¬ê¸°
 	
-	//Q&A ÆûÀ¸·Î ÀÌµ¿
+	//Q&A ë¹„ë°€ë²ˆí˜¸ í™•ì¸(ë¹„íšŒì›ë•Œë¬¸ì— í•„ìš”)
 	
-	//Q&A ´äº¯ ´Þ±â(°ü¸®ÀÚ¸¸ °¡´É)
+	//Q&A ì‚­ì œí•˜ê¸°
 	
-	//Q&A ¼öÁ¤
+	//Q&A ê²€ìƒ‰í•˜ê¸°
 	
-	//Q&A »èÁ¦
+	//Q&A 
 	
-	//Q&A °Ë»ö
+	//Q&A 
 }
