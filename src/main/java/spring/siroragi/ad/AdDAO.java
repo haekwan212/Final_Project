@@ -2,14 +2,14 @@ package spring.siroragi.ad;
 
 public interface AdDAO {
 
-	//±¤°í ÀüÃ¼ ¸ñ·Ï ºÒ·¯¿À±â
+	//ë©”ì¸ì—ì„œ ì‚¬ìš©í•  ê´‘ê³  ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//±¤°í µî·Ï ÆûÀ¸·Î ÀÌµ¿
+	//ê´‘ê³  ë‚´ì—­ ë¶ˆëŸ¬ì˜¤ê¸°
 	
-	//±¤°í µî·Ï
+	//ê´‘ê³  ë“±ë¡ í¼
 	
-	//±¤°í ¼öÁ¤
+	//ê´‘ê³  ë“±ë¡
 	
-	//¸ÞÀÎ¿¡ ¶ç¿ï ±¤°í Á¤º¸ °¡Á®¿À±â
+	//ê´‘ê³  ìˆ˜ì •
 	
 }
