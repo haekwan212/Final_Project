@@ -27,5 +27,12 @@
 	<!-- 파일 다운로드시 사용 -->
 	<!-- <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0" /> -->
 
-
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+    
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0" />
+    <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />    
+    
+    <bean id="common" class="spring.siroragi.common.CommonController" />  
+    
 </beans>
+
