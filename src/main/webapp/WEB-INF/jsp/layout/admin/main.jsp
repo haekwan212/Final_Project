@@ -43,8 +43,7 @@
                                             <h4 class="timeline-title">상품관리</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>상품목록 이동 - 상품리스트를 볼 수있습니다</p>
-                                            <p>상품등록 이동 - 바로상품등록 할 수있습니다</p>
+                                            <p>상품목록 이동 - 상품리스트를 볼 수 있습니다</p>
                                         </div>
                                     </div>
                                 </li>
@@ -54,7 +53,7 @@
                                             <h4 class="timeline-title">회원관리</h4>
                                         </div>
                                         <div class="timeline-body">
-                                             <p>회원목록 이동 - 회원목록을 볼수 있습니다</p>
+                                             <p>회원목록 이동 - 회원목록을 볼 수 있습니다</p>
                                         </div>
                                     </div>
                                 </li>
@@ -65,7 +64,7 @@
                                             <h4 class="timeline-title">주문관리</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>주문목록 - 주문목록 확인및 관리</p>
+                                            <p>주문목록 - 주문목록 확인 및 관리</p>
                                         </div>
                                     </div>
                                 </li>
@@ -75,11 +74,11 @@
                                             <h4 class="timeline-title">게시판 관리</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>공지사항 - 게시판 수정,삭제 등 관리</p>
-                                            <p>마이펫 - 게시판 수정,삭제 등 관리</p>
-                                            <p>분양 - 게시판 수정,삭제 등 관리</p>
-                                            <p>Q&A - 게시판 수정,삭제 등 관리</p>
-                                            <p>구매후기 - 게시판 수정,삭제 등 관리</p>
+                                            <p>공지사항 - 공지게시판 수정,삭제 등 관리</p>
+                                            <p>광고 - 광고 수정,삭제 등 관리</p>
+                                            <p>구매 후기 - Review 수정,삭제 등 관리</p>
+                                            <p>Q&A - Q&A게시판 수정,삭제 등 관리</p>
+                                            <p>FAQ - FAQ게시판 수정,삭제 등 관리</p>
                                         </div>
                                     </div>
                                 </li>
