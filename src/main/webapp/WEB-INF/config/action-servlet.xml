@@ -10,10 +10,15 @@
 
 	<!-- 컨트롤러를 자동으로 등록할 수 있도록 -->
 	<context:component-scan base-package="spring"></context:component-scan>
-	
+
+	<!-- CSS, JS 매핑 -->
+
+	<mvc:resources location="/css/**" mapping="/css/**"/>
+	<mvc:resources location="/js/**" mapping="/js/**"/>
 	<mvc:resources location="/theme/**" mapping="/theme/**"/>
 	<mvc:resources location="/dist/**" mapping="/dist/**"/>
 	<mvc:resources location="/resources/**" mapping="/resources/**"/>
+
 	<!-- Map을 이용해 데이터를 주고 받을 수 있도록 -->
 	<mvc:annotation-driven>
 		<mvc:argument-resolvers>
