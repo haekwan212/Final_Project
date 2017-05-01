@@ -18,23 +18,39 @@
 
 <scRIPT language="Javascript">
 
-function firstChange() {
- var x = document.frm.first.options.selectedIndex;
- var groups=document.frm.first.options.length;
+function GOODS_CATEGORY1Change() {
+ var x = document.frm.GOODS_CATEGORY1.options.selectedIndex;
+ var groups=document.frm.GOODS_CATEGORY1.options.length;
  var group=new Array(groups);
  for (i=0; i<groups; i++)
   group[i]=new Array();
  
  group[0][0]=new Option("대분류를 먼저 선택하세요","");
- group[1][0]=new Option("컴퓨터 회사 선택","");
- group[1][1]=new Option("삼성","ss");
- group[1][2]=new Option("대우","dw");
- group[1][3]=new Option("엘지","lg");
- group[2][0]=new Option("프린터 회사 선택","");
- group[2][1]=new Option("엡손","epson");
- group[2][2]=new Option("휴랫팩커드","hp");
+ group[1][0]=new Option("OUTER 소분류 선택","");
+ group[1][1]=new Option("가디건","가디건");
+ group[1][2]=new Option("자켓","자켓");
+ group[1][3]=new Option("점퍼&패딩","점퍼&패딩");
+ group[1][4]=new Option("코트","코트");
+ group[1][5]=new Option("블레이저","블레이저");
+ group[2][0]=new Option("TOP 소분류 선택","");
+ group[2][1]=new Option("티셔츠","티셔츠");
+ group[2][2]=new Option("셔츠","셔츠");
+ group[2][3]=new Option("니트&스웨터","니트&스웨터");
+ group[2][4]=new Option("조끼","조끼");
+ group[3][0]=new Option("PANTS 소분류 선택","");
+ group[3][1]=new Option("면바지","면바지");
+ group[3][2]=new Option("청바지","청바지");
+ group[3][3]=new Option("슬랙스","슬랙스");
+ group[3][4]=new Option("반바지","반바지");
+ group[4][0]=new Option("SHOES 소분류 선택","");
+ group[4][1]=new Option("구두","구두");
+ group[4][2]=new Option("스니커즈","스니커즈");
+ group[5][0]=new Option("ACC 소분류 선택","");
+ group[5][1]=new Option("가방","가방");
+ group[5][2]=new Option("벨트","벨트");
+ group[5][3]=new Option("ETC","ETC");
  
- temp = document.frm.second;
+ temp = document.frm.GOODS_CATEGORY2;
  for (m = temp.options.length-1 ; m > 0 ; m--)
   temp.options[m]=null
  for (i=0;i<group[x].length;i++){
@@ -42,14 +58,14 @@ function firstChange() {
  }
  temp.options[0].selected=true
 }
-function secondChange() {
- var first = document.frm.first.options.selectedIndex;
- var x = document.frm.second.options.selectedIndex;
- var groups=document.frm.second.options.length;
+function GOODS_CATEGORY2Change() {
+ var GOODS_CATEGORY1 = document.frm.GOODS_CATEGORY1.options.selectedIndex;
+ var x = document.frm.GOODS_CATEGORY2.options.selectedIndex;
+ var groups=document.frm.GOODS_CATEGORY2.options.length;
  var group=new Array(groups);
  for (i=0; i<groups; i++)
   group[i]=new Array();
- if(first == 1) {
+ if(GOODS_CATEGORY1 == 1) {
   group[0][0]=new Option("중분류를 먼저 선택하세요","");
   group[1][0]=new Option("삼성컴퓨터 선택","");
   group[1][1]=new Option("섬성 팬티엄III","ss3");
@@ -60,7 +76,7 @@ function secondChange() {
   group[3][0]=new Option("엘지 컴퓨터 선택","");
   group[3][1]=new Option("LG IBM PC","lgpc");
   group[3][2]=new Option("LG IBM NOTEBOOK ","lgnote");
- } else if(first == 2) {
+ } else if(GOODS_CATEGORY1 == 2) {
   group[0][0]=new Option("중분류를 먼저 선택하세요","");
   group[1][0]=new Option("엡손 프린터 선택","");
   group[1][1]=new Option("엡손 잉크","epson_ink");
@@ -106,17 +122,23 @@ function secondChange() {
 				<tr>
 					<th scope="row">카테고리</th>
 					<td>
-						<select name=first onchange="firstChange();" size=1>
+						<select name=GOODS_CATEGORY1 onchange="GOODS_CATEGORY1Change();" size=1>
 						<OPTION value=''>대분류</OPTION>
-						<OPTION value=''>컴퓨터</OPTION>
-						<OPTION value=''>프린터</OPTION>
+						<OPTION value='OUTER'>OUTER</OPTION>
+						<OPTION value='TOP'>TOP</OPTION>
+						<OPTION value='PANTS'>PANTS</OPTION>
+						<OPTION value='SHOES'>SHOES</OPTION>
+						<OPTION value='ACC'>ACC</OPTION>
 						 
 						</select>
-						<SELECT name=second onchange="secondChange();" size=1>
+						<SELECT name=GOODS_CATEGORY2 onchange="GOODS_CATEGORY2Change();" size=1>
 						 <OPTION value=''>대분류를 먼저 선택하세요</OPTION>
 						</SELECT>
 					</td>
-					
+				</tr>
+				<tr>
+					<th scope="row">썸네일 이미지</th>
+					<td><input type="file" id="file" name="GOODS_THUMBNAIL"></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="view_text">
@@ -168,12 +190,12 @@ function secondChange() {
 		$(document).ready(function(){
 			$("#list").on("click", function(e){ //목록으로 버튼
 				e.preventDefault();
-				fn_openBoardList();
+				fn_openGoodsList();
 			});
 			
 			$("#write").on("click", function(e){ //작성하기 버튼
 				e.preventDefault();
-				fn_insertBoard();
+				fn_insertGood();
 			});
 			
 			$("#addFile").on("click", function(e){ //파일 추가 버튼
@@ -192,15 +214,15 @@ function secondChange() {
 			});
 		});
 		
-		function fn_openBoardList(){
+		function fn_openGoodsList(){
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/sample/openBoardList.do' />");
+			comSubmit.setUrl("<c:url value='/SIRORAGI/goods/goodsList' />");
 			comSubmit.submit();
 		}
 		
-		function fn_insertBoard(){
+		function fn_insertGood(){
 			var comSubmit = new ComSubmit("frm");
-			comSubmit.setUrl("<c:url value='/sample/insertBoard.do' />");
+			comSubmit.setUrl("<c:url value='/SIRORAGI/goods/goodsInsert' />");
 			comSubmit.submit();
 		}
 		
