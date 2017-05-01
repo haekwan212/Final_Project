@@ -66,18 +66,19 @@ function delchk(){
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach var="memberlist"  items="${memberlist}" varStatus="stat">
+								<c:forEach var="memberlist"  items="${member}" varStatus="stat">
 								<c:url var="viewURL" value="adminmemberModify.dog" >
-									<c:param name="id" value="${memberlist.id }" />
+									<c:param name="id" value="${memberlist.MEMBER_ID }" />
 								</c:url>									
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${member.MEMBER_NUMBER}</td>
+										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_NUM}</td>
 										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_ID}</td>
 										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_NAME}</td>
 										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_PHONE}</td>
 										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_EMAIL}</td>
-										<td style="text-align:center;vertical-align:middle;">${memberlist.point}</td>										
-										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${memberlist.join_date}" pattern="YY.MM.dd HH:mm" /></td>
+										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_ZIPCODE}</td>
+										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_ADDR1}&nbsp;${memberlist.MEMBER_ADDR2}</td>										
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${memberlist.MEMBER_REGDATE}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">
 											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
 										<c:url var="viewURL2" value="adminMemberDelete.dog" >
@@ -87,7 +88,7 @@ function delchk(){
 									</tr>
 								</c:forEach>
 								<!--  등록된 상품이 없을때 -->
-									<c:if test="${fn:length(memberlist) le 0}">
+									<c:if test="${fn:length(member) le 0}">
 										<tr><td colspan="9" style="text-align:center;">등록된 상품이 없습니다</td></tr>
 									</c:if> 
 								</tbody>

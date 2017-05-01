@@ -1,6 +1,10 @@
 package spring.siroragi.member;
 
 import spring.kh.siroragi.CommandMap;
+
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -15,9 +19,11 @@ public class MemberController {
    //멤버리스트 불러오기
    @RequestMapping(value="/admin/memberList")
    public ModelAndView openMemberList(CommandMap commandMap) throws Exception{
+	   
       ModelAndView mv = new ModelAndView();
+      List<Map<String, Object>> list = memberService.selectMemberList(commandMap.getMap());
+      mv.addObject("member", list);
       mv.setViewName("memberList");
-      
       return mv;
    }
    //회원정보 불러오기
