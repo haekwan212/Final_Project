@@ -28,6 +28,10 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/main.jsp" />
 	</definition>
 	
+	<definition name="memberList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/member/member.jsp" />
+	</definition>
+	
 	<definition name="goodsForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsForm.jsp" />
 	</definition>

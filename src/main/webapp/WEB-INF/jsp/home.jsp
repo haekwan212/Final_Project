@@ -110,6 +110,32 @@
 .col-sm-10 {
     width: 41.66666667%;
 }}
+.step-panels ol li.selected>div {
+    font-family: "crn-md","NanumBarunGothicBold","돋움",Dotum,sans-serif;
+}
+.step-panels ol li>div {
+    position: relative;
+}
+.register-verify {
+    margin-bottom: 50px;
+}
+@media (min-width: 768px)
+{
+.register-verify {
+    margin-bottom: 80px;
+}}
+@media (min-width: 768px)
+{
+.register-verify .guide {
+    margin-bottom: 20px;
+}}
+.register-verify .guide {
+    margin-bottom: 10px;
+    background: #f6f6f6;
+    vertical-align: top;
+}
+
+
 </style>
 </head>
 <body>
@@ -145,19 +171,6 @@
 			</section>
 		</div>
 		<div class="verify row">
-			<section class="col-md-12">
-				<div class="box-shadow">
-					<div class="section-head left border">
-						<h3 class="title">휴대폰 인증</h3>
-					</div>
-					<div class="section-body">
-						<p>핸드폰 인증은 정보를 저장하지 않습니다. 입력하신 핸드폰으로 전송받은 인증 번호를 입력해서 인증을 받는 방법입니다.</p>
-						<a href="../member/modal_hp" class="button" target="modal" data-size="sm" data-label="안심체크(휴대폰) 인증">
-							<span class="button-label">휴대폰 인증</span>
-						</a>
-					</div>
-				</div>
-			</section>
 			<section class="col-md-12">
 				<div class="box-shadow">
 					<div class="section-head left border">
