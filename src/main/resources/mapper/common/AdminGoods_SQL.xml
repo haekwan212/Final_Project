@@ -3,5 +3,55 @@
 
 <mapper namespace="adminGoods">
 	
+	<!-- 조인으로 상품 가져와야돼 -->
+	<select id="selectAdminGoodsList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT GOODS_NUMBER, GOODS_CATEGORY1, GOODS_CATEGORY2, GOODS_NAME,
+			GOODS_PRICE, GOODS_DCPRICE, GOODS_
+			FROM MEMBER ORDER BY MEMBER_NUMBER DESC
+		]]>
+	</select>
+	
+	<insert id="insertAdminGoods" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO GOODS (
+			GOODS_NUMBER, GOODS_NAME, GOODS_PRICE, GOODS_DCPRICE, 
+			GOODS_SIMPLE, GOODS_DETAIL, GOODS_THUMBNAIL, 
+			GOODS_DATE, GOODS_CATEGORY1, GOODS_CATEGORY2, GOODS_SALEDATE
+			) VALUES ( GOODS_NUMBER_SEQ.NEXTVAL, #{GOODS_NAME}, #{GOODS_PRICE},
+			#{GOODS_DCPRICE}, #{GOODS_SIMPLE}, #{GOODS_DETAIL},
+			#{GOODS_THUMBNAIL}, sysdate, #{GOODS_CATEGORY1},
+			#{GOODS_CATEGORY2}, #{GOODS_SALEDATE} )
+		]]>
+	</insert>
+	
+	<insert id="insertAdminGoodsKinds" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO GOODS_KINDS (
+			GOODS_NUMBER, GOODS_AMOUNT, GOODS_SIZE, GOODS_COLOR
+			) VALUES ( #{GOODS_NUMBER}, #{GOODS_AMOUNT},
+			#{GOODS_SIZE}, #{GOODS_COLOR} )
+			
+		]]>
+	</insert>
+	
+	<update id="modifyAdminGoods" parameterType="hashmap">
+		<![CDATA[
+			
+		]]>
+	</update>
+	
+	<delete id="deleteAdminGoods" parameterType="hashmap">
+		<![CDATA[
+			
+		]]>
+	</delete>
+	
+	<select id="searchAdminGoodsList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			
+		]]>
+	</select>
+	
 
 </mapper>
