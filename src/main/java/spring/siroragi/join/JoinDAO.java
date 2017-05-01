@@ -1,14 +1,29 @@
-package spring.siroragi.join;
+package spring.siroragi.member;
 
-public class JoinDAO {
+import java.util.List;
+import java.util.Map;
 
-	//회원가입 폼으로 이동
-	
-	//회원가입시, ID중복체크 폼으로 이동
-	
-	//회원가입시, ID중복체크
-	
-	//회원정보를 DB에 등록(회원가입)
-	
-	//회원비밀번호 확인하고 회원정보를 DB에서 OFF로 수정(회원탈퇴)
-}
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+@Service("memberService")
+public class MemberServiceImpl implements MemberService{
+
+      @Resource(name="memberDAO")
+      private MemberDAO memberDAO;
+      
+      @Override
+      public List<Map<String, Object>> selectMemberList(Map<String, Object> map) throws Exception {
+      return memberDAO.selectMemberList(map);
+      }
+      
+      @Override
+      public Map<String, Object> selectMemberDetail(Map<String, Object> map) throws Exception {
+      return memberDAO.selectMemberDetail(map);
+      }
+      
+      @Override
+      public void deleteMember(Map<String, Object> map) throws Exception {
+       memberDAO.deleteMember(map);      
+      }
