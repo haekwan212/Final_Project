@@ -78,6 +78,9 @@
                                 <li>
                                     <a href="/pet/admin/goodsInsertForm.dog">- 상품등록</a>
                                 </li>
+                                <li>
+                                    <a href="/SIRORAGI/goodsForm">- 상품등록</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="active">
