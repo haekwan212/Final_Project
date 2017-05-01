@@ -1,29 +1,16 @@
-package spring.siroragi.member;
+package spring.siroragi.join;
 
-import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
+import spring.kh.siroragi.AbstractDAO;
 
-import org.springframework.stereotype.Service;
 
-@Service("memberService")
-public class MemberServiceImpl implements MemberService{
 
-      @Resource(name="memberDAO")
-      private MemberDAO memberDAO;
-      
-      @Override
-      public List<Map<String, Object>> selectMemberList(Map<String, Object> map) throws Exception {
-      return memberDAO.selectMemberList(map);
-      }
-      
-      @Override
-      public Map<String, Object> selectMemberDetail(Map<String, Object> map) throws Exception {
-      return memberDAO.selectMemberDetail(map);
-      }
-      
-      @Override
-      public void deleteMember(Map<String, Object> map) throws Exception {
-       memberDAO.deleteMember(map);      
-      }
+
+public class JoinDAO extends AbstractDAO {
+
+	//회원가입
+	public void insertMember(Map<String, Object> map) throws Exception{
+		insert("join.insertMember", map);
+	}
+}
