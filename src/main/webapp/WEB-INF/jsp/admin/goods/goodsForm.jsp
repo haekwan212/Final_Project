@@ -149,7 +149,7 @@ function GOODS_CATEGORY2Change() {
 				</tr>
 				<tr>
 					<td colspan="2">
-					<a href="#this" class="btn" id="addKind">컬러/사이즈/재고 추가</a>
+					<a href="#this" class="btn" id="addKind">컬러/사이즈/재고 추가</a><br/>
 						<div id="kindDiv">
 							<p>
 							<input type="text" placeholder='색상' id="text" name="GOODS_COLOR">
@@ -166,7 +166,8 @@ function GOODS_CATEGORY2Change() {
 					<a href="#this" class="btn" id="addFile">이미지 추가</a>
 						<div id="fileDiv">
 							<p>
-							<input type="file" id="file" name="IMAGE"> <a href="#this" class="btn" id="delete" name="delete">삭제</a>	
+							<input type="file" id="file" name="IMAGE">
+							<a href="#this" class="btn" id="delete" name="delete">삭제</a>
 							</p>
 						</div>
 					</td>
