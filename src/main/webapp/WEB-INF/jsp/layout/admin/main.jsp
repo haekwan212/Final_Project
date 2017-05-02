@@ -44,6 +44,7 @@
                                         </div>
                                         <div class="timeline-body">
                                             <p>상품목록 이동 - 상품리스트를 볼 수 있습니다</p>
+                                            <p>상품등록 이동 - 상품을 등록할 수 있습니다</p>
                                         </div>
                                     </div>
                                 </li>
