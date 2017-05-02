@@ -3,7 +3,6 @@ package spring.siroragi.join;
 public interface JoinService {
 
 	// 회원가입 폼으로 이동
-
 	// 회원가입시, ID중복체크 폼으로 이동
 
 	// 회원가입시, ID중복체크

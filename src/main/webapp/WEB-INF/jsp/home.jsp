@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,148 +49,857 @@
 
 	<link rel="stylesheet" href="theme/pshp/css/main.min.css">
 	<link rel="stylesheet" href="theme/pshp/css/ui.css">
-<style>
-@media (min-width: 1024px)
-{
-.step-panels {
-    margin-bottom: 30px;
-}}/* ���ο����� */
-@media (min-width: 768px){
-.step-panels {
-    margin-bottom: 15px;
-}}
-.step-panels {
-    margin-bottom: 10px;
-}
-.step-panels ol {
-    -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px;
-    -ms-border-radius: 0 0 5px 5px;
-    border-radius: 0 0 5px 5px;
-    overflow: hidden;
-}
-.step-panels ol li.selected {
-    display: block;
-    background-color: #ffc000;
-    border-right: none;
-}
-@media (min-width: 1440px)
-{
-.step-panels ol li {
-    font-size: 20px;
-    line-height: 2.5;
-}}
 
-@media (min-width: 1024px)
-{
-.step-panels ol li {
-    font-size: 16px;
-    line-height: 2.8125;
-    padding: 0 18px;
-}}
-@media (min-width: 768px){
-.step-panels ol li {
-    display: block;
-    font-size: 14px;
-    line-height: 2.3571428571;
-    padding: 0 10px;
-}}
-.step-panels ol li {
-    display: none;
-    font-family: "crn-md","NanumBarunGothicBold","����",Dotum,sans-serif;
-    font-size: 12px;
-    color: #fff;
-    line-height: 2.5;
-    padding: 2px 5px 0;
-    background-color: #a1a1a1;
-    border-right: 1px solid #7d7d7d;
-}
-@media (min-width: 768px)
-{
-.col-sm-10 {
-    width: 41.66666667%;
-}}
-.step-panels ol li.selected>div {
-    font-family: "crn-md","NanumBarunGothicBold","����",Dotum,sans-serif;
-}
-.step-panels ol li>div {
-    position: relative;
-}
-.register-verify {
-    margin-bottom: 50px;
-}
-@media (min-width: 768px)
-{
-.register-verify {
-    margin-bottom: 80px;
-}}
-@media (min-width: 768px)
-{
-.register-verify .guide {
-    margin-bottom: 20px;
-}}
-.register-verify .guide {
-    margin-bottom: 10px;
-    background: #f6f6f6;
-    vertical-align: top;
-}
-
-
-</style>
 </head>
 <body>
 <div class="viewport">
-<div id="container">
-<div class="page" id="page">
-<div class="container">
-	<section class="step-panels">
-		<ol>
-			<li class="c01 col-xs-24 col-sm-10 selected">
-				<div>AUTHENTICATION</div>
-			</li>
-			<li class="c02 col-xs-7">
-				<div>PRIVACY</div>
-			</li>
-			<li class="c03 col-xs-7">
-				<div>WELCOME</div>
-			</li>
-		</ol>
-	</section>
-	<!-- step-panels//end -->
+<!--[if lt IE 8]>
 
-	<div class="register-verify">
-		<div class="guide">
-			<section>
-				<div class="title">
-					<span class="pancoat"></span>
-					<strong>���� ȸ�������� ���� ���������� �����մϴ�.</strong>
-				</div>
-				<p>�޴��� ������ �̸��� �����߿� ���ϴ� ����� �����Ͽ� ���������� ������ �� �ֽ��ϴ�.<br>
-					������������ ���� �Է��Ͻ� ���������� ȸ�������� ���ؼ� Ȯ���ϴ� ���̸�,<br>
-					������ ������ �������� �� ��� �뵵�ε� ���ǰų� ���࿡ ������� �����Ƿ� �Ƚ��Ͻñ� �ٶ��ϴ�.</p>
-			</section>
-		</div>
-		<div class="verify row">
-			<section class="col-md-12">
-				<div class="box-shadow">
-					<div class="section-head left border">
-						<h3 class="title">�̸��� ����</h3>
-					</div>
-					<div class="section-body">
-						<p>�̸��� ������ ���� ������ �������� �ʽ��ϴ�. �ش� �̸��Ϸ� ���۹��� ���� ��ȣ�� �Է��ؼ� ������ �޴� ����Դϴ�.</p>
-						<a href="../member/modal_email" class="button" target="modal" data-size="sm" data-label="������ ����">
-							<span class="button-label">�̸��� ����</span>
-						</a>
-					</div>
-				</div>
-			</section>
+<div class="browserupgrade">
+	<p class="en">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
+	<p class="kr"><strong>너무 오래된 브라우저</strong>를 사용하고 있습니다. <a href="http://browsehappy.com/" target="_blank">최신 브라우저로 업그레이드</a>해서 더 나은 웹을 경험하세요!</p>
+</div>
+<![endif]-->
+<div id="container">
+<div class="globalNavigation mobile mCustomScrollbar _mCS_1 mCS_no_scrollbar"><div id="mCSB_1" class="mCustomScrollBox mCS-rounded-dark mCSB_vertical mCSB_inside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; left: 0px; top: 0px;" dir="ltr">
+	<div class="tier1-group account">
+		<div class="tier1-head login">
+			<a href="/member/login" class="col-xs-12"><strong>login</strong></a>
+			<a href="/member/register" class="col-xs-12"><strong>join</strong></a>
 		</div>
 	</div>
-	<!--section-body//end-->
-	<!-- register-verify.section//end -->
+	<nav>
+		<div class="tier1-group">
+			<div class="tier1-head">
+				<a href="/about">
+					<strong>about</strong>
+				</a>
+			</div>
+		</div>
+		<div class="tier1-group">
+			<div class="tier1-head">
+				<a href="/about/collection">
+					<strong>collection</strong>
+				</a>
+			</div>
+		</div>
+		<div class="tier1-group">
+			<div class="tier1-head">
+				<a href="/about/star">
+					<strong>pancoat + star</strong>
+				</a>
+			</div>
+		</div>
+		<div class="tier1-group">
+			<div class="tier1-head">
+				<a href="/about/news_download">
+					<strong>news &amp; download</strong>
+				</a>
+			</div>
+		</div>
+		<div class="tier1-group">
+			<div class="tier1-head">
+				<a href="/about/store_locator">
+					<span class="icon icon-locator-black"></span>
+					<strong>store locator</strong>
+				</a>
+			</div>
+		</div>
+		<div class="tier1-group toggle">
+			<div class="tier1-head">
+				<a href="/main/index2">
+					<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15" class="mCS_img_loaded">
+					<strong class="red">e-shop</strong>
+					<span class="icon icon-"></span>
+				</a>
+			</div>
+			<ul class="tier1" style="display: block;">
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/store/new">
+							<strong>new</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12 sale">
+					<div class="tier2-head">
+						<a href="/store/sale">
+							<strong>sale</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/store/../store/category?no=101">
+							<strong>top</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/store/../store/category?no=102">
+							<strong>outer</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/store/../store/category?no=103">
+							<strong>bottom</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/store/../store/category?no=104">
+							<strong>Accessory</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/store/../store/category?no=105">
+							<strong>kids</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/store/../store/category?no=106">
+							<strong>life style</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/store/../store/ranking">
+							<strong>rank</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/store/../store/coordi">
+							<strong>coordi</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-24 event">
+					<div class="tier2-head">
+						<a href="/store/event">
+							<strong>event</strong>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-rounded-dark mCSB_scrollTools_vertical mCSB_scrollTools_onDrag_expand" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 14px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+<div id="page" class="page">
+<header class="globalHeader container-fluid">
+	<div class="wrap">
+		<div class="container">
+			<button class="button globalHeader-menu" id="navigationToggle">
+				<span class="icon icon-hamburger-black"></span>
+				<span class="button-label sr-only">메뉴 펼침/닫음</span>
+			</button>
+			<a href="/main/index2" class="globalHeader-account-mobile">
+				<img src="/theme/pshp/img/home_btn.png" width="20" height="20">
+				<span class="sr-only">E-shop</span>
+			</a>
+			<a href="../main/index" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
+		</div>
+	</div>
+	<div class="container">
+		<div class="globalNavigation">
+			<span class="gnb-overlay"></span>
+			<nav>
+				<!-- eshop으로 들어왓을때, nav-group에 eshop을 제외한 나머지에 dim클래스 추가 -->
+				<!-- 각페이지로 들어갓을 때 페이지에 해당되는 nav-group에 selected클래스를 추가 -->
+
+				<div class="nav-group">
+					<a href="../about" class="nav-head">
+						<span class="label">about<span class="border"></span></span>
+					</a>
+				</div>
+				<div class="nav-group">
+					<a href="../about/collection" class="nav-head">
+						<span class="label">collection<span class="border"></span></span>
+					</a>
+				</div>
+				<div class="nav-group">
+					<a href="../about/star" class="nav-head"><span class="label">pancoat + star<span class="border"></span></span></a>
+				</div>
+				<div class="nav-group">
+					<a href="../about/news_download" class="nav-head"><span class="label">news & download<span class="border"></span></span></a>
+				</div>
+				<div class="nav-group locator">
+					<a href="../about/store_locator" class="nav-head">
+						<span class="icon icon-locator-black"></span>
+						<span class="label">store locator<span class="border"></span></span>
+					</a>
+				</div>
+
+				<!-- eshop으로 들어왓을때, nav-group에 eshop을 제외한 나머지에 dim클래스 추가,eshop부분엔 active클래스 추가-->
+				<!-- 기존 메인에선 active,dim클래스 아무것도 없음 -->
+				<!-- eshop으로 들어왓을때 <div class="nav-group eshop active">-->
+
+				<div class="nav-group eshop active">
+					<a href="/main/index2" class="nav-head">
+						<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15">
+						<span class="label red">e-shop<span class="border" style="background:red"></span></span>
+						<span class="bullet"></span>
+					</a>
+					<div class="nav-wrap">
+						<div class="nav-group-depth2"	>
+							<ul class="container">
+								<li class="nav-head c01" style="text-align: center;">
+									<a href="/store/new"><span>new</span></a>
+								</li>
+								<li class="nav-head c01">
+									<a href="/store/sale"><span>sale</span></a>
+								</li>
+
+
+								<li class="nav-head c03">
+									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src='/theme/pshp/img/category_back.png'></div>
+									<a href="/store/category?no=101"><span>top</span></a>
+								</li>
+								<li class="nav-head c04">
+									<a href="/store/category?no=102"><span>outer</span></a>
+								</li>
+								<li class="nav-head c05">
+									<a href="/store/category?no=103"><span>bottom</span></a>
+								</li>
+								<li class="nav-head c06">
+									<a href="/store/category?no=104"><span>accessory</span></a>
+								</li>
+								<li class="nav-head c07">
+									<a href="/store/category?no=105"><span>kids</span></a>
+								</li>
+								<li class="nav-head c08">
+									<a href="/store/category?no=106"><span>life style</span></a>
+								</li>
+								<li class="nav-head c09">
+									<a href="/store/ranking"><span>rank</span></a>
+								</li>
+								<li class="nav-head c10">
+									<a href="/store/coordi"><span>coordi</span></a>
+								</li>
+								<li class="nav-head c11">
+									<a href="/store/event"><span>event</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="nav-group hidden-xs hidden-sm">
+					<a href="/main/search_store" class="nav-head globalHeader-search-mobile" target="modal" data-size="sm" data-label="SEARCH">
+						<span class="icon icon-loupe-black"></span>
+						<span class="label sr-only">search</span>
+					</a>
+				</div>
+			</nav>
+		</div>
+		<!-- globalNavigation//end -->
+		<div class="globalUtility hidden-xs hidden-sm">
+			<ul>
+				<li class="login item" style="padding-top:25px;">
+					<a href='#'><img src="/theme/pshp/img/off.png" class="img-responsive" width="39" height="11" id="off_click"></a>
+					<div id="off_div" style="position:absolute;display:none;margin-left:-196px"><img src='/theme/pshp/img/off_oneclick.gif' usemap="#off_map"></div>
+				</li>
+				<map name="off_map">
+					<area shape="rect" coords="79,174,158,192" href="/store/event?no=10" />
+				</map>
+				<li class="login item">
+					<a href="/member/login" style="display:inline">login &</a>
+					<a href="/member/register" style="display:inline">join</a>
+				</li>
+				<li class="item">
+					<a href="/order/cart">
+						<span class="icon icon-cart-black hidden-lg"></span>
+						<span class="hidden-md">cart</span>
+					</a>
+				</li>
+				<li class="item">
+					<a href="/mypage/orderlist">
+						<span class="icon icon-identity-black hidden-lg"></span>
+						<span class="hidden-md">my-pancoat</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+<!-- header//end -->
+
+
+
+<script src="dist/js/taxonomy.js"></script>
+<script>
+$(function(){
+	taxonomy('tid[]',"");
+	$("select[name='tid[]']").live("change",function(){
+		location.href = "/store/category?no=" + $(this).val();
+	});
+
+	$("#on_click" ).click(function() {
+		$("#on_div").toggle();
+	});
+
+	$("#off_click" ).click(function() {
+		$("#off_div").toggle();
+	});
+
+	$("#on_div, #off_div").mouseleave(function() {
+		$(this).hide();
+	});
+});
+</script>
+
+
+
+<style>
+.main-owl {margin-top:41px;}
+
+@media (max-width:1023px) {
+	.main-owl {margin-top:0px;}
+}
+</style>
+
+
+<script>
+	function getItems(mode, page_num){
+		$.getJSON("../store/ajax", {mode:"items_" + mode, stxt:"", page:1, page_num:page_num, recodeTotal:1, mainpage:1}, function(data){
+			$(".catalog.ajax-list").append(data.body);
+			$("div.lazy").lazyload({
+				container: $("#page"),
+				threshold : 400
+			});
+		});
+	}
+	/***************************/
+	/* Slider Common Functions */
+	/***************************/
+	function slideWidth(element, slideLen, fullWidth) {
+		var contentsWidth = element.width(),
+				contentsLength = slideLen.length;
+		slideLen.css('width', contentsWidth);
+		fullWidth.css('width', contentsWidth*contentsLength);
+	}
+	function slideTab(selector, slideVar) {
+		selector.each(function() {
+			$(this).click(function() {
+				slideVar.scrollToPage($(this).data('page'));
+				return false;
+			});
+		});
+	}
+	function slideArrow(button, selector) {
+		$('[name=' + button + ']').on('click',function(){
+			selector.scrollToPage(this.hash.replace(/^#/,''));
+			return false;
+		});
+	}
+	/****************************/
+	/* Ajax Sample :: Billboard */
+	/****************************/
+	function getAjaxBillboardItems(targetEL, code, code2) {
+		var targetWrap = $('#'+targetEL);
+		var preLoadWrap = targetWrap.next();
+		if (targetWrap.hasClass('ready')) {
+			$.ajax({
+				type: "GET",
+				url: "/main/billboard_list",
+				data: {code:code},
+				success: function(data) {
+					targetWrap.html(data).removeClass('ready');
+				}
+			});
+		}
+		if (preLoadWrap.hasClass('ready')) {
+			$.ajax({
+				type: "GET",
+				url: "/main/billboard_list",
+				data: {code:code2},
+				success: function(data) {
+					preLoadWrap.html(data).removeClass('ready');
+				}
+			});
+		}
+	}
+	/************************************/
+	/* Ajax Sample :: Ranking - Product */
+	/************************************/
+	function getAjaxRankingItems(targetEL, code) {
+		var targetWrap = $('#'+targetEL);
+		if (targetWrap.hasClass('ready')) {
+			$.ajax({
+				type: "GET",
+				url: "/main/product_ranking_list2",
+				data: {codecd:code},
+				success: function(data) {
+					targetWrap.html(data).removeClass('ready');
+				}
+			});
+		}
+	}
+	/****************************/
+	/* Slider Call :: Billboard */
+	/****************************/
+	$(function(){
+		slideWidth($('.start-billboard'), $('.start-billboard .catalog-item'), $('.start-billboard .catalog'));
+		var tabSelector = $('.start-billboard .slide-dots li');
+		tabSelector.first().addClass('active');
+		
+	
+		var billBoardScroll = new iScroll('start-billboard-wrapper', {
+			snap: true,
+			momentum: false,
+			vScroll:false,
+			hScrollbar: false,
+			vScrollbar: false,
+			onScrollEnd: function () {
+				tabSelector.removeClass('active');
+				$('.start-billboard .slide-dots li:nth-child(' + (this.currPageX) + ')').addClass('active');
+				switch (this.currPageX) {
+					case 0:
+						billBoardScroll.scrollToPage(3,0,0); //pretend inifinite scroll, jump to Last Ranking Tab
+						break;
+					case 1:
+						getAjaxBillboardItems('start-billboard-01', 0, 1);
+						break;
+					case 2:
+						getAjaxBillboardItems('start-billboard-02', 1, 2);
+						break;
+					case 4:
+						billBoardScroll.scrollToPage(1,0,0); //pretend inifinite scroll, jump to first Ranking Tab
+						break;
+				}
+
+			}
+		});
+		slideTab(tabSelector, billBoardScroll);
+		$('[name=startbillboardArrow]').on('click',function(){
+			billBoardScroll.scrollToPage(this.hash.replace(/^#/,''));
+			return false;
+		});
+		billBoardScroll.scrollToPage(1,0,0);
+		var billboardInterval = setInterval(function () {
+			billBoardScroll.scrollToPage('next', 0, 400);
+		}, 6000);
+		$('.start-billboard .slide-dots li').on('click',function(){clearInterval(billboardInterval)});
+		$('.start-billboard').on('touchstart', function(){clearInterval(billboardInterval)});
+	
+	});
+	/**************************/
+	/* Slider Call :: Ranking */
+	/**************************/
+
+	$(function(){		
+		var tabSelector = $('#ranking-tab li');
+		slideWidth($('.start-rankCatalog .section-body'), $('.start-rankCatalog .catalog'), $('.start-rankCatalog .catalog-wrap'));
+		tabSelector.first().addClass('active');
+		var myScrollRanking = new iScroll('start-rankCatalog-wrapper', {
+			snap: true,
+			momentum: false,
+			vScroll:false,
+			hScrollbar: false,
+			vScrollbar: false,
+			onScrollEnd: function () {
+				tabSelector.removeClass('active');
+				$('#ranking-tab li:nth-child(' + (this.currPageX) + ')').addClass('active');
+				switch (this.currPageX) {
+					case 0:
+						myScrollRanking.scrollToPage(7,0,0); //pretend inifinite scroll, jump to Last Ranking Tab
+						break;
+					case 1:
+						getAjaxRankingItems('start-rankCatalog-01', 10);
+						break;
+					case 2:
+						getAjaxRankingItems('start-rankCatalog-02', 101);
+						break;
+					case 3:
+						getAjaxRankingItems('start-rankCatalog-03', 102);
+						break;
+					case 4:
+						getAjaxRankingItems('start-rankCatalog-04', 103);
+						break;
+					case 5:
+						getAjaxRankingItems('start-rankCatalog-05', 104);
+						break;
+					case 6:
+						getAjaxRankingItems('start-rankCatalog-06', 105);
+						break;
+					case 7:
+						getAjaxRankingItems('start-rankCatalog-07', 106);
+						break;
+					case 8:
+						myScrollRanking.scrollToPage(1,0,0); //pretend inifinite scroll, jump to first Ranking Tab
+						break;
+				}
+			}
+		});
+		slideTab(tabSelector, myScrollRanking);
+		myScrollRanking.scrollToPage(1,0,0);
+		var rankingInterval = setInterval(function () {
+			myScrollRanking.scrollToPage('next', 0, 400);
+		}, 5000);
+		$('#ranking-tab li').on('click',function(){clearInterval(rankingInterval)});
+		$('.start-rankCatalog .section-body').on('touchstart', function(){clearInterval(rankingInterval)});		
+	});
+
+
+$(function(){
+	getItems('blookbook', 6); 
+	getItems('article', 6); 
+	//getItems('news', 2); getItems('article', 4); 
+});
+
+	$(window).resize(function() {
+		slideWidth($('.start-billboard'), $('.start-billboard .catalog-item'), $('.start-billboard .catalog'));
+		//slideWidth($('.start-rankCatalog .section-body'), $('.start-rankCatalog .catalog'), $('.start-rankCatalog .catalog-wrap'));
+	});
+</script>
+
+<script type="text/javascript">
+	$(".store-locator-search .xx-control").keyup(function() {
+		var _this = $(this);
+		_this.siblings(".search-layer").addClass("active");
+		if (_this.val() === "") {
+			_this.siblings(".search-layer").removeClass("active");
+		}
+	});
+</script>
+
+<!-- 검색어 입력시 해당 검색어 출력 START -->
+<script type="text/javascript">
+
+	$("#global-search").keyup(function() {
+		$.getJSON("../about/ajax", {mode:"store_locator", stxt:$(this).val()}, function(data){			
+			$("#search-result").empty();
+			var r = [];
+			$(data).each(function(k, v){
+				r.push("<li><a href='/about/store_locator_view?vid=" + v.storeLocate_sn + "'>" + v.storeName + "</a></li>");
+			});
+			$("#search-result").append(r).addClass("active");
+		});
+	});
+	
+</script>
+<!-- 검색어 입력시 해당 검색어 출력 END -->
+
+<style>
+.popup-layer .pl-bottom {background:#333; color:#fff; padding:3px 8px; text-align:right;}
+.popup-layer p {margin:-2px;}
+.mmodal {display: none;position: fixed;top: 0;left: 0;right: 0;bottom: 0;width: 100%;height: 100%;-webkit-overflow-scrolling: touch;z-index: 1000;overflow-x: hidden;overflow-y: auto;}
+.mmodal .modal-mask {position: fixed;left: 0;top: 0;right: 0;bottom: 0;width: 100%;height: 100%;background-color: #000;filter: alpha(opacity=70);-ms-filter: alpha(opacity=70);-moz-opacity: 0.7;-khtml-opacity: 0.7;opacity: 0.7;}
+.mmodal .modal-content {position: relative;background-color: #fff;margin: 50px;}
+.mpopup-layer .pl-bottom {border:1px solid #ccc;background:#fefefe; width:80%;height:40px; padding:10px; color:#000; text-align:center;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;}
+.mpopup-layer .pl-bottom .pl-close-day{border-right:1px solid #ccc;}
+.popup-outer img {width:80%;border-top-left-radius: 10px;border-top-right-radius: 10px;}
+
+
+@media (min-width: 320px){
+.mmodal .modal-content {width: 700px;margin:50px 15px;}
+}
+@media (min-width: 360px){
+.mmodal .modal-content {width: 700px;margin:100px 35px;}
+}
+@media (min-width: 375px){
+.mmodal .modal-content {width: 700px;margin:110px 40px;}
+}
+@media (min-width: 412px){
+.mmodal .modal-content {width: 700px;margin:170px 70px;}
+}
+@media (min-width: 414px){
+.mmodal .modal-content {width: 700px;margin:170px 70px;}
+}
+@media (min-width: 600px){
+.mmodal .modal-content {width: 700px;margin:220px 150px;}
+.mpopup-layer .pl-bottom {width:300px;}
+.popup-outer img {width:300px;border-top-left-radius: 10px;border-top-right-radius: 10px;}
+}
+@media (min-width: 768px){
+.mmodal .modal-content {width: 1200px;margin:280px 250px;}
+.mpopup-layer .pl-bottom {width:300px;}
+.popup-outer img {width:300px;border-top-left-radius: 10px;border-top-right-radius: 10px;}
+}
+
+</style>
+
+
+<script>
+$(function(){
+	popupLayer();
+});
+</script>
+
+<script>
+</script>
+
+
+
+<footer class="globalFooter">
+    <div class="globalFooter-menu container">
+        <div>
+            <a href="../node/notice" class="col-xs-auto">공지사항</a>
+            <!--<a href="http://store.pancoat.com/community/company" class="col-xs-auto">회사소개</a>-->
+            <a href="../service/agreement" class="col-xs-auto">이용약관 / 개인정보 처리방침</a>
+            <a href="../service/coorperation" class="col-xs-auto" target="modal" data-size="md" data-label="제휴/광고 문의">파트너쉽 / 제휴문의</a>
+            <a href="http://www.gra-fik.com" target="_blank" class="siteby col-xs-auto">Site by GRAFIK</a>
+        </div>
+    </div>
+    <!-- globalFooter-menu//end -->
+    <div class="globalFooter-supoort container">
+        <div>
+            <div class="support">
+                <div class="button-group">
+                    <a  class="button button-ghost">
+                    <span class="icon icon-headset-black"></span>
+                    <span class="button-label">070-4673-5497/070-4673-2235</span>
+                    </a>
+                    <a href="../mypage/mycs" class="button">
+                        <span class="button-label">1:1 문의하기</span>
+                    </a>
+                    <a href="../service/faq" target="modal" data-size="sm" data-label="자주묻는 질문" class="button button-ghost">
+                        <span class="button-label">자주묻는질문 확인</span>
+                    </a>
+                </div>
+                <p class="notice">반품 주소 :12814 경기도 광주시 도척면 도척로 376-68 MK물류</p>
+            </div>
+            <div class="help">
+                <p>- 상품문의는 각 상품의 Q&A를 이용하시면 가장 빠릅니다.</p>
+                <p>- 평일:오전 9시 ~ 오후 6시 / 점심시간:오후 12시 ~ 오후 1시 / 토,일 공휴일 휴무</p>
+            </div>
+        </div>
+    </div>
+	<div class="globalFooter-business container">
+        <p class="legal">
+            <span class="subject sr-only">회사명:</span>
+            <strong class="item">(주)브랜드 인덱스</strong>
+            <span class="subject">대표:</span>
+            <span class="item">박상욱</span>
+            <span class="subject">사업자등록번호:</span>
+            <span class="item">215-87-33220</span>
+            <span class="subject">통신판매업:</span>
+            <span class="item">제2013-서울강남-01307호</span>
+            <span class="subject">대표전화:</span>
+            <span class="item"><a href="tel:1544-5991">1566-6312</a></span>
+            <span class="subject">팩스:</span>
+            <span class="item">02-455-9868</span>
+            <span class="subject">개인정보관리책임자:</span>
+            <span class="item">홍용택</span>
+            <span class="subject">이메일:</span>
+            <span class="item"><a href="mailto:yongtaek_hong@styleindex.co.kr">yongtaek_hong@styleindex.co.kr</a></span>
+        </p>
+        <address class="address">
+        서울특별시 강남구 학동로 30길 5 3~7층(논현동) (반품주소가 아닙니다)</address>
+        <div class="document">
+            <div class="button-group">
+				
+				<a href="http://ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2013322016230201307&area1=&area2=&currpage=1&searchKey=04&searchVal=2158733220&stdate=&enddate=
+" target="_blank" class="button button-ghost small">
+                    <span class="button-label">사업자 정보 확인</span>
+                </a>
+                <!--<a href="https://mark.inicis.com/mark/escrow_popup.php?no=15159&st=1301648130" class="button button-ghost small" target="_blank">-->
+				<a href="https://mark.inicis.com/mark/escrow_popup.php?mid=IESpancoa1" class="button button-ghost small" target="_blank">
+                    <span class="button-label">에스크로 가입 사실 확인</span>
+                </a>
+            </div>
+        </div>
+        <p class="copyright">© 2015 Pancoat. All Rights Reserved.</p>
+    </div>
+	<!--
+    <div class="globalFooter-business container">
+        <p class="legal">
+            <span class="subject sr-only">회사명:</span>
+            <strong class="item">(주)브랜드 인덱스</strong>
+            <span class="subject">대표:</span>
+            <span class="item">김민식</span><br>
+            <span class="subject">사업자등록번호:</span>
+            <span class="item">215-87-33220</span>
+            <span class="subject">통신판매업:</span>
+            <span class="item">제2013-서울강남-01307호</span>
+            <span class="subject">대표전화:</span>
+            <span class="item"><a href="tel:1544-5991">1566-6312</a></span>
+            <span class="subject">팩스:</span>
+            <span class="item">02-455-9868</span><br>
+            <span class="subject">개인정보관리책임자:</span>
+            <span class="item">홍용택</span>
+            <span class="subject">이메일:</span>
+            <span class="item"><a href="mailto:yongtaek_hong@styleindex.co.kr">yongtaek_hong@styleindex.co.kr</a></span>
+        </p>
+        <address class="address">서울특별시 강남구 학동로 30길 5 논현동) 양진프라자 빌딩 (반품주소가 아닙니다)</address>
+        <div class="document">
+            <div class="button-group">
+				<a href="http://ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2013322016230201182&area1=&area2=&currpage=1&searchKey=04&searchVal=2158724435&stdate=&enddate=" target="_blank" class="button button-ghost small">
+                    <span class="button-label">사업자 정보 확인</span>
+                </a>
+                <a href="https://mark.inicis.com/mark/escrow_popup.php?no=15159&st=1301648130" class="button button-ghost small" target="_blank">
+                    <span class="button-label">에스크로 가입 사실 확인</span>
+                </a>
+            </div>
+        </div>
+        <p class="copyright">© 2015 Pancoat. All Rights Reserved.</p>
+    </div>
+	-->
+</footer>
+	<div class="page-mask"></div>
+</div>
+<!--contents//end-->
 </div>
 </div>
+<div id="modal" class="modal">
+	<div class="modal-mask"></div>
+	<div class="modal-content">
+		<div class="modal-head">
+			<h4>SEARCH</h4>
+			<button class="button">
+				<span class="icon icon-dismiss-white"></span>
+				<span class="sr-only">이 창 닫기</span>
+			</button>
+		</div>
+		<div class="modal-body"><style>
+.onMenu{background:#FFFFFF;text-align:center}
+.onMenu a{font-weight:bold;color:#000000}
+.offMenu{background:#EFEFEF;color:#CCCCCC;text-align:center}
+.offMenu a{color:#CCCCCC;}
+.hand{cursor:pointer}
+</style>
+<div class="modal-status-possessions modal-possessions">
+	<section class="modal-search" style="height:100px">
+		<div class="section-body">
+			<form action="../store/search">
+				<div class="searchStore">
+					<div class="form-group">
+						<input type="text" id="input-modal-searchKeyword" name="stxt" class="form-control col-xs-18 col-md-18" required="" placeholder="검색어 입력" autocomplete="off">	
+						<button type="submit" class="btn btn-primary col-xs-6 col-md-6">검색</button>	
+					</div>
+					<table class="table col-md-22 col-xs-22" id="autoList" style="border:1px solid #CCCCCC;background:#FFFFFF;position:absolute;display:none;margin-top:20px;">
+					<tbody id="trSearch"></tbody>
+						</table>
+				</div>
+			</form>
+		</div>
+	</section>
 </div>
+<div class="modal-button">
+	<button class="button cancel btn-close">
+		<span class="button-label">닫기</span>
+	</button>
+</div>
+
+
+<script>
+$(document).ready(function() {
+	function ajax_search_keyword2(stxt){
+		var sword = "";
+		var rword = "";
+		var href = "";
+		var searchHtml = "";
+
+		$.getJSON("../main/ajax", {mode:"search", stxt:stxt}, function(data){
+			$(data.words).each(function(idx, v){
+				sword = v.word ;
+				href = encodeURI("../store/search?stxt="+ v.word);
+
+				rword = sword.replace(stxt, '<font color=red>'+stxt+'</font>');
+				searchHtml = searchHtml + "\r\n<tr class='hand' onclick=\"location.href='"+href+"'\"><td class='col-md-24 col-xs-24'><p class='text-left'>"+rword+"</p></td></tr>\r\n";
+			});
+
+			if(searchHtml == '' || searchHtml == null)
+				$("#trSearch").html(searchHtml);	
+
+		});
+	}
+    $(function() {   
+		$("#tdPop").click(function() {
+			$("#tdPop").removeClass("offMenu");
+			$("#tdPop").addClass("onMenu");
+			$("#tdNew").removeClass("onMenu");
+			$("#tdNew").addClass("offMenu");
+
+			$("#popList").show();
+			$("#newList").hide();
+		});
+		$("#tdNew").click(function() {
+			$("#tdNew").removeClass("offMenu");
+			$("#tdNew").addClass("onMenu");
+			$("#tdPop").removeClass("onMenu");
+			$("#tdPop").addClass("offMenu");
+
+			$("#popList").hide();
+			$("#newList").show();
+		});
+		$("#input-modal-searchKeyword").focus();
+
+		$("#input-modal-searchKeyword").keyup(function(e) {
+			if($(this).val() != '') {
+				$("#autoList").show();
+
+				$(".hotSearch").hide();
+				$("#popList").hide();
+				$("#newList").hide();
+			} else {
+				$("#autoList").hide();
+
+				$(".hotSearch").show();
+				$("#popList").show();
+				$("#newList").hide();
+			}
+
+			var stxt = $("#input-modal-searchKeyword").val();	
+			ajax_search_keyword2(stxt);
+		});
+	});
+
+	$("#popList tr,#newList tr").hover(
+	  function () {
+		$(this).css("background","#F2F2F2");
+	  }, 
+	  function () {
+		$(this).css("background","");
+	  }
+	);
+
+	$("#autoList tr").live('hover',
+		function (e) {
+			if(e.type == "mouseleave"){
+				$(this).css("background","");
+			} else if(e.type == "mouseenter") {
+				$(this).css("background","#F2F2F2");
+			}
+	});
+});
+</script></div>
+		<div class="modal-foot">
+		</div>
+	</div>
+</div>
+
+<div id="modal-inner" class="modal">
+	<div class="modal-mask"></div>
+	<div class="modal-content">
+		<div class="modal-head">
+			<h4>-</h4>
+			<button class="button">
+				<span class="icon icon-dismiss-white"></span>
+				<span class="sr-only">이 창 닫기</span>
+			</button>
+		</div>
+		<div class="modal-body">
+		</div>
+		<div class="modal-foot">
+		</div>
+	</div>
+</div>
+
+<div id="ajaxLoader" class="ajax-loading">
+	<div class="ajaxLoader-mask"></div>
+	<span class="ajaxLoader-spinner">
+		<img src="theme/pshp/img/ajax-loader.gif" width="30" height="30">
+	</span>
 </div>
 <script src="dist/bootstrap/js/bootstrap.min.js"></script>
 <script src="dist/jquery/plugin/jquery.placeholder.js"></script>
@@ -200,5 +909,87 @@
 <script src="theme/pshp/js/plugins.min.js"></script>
 <script src="theme/pshp/js/main.min.js"></script>
 <script src="theme/pshp/js/vendor/fastclick.min.js"></script>
+<script>
+$('.owl').owl({
+	autoplay: true,
+	autoplayTimeout:3000,
+	autoplayHoverPause:true
+});
+</script>
+
+
+<iframe name="process" style="display:none; width:100%; height:100px"></iframe>
+
+<!-- 구글 관련 스크립틑 들은 모바일과 PC가 나눠진것이 없다 모두(공통스크립트, 전환스크립트) 모바일 PC 에서 모두공용으로 사용함 -->
+<!-- 구글GA start -->
+<!-- Google analyticstracking 코드 start -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38120605-1', 'pancoatshop.com');
+ga('send', 'pageview');
+</script>
+<!-- Google analyticstracking 코드 end -->
+<!-- 구글GA end -->
+
+<!-- 구매완료 전환 스크립트 START -->
+<!-- 구매완료 전환 스크립트 END -->
+
+
+<!-- PC페이지인 경우 -->
+	<!-- 공통스크립트 START -->
+
+		<!--네이버 PC 공통 스크립트 START-->
+		<!--네이버 전환 값은 모바일 PC 공통으로 위에서 설정함 -->
+		<!-- 공통 적용 스크립트 , 모든 페이지에 노출되도록 설치. 단 전환페이지 설정값보다 항상 하단에 위치해야함 --> 
+		<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"> </script> 
+		<script type="text/javascript"> 
+		if (!wcs_add) var wcs_add={};
+		//wcs_add["wa"] = "s_2652f57f9fec";
+		wcs_add["wa"] = "s_52e5f4cb584b";
+		if (!_nasa) var _nasa={};
+		wcs.inflow();
+		wcs_do(_nasa);
+		</script>
+		<!--네이버 PC 공통 스크립트 END-->
+
+		<!-- 팬콧로거 공통스크립트 START -->
+		<!-- LOGGER(TM) TRACKING SCRIPT V.40 FOR logger.co.kr / 38137 : COMBINE TYPE / DO NOT ALTER THIS SCRIPT. -->
+		<script type="text/javascript">var _TRK_LID="38137";var _L_TD="ssl.logger.co.kr";var _TRK_CDMN=".pancoat.com";</script>
+		<script type="text/javascript">var _CDN_DOMAIN = location.protocol == "https:" ? "https://fs.bizspring.net" : "http://fs.bizspring.net";
+		(function(b,s){var f=b.getElementsByTagName(s)[0],j=b.createElement(s);j.async=true;j.src='//fs.bizspring.net/fs4/bstrk.1.js';f.parentNode.insertBefore(j,f);})(document,'script');</script>
+		<noscript><img alt="Logger Script" width="1" height="1" src="http://ssl.logger.co.kr/tracker.tsp?u=38137&amp;js=N" /></noscript>
+		<!-- END OF LOGGER TRACKING SCRIPT -->
+		<!-- 팬콧로거 공통스크립트 END -->
+
+
+		<!--애드인사이트 공통 스크립트 START-->
+		<!-- adinsight 공통스크립트 start -->
+		<script type="text/javascript">
+		var TRS_AIDX = 5876;
+		var TRS_PROTOCOL = document.location.protocol;
+		document.writeln();
+		var TRS_URL = TRS_PROTOCOL + '//' + ((TRS_PROTOCOL=='https:')?'analysis.adinsight.co.kr':'adlog.adinsight.co.kr') +  '/emnet/trs_esc.js';
+		document.writeln("<scr"+"ipt language='javascript' src='" + TRS_URL + "'></scr"+"ipt>");
+		</script>
+		<!-- adinsight 공통스크립트 end -->
+		<!--애드인사이트 공통 스크립트 END-->
+
+		<!-- DDN 리마케팅코드 START -->
+		<script type="text/javascript">
+			var roosevelt_params = {
+				retargeting_id:'OugTocd2Pl-lpT_8YyUwmQ00',
+				tag_label:'wGoqX1dFR7CMUf54L7-utg'
+			};
+		</script>
+		<script type="text/javascript" src="//adimg.daumcdn.net/rt/roosevelt.js" async></script>
+		<!-- DDN 리마케팅코드 END -->
+
+	<!-- 공통스크립트 END -->
+
+
 </body>
 </html>
