@@ -16,10 +16,10 @@ public interface AdminGoodsService {
 	void goodsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;	
 	
 	//상품 세분화 등록
-	void goodsKindsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	//void goodsKindsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	//상품 이미지 등록
-	void goodsImageInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	//void goodsImageInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	
 	//상품 수정

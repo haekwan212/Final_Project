@@ -12,16 +12,19 @@
 		]]>
 	</select>
 	
-	<insert id="insertAdminGoods" parameterType="hashmap">
+	<insert id="insertAdminGoods" parameterType="hashmap" useGeneratedKeys="true" keyProperty="GOODS_NUMBER">
+		<selectKey keyProperty="GOODS_NUMBER" resultType="integer" order="BEFORE">
+			SELECT GOODS_NUMBER_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		<![CDATA[
-			INSERT INTO GOODS (
-			GOODS_NUMBER, GOODS_NAME, GOODS_PRICE, GOODS_DCPRICE, 
-			GOODS_SIMPLE, GOODS_DETAIL, GOODS_THUMBNAIL, 
-			GOODS_DATE, GOODS_CATEGORY1, GOODS_CATEGORY2, GOODS_SALEDATE
-			) VALUES ( GOODS_NUMBER_SEQ.NEXTVAL, #{GOODS_NAME}, #{GOODS_PRICE},
-			#{GOODS_DCPRICE}, #{GOODS_SIMPLE}, #{GOODS_DETAIL},
-			#{GOODS_THUMBNAIL}, sysdate, #{GOODS_CATEGORY1},
-			#{GOODS_CATEGORY2}, #{GOODS_SALEDATE} )
+			INSERT INTO GOODS ( 
+			GOODS_NUMBER, GOODS_NAME, GOODS_PRICE,
+			GOODS_SIMPLE, GOODS_DETAIL, 
+			GOODS_DATE, GOODS_CATEGORY1, GOODS_CATEGORY2
+			 ) VALUES ( 
+			#{GOODS_NUMBER}, #{GOODS_NAME}, #{GOODS_PRICE},
+			#{GOODS_SIMPLE}, #{GOODS_DETAIL},
+			sysdate, #{GOODS_CATEGORY1}, #{GOODS_CATEGORY2} )
 		]]>
 	</insert>
 	
@@ -34,6 +37,21 @@
 			
 		]]>
 	</insert>
+	
+	<insert id="insertAdminGoodsImage" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO IMAGE (
+			GOODS_NUMBER, IMAGE_NUMBER, IMAGE
+			) VALUES (
+			#{GOODS_NUMBER}, IMAGE_NUMBER_SEQ.NEXTVAL, #{IMAGE} )
+		]]>
+	</insert>
+	
+	<update id="insertGoodsThumbnail" parameterType="hashmap">
+		<![CDATA[
+			UPDATE GOODS SET GOODS_THUMBNAIL= #{GOODS_THUMBNAIL} WHERE GOODS_NUMBER=#{GOODS_NUMBER}
+		]]>
+	</update>
 	
 	<update id="modifyAdminGoods" parameterType="hashmap">
 		<![CDATA[

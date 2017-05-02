@@ -31,9 +31,15 @@ public class AdminGoodsDAO {
 	public void goodsKindsInsert(Map<String, Object> map) throws Exception{
 		sqlSession.insert("adminGoods.insertAdminGoodsKinds", map);
 	}
+	
+	//상품 썸네일 이미지 등록
+	public void goodsThumbnailInsert(Map<String,Object> map) throws Exception{
+		sqlSession.update("adminGoods.insertGoodsThumbnail",map);
+	}
+	
 	// 상품 이미지 등록
 	public void goodsImageInsert(Map<String, Object> map) throws Exception{
-		
+		sqlSession.insert("adminGoods.insertAdminGoodsImage", map);
 	}
 
 	// 상품 수정
