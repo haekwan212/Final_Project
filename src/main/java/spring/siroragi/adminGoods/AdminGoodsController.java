@@ -19,7 +19,19 @@ public class AdminGoodsController {
 	private AdminGoodsService adminGoodsService;
 
 	// 상품 목록 전체 불러오기
-
+	@RequestMapping(value="goods/goodsList")
+	public ModelAndView goodsList(CommandMap commandMap) throws Exception{
+		ModelAndView mv=new ModelAndView("goodsList");
+		
+		List<Map<String,Object>> goodsList=adminGoodsService.goodsList(commandMap.getMap());
+		mv.addObject("goodsList",goodsList);
+		Integer count=adminGoodsService.countGoodsList();
+		mv.addObject("count",count);
+		
+		return mv;
+	}
+	
+	
 	// 상품 등록 폼으로 이동
 	@RequestMapping(value = "/goods/goodsForm")
 	public String list() {
@@ -30,7 +42,7 @@ public class AdminGoodsController {
 	@RequestMapping(value="/goods/goodsInsert")
 	public ModelAndView goodsInsert(CommandMap adminGoodsMap, HttpServletRequest request) throws Exception{
 		
-		ModelAndView mv=new ModelAndView("redirect:/goods/goodsList");
+		ModelAndView mv=new ModelAndView("redirect:goodsList");
 		
 		adminGoodsService.goodsInsert(adminGoodsMap.getMap(), request);
 		

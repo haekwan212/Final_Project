@@ -36,6 +36,10 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
 	</definition>
 	
+	<definition name="goodsList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goods.jsp" />
+	</definition>
+	
 	
 </tiles-definitions>
 	

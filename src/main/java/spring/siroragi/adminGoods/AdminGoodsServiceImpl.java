@@ -1,5 +1,6 @@
 package spring.siroragi.adminGoods;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,8 +20,28 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	private GoodsImageUtils goodsImageUtils;
 	
 	
-	// 상품 목록 전체 불러오기
 	
+	// 상품 목록 전체 불러오기
+	@SuppressWarnings("null")
+	@Override
+	public List<Map<String,Object>> goodsList(Map<String,Object> map) throws Exception{
+		
+		//Integer countGoodsList=new Integer(adminGoodsDAO.countGoodsList());
+		
+		List<Map<String,Object>> goodsList=adminGoodsDAO.goodsList(map);
+		//Map<String, Object> goodsCount=new HashMap<String, Object>();
+		
+		//goodsCount.put("count", countGoodsList);
+		
+		//goodsList.add(goodsCount);
+		
+		return goodsList;
+		
+	}
+	
+	public Integer countGoodsList() throws Exception{
+		return new Integer(adminGoodsDAO.countGoodsList());
+	}
 
 	// 상품 등록 폼으로 이동
 
