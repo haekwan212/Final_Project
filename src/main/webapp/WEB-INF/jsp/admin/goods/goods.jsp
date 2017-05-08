@@ -76,7 +76,7 @@ function delchk(){
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         [상품목록페이지] 검색, 수정, 삭제 기능하는 페이지입니다.
+                         [상품목록페이지] 상품을 검색, 수정, 삭제 기능하는 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
@@ -84,19 +84,21 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-							<a href="/pet/admin/adminOrderAllList.dog?searchNum=0&isSearch="><button type="button" class="btn btn-outline btn-default">전체</button></a>
+							<a href="/SIRORAGI/goods/goodsList?searchNum=0&isSearch="><button type="button" class="btn btn-outline btn-default">전체</button></a>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
-								<option value ="">--결재방식--</option>
-								<option value ="/pet/admin/adminOrderAllList.dog?searchNum=1&isSearch=무통장입금">무통장입금</option>
-								<option value ="/pet/admin/adminOrderAllList.dog?searchNum=1&isSearch=카드결재">카드결재</option>
+								<option value ="">--카테고리--</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=무통장입금">OUTER</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=카드결재">TOP</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=카드결재">PANTS</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=카드결재">SHOES</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=카드결재">ACC</option>
 							</select>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
-								<option value ="">--주문상태--</option>
-								<option value ="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=상품준비">상품준비</option>
-								<option value ="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=입금대기">입금대기</option>
-								<option value ="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=배송중">배송중</option>
-								<option value ="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=배송완료">배송완료</option>
-								<option value ="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=구매완료">구매완료</option>
+								<option value ="">--상품구분--</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=배송완료">BEST</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=상품준비">판매중</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=배송중">품절상품</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=구매완료">비활성화</option>
 							
 							</select>													
 						</div>
@@ -128,7 +130,7 @@ function delchk(){
 								</thead>
 								<tbody>
 								<c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
-								<c:url var="viewURL" value="orderModifyForm.dog" >
+								<c:url var="viewURL" value="/goods/goodsModifyForm" >
 									<c:param name="GOODS_NUMBER" value="${goodsList.GOODS_NUMBER }" />
 								</c:url>									
 									<tr class="gradeA even" role="row">
@@ -138,15 +140,15 @@ function delchk(){
 										
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_NAME}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${goodsList.GOODS_PRICE}" type="number"/>원</td>
-										 <td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_COLOR}</td>
+										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_COLOR}</td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_SIZE}</td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_AMOUNT}개</td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_SELLCOUNT}개</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${goodsList.GOODS_DATE}" pattern="YY.MM.dd HH:mm" /></td>										
 										<td style="text-align:center;vertical-align:middle;">
 											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-										<c:url var="viewURL2" value="orderadmindelete.dog" >
-											<c:param name="order_num" value="${orderList.order_num }" />							
+										<c:url var="viewURL2" value="/goods/goodsDelete" >
+											<c:param name="order_num" value="${goodsList.GOODS_NUMBER }" />							
 										</c:url>	
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
 									</tr>

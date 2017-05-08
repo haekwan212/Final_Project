@@ -49,7 +49,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	@Override
 	public void goodsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception{
 		
-		System.out.println("DB작업전"+map);
+		//System.out.println("DB작업전"+map);
 		
 		adminGoodsDAO.goodsInsert(map);
 		
@@ -57,7 +57,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		
 		adminGoodsDAO.goodsThumbnailInsert(map);
 		
-		System.out.println(map);
+		//System.out.println(map);
 		String[] colors=request.getParameterValues("GOODS_COLOR");
 		String[] sizes=request.getParameterValues("GOODS_SIZE");
 		String[] amounts=request.getParameterValues("GOODS_AMOUNT");
@@ -70,6 +70,10 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		}
 		
 		List<Map<String,Object>> goodsImageList=goodsImageUtils.parseInsertFileInfo(map, request);
+		
+		//System.out.println("goodsImageList : "+goodsImageList);
+		//System.out.println("mapImage : "+map.get("IMAGE"));
+		
 		for(int i=0, size=goodsImageList.size(); i<size; i++){
 			adminGoodsDAO.goodsImageInsert(goodsImageList.get(i));
 		}

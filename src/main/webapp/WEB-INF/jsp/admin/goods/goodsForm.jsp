@@ -99,10 +99,12 @@ function GOODS_CATEGORY2Change() {
 
 
 
-
-
 </head>
 <body>
+
+<div class="row" style="padding-left:15px;width:900px;">    
+	<h1 class="page-header">상품등록</h1>
+</div>
 	<form id="frm" name="frm" enctype="multipart/form-data">
 		<table class="board_view">
 			<colgroup>

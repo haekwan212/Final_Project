@@ -20,6 +20,12 @@
 		]]>
 	</select>
 	
+	<select id="selectOneGoods" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT * FROM GOODS WHERE GOODS_NUMBER=#{GOODS_NUMBER}
+		]]>
+	</select>
+	
 	<insert id="insertAdminGoods" parameterType="hashmap" useGeneratedKeys="true" keyProperty="GOODS_NUMBER">
 		<selectKey keyProperty="GOODS_NUMBER" resultType="integer" order="BEFORE">
 			SELECT GOODS_NUMBER_SEQ.NEXTVAL FROM DUAL

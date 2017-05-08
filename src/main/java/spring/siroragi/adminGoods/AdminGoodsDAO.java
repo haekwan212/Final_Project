@@ -46,6 +46,9 @@ public class AdminGoodsDAO {
 	public void goodsImageInsert(Map<String, Object> map) throws Exception{
 		sqlSession.insert("adminGoods.insertAdminGoodsImage", map);
 	}
+	
+	// 상품 수정 폼으로 이동(데이터 들고가야함)
+	
 
 	// 상품 수정
 	public void goodsModify(Map<String, Object> map) throws Exception {

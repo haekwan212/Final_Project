@@ -11,16 +11,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
+import spring.kh.siroragi.Paging;
 
 @Controller
 public class AdminGoodsController {
 
 	@Resource(name = "adminGoodsService")
 	private AdminGoodsService adminGoodsService;
+	
+	// 페이징 변수
+	private int searchNum;
+	private String isSearch;
+	
+	private int currentPage = 1;	 
+	private int totalCount; 		 
+	private int blockCount = 7;	 
+	private int blockPage = 5; 	 
+	private String pagingHtml;  
+	private Paging page;
+	
 
 	// 상품 목록 전체 불러오기
 	@RequestMapping(value="goods/goodsList")
-	public ModelAndView goodsList(CommandMap commandMap) throws Exception{
+	public ModelAndView goodsList(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		
+		if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
+            currentPage = 1;
+        } else {
+            currentPage = Integer.parseInt(request.getParameter("currentPage"));
+        }		
+		
 		ModelAndView mv=new ModelAndView("goodsList");
 		
 		List<Map<String,Object>> goodsList=adminGoodsService.goodsList(commandMap.getMap());
