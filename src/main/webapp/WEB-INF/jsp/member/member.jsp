@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<% String curDate = new java.text.SimpleDateFormat("yyyyMMdd").format(new java.util.Date()); %>
+ 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
@@ -39,8 +44,11 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-							<a href="/pet/admin/memberadminList.dog?searchNum=0&isSearch="><button type="button" class="btn btn-outline btn-default">전체</button></a>													
-						</div>
+						<a href="/SIRORAGI/admin/memberList"><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">가입된회원</button></a>		
+						<c:url var="viewURL3" value="deleteMember" >
+						<a href="/SIRORAGI/admin/memberList"><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">탈퇴한회원</button></a>											
+						</c:url>	
+							</div>
 						<div class="col-sm-6" style="text-align:right;">
 							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 회원수 : ${totalCount}</div>
 						</div>
@@ -55,34 +63,36 @@ function delchk(){
 								<thead>
 									<tr role="row">
 										<th style="width: 5%; text-align:center;">번호</th>
-										<th style="width: 8%; text-align:center;">ID</th>
+										<th style="width: 8%; text-align:center;">아이디</th>
 										<th style="width: 7%; text-align:center;">이름</th>										
 										<th style="width: 9%; text-align:center;">전화번호</th>
-										<th style="width: 14%; text-align:center;">E-Mail</th>
+										<th style="width: 14%; text-align:center;">이메일</th>
 										<th style="width: 29%; text-align:center;">주소</th>
-										<th style="width: 5%; text-align:center;">Point</th>
+										<th style="width: 5%; text-align:center;">포인트</th>
 										<th style="width: 10%; text-align:center;">가입일자</th>
 										<th style="width: 13%; text-align:center;">관리</th>
 									</tr>
 								</thead>
 								<tbody>
 								<c:forEach var="memberlist"  items="${member}" varStatus="stat">
-								<c:url var="viewURL" value="adminmemberModify.dog" >
-									<c:param name="id" value="${memberlist.MEMBER_ID }" />
+								<c:url var="viewURL" value="openMemberDetail" >
+									<c:param name="MEMBER_NUMBER" value="${memberlist.MEMBER_NUMBER }" />
 								</c:url>									
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_NUM}</td>
+										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_NUMBER}</td>
 										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_ID}</td>
 										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_NAME}</td>
 										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_PHONE}</td>
 										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_EMAIL}</td>
-										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_ZIPCODE}</td>
-										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_ADDR1}&nbsp;${memberlist.MEMBER_ADDR2}</td>										
+										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_ADDRESS1}&nbsp;${memberlist.MEMBER_ADDRESS2}</td>
+										<td style="text-align:center;vertical-align:middle;"></td>									
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${memberlist.MEMBER_REGDATE}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">
 											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-										<c:url var="viewURL2" value="adminMemberDelete.dog" >
-											<c:param name="id" value="${memberlist.id }" />							
+										<c:url var="viewURL2" value="deleteMember" >
+											<c:param name="MEMBER_NUMBER" value="${memberlist.MEMBER_NUMBER }" />
+											<c:param name="MEMBER_DELDATE" value="<%= curDate %>" />
+																		
 										</c:url>	
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
 									</tr>
@@ -103,7 +113,10 @@ function delchk(){
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<form action="">
 									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="0">전체</option>
+										<option value="0">아이디</option>
+										<option value="1">이름</option>
+										<option value="2">전화번호</option>
+										<option value="3">이메일</option>
 									</select>
 										<input class="form-control" type="text" name="isSearch" id="isSearch"/>
 										<span>

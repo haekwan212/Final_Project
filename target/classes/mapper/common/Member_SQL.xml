@@ -5,14 +5,33 @@
 	<select resultType="hashmap" parameterType="hashmap" id="selectMemberList">
 	<![CDATA[
 		SELECT 
-		MEMBER_NUMBER,
-		MEMBER_ID,
-		MEMBER_NAME,
-		MEMBER_PHONE,
-		MEMBER_EMAIL,
-		MEMBER_REGDATE
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
 		FROM MEMBER
 		WHERE MEMBER_ONOFF='0'
+		ORDER BY MEMBER_NUMBER DESC
+	]]>
+	</select>
+	
+	<select resultType="hashmap" parameterType="hashmap" id="selectDelMemberList">
+	<![CDATA[
+		SELECT 
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='1'
 		ORDER BY MEMBER_NUMBER DESC
 	]]>
 	</select>
@@ -20,33 +39,115 @@
 	<select resultType="hashmap" parameterType="hashmap" id="selectMemberDetail">
 			<![CDATA[
 		SELECT
-		MEMBER_ID,
-		MEMBER_PASSWORD,
-		MEMBER_NAME,
-		MEMBER_NUMBER,
-		MEMBER_EMAIL,
-		MEMBER_BIRTHDAY,
-		MEMBERZIPCODE,
-		MEMBER_ADDRESS1,
-		MEMBER_ADDRESS2,
-		MEMBER_PHONE,
-		MEMBER_REGDATE,
-		MEMBER_POINT,
-		MEMBER_DELDATE,
-		MEMBER_ONOFF
-		FROM
-		MEMBER
-		WHERE MEMBER_ID = #{MEMBER_ID}
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_PASSWORD,
+			MEMBER_NAME,
+			MEMBER_ZIPCODE,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
 	]]>
 	</select>
+	
+	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList0">
+			<![CDATA[
+		SELECT 
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='0',
+		AND MEMBER_ID like '%' || #{isSearch} || '%'
+		ORDER BY MEMBER_NUMBER DESC
+	]]>
+	</select>
+	
+	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList1">
+			<![CDATA[
+		SELECT 
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='0',
+		AND MEMBER_ID like '%' || #{isSearch} || '%'
+		ORDER BY MEMBER_NUMBER DESC
+	]]>
+	</select>
+	
+	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList2">
+			<![CDATA[
+		SELECT 
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='0',
+		AND MEMBER_ID like '%' || #{isSearch} || '%'
+		ORDER BY MEMBER_NUMBER DESC
+	]]>
+	</select>
+	
+	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList3">
+			<![CDATA[
+		SELECT 
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='0',
+		AND MEMBER_ID like '%' || #{isSearch} || '%'
+		ORDER BY MEMBER_NUMBER DESC
+	]]>
+	</select>
+	
+	<update parameterType="hashmap" id="updateMember">
+		<![CDATA[
+		UPDATE MEMBER
+		SET
+			MEMBER_PASSWORD = #{MEMBER_PASSWORD},
+			MEMBER_NAME = #{MEMBER_NAME},
+			MEMBER_ZIPCODE = #{MEMBER_ZIPCODE},
+			MEMBER_ADDRESS1 = #{MEMBER_ADDRESS1},
+			MEMBER_ADDRESS2 = #{MEMBER_ADDRESS2},
+			MEMBER_PHONE = #{MEMBER_PHONE},
+			MEMBER_EMAIL = #{MEMBER_EMAIL}
+		WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
+		]]>
+	</update>
 	
 	<update parameterType="hashmap" id="deleteMember">
 		<![CDATA[
 		UPDATE MEMBER
 		SET
-			MEMBER_DELDATE = #{MEMBER_DELDATE}
+			MEMBER_DELDATE = #{MEMBER_DELDATE},
 			MEMBER_ONOFF = '1'
-		WHERE MEMBER_NUMBER
+		WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} 
 		]]>
 	</update>
 </mapper>
