@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 public interface AdminGoodsService {
 
 	//상품 목록 전체 불러오기
+	List<Map<String,Object>> goodsList(Map<String,Object> map) throws Exception;
 	
+	//상품 전체 수 구하기
+	Integer countGoodsList() throws Exception;
 	
 	//상품 등록 폼으로 이동
 		
 	//상품 등록
-	void goodsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;	
+	void goodsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	//상품 세분화 등록
 	//void goodsKindsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;

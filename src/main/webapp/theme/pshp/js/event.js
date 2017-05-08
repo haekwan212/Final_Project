@@ -1,11 +1,173 @@
-/*
-CSS Browser Selector 0.6.1
-Originally written by Rafael Lima (http://rafael.adm.br)
-http://rafael.adm.br/css_browser_selector
-License: http://creativecommons.org/licenses/by/2.5/
+var account;
 
-Co-maintained by:
-https://github.com/verbatim/css_browser_selector
+$(function(){
+	$(".btn-close").live("click",function(){
+		modal.close();
+	});
+	$(".page-heading strong").html($("#navigator option:selected").text())
+	$('.catalog .addon .preview.button').on("click", function () {
+		$('.action-preview').ajaxComplete(function(){
+			selectboxChange();
+		});
+	});
 
-*/
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('19=1P;L 17(a){1i(O.18&&19){18.17(a)}}L 1j(n){H i={},j=[1R,1S,1O,1N,1J,1I,1K,1L,1M,1T,1U],q=j.21,z=n.22(),h=L(a){Q 7(a,"i").o(z)},d=L(c,f){f=f.u(".","m");H b=f.15("m"),a="";23(b>0){a+=" "+c+f.24(0,b);b=f.15("m",b+1)}a+=" "+c+f;Q a},A="1a",l="20",C="Y",B="X",r="12",v="P",x="1d",E="R",e="T",F="1Z",p="1V",k=1W.1X,D=[(!(/P|1H/i.o(z))&&/25\\s(\\d+)/.o(z))?("16 16"+(/1C\\/4\\.0/.o(z)?"8":7.$1)):h("X/")?A+" "+B+(/X\\/((\\d+)(\\.(\\d+))(\\.\\d+)*)/.o(z)?" "+B+7.$2+" "+B+7.$2+"m"+7.$4:""):h("1a/")?A:h("P")?v+(/14\\/((\\d+)(\\.(\\d+))(\\.\\d+)*)/.o(z)?" "+v+7.$2+" "+v+7.$2+"m"+7.$4:(/P(\\s|\\/)(\\d+)\\.(\\d+)/.o(z)?" "+v+7.$2+" "+v+7.$2+"m"+7.$3:"")):h("1b")?"1b":h("T")?(e+(/1f\\/(\\d+)(\\.(\\d+)+)/i.o(z)?" "+e+7.$1+" "+e+7.$1+7.$2.u(".","m"):(/1p ?(([0-9]+)([a-z]?))[\\/|;]/1g.o(z)?" "+e+7.$2+(7.$3?" "+e+7.$2+7.$3:""):""))):h("R")?(E+(/1f\\/(\\d+)(\\.(\\d+))+/i.o(z)?" "+E+7.$1+" "+E+7.$1+7.$2.u(".","m"):"")+(/1u (.+); (.+) 1o/i.o(z)?" "+p+((7.$2).u(/ /g,"m")).u(/-/g,"m"):"")):h("Y")?l+" "+C+(/Y\\/((\\d+)(\\.(\\d+))(\\.\\d+)*)/.o(z)?" "+C+7.$2+((7.$4>0)?" "+C+7.$2+"m"+7.$4:""):""):h("1e")?l+" 1e":h("1m/")?(l+" "+r+(/14\\/((\\d+)(\\.(\\d+))(\\.\\d+)*)/.o(z)?" "+r+7.$2+" "+r+7.$2+7.$3.u(".","m"):(/ 1n\\/(\\d+)/i.o(z)?((7.$1=="1t"||7.$1=="1G"||7.$1=="1v"||7.$1=="1D")?" "+r+"1E":7.$1=="1F"?" "+r+"1B":7.$1=="26"?" "+r+"1w":7.$1=="1x"?" "+r+"1y":""):""))):h("1z/")?A:"",h("R|1Y|1d|U|W|V|Z|T|M|S|1h")?x:"",h("U")?"U":h("Z|V|W")?((/2q( 2u)? 2s (\\d+[m|\\.]\\d+([m|\\.]\\d+)*)/i.o(z)?"1c"+d("1c",7.$2):"")+" "+(/(2r(2v|2A|2z))/1g.o(z)?7.$1:"")):h("M")?"M":h("S|1h")?"S":h("M")?"M":h("K")?"K"+(/K 2m x ((\\d+)[.|m](\\d+))/.o(z)?(" K"+(7.$2)+" K"+(7.$1).u(".","m")):""):h("10")?"10"+(h("G I 6.2")?" 28":h("G I 6.1")?" 29":h("G I 6.0")?" 2l":h("G I 5.2")||h("G I 5.1")?" 2j":h("G I 5.0")?" 2h":h("G I 4.0")||h("2g.0")?" 2i":""):h("13")?"13":(h("2f|11"))?"11":"",(/[; |\\[](([a-z]{2})(\\-[a-z]{2})?)[)|;|\\]]/i.o(z))?(F+7.$2).u("-","m")+(7.$3!=""?(" "+F+7.$1).u("-","m"):""):"",(h("Z|W|V")&&!h("12"))?"2c":""];L t(){H a=O.2y||k.2t;H c=O.2p||k.2w;i.1A=((a<c)?"2d":"2b");k.J=k.J.u(/ ?2n\\w+/g,"").u(/ [2a|27|2e]+[w|h]m\\d+/g,"");1k(H b=(q-1);b>=0;b--){1i(a>=j[b]){i.2x=j[b];2o}}N="";1k(H f 2k i){N+=" "+f+"m"+i[f]}k.J=(k.J+N);Q N}O.1l=t;t();H y=(D.1s(" "));k.J=(y+k.J.u(/\\b(1r[-|m]?)?1q\\b/g,"")).u(/^ /,"").u(/ +/g," ");Q y}1j(1Q.2B);',62,162,'|||||||RegExp|||||||||||||||_||test||||||replace||||||||||||windows|var|nt|className|mac|function|playbook|widthClasses|window|opera|return|android|kindle|blackberry|j2me|ipod|iphone|firefox|chrome|ipad|win|linux|safari|freebsd|version|indexOf|ie|log|console|showLog|gecko|konqueror|ios|mobile|iron|Version|gi|silk|if|css_browser_selector|for|onresize|applewebkit|Safari|Build|Blackberry|js|no|join|419|Android|416|1_2|85|1_0|mozilla|orientation|1_3|trident|412|2_0|312|417|webtv|1152|1024|1280|1440|1680|768|640|true|navigator|320|480|1920|2560|device_|document|documentElement|mobi|lang_|webkit|length|toLowerCase|while|substring|msie|125|max|win8|win7|min|landscape|ipad_app|portrait|cl|x11|WinNT4|win_2k|win_nt|win_xp|in|vista|os|orientation_|break|outerHeight|CPU|ip|OS|clientWidth|iPhone|ad|clientHeight|maxw|outerWidth|hone|od|userAgent'.split('|'),0,{}));
+	// modal 내의 select 값 변경시 적용
+    $(document).on("change", ".selectbox select", function(){
+        selectboxChange();
+    });
+	// modal 내의 select ajax 완료 후 호출
+    $("#modal").ajaxComplete(function(){
+		selectboxChange();
+		input_auto_selected();
+	});
+});
+
+function modal_label(label){
+	$("#modal .modal-head h4").html(label);
+}
+
+$("#navigator").change(function(){
+	location.href = $(this).val();
+});
+
+/*** 상단 검색창 포커스 ***/
+$('.searchStore .nav-head').click(function () {
+	ajax_search_keyword();
+	$('.gnb-overlay, .globalNavigation .searchStore .nav-wrap').addClass('active');
+	$('#input-searchKeyword').focus();
+});
+$('.globalHeader-search-mobile .icon').click(function () {
+	ajax_search_keyword();
+	$('#input-modal-searchKeyword').focus();
+});
+$('#input-searchKeyword').keyup(function () {
+	var stxt = $("#input-searchKeyword").val();	
+	ajax_search_keyword(stxt);
+});
+$('#input-modal-searchKeyword').keyup(function () {
+	var stxt = $("#input-modal-searchKeyword").val();	
+	ajax_search_keyword(stxt);
+});
+function ajax_search_keyword(stxt){
+	var str="";
+	$.getJSON("../main/ajax", {mode:"search", stxt:stxt}, function(data){
+
+		$(".ajax-search-words").empty();
+		$(data.words).each(function(idx, v){
+			str = encodeURI("../store/search?stxt="+ v.word);
+			$(".ajax-search-words").append("<a href='"+str+"' class='word'>" + v.word + "</a>");
+		});
+
+		$(".ajax-search-brand").html(data.brand);
+
+		$(".ajax-search-contents").empty();
+		$(data.contents).each(function(idx, v){
+			$(".ajax-search-contents").append("<a href='../store/"+v.vid+"?no=" + v.contentsno + "'>" + v.contentstitle + "</a>");
+		});
+
+		$(".ajax-search-goods").html(data.goods);
+		$(".ajax-search-editor").html(data.editor);	
+
+	});
+}
+
+$(".btn-more-recently").click(function(){
+	$(".product-recently-list li.hide").toggleClass("hide");
+	$(this).remove();
+});
+
+$("form").submit(function(){
+	$(this).find("input").removeAttr("disabled");
+});
+
+/*** input tag CSS 자동 처리 ***/
+input_auto_selected();
+function input_auto_selected(){
+	$(".modal-content input[type=radio]").each(function(){
+		if ($(this).is(":checked")) $(this).parents('.radio').addClass("selected");
+		else $(this).parents('.radio').removeClass("selected");
+	});
+}
+
+$(".modal-content input[type=radio]").live("click", function(){
+	$(".modal-content input[name=" + $(this).attr("name") + "]").parents('.radio').removeClass("selected");
+	$(this).parents('.radio').addClass("selected");
+});
+$(".modal-content input[type=checkbox]").live("click", function(){
+	if ($(this).is(":checked")) $(this).parents('.checkbox').addClass("selected");
+	else $(this).parents('.checkbox').removeClass("selected");
+});
+
+$('.list-short-cut .short-cut a[href*=#]:not([href=#]), .featured-view-sort-by .sort-by-category a[href*=#]:not([href=#])').live("click", function() {
+	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		var target = $(this.hash);
+		target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		if (target.length) {
+			$('html,body').animate({
+				scrollTop: target.offset().top
+			}, 500);
+			return false;
+		}
+	}
+});
+
+$(".auto_mail").change(function(){
+	$(this).prev().val($(this).val());
+});
+
+$.fn.rowspan = function(colIdx, isStats) {       
+    return this.each(function(){      
+        var that;     
+        $('tr', this).each(function(row) {      
+            $('td:eq('+colIdx+')', this).filter(':visible').each(function(col) {
+                 
+                if ($(this).html() == $(that).html()
+                    && (!isStats 
+                            || isStats && $(this).prev().html() == $(that).prev().html()
+                            )
+                    ) {            
+                    rowspan = $(that).attr("rowspan") || 1;
+                    rowspan = Number(rowspan)+1;
+ 
+                    $(that).attr("rowspan",rowspan);
+                     
+                    // do your action for the colspan cell here            
+                    $(this).hide();
+                     
+                    //$(this).remove(); 
+                    // do your action for the old cell here
+                     
+                } else {            
+                    that = this;         
+                }          
+                 
+                // set the that if not already set
+                that = (that == null) ? this : that;      
+            });     
+        });    
+    });  
+}; 
+
+$.fn.colspan = function(rowIdx) {
+    return this.each(function(){
+         
+        var that;
+        $('tr', this).filter(":eq("+rowIdx+")").each(function(row) {
+            $(this).find('th').filter(':visible').each(function(col) {
+                if ($(this).html() == $(that).html()) {
+                    colspan = $(that).attr("colSpan") || 1;
+                    colspan = Number(colspan)+1;
+                     
+                    $(that).attr("colSpan",colspan);
+                    $(this).hide(); // .remove();
+                } else {
+                    that = this;
+                }
+                 
+                // set the that if not already set
+                that = (that == null) ? this : that;
+                 
+            });
+        });
+    });
+}

@@ -10,14 +10,19 @@ import org.springframework.stereotype.Repository;
 
 @Repository("adminGoodsDAO")
 public class AdminGoodsDAO {
+	
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
 	// 상품 목록 전체 불러오기
-	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> goodsList(Map<String, Object> map) throws Exception {
 		return sqlSession.selectList("adminGoods.selectAdminGoodsList");
+	}
+	
+	//등록된 상품 목록 수 구하기
+	public int countGoodsList() throws Exception{
+		return sqlSession.selectOne("adminGoods.countAdminGoods");
 	}
 
 	// 상품 등록 폼으로 이동
@@ -41,6 +46,9 @@ public class AdminGoodsDAO {
 	public void goodsImageInsert(Map<String, Object> map) throws Exception{
 		sqlSession.insert("adminGoods.insertAdminGoodsImage", map);
 	}
+	
+	// 상품 수정 폼으로 이동(데이터 들고가야함)
+	
 
 	// 상품 수정
 	public void goodsModify(Map<String, Object> map) throws Exception {
@@ -55,7 +63,6 @@ public class AdminGoodsDAO {
 	}
 
 	// 상품 검색
-	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> goodsSearch(Map<String, Object> map) throws Exception {
 		return sqlSession.selectList("adminGoods.searchAdminGoodsList");
 	}

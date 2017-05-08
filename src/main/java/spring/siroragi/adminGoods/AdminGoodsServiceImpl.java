@@ -1,5 +1,6 @@
 package spring.siroragi.adminGoods;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,8 +20,28 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	private GoodsImageUtils goodsImageUtils;
 	
 	
-	// 상품 목록 전체 불러오기
 	
+	// 상품 목록 전체 불러오기
+	@SuppressWarnings("null")
+	@Override
+	public List<Map<String,Object>> goodsList(Map<String,Object> map) throws Exception{
+		
+		//Integer countGoodsList=new Integer(adminGoodsDAO.countGoodsList());
+		
+		List<Map<String,Object>> goodsList=adminGoodsDAO.goodsList(map);
+		//Map<String, Object> goodsCount=new HashMap<String, Object>();
+		
+		//goodsCount.put("count", countGoodsList);
+		
+		//goodsList.add(goodsCount);
+		
+		return goodsList;
+		
+	}
+	
+	public Integer countGoodsList() throws Exception{
+		return new Integer(adminGoodsDAO.countGoodsList());
+	}
 
 	// 상품 등록 폼으로 이동
 
@@ -28,7 +49,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	@Override
 	public void goodsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception{
 		
-		System.out.println("DB작업전"+map);
+		//System.out.println("DB작업전"+map);
 		
 		adminGoodsDAO.goodsInsert(map);
 		
@@ -36,7 +57,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		
 		adminGoodsDAO.goodsThumbnailInsert(map);
 		
-		System.out.println(map);
+		//System.out.println(map);
 		String[] colors=request.getParameterValues("GOODS_COLOR");
 		String[] sizes=request.getParameterValues("GOODS_SIZE");
 		String[] amounts=request.getParameterValues("GOODS_AMOUNT");
@@ -49,6 +70,10 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		}
 		
 		List<Map<String,Object>> goodsImageList=goodsImageUtils.parseInsertFileInfo(map, request);
+		
+		//System.out.println("goodsImageList : "+goodsImageList);
+		//System.out.println("mapImage : "+map.get("IMAGE"));
+		
 		for(int i=0, size=goodsImageList.size(); i<size; i++){
 			adminGoodsDAO.goodsImageInsert(goodsImageList.get(i));
 		}
