@@ -87,20 +87,24 @@ function delchk(){
 							<a href="/SIRORAGI/goods/goodsList?searchNum=0&isSearch="><button type="button" class="btn btn-outline btn-default">전체</button></a>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--카테고리--</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=무통장입금">OUTER</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=카드결재">TOP</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=카드결재">PANTS</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=카드결재">SHOES</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=1&isSearch=카드결재">ACC</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=무통장입금">OUTER</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=카드결재">TOP</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=카드결재">PANTS</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=카드결재">SHOES</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=카드결재">ACC</option>
 							</select>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품구분--</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=배송완료">BEST</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=상품준비">판매중</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=배송중">품절상품</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=구매완료">비활성화</option>
-							
-							</select>													
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=3&isSearch=상품준비">판매중</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=4&isSearch=배송중">품절상품</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=3&isSearch=구매완료">비활성화</option>
+							</select>			
+							<select class="form-control" name="select" onchange="window.open(value,'_self');">
+								<option value ="">--상품정렬--</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=3&isSearch=상품준비">판매수량순</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=4&isSearch=배송중"></option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=3&isSearch=구매완료">비활성화</option>
+							</select>											
 						</div>
 						<div class="col-sm-6" style="text-align:right;">
 							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 주문수 : ${totalCount}</div>
@@ -139,7 +143,8 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_CATEGORY1}/<br/>${goodsList.GOODS_CATEGORY2 }</td>
 										
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_NAME}</td>
-										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${goodsList.GOODS_PRICE}" type="number"/>원</td>
+										<td style="text-align:center;vertical-align:middle;">
+												<fmt:formatNumber value="${goodsList.GOODS_PRICE}" type="number"/>원</td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_COLOR}</td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_SIZE}</td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_AMOUNT}개</td>

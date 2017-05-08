@@ -79,7 +79,32 @@
 		]]>
 	</delete>
 	
-	<select id="searchAdminGoodsList" parameterType="hashmap" resultType="hashmap">
+	<select id="adminGoodsSearch0" parameterType="String" resultType="hashmap">
+		<![CDATA[
+			SELECT * FROM GOODS WHERE GOODS_NAME LIKE '%'||#{isSearch}||'%'
+			ORDER BY GOODS_NUMBER DESC
+		]]>
+	</select>
+	
+	<select id="adminGoodsSearch1" parameterType="String" resultType="hashmap">
+		<![CDATA[
+			
+		]]>
+	</select>
+	
+	<select id="adminGoodsSearch2" parameterType="String" resultType="hashmap">
+		<![CDATA[
+			
+		]]>
+	</select>
+	
+	<select id="adminGoodsSearch3" parameterType="String" resultType="hashmap">
+		<![CDATA[
+			
+		]]>
+	</select>
+	
+	<select id="adminGoodsSearch4" parameterType="String" resultType="hashmap">
 		<![CDATA[
 			
 		]]>

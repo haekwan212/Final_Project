@@ -103,7 +103,40 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	
 	
 
-	// 상품 검색
+	// 상품 검색(상품명)
+	public List<Map<String, Object>> adminGoodsSearch0(String isSearch) throws Exception{
+		
+		List<Map<String,Object>> goodsList=adminGoodsDAO.adminGoodsSearch0(isSearch);
+		return goodsList;
+	}
+
+	// 상품 검색(상품 번호)
+	public List<Map<String, Object>> adminGoodsSearch1(String isSearch) throws Exception{
+		
+		List<Map<String,Object>> goodsList=adminGoodsDAO.adminGoodsSearch1(isSearch);
+		return goodsList;
+	}
+
+	// 상품 검색(카테고리 검색)
+	public List<Map<String, Object>> adminGoodsSearch2(String isSearch) throws Exception{
+		
+		List<Map<String,Object>> goodsList=adminGoodsDAO.adminGoodsSearch2(isSearch);
+		return goodsList;
+	}
+
+	// 상품 검색(판매 활성화 or 비활성화 구분)
+	public List<Map<String, Object>> adminGoodsSearch3(String isSearch) throws Exception{
+		
+		List<Map<String,Object>> goodsList=adminGoodsDAO.adminGoodsSearch3(isSearch);
+		return goodsList;
+	}
+
+	// 상품 검색(재고가 0인 상품)
+	public List<Map<String, Object>> adminGoodsSearch4(String isSearch) throws Exception{
+		
+		List<Map<String,Object>> goodsList=adminGoodsDAO.adminGoodsSearch4(isSearch);
+		return goodsList;
+	}
 	
 
 }
