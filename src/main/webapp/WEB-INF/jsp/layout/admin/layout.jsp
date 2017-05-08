@@ -110,6 +110,9 @@
                                 <li>
                                     <a href="/pet/admin/adminQnAList.dog">- Q&A</a>
                                 </li>
+                                 <li>
+                                    <a href="/SIRORAGI/admin/faqAdmin">- FAQ</a>
+                                </li>
                                 <li>
                                     <a href="/pet/admin/adminreviewList.dog">- 구매후기</a>
                                 </li>
