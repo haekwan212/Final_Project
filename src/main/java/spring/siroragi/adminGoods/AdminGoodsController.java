@@ -78,7 +78,7 @@ public class AdminGoodsController {
 			mv.addObject("pagingHtml", pagingHtml);
 			mv.addObject("currentPage", currentPage);
 			mv.addObject("goodsList", goodsList);
-			mv.setViewName("goodsadminList");
+			mv.setViewName("goodsList");
 			return mv;
 		}
 		

@@ -62,22 +62,22 @@ public class AdminGoodsDAO {
 
 	// 상품 검색(상품 이름)
 	public List<Map<String, Object>> adminGoodsSearch0(String isSearch) throws Exception {
-		return sqlSession.selectList("adminGoods.adminGoodsSearch0");
+		return sqlSession.selectList("adminGoods.adminGoodsSearch0",isSearch);
 	}
 
 	// 상품 검색(상품 번호)
 	public List<Map<String, Object>> adminGoodsSearch1(String isSearch) throws Exception {
-		return sqlSession.selectList("adminGoods.adminGoodsSearch1");
+		return sqlSession.selectList("adminGoods.adminGoodsSearch1",isSearch);
 	}
 
 	// 상품 검색(카테고리 검색)
 	public List<Map<String, Object>> adminGoodsSearch2(String isSearch) throws Exception {
-		return sqlSession.selectList("adminGoods.adminGoodsSearch2");
+		return sqlSession.selectList("adminGoods.adminGoodsSearch2",isSearch);
 	}
 
 	// 상품 검색(판매 활성화 or 비활성화 구분)
 	public List<Map<String, Object>> adminGoodsSearch3(String isSearch) throws Exception {
-		return sqlSession.selectList("adminGoods.adminGoodsSearch3");
+		return sqlSession.selectList("adminGoods.adminGoodsSearch3",isSearch);
 	}
 
 	// 상품 검색(재고가 0인 상품)
@@ -87,7 +87,7 @@ public class AdminGoodsDAO {
 
 	// 상품 검색(재고가 0인 상품)
 	public List<Map<String, Object>> adminGoodsSearch5(String isSearch) throws Exception {
-		return sqlSession.selectList("adminGoods.adminGoodsSearch5");
+		return sqlSession.selectList("adminGoods.adminGoodsSearch5",isSearch);
 	}
 
 }
