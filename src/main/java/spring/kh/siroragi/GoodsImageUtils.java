@@ -49,6 +49,7 @@ public class GoodsImageUtils {
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
 		List<MultipartFile> imageFile=multipartHttpServletRequest.getFiles("IMAGE");
     	
+		//System.out.println("IMAGE : "+imageFile);
 		//Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
     	
     	//MultipartFile multipartFile = null;
@@ -66,7 +67,7 @@ public class GoodsImageUtils {
         }
         
         for(MultipartFile multipartFile : imageFile){
-        	
+        	//System.out.println("IMAGE File : "+multipartFile);
         	if(multipartFile.isEmpty() == false){
         	IMAGEExtension = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf("."));
         	IMAGE = "상품이미지_"+GOODS_NUMBER+"_"+System.currentTimeMillis()+IMAGEExtension;
@@ -76,13 +77,14 @@ public class GoodsImageUtils {
     		
     		listMap = new HashMap<String,Object>();
     		listMap.put("IMAGE", IMAGE);
+    		
+    		listMap.put("GOODS_NUMBER", map.get("GOODS_NUMBER"));
     		list.add(listMap);
         	
         	}
         	
         }
         
-        listMap.put("GOODS_NUMBER", map.get("GOODS_NUMBER"));
     	return list;
         
         /*while(iterator.hasNext()){
@@ -104,6 +106,11 @@ public class GoodsImageUtils {
         	}
         }
 		return list;*/
+	}
+	
+	//파일 삭제
+	public void parseDeleteFileInfo(Map<String,Object> map, HttpServletRequest request) throws Exception{
+		
 	}
 
 	/*public List<Map<String, Object>> parseUpdateFileInfo(Map<String, Object> map, HttpServletRequest request) throws Exception{

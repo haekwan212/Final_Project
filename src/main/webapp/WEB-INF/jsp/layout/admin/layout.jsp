@@ -110,6 +110,9 @@
                                 <li>
                                     <a href="/SIRORAGI/review/review">- 구매후기</a>
                                 </li>
+                                 <li>
+                                    <a href="/SIRORAGI/admin/faqAdmin">- FAQ</a>
+                                </li>
                                 <li>
                                     <a href="/SIRORAGI/qna/qna">- Q&A</a>
                                 </li>

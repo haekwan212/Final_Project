@@ -32,17 +32,31 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/member/member.jsp" />
 	</definition>
 	
+	<definition name="openMemberDetail" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/member/openMemberDetail.jsp" />
+	</definition>
+	
 	<definition name="goodsForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
 	</definition>
+
+	<definition name="faqAdmin" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
+	</definition>
 	
-	<!-- 카테고리별 -->
+	<definition name="goodsList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goods.jsp" />
+	</definition>
+	
+	
+		<!-- 카테고리별 -->
 	<!-- 
  	<definition name="goodsList" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsList.jsp" />
 	</definition>
 	 -->
 	
+
 </tiles-definitions>
 	
 	

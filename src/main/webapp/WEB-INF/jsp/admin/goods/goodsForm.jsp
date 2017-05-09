@@ -99,10 +99,12 @@ function GOODS_CATEGORY2Change() {
 
 
 
-
-
 </head>
 <body>
+
+<div class="row" style="padding-left:15px;width:900px;">    
+	<h1 class="page-header">상품등록</h1>
+</div>
 	<form id="frm" name="frm" enctype="multipart/form-data">
 		<table class="board_view">
 			<colgroup>
@@ -113,11 +115,11 @@ function GOODS_CATEGORY2Change() {
 			<tbody>
 				<tr>
 					<th scope="row">상품명</th>
-					<td><input type="text" id="TITLE" name="GOODS_NAME" class="wdp_90"></input></td>
+					<td><input type="text" id="GOODS_NAME" name="GOODS_NAME" class="wdp_90"></input></td>
 				</tr>
 				<tr>
 					<th scope="row">가격</th>
-					<td><input type="text" id="TITLE" name="GOODS_PRICE" class="wdp_90"></input></td>
+					<td><input type="text" id="GOODS_PRICE" name="GOODS_PRICE" class="wdp_90"></input></td>
 				</tr>
 				<tr>
 					<th scope="row">카테고리</th>
@@ -131,7 +133,7 @@ function GOODS_CATEGORY2Change() {
 						<OPTION value='ACC'>ACC</OPTION>
 						 
 						</select>
-						<SELECT name="GOODS_CATEGORY2" onchange="GOODS_CATEGORY2Change();" size=1>
+						<SELECT name="GOODS_CATEGORY2" size=1>
 						 <OPTION value=''>대분류를 먼저 선택하세요</OPTION>
 						</SELECT>
 					</td>
@@ -179,6 +181,8 @@ function GOODS_CATEGORY2Change() {
 		<a href="#this" class="btn" id="write">작성하기</a>
 		<a href="#this" class="btn" id="list">목록으로</a>
 	</form>
+	<br/>
+	<br/>
 	
 	<form id="commonForm" name="commonForm"></form>
 	<script type="text/javascript">
@@ -249,6 +253,7 @@ function GOODS_CATEGORY2Change() {
 		function fn_deleteFile(obj){
 			obj.parent().remove();
 		}
+		
 	</script>
 </body>
 </html>

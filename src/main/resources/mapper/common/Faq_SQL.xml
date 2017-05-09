@@ -2,6 +2,114 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="faq">
-	
 
+
+	<!-- 리스트 불러오기 -->
+	<select id="faqList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE
+			FROM
+			    FAQ 
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+
+	<!-- 글쓰기 -->
+	<insert id="faqWrite" parameterType="hashmap" useGeneratedKeys="true" keyProperty="FAQ_NUMBER">
+		<selectKey keyProperty="FAQ_NUMBER" resultType="string"	order="BEFORE">
+			SELECT FAQ_NUMBER_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		<![CDATA[
+			
+			INSERT INTO FAQ
+			(
+				FAQ_NUMBER,
+			    FAQ_TITLE, 
+			    FAQ_CONTENT, 
+			    FAQ_HITCOUNT,  
+			    FAQ_REGDATE 
+			)
+			VALUES
+			(
+				#{FAQ_NUMBER}, 
+			    #{FAQ_TITLE}, 
+			    #{FAQ_CONTENT},
+			    0, 
+			    SYSDATE
+			)
+			
+			
+		]]>
+	</insert>
+
+	<!-- 조회수 -->
+	<update id="updateHitCnt" parameterType="hashmap">
+		<![CDATA[
+			UPDATE FAQ 
+			SET
+				FAQ_HITCOUNT = NVL(FAQ_HITCOUNT, 0) + 1
+			WHERE
+				FAQ_NUMBER = #{FAQ_NUMBER}	
+		]]>
+	</update>
+
+	<!-- 상세보기 -->
+	<select id="faqDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				FAQ_NUMBER,
+				FAQ_HITCOUNT,
+				FAQ_REGDATE,
+				FAQ_TITLE,
+				FAQ_CONTENT
+			FROM
+				FAQ
+			WHERE
+				FAQ_NUMBER = #{FAQ_NUMBER}		
+		]]>
+	</select>
+
+	<!-- 수정하기 -->
+	<update id="faqModify" parameterType="hashmap">
+		<![CDATA[
+			UPDATE FAQ 
+			SET
+				FAQ_TITLE = #{FAQ_TITLE},
+				FAQ_CONTENT = #{FAQ_CONTENT}
+			WHERE
+				FAQ_NUMBER = #{FAQ_NUMBER}	
+		]]>
+	</update>
+
+	<!-- 삭제하기 -->
+	<delete id="faqDelete" parameterType="hashmap">
+		<![CDATA[
+			DELETE FAQ
+			WHERE
+				FAQ_NUMBER = #{FAQ_NUMBER}
+		]]>
+	</delete>
+
+
+
+
+	<!-- <insert id="insertFile" parameterType="hashmap"> <![CDATA[ INSERT INTO 
+		TB_FILE ( FAQ_NUMBER, Faq_FAQ_NUMBER, ORIGINAL_FILE_NAME, STORED_FILE_NAME, 
+		FILE_SIZE, CREA_ID ) VALUES ( SEQ_TB_FILE_FAQ_NUMBER.NEXTVAL, #{Faq_FAQ_NUMBER}, 
+		#{ORIGINAL_FILE_NAME}, #{STORED_FILE_NAME}, #{FILE_SIZE}, 'Admin' ) ]]> </insert> 
+		<select id="selectFileList" parameterType="hashmap" resultType="hashmap"> 
+		<![CDATA[ SELECT FAQ_NUMBER, ORIGINAL_FILE_NAME, ROUND(FILE_SIZE/1024,1) 
+		AS FILE_SIZE FROM TB_FILE WHERE Faq_FAQ_NUMBER = #{FAQ_NUMBER} AND DEL_GB 
+		= 'N' ]]> </select> <update id="deleteFileList" parameterType="hashmap"> 
+		<![CDATA[ UPDATE TB_FILE SET DEL_GB = 'Y' WHERE Faq_FAQ_NUMBER = #{FAQ_NUMBER} 
+		]]> </update> <update id="updateFile" parameterType="hashmap"> <![CDATA[ 
+		UPDATE TB_FILE SET DEL_GB = 'N' WHERE FAQ_NUMBER = #{FILE_FAQ_NUMBER} ]]> 
+		</update> -->
+
+
+	
 </mapper>
