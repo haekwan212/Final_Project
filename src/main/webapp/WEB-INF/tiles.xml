@@ -36,6 +36,12 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
 	</definition>
 	
+	<!-- 카테고리별 -->
+	<!-- 
+ 	<definition name="goodsList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsList.jsp" />
+	</definition>
+	 -->
 	
 </tiles-definitions>
 	

@@ -8,7 +8,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 body {
     -webkit-font-smoothing: antialiased;
-    font-family: "crn-rg","NanumBarunGothic","�룍��",Dotum,sans-serif;
+    font-family: "crn-rg","NanumBarunGothic","돋움",Dotum,sans-serif;
     font-size: 12px;
     line-height: 1.3333333333;
     color: #242424;
@@ -205,7 +205,7 @@ a {
 .globalNavigation.mobile .tier1-head strong {
     display: inline-block;
     vertical-align: middle;
-    font-family: "crn-md","NanumBarunGothicBold","�룍��",Dotum,sans-serif;
+    font-family: "crn-md","NanumBarunGothicBold","돋움",Dotum,sans-serif;
     font-size: 11px;
 }
 .globalNavigation.mobile .tier1-head.login a:nth-child(2) {
@@ -314,7 +314,7 @@ ol, ul {
     color: #fff;
     line-height: 3;
     text-transform: uppercase;
-    font-family: "crn-md","NanumBarunGothicBold","�룍��",Dotum,sans-serif;
+    font-family: "crn-md","NanumBarunGothicBold","돋움",Dotum,sans-serif;
     padding-top: 2px;
     padding-right: 10px;
     z-index: 11;
@@ -766,7 +766,7 @@ element.style {
 }}
 .globalUtility a {
     display: block;
-    font-family: "crn-md","NanumBarunGothicBold","�룍��",Dotum,sans-serif;
+    font-family: "crn-md","NanumBarunGothicBold","돋움",Dotum,sans-serif;
     font-size: 11px;
     color: #898989;
     text-transform: uppercase;
@@ -836,7 +836,7 @@ html.navigation-open .page-mask {
     width: auto;
 }
 .globalFooter .globalFooter-menu a {
-    font-family: "crn-md","NanumBarunGothicBold","�룍��",Dotum,sans-serif;
+    font-family: "crn-md","NanumBarunGothicBold","돋움",Dotum,sans-serif;
     font-size: 10px;
     padding-top: 8px;
     padding-bottom: 8px;
