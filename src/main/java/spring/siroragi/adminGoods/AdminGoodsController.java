@@ -60,6 +60,10 @@ public class AdminGoodsController {
 				goodsList = adminGoodsService.adminGoodsSearch3(isSearch);
 			else if(searchNum == 4)//재고가 0인 상품
 				goodsList = adminGoodsService.adminGoodsSearch4(isSearch);
+			else if(searchNum == 5)//판매량 많은 순, 조회수 많은 순 정렬
+				goodsList = adminGoodsService.adminGoodsSearch5(isSearch);
+			else if(searchNum == 6)//판매량 많은 순, 조회수 많은 순 정렬
+				goodsList = adminGoodsService.adminGoodsSearch6(isSearch);
 		
 			totalCount = goodsList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "goodsList", searchNum, isSearch);
@@ -129,6 +133,15 @@ public class AdminGoodsController {
 	// 상품 수정 OFF시, 장바구니와 위시리스트에서 제외
 
 	// 상품 삭제
+	@RequestMapping(value="/goods/goodsDelete")
+	public ModelAndView goodsDelete(CommandMap adminGoodsMap) throws Exception{
+		
+		ModelAndView mv=new ModelAndView("redirect:goodsList");
+		
+		adminGoodsService.goodsDelete((Integer)adminGoodsMap.get("GOODS_NUMBER"));
+		
+		return mv;
+	}
 
 	// 상품 검색
 }

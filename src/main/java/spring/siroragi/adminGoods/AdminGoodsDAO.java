@@ -47,6 +47,9 @@ public class AdminGoodsDAO {
 	}
 
 	// 상품 수정 폼으로 이동(데이터 들고가야함)
+	public List<Map<String, Object>> goodsModifyForm(Integer GOODS_NUMBER) throws Exception{
+		return sqlSession.selectList("adminGoods.selectOneGoods", GOODS_NUMBER);
+	}
 
 	// 상품 수정
 	public void goodsModify(Map<String, Object> map) throws Exception {
@@ -56,8 +59,8 @@ public class AdminGoodsDAO {
 	// 상품 수정 OFF시, 장바구니와 위시리스트에서 제외
 
 	// 상품 삭제
-	public void goodsDelete(Map<String, Object> map) throws Exception {
-		sqlSession.insert("adminGoods.deleteAdminGoods", map);
+	public void goodsDelete(Integer GOODS_NUMBER) throws Exception {
+		sqlSession.delete("adminGoods.deleteAdminGoods", GOODS_NUMBER);
 	}
 
 	// 상품 검색(상품 이름)
@@ -85,9 +88,12 @@ public class AdminGoodsDAO {
 		return sqlSession.selectList("adminGoods.adminGoodsSearch4");
 	}
 
-	// 상품 검색(재고가 0인 상품)
+	// 상품 검색(판매량 많은 순, 조회수 많은 순)
 	public List<Map<String, Object>> adminGoodsSearch5(String isSearch) throws Exception {
 		return sqlSession.selectList("adminGoods.adminGoodsSearch5",isSearch);
+	}
+	public List<Map<String, Object>> adminGoodsSearch6(String isSearch) throws Exception {
+		return sqlSession.selectList("adminGoods.adminGoodsSearch6",isSearch);
 	}
 
 }

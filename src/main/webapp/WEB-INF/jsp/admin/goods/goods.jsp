@@ -11,6 +11,7 @@ $( document ).ready(function() {
 	$('#dataTables-example').rowspan(2);
 	$('#dataTables-example').rowspan(3);
 	$('#dataTables-example').rowspan(4);
+	$('#dataTables-example').rowspan(5);
 	$('#dataTables-example').rowspan(9);
 	
 });
@@ -101,9 +102,8 @@ function delchk(){
 							</select>			
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--상품정렬--</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=3&isSearch=상품준비">판매수량순</option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=4&isSearch=배송중"></option>
-								<option value ="/SIRORAGI/goods/goodsList?searchNum=3&isSearch=구매완료">비활성화</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=5&isSearch=GOODS_AMOUNT">판매수량순</option>
+								<option value ="/SIRORAGI/goods/goodsList?searchNum=6&isSearch=GOODS_COUNT">조회순</option>
 							</select>											
 						</div>
 						<div class="col-sm-6" style="text-align:right;">
@@ -141,10 +141,18 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_NUMBER}</td>										
 										<td style="text-align:center;vertical-align:middle;"><img src="/SIRORAGI/file/goodsFile/${goodsList.GOODS_THUMBNAIL}" width="60" height="60" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /></td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_CATEGORY1}/<br/>${goodsList.GOODS_CATEGORY2 }</td>
-										
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_NAME}</td>
+										
+										<c:if test="${goodsList.GOODS_DCPRICE != null}">
+										<td style="text-align:center;vertical-align:middle;">
+												<del><fmt:formatNumber value="${goodsList.GOODS_PRICE}" type="number"/>원<br/></del>
+												<fmt:formatNumber value="${goodsList.GOODS_DCPRICE}" type="number"/>원</td>
+										</c:if>
+										<c:if test="${goodsList.GOODS_DCPRICE == null}">
 										<td style="text-align:center;vertical-align:middle;">
 												<fmt:formatNumber value="${goodsList.GOODS_PRICE}" type="number"/>원</td>
+										</c:if>
+												
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_COLOR}</td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_SIZE}</td>
 										<td style="text-align:center;vertical-align:middle;">${goodsList.GOODS_AMOUNT}개</td>
@@ -153,14 +161,14 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;">
 											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
 										<c:url var="viewURL2" value="/goods/goodsDelete" >
-											<c:param name="order_num" value="${goodsList.GOODS_NUMBER }" />							
+											<c:param name="GOODS_NUMBER" value="${goodsList.GOODS_NUMBER }" />							
 										</c:url>	
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
 									</tr>
 								</c:forEach>
 								<!--  등록된 상품이 없을때 -->
 									<c:if test="${fn:length(goodsList) le 0}">
-										<tr><td colspan="9" style="text-align:center;">등록된 상품이 없습니다</td></tr>
+										<tr><td colspan="11" style="text-align:center;">등록된 상품이 없습니다</td></tr>
 									</c:if> 
 								</tbody>
 							</table>
