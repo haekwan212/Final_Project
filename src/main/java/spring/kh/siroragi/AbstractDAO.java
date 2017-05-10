@@ -58,28 +58,28 @@ public class AbstractDAO {
 
 	// 가입한 회원 아이디 검색
 	@SuppressWarnings("rawtypes")
-	public List searchMemberList0(String map, Object params, int onOff, String isSearch) {
+	public List searchMemberList0(String map, Object params) {
 		printQueryId(map);
 		return sqlSession.selectList(map, params);
 	}
 
 	// 가입한 회원 이름 검색
 	@SuppressWarnings("rawtypes")
-	public List searchMemberList1(String queryId, Object params, int onOff, String search) {
+	public List searchMemberList1(String queryId, Object params) {
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId, params);
 	}
 
 	// 가입한 회원 전화번호 검색
 	@SuppressWarnings("rawtypes")
-	public List searchMemberList2(String queryId, Object params, int onOff, String search) {
+	public List searchMemberList2(String queryId, Object params) {
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId, params);
 	}
 
 	// 가입한 회원 이메일 검색
 	@SuppressWarnings("rawtypes")
-	public List searchMemberList3(String queryId, Object params, int onOff, String search) {
+	public List searchMemberList3(String queryId, Object params) {
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId, params);
 	}

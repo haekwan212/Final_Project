@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
@@ -37,6 +36,19 @@ function joinValidation(frm){
 		return false;
 	}
 		alert("수정되었습니다.")
+}
+
+function button1_click() {
+	alert("적립되었습니다.");
+	MEMBER_NUMBER="${member.MEMBER_NUMBER}";
+	POINT_POINT=document.getElementById("POINT_POINT").value
+	location.href="/SIRORAGI/admin/updatePoint?MEMBER_NUMBER=" + MEMBER_NUMBER + "&POINT_POINT="+ POINT_POINT;
+}
+function button2_click() {
+	alert("차감되었습니다.");
+	MEMBER_NUMBER="${member.MEMBER_NUMBER}";
+	POINT_POINT=document.getElementById("POINT_POINT").value
+	location.href="/SIRORAGI/admin/updatePoint?MEMBER_NUMBER=" + MEMBER_NUMBER + "&POINT_POINT=-"+ POINT_POINT;
 }
 </script>
 </head>
@@ -91,11 +103,17 @@ function joinValidation(frm){
                             <input type="text" class="form-control" id="MEMBER_EMAIL" name="MEMBER_EMAIL" value="${member.MEMBER_EMAIL}" style="width:250px;" />
                         </div>
 						<div class="form-group">
+                            <label>포인트 수정</label>
+                            <input type="text" class="form-control" id="POINT_POINT" name="POINT_POINT" style="width:250px;"/>
+                        </div>
+						<button type="button" class="btn btn-default" onclick="button1_click();">적립</button>
+						<button type="button" class="btn btn-default" onclick="button2_click();">차감</button>
+						<div class="form-group">
                             <label>포인트</label>
                             <input type="text" class="form-control" value="${member.MEMBER_POINT}" style="width:250px;" readonly/>
                         </div>
 						<button type="submit" class="btn btn-success">회원수정</button>
-						<button type="reset" class="btn btn-default">초기화</button>					
+						<button type="reset" class="btn btn-default">초기화</button>						
 				</form:form>
 			</div>
 	</div>

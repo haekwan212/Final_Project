@@ -16,12 +16,12 @@ import spring.kh.siroragi.Paging;
 @Controller
 public class MemberController {
 
-	// 페이징
 	private int searchNum;
 	private int onOff;
-	
-	private String isSearch;
 
+	private String isSearch;
+	
+	// 페이징
 	private int currentPage = 1;
 	private int totalCount;
 	private int blockCount = 7;
@@ -50,20 +50,20 @@ public class MemberController {
 		isSearch = request.getParameter("isSearch");
 
 		if (isSearch != null) {
-
-			searchNum = Integer.parseInt(request.getParameter("searchNum"));
+			
 			onOff = Integer.parseInt(request.getParameter("onOff"));
+			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
-			System.out.println("onOff : " + onOff + ", isSearch : " + isSearch + ", searchNum : " + searchNum);
+			System.out.println("getMap : " + commandMap.getMap());
 
 			if (searchNum == 0) { // 아이디
-				memberList = memberService.searchMemberList0(commandMap.getMap(), onOff, isSearch);
+				memberList = memberService.searchMemberList0(commandMap.getMap());
 			} else if (searchNum == 1) { // 이름
-				memberList = memberService.searchMemberList1(commandMap.getMap(), onOff, isSearch);
+				memberList = memberService.searchMemberList1(commandMap.getMap());
 			} else if (searchNum == 2) { // 전화번호
-				memberList = memberService.searchMemberList2(commandMap.getMap(), onOff, isSearch);
+				memberList = memberService.searchMemberList2(commandMap.getMap());
 			} else if (searchNum == 3) { // 이메일
-				memberList = memberService.searchMemberList3(commandMap.getMap(), onOff, isSearch);
+				memberList = memberService.searchMemberList3(commandMap.getMap());
 			}
 
 			totalCount = memberList.size();
@@ -109,6 +109,7 @@ public class MemberController {
 
 			mv.addObject("member", memberList);
 			mv.setViewName("memberList");
+
 			return mv;
 		}
 	}
@@ -118,6 +119,8 @@ public class MemberController {
 	public ModelAndView openMemberDetail(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView();
 
+		System.out.println("memberDetail : " + commandMap.getMap());
+		
 		Map<String, Object> member = memberService.selectMemberDetail(commandMap.getMap());
 
 		mv.addObject("member", member);
@@ -128,17 +131,14 @@ public class MemberController {
 
 	// 회원정보 수정
 	@RequestMapping(value = "/admin/updateMember")
-	public ModelAndView updateBoard(CommandMap commandMap) throws Exception {
+	public ModelAndView updateMember(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		
-		System.out.println("updateMember : " + commandMap.getMap());
-		
-		memberService.updateMember(commandMap.getMap());
 
-		System.out.println("update Complete");
-		
+		System.out.println("updateMember : " + commandMap.getMap());
+
+		memberService.updateMember(commandMap.getMap());
 		mv.setViewName("redirect:/admin/memberList");
-		
+
 		return mv;
 	}
 
@@ -147,9 +147,25 @@ public class MemberController {
 	public ModelAndView deleteMember(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView();
 
+		System.out.println("deleteMember : " + commandMap.getMap());
+		
 		memberService.deleteMember(commandMap.getMap());
 		mv.setViewName("redirect:/admin/memberList");
 
+		return mv;
+	}
+
+	// 회원포인트 수정
+	@RequestMapping(value = "/admin/updatePoint")
+	public ModelAndView updatePoint(CommandMap commandMap, HttpServletRequest request) throws Exception {
+
+		ModelAndView mv = new ModelAndView();
+		
+		System.out.println("updatePoint : " + commandMap.getMap());
+		
+		memberService.updatePoint(commandMap.getMap());
+		mv.setViewName("redirect:/admin/openMemberDetail?MEMBER_NUMBER=" + commandMap.get("MEMBER_NUMBER"));
+		
 		return mv;
 	}
 }

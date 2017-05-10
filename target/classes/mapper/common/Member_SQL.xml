@@ -208,9 +208,26 @@
 		<![CDATA[
 		UPDATE MEMBER
 		SET
-			MEMBER_DELDATE = #{MEMBER_DELDATE},
+			MEMBER_DELDATE = SYSDATE,
 			MEMBER_ONOFF = '1'
 		WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} 
+		]]>
+	</update>
+	
+	<update parameterType="hashmap" id="updatePoint">
+		<![CDATA[
+		INSERT INTO POINT (
+			MEMBER_NUMBER,
+			POINT_CONTENT,
+			POINT_POINT,
+			POINT_DATE,
+			POINT_NUMBER)
+		VALUES
+			(#{MEMBER_NUMBER},
+			 '관리자',
+			 #{POINT_POINT},
+			 SYSDATE,
+			 POINT_NUMBER_SEQ.NEXTVAL)
 		]]>
 	</update>
 </mapper>

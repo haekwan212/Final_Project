@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-
-<% String curDate = new java.text.SimpleDateFormat("yyyyMMdd").format(new java.util.Date()); %>
- 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
@@ -44,7 +40,7 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-						<a href="/SIRORAGI/admin/memberList?onOff=0&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">가입된회원</button></a>		
+						<a href="/SIRORAGI/admin/memberList?onOff=0&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">가입한회원</button></a>		
 						<a href="/SIRORAGI/admin/memberList?onOff=1&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">탈퇴한회원</button></a>											
 							</div>
 						<div class="col-sm-6" style="text-align:right;">
@@ -99,8 +95,6 @@ function delchk(){
 											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
 										<c:url var="viewURL2" value="deleteMember" >
 											<c:param name="MEMBER_NUMBER" value="${memberList.MEMBER_NUMBER }" />
-											<c:param name="MEMBER_DELDATE" value="<%= curDate %>" />
-																		
 										</c:url>	
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
 									</tr>
