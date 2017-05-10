@@ -678,6 +678,10 @@ $(function(){
 				<span class="sr-only">이 창 닫기</span>
 			</button>
 		</div>
+		<div class="modal-body">
+		</div>
+		<div class="modal-foot">
+		</div>
 	</div>
 </div>
 
