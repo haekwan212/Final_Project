@@ -1,3 +1,4 @@
+<%@page contentType="text/html; charset=utf-8" %>
 <section class="step-panels">
 		<ol>
 			<li class="c01 col-xs-7">
@@ -15,7 +16,7 @@
 	</section>
 	<!-- step-panels//end -->
 	<div class="register-privacy">
-		<form action="/membermethod="post" action="process">
+		<form action="/SIRORAGI/joinComplete" method="post">
 		<input type="hidden" name="mode" value="register">
 		<input type="hidden" name="rurl" value="register_ok">
 		<input type="hidden" name="chkid">
@@ -377,7 +378,7 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 			</label>
 		</div>
 		<div class="col-lg-21 col-md-20">
-			<input type="text" name="mid" id="mid" value="" maxlength="20" class="xx-control" label="아이디" required="">
+			<input type="text" name="MEMBER_ID" id="mid" value="" maxlength="20" class="xx-control" label="아이디" required="">
 			<p class="alert"></p>
 		</div>
 	</li>
@@ -401,7 +402,7 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 			</label>
 		</div>
 		<div class="col-lg-21 col-md-20">
-			<input type="password" id="input-password" class="xx-control" value="" name="password" required="" label="비밀번호">
+			<input type="password" id="input-password" class="xx-control" value="" name="MEMBER_PASSWORD" required="" label="비밀번호">
 		</div>
 	</li>
 	<li class="password check">
@@ -618,7 +619,7 @@ $(".auto_mail").change(function() {
 });
 
 </script>
-				<div class="section-foot111">
+				<div class="section-foot">
 					<button type="submit" id="validateBtn" class="button large">
 						<span class="button-label">회원가입</span>
 					</button>

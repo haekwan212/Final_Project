@@ -19,4 +19,11 @@ public class JoinController {
 		ModelAndView mv = new ModelAndView("modal_email");
 		return mv;
 	}
+	
+	@RequestMapping(value="/joinStep2")
+	public ModelAndView joinStep2(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("joinStep2");
+		return mv;
+	}
 }

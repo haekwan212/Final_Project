@@ -1,11 +1,6 @@
-<div class="modal-head">
-			<h4>SEARCH</h4>
-			<button class="button">
-				<span class="icon icon-dismiss-white"></span>
-				<span class="sr-only">이 창 닫기</span>
-			</button>
-		</div>
-<div class="modal-body"><style>
+<%@ page contentType="text/html; charset=utf-8" %>
+
+		<div class="modal-body"><style>
 .onMenu{background:#FFFFFF;text-align:center}
 .onMenu a{font-weight:bold;color:#000000}
 .offMenu{background:#EFEFEF;color:#CCCCCC;text-align:center}
@@ -18,8 +13,8 @@
 			<form action="../store/search">
 				<div class="searchStore">
 					<div class="form-group">
-						<input id="input-modal-searchKeyword" name="stxt" class="form-control col-xs-18 col-md-18" required="" placeholder="ê²ìì´ ìë ¥" autocomplete="off" type="text">	
-						<button type="submit" class="btn btn-primary col-xs-6 col-md-6">ê²ì</button>	
+						<input id="input-modal-searchKeyword" name="stxt" class="form-control col-xs-18 col-md-18" required="" placeholder="검색어 입력" autocomplete="off" type="text">	
+						<button type="submit" class="btn btn-primary col-xs-6 col-md-6">검색</button>	
 					</div>
 					<table class="table col-md-22 col-xs-22" id="autoList" style="border:1px solid #CCCCCC;background:#FFFFFF;position:absolute;display:none;margin-top:20px;">
 					<tbody id="trSearch"></tbody>
@@ -30,8 +25,8 @@
 							<table class="table" style="border:0px solid #FFF;margin-top:10px">
 							   <tbody>
 								  <tr>
-									 <td class="col-md-12 col-xs-12 onMenu" id="tdPop"><a href="#" id="btnPop">ì¸ê¸°ê²ìì´</a></td>
-									 <td class="col-md-12 col-xs-12 offMenu" id="tdNew"><a href="#" id="btnNew">ìµê·¼ê²ìì´</a></td>
+									 <td class="col-md-12 col-xs-12 onMenu" id="tdPop"><a href="#" id="btnPop">인기검색어</a></td>
+									 <td class="col-md-12 col-xs-12 offMenu" id="tdNew"><a href="#" id="btnNew">최근검색어</a></td>
 								  </tr>
 								</tbody>
 							</table>
@@ -39,11 +34,11 @@
 							   <tbody>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">1</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">í¬ì½§í¤ì¦</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%EB%B0%98%ED%8C%94%ED%8B%B0'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">2</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">ë°íí°</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">반팔티</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=popbow'" style="">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">3</p></td>
@@ -55,7 +50,7 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">5</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">í¬ì½§</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=I.O.I'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">6</p></td>
@@ -63,19 +58,19 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%9B%84%EB%93%9C%EC%A7%91%EC%97%85'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">7</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">íëì§ì</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">후드집업</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88+pants'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">8</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">í¬ì½§í¤ì¦ pants</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈 pants</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%EB%A7%A8%ED%88%AC%EB%A7%A8'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">9</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">ë§¨í¬ë§¨</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">맨투맨</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%EC%9B%90%ED%94%BC%EC%8A%A4'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">10</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">ìí¼ì¤</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">원피스</p></td>
 								  </tr>
 								 
 							   </tbody>
@@ -85,7 +80,7 @@
 							   <tbody>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%EB%B0%98%ED%8C%94%ED%8B%B0'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">1</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">ë°íí°</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">반팔티</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=POPbow'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">2</p></td>
@@ -93,7 +88,7 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">3</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">í¬ì½§í¤ì¦</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=Sesame'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">4</p></td>
@@ -101,7 +96,7 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88+PANTS'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">5</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">í¬ì½§í¤ì¦ PANTS</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈 PANTS</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=I.O.I'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">6</p></td>
@@ -109,19 +104,19 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%EC%9B%90%ED%94%BC%EC%8A%A4'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">7</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">ìí¼ì¤</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">원피스</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7+'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">8</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">í¬ì½§ </p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧 </p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7+SHORT+T-SHIRTS'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">9</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">í¬ì½§ SHORT T-SHIRTS</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧 SHORT T-SHIRTS</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88+SHORT+T-SHIRTS'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">10</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">í¬ì½§í¤ì¦ SHORT T-SHIRTS</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈 SHORT T-SHIRTS</p></td>
 								  </tr>
 							   </tbody>
 							</table>
@@ -134,7 +129,7 @@
 </div>
 <div class="modal-button">
 	<button class="button cancel btn-close">
-		<span class="button-label">ë«ê¸°</span>
+		<span class="button-label">닫기</span>
 	</button>
 </div>
 
