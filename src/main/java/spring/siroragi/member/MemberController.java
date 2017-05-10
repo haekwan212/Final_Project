@@ -130,11 +130,15 @@ public class MemberController {
 	@RequestMapping(value = "/admin/updateMember")
 	public ModelAndView updateBoard(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView();
-
+		
+		System.out.println("updateMember : " + commandMap.getMap());
+		
 		memberService.updateMember(commandMap.getMap());
 
+		System.out.println("update Complete");
+		
 		mv.setViewName("redirect:/admin/memberList");
-
+		
 		return mv;
 	}
 

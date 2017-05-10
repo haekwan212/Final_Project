@@ -88,7 +88,7 @@ function joinValidation(frm){
                         </div>
                          <div class="form-group">
                             <label>이메일</label>
-                            <input type="text" class="form-control" id="MEMBER_EMAIL" name="MEMBER_EMAIL" value="${member.MEMBER_EMAIL}" style="width:250px;"/>
+                            <input type="text" class="form-control" id="MEMBER_EMAIL" name="MEMBER_EMAIL" value="${member.MEMBER_EMAIL}" style="width:250px;" />
                         </div>
 						<div class="form-group">
                             <label>포인트</label>

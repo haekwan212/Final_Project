@@ -44,10 +44,8 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-						<a href="/SIRORAGI/admin/memberList"><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">가입된회원</button></a>		
-						<c:url var="viewURL3" value="deleteMember" >
-						<a href="/SIRORAGI/admin/memberList"><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">탈퇴한회원</button></a>											
-						</c:url>	
+						<a href="/SIRORAGI/admin/memberList?onOff=0&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">가입된회원</button></a>		
+						<a href="/SIRORAGI/admin/memberList?onOff=1&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">탈퇴한회원</button></a>											
 							</div>
 						<div class="col-sm-6" style="text-align:right;">
 							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 회원수 : ${totalCount}</div>
@@ -69,38 +67,49 @@ function delchk(){
 										<th style="width: 14%; text-align:center;">이메일</th>
 										<th style="width: 29%; text-align:center;">주소</th>
 										<th style="width: 5%; text-align:center;">포인트</th>
+										<c:if test="${onOff == '0'}">
 										<th style="width: 10%; text-align:center;">가입일자</th>
+										</c:if>
+										<c:if test="${onOff == '1'}">
+										<th style="width: 10%; text-align:center;">탈퇴일자</th>
+										</c:if>
 										<th style="width: 13%; text-align:center;">관리</th>
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach var="memberlist"  items="${member}" varStatus="stat">
+								<c:forEach var="memberList"  items="${member}" varStatus="stat">
 								<c:url var="viewURL" value="openMemberDetail" >
-									<c:param name="MEMBER_NUMBER" value="${memberlist.MEMBER_NUMBER }" />
+									<c:param name="MEMBER_NUMBER" value="${memberList.MEMBER_NUMBER }" />
 								</c:url>									
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_NUMBER}</td>
-										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_ID}</td>
-										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_NAME}</td>
-										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_PHONE}</td>
-										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_EMAIL}</td>
-										<td style="text-align:center;vertical-align:middle;">${memberlist.MEMBER_ADDRESS1}&nbsp;${memberlist.MEMBER_ADDRESS2}</td>
-										<td style="text-align:center;vertical-align:middle;"></td>									
-										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${memberlist.MEMBER_REGDATE}" pattern="YY.MM.dd HH:mm" /></td>
+										<td style="text-align:center;vertical-align:middle;">${memberList.MEMBER_NUMBER}</td>
+										<td style="text-align:center;vertical-align:middle;">${memberList.MEMBER_ID}</td>
+										<td style="text-align:center;vertical-align:middle;">${memberList.MEMBER_NAME}</td>
+										<td style="text-align:center;vertical-align:middle;">${memberList.MEMBER_PHONE}</td>
+										<td style="text-align:center;vertical-align:middle;">${memberList.MEMBER_EMAIL}</td>
+										<td style="text-align:center;vertical-align:middle;">${memberList.MEMBER_ADDRESS1}&nbsp;${memberList.MEMBER_ADDRESS2}</td>
+										<td style="text-align:center;vertical-align:middle;">${memberList.MEMBER_POINT}</td>									
+										<c:if test="${onOff == '0'}">
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${memberList.MEMBER_REGDATE}" pattern="YY.MM.dd" /></td>
+										</c:if>
+										<c:if test="${onOff == '1'}">
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${memberList.MEMBER_DELDATE}" pattern="YY.MM.dd" /></td>
+										</c:if>
 										<td style="text-align:center;vertical-align:middle;">
 											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
 										<c:url var="viewURL2" value="deleteMember" >
-											<c:param name="MEMBER_NUMBER" value="${memberlist.MEMBER_NUMBER }" />
+											<c:param name="MEMBER_NUMBER" value="${memberList.MEMBER_NUMBER }" />
 											<c:param name="MEMBER_DELDATE" value="<%= curDate %>" />
 																		
 										</c:url>	
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
 									</tr>
 								</c:forEach>
-								<!--  등록된 상품이 없을때 -->
+								<!-- 회원이 없을때 -->
 									<c:if test="${fn:length(member) le 0}">
-										<tr><td colspan="9" style="text-align:center;">등록된 상품이 없습니다</td></tr>
+										<tr><td colspan="9" style="text-align:center;">회원이 없습니다.</td></tr>
 									</c:if> 
+									
 								</tbody>
 							</table>
 						</div>
@@ -112,7 +121,13 @@ function delchk(){
 							<div style="text-align:center;">
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<form action="">
-									<select class="form-control" name="searchNum" id="searchNum">
+									<c:if test="${onOff == '0'}">
+									<input type="hidden" name="onOff" id="onOff" value="0" />
+									</c:if>
+									<c:if test="${onOff == '1'}">
+									<input type="hidden" name="onOff" id="onOff" value="1" />
+									</c:if>
+										<select class="form-control" name="searchNum" id="searchNum">
 										<option value="0">아이디</option>
 										<option value="1">이름</option>
 										<option value="2">전화번호</option>
@@ -122,6 +137,7 @@ function delchk(){
 										<span>
 										<button type="submit" class="btn btn-default">검색</button>
 										</span>
+									
 									</form>
 								</div>							
 							</div>
