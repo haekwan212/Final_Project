@@ -90,13 +90,9 @@ function joinValidation(frm){
                             <label>이메일</label>
                             <input type="text" class="form-control" id="MEMBER_EMAIL" name="MEMBER_EMAIL" value="${member.MEMBER_EMAIL}" style="width:250px;"/>
                         </div>
-						<%-- <div class="form-group">
+						<div class="form-group">
                             <label>포인트</label>
-                            <input type="text" class="form-control" value="${member.POINT}" style="width:initial;"/>
-                        </div> --%>
-                        <div class="form-group">
-                            <label>가입일자</label>                            
-                            <fmt:formatDate value="${member.MEMBER_REGDATE}" pattern="YYYY.MM.dd" />                            
+                            <input type="text" class="form-control" value="${member.MEMBER_POINT}" style="width:250px;" readonly/>
                         </div>
 						<button type="submit" class="btn btn-success">회원수정</button>
 						<button type="reset" class="btn btn-default">초기화</button>					
