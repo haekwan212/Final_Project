@@ -50,11 +50,14 @@
 	
 	
 		<!-- 카테고리별 -->
-	<!-- 
- 	<definition name="goodsList" extends="admin">
+	<definition name="basic" template="/WEB-INF/jsp/layout/basic.jsp">
+		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/container.jsp" />
+	</definition>
+	
+ 	<definition name="goodsCategory" extends="basic">
 		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsList.jsp" />
 	</definition>
-	 -->
+	
 	
 
 </tiles-definitions>

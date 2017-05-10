@@ -28,16 +28,16 @@
 	<link rel="stylesheet" href="theme/pshp/css/vendor/bootstrap.css">
 	
 
-	<link rel="stylesheet" href="theme/pshp/css/fonts.css">
+  	<link rel="stylesheet" href="theme/pshp/css/fonts.css">
 	<link rel="shortcut icon" href="/favicon.ico">
-	<script src="theme/pshp/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  	<script src="theme/pshp/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 	<script src="theme/pshp/js/vendor/selector.min.js"></script>
-	<script src="theme/pshp/js/vendor/webfont.min.js"></script>
-	<script src="dist/jquery/jquery-1.11.0.min.js"></script>
-	<script src="dist/jquery/jquery-ui.js"></script>
+	<script src="theme/pshp/js/vendor/webfont.min.js"></script> 
+	<script src="dist/jquery/jquery-1.11.0.min.js"></script> 
+	<script src="dist/jquery/jquery-ui.js"></script> 
 	<script src="dist/jquery/jquery-migrate-1.2.1.min.js"></script>
-	<script src="dist/jquery/plugin/jquery.cookie.js"></script>
-
+	<script src="dist/jquery/plugin/jquery.cookie.js"></script> 
+ 
 	<!-- font-awesome(icon) -->
 	<link href="dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 
 	<link rel="stylesheet" href="theme/pshp/css/main.min.css">
 	<link rel="stylesheet" href="theme/pshp/css/ui.css">
-	
+	<!-- 
 <style>
 @media (min-width: 768px){
 .container {
@@ -1052,7 +1052,8 @@ img.for-ie8.img-responsive {
 }
 
 </style>
-</head>
+ -->
+ </head>
 <body>
 <div class="viewport">
 <div id="container">

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GoodsController {
 
 	//페이지이동
-	@RequestMapping(value="/goods/goodsList")
+	@RequestMapping(value="/goods/goodsCategory")
 	public String goodsCategory() {
-		return "goodsList";
+		return "goodsCategory";
 	}
 }
