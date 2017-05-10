@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+    <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -61,7 +61,7 @@
 </div>
 <![endif]-->
 <div id="container">
-<div class="globalNavigation mobile mCustomScrollbar _mCS_1 mCS_no_scrollbar"><div id="mCSB_1" class="mCustomScrollBox mCS-rounded-dark mCSB_vertical mCSB_inside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position: relative; left: 0px; top: 0px;" dir="ltr">
+<div class="globalNavigation mobile">
 	<div class="tier1-group account">
 		<div class="tier1-head login">
 			<a href="/member/login" class="col-xs-12"><strong>login</strong></a>
@@ -93,7 +93,7 @@
 		<div class="tier1-group">
 			<div class="tier1-head">
 				<a href="/about/news_download">
-					<strong>news &amp; download</strong>
+					<strong>news & download</strong>
 				</a>
 			</div>
 		</div>
@@ -108,12 +108,12 @@
 		<div class="tier1-group toggle">
 			<div class="tier1-head">
 				<a href="/main/index2">
-					<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15" class="mCS_img_loaded">
+					<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15" >
 					<strong class="red">e-shop</strong>
 					<span class="icon icon-"></span>
 				</a>
 			</div>
-			<ul class="tier1" style="display: block;">
+			<ul class="tier1">
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
 						<a href="/store/new">
@@ -194,7 +194,7 @@
 			</ul>
 		</div>
 	</nav>
-</div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-rounded-dark mCSB_scrollTools_vertical mCSB_scrollTools_onDrag_expand" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 14px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+</div>
 <div id="page" class="page">
 <header class="globalHeader container-fluid">
 	<div class="wrap">
@@ -251,7 +251,7 @@
 						<span class="bullet"></span>
 					</a>
 					<div class="nav-wrap">
-						<div class="nav-group-depth2"	>
+						<div class="nav-group-depth2">
 							<ul class="container">
 								<li class="nav-head c01" style="text-align: center;">
 									<a href="/store/new"><span>new</span></a>
@@ -262,7 +262,7 @@
 
 
 								<li class="nav-head c03">
-									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src='/theme/pshp/img/category_back.png'></div>
+									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="/theme/pshp/img/category_back.png"></div>
 									<a href="/store/category?no=101"><span>top</span></a>
 								</li>
 								<li class="nav-head c04">
@@ -294,7 +294,7 @@
 					</div>
 				</div>
 				<div class="nav-group hidden-xs hidden-sm">
-					<a href="/main/search_store" class="nav-head globalHeader-search-mobile" target="modal" data-size="sm" data-label="SEARCH">
+					<a href="/SIRORAGI/main/search_store" class="nav-head globalHeader-search-mobile" target="modal" data-size="sm" data-label="SEARCH">
 						<span class="icon icon-loupe-black"></span>
 						<span class="label sr-only">search</span>
 					</a>
@@ -304,16 +304,9 @@
 		<!-- globalNavigation//end -->
 		<div class="globalUtility hidden-xs hidden-sm">
 			<ul>
-				<li class="login item" style="padding-top:25px;">
-					<a href='#'><img src="/theme/pshp/img/off.png" class="img-responsive" width="39" height="11" id="off_click"></a>
-					<div id="off_div" style="position:absolute;display:none;margin-left:-196px"><img src='/theme/pshp/img/off_oneclick.gif' usemap="#off_map"></div>
-				</li>
-				<map name="off_map">
-					<area shape="rect" coords="79,174,158,192" href="/store/event?no=10" />
-				</map>
 				<li class="login item">
 					<a href="/member/login" style="display:inline">login &</a>
-					<a href="/member/register" style="display:inline">join</a>
+					<a href="/SIRORAGI/joinStep1" style="display:inline">join</a>
 				</li>
 				<li class="item">
 					<a href="/order/cart">
@@ -367,6 +360,12 @@ $(function(){
 }
 </style>
 
+        <div class="container">
+       		
+            <!-- 메인container-->
+           	 <tiles:insertAttribute name="body"/>
+            <!-- // container -->
+        </div>
 
 <script>
 	function getItems(mode, page_num){
@@ -451,105 +450,7 @@ $(function(){
 		slideWidth($('.start-billboard'), $('.start-billboard .catalog-item'), $('.start-billboard .catalog'));
 		var tabSelector = $('.start-billboard .slide-dots li');
 		tabSelector.first().addClass('active');
-		
-	
-		var billBoardScroll = new iScroll('start-billboard-wrapper', {
-			snap: true,
-			momentum: false,
-			vScroll:false,
-			hScrollbar: false,
-			vScrollbar: false,
-			onScrollEnd: function () {
-				tabSelector.removeClass('active');
-				$('.start-billboard .slide-dots li:nth-child(' + (this.currPageX) + ')').addClass('active');
-				switch (this.currPageX) {
-					case 0:
-						billBoardScroll.scrollToPage(3,0,0); //pretend inifinite scroll, jump to Last Ranking Tab
-						break;
-					case 1:
-						getAjaxBillboardItems('start-billboard-01', 0, 1);
-						break;
-					case 2:
-						getAjaxBillboardItems('start-billboard-02', 1, 2);
-						break;
-					case 4:
-						billBoardScroll.scrollToPage(1,0,0); //pretend inifinite scroll, jump to first Ranking Tab
-						break;
-				}
-
-			}
-		});
-		slideTab(tabSelector, billBoardScroll);
-		$('[name=startbillboardArrow]').on('click',function(){
-			billBoardScroll.scrollToPage(this.hash.replace(/^#/,''));
-			return false;
-		});
-		billBoardScroll.scrollToPage(1,0,0);
-		var billboardInterval = setInterval(function () {
-			billBoardScroll.scrollToPage('next', 0, 400);
-		}, 6000);
-		$('.start-billboard .slide-dots li').on('click',function(){clearInterval(billboardInterval)});
-		$('.start-billboard').on('touchstart', function(){clearInterval(billboardInterval)});
-	
 	});
-	/**************************/
-	/* Slider Call :: Ranking */
-	/**************************/
-
-	$(function(){		
-		var tabSelector = $('#ranking-tab li');
-		slideWidth($('.start-rankCatalog .section-body'), $('.start-rankCatalog .catalog'), $('.start-rankCatalog .catalog-wrap'));
-		tabSelector.first().addClass('active');
-		var myScrollRanking = new iScroll('start-rankCatalog-wrapper', {
-			snap: true,
-			momentum: false,
-			vScroll:false,
-			hScrollbar: false,
-			vScrollbar: false,
-			onScrollEnd: function () {
-				tabSelector.removeClass('active');
-				$('#ranking-tab li:nth-child(' + (this.currPageX) + ')').addClass('active');
-				switch (this.currPageX) {
-					case 0:
-						myScrollRanking.scrollToPage(7,0,0); //pretend inifinite scroll, jump to Last Ranking Tab
-						break;
-					case 1:
-						getAjaxRankingItems('start-rankCatalog-01', 10);
-						break;
-					case 2:
-						getAjaxRankingItems('start-rankCatalog-02', 101);
-						break;
-					case 3:
-						getAjaxRankingItems('start-rankCatalog-03', 102);
-						break;
-					case 4:
-						getAjaxRankingItems('start-rankCatalog-04', 103);
-						break;
-					case 5:
-						getAjaxRankingItems('start-rankCatalog-05', 104);
-						break;
-					case 6:
-						getAjaxRankingItems('start-rankCatalog-06', 105);
-						break;
-					case 7:
-						getAjaxRankingItems('start-rankCatalog-07', 106);
-						break;
-					case 8:
-						myScrollRanking.scrollToPage(1,0,0); //pretend inifinite scroll, jump to first Ranking Tab
-						break;
-				}
-			}
-		});
-		slideTab(tabSelector, myScrollRanking);
-		myScrollRanking.scrollToPage(1,0,0);
-		var rankingInterval = setInterval(function () {
-			myScrollRanking.scrollToPage('next', 0, 400);
-		}, 5000);
-		$('#ranking-tab li').on('click',function(){clearInterval(rankingInterval)});
-		$('.start-rankCatalog .section-body').on('touchstart', function(){clearInterval(rankingInterval)});		
-	});
-
-
 $(function(){
 	getItems('blookbook', 6); 
 	getItems('article', 6); 
@@ -750,129 +651,18 @@ $(function(){
 <!--contents//end-->
 </div>
 </div>
-<div id="modal" class="modal">
+<div id="modal" class="modal" >
 	<div class="modal-mask"></div>
 	<div class="modal-content">
 		<div class="modal-head">
-			<h4>SEARCH</h4>
+			<h4>-</h4>
 			<button class="button">
 				<span class="icon icon-dismiss-white"></span>
 				<span class="sr-only">이 창 닫기</span>
 			</button>
 		</div>
-		<div class="modal-body"><style>
-.onMenu{background:#FFFFFF;text-align:center}
-.onMenu a{font-weight:bold;color:#000000}
-.offMenu{background:#EFEFEF;color:#CCCCCC;text-align:center}
-.offMenu a{color:#CCCCCC;}
-.hand{cursor:pointer}
-</style>
-<div class="modal-status-possessions modal-possessions">
-	<section class="modal-search" style="height:100px">
-		<div class="section-body">
-			<form action="../store/search">
-				<div class="searchStore">
-					<div class="form-group">
-						<input type="text" id="input-modal-searchKeyword" name="stxt" class="form-control col-xs-18 col-md-18" required="" placeholder="검색어 입력" autocomplete="off">	
-						<button type="submit" class="btn btn-primary col-xs-6 col-md-6">검색</button>	
-					</div>
-					<table class="table col-md-22 col-xs-22" id="autoList" style="border:1px solid #CCCCCC;background:#FFFFFF;position:absolute;display:none;margin-top:20px;">
-					<tbody id="trSearch"></tbody>
-						</table>
-				</div>
-			</form>
+		<div class="modal-body">
 		</div>
-	</section>
-</div>
-<div class="modal-button">
-	<button class="button cancel btn-close">
-		<span class="button-label">닫기</span>
-	</button>
-</div>
-
-
-<script>
-$(document).ready(function() {
-	function ajax_search_keyword2(stxt){
-		var sword = "";
-		var rword = "";
-		var href = "";
-		var searchHtml = "";
-
-		$.getJSON("../main/ajax", {mode:"search", stxt:stxt}, function(data){
-			$(data.words).each(function(idx, v){
-				sword = v.word ;
-				href = encodeURI("../store/search?stxt="+ v.word);
-
-				rword = sword.replace(stxt, '<font color=red>'+stxt+'</font>');
-				searchHtml = searchHtml + "\r\n<tr class='hand' onclick=\"location.href='"+href+"'\"><td class='col-md-24 col-xs-24'><p class='text-left'>"+rword+"</p></td></tr>\r\n";
-			});
-
-			if(searchHtml == '' || searchHtml == null)
-				$("#trSearch").html(searchHtml);	
-
-		});
-	}
-    $(function() {   
-		$("#tdPop").click(function() {
-			$("#tdPop").removeClass("offMenu");
-			$("#tdPop").addClass("onMenu");
-			$("#tdNew").removeClass("onMenu");
-			$("#tdNew").addClass("offMenu");
-
-			$("#popList").show();
-			$("#newList").hide();
-		});
-		$("#tdNew").click(function() {
-			$("#tdNew").removeClass("offMenu");
-			$("#tdNew").addClass("onMenu");
-			$("#tdPop").removeClass("onMenu");
-			$("#tdPop").addClass("offMenu");
-
-			$("#popList").hide();
-			$("#newList").show();
-		});
-		$("#input-modal-searchKeyword").focus();
-
-		$("#input-modal-searchKeyword").keyup(function(e) {
-			if($(this).val() != '') {
-				$("#autoList").show();
-
-				$(".hotSearch").hide();
-				$("#popList").hide();
-				$("#newList").hide();
-			} else {
-				$("#autoList").hide();
-
-				$(".hotSearch").show();
-				$("#popList").show();
-				$("#newList").hide();
-			}
-
-			var stxt = $("#input-modal-searchKeyword").val();	
-			ajax_search_keyword2(stxt);
-		});
-	});
-
-	$("#popList tr,#newList tr").hover(
-	  function () {
-		$(this).css("background","#F2F2F2");
-	  }, 
-	  function () {
-		$(this).css("background","");
-	  }
-	);
-
-	$("#autoList tr").live('hover',
-		function (e) {
-			if(e.type == "mouseleave"){
-				$(this).css("background","");
-			} else if(e.type == "mouseenter") {
-				$(this).css("background","#F2F2F2");
-			}
-	});
-});
-</script></div>
 		<div class="modal-foot">
 		</div>
 	</div>
@@ -909,6 +699,8 @@ $(document).ready(function() {
 <script src="theme/pshp/js/plugins.min.js"></script>
 <script src="theme/pshp/js/main.min.js"></script>
 <script src="theme/pshp/js/vendor/fastclick.min.js"></script>
+<script>window.addEventListener('load', function() { FastClick.attach(document.body); }, false);</script>
+
 <script>
 $('.owl').owl({
 	autoplay: true,
