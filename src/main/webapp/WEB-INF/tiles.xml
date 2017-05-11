@@ -51,8 +51,13 @@
 	<definition name="goodsModifyForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goodsModifyForm.jsp" />
 	</definition>
+	<definition name="joinStep2" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/joinStep2.jsp"></put-attribute>
+	</definition>
 	
-	
+	<definition name="joinComplete" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/joinComplete.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>
 	
 	

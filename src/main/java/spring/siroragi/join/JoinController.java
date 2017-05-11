@@ -40,7 +40,7 @@ public class JoinController {
 	public ModelAndView joinComplete(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		joinService.insertMember(commandMap.getMap(), request);
-		mv.setViewName("common");
+		mv.setViewName("joinComplete");
 		return mv;
 		
 	}
