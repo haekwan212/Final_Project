@@ -41,12 +41,14 @@ function joinValidation(frm){
 function button1_click() {
 	alert("적립되었습니다.");
 	MEMBER_NUMBER="${member.MEMBER_NUMBER}";
+	// 스크립트에 value값 가지고 오기
 	POINT_POINT=document.getElementById("POINT_POINT").value
 	location.href="/SIRORAGI/admin/updatePoint?MEMBER_NUMBER=" + MEMBER_NUMBER + "&POINT_POINT="+ POINT_POINT;
 }
 function button2_click() {
 	alert("차감되었습니다.");
 	MEMBER_NUMBER="${member.MEMBER_NUMBER}";
+	// 스크립트에 value값 가지고 오기
 	POINT_POINT=document.getElementById("POINT_POINT").value
 	location.href="/SIRORAGI/admin/updatePoint?MEMBER_NUMBER=" + MEMBER_NUMBER + "&POINT_POINT=-"+ POINT_POINT;
 }
