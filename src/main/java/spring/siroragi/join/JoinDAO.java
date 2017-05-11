@@ -13,9 +13,5 @@ public class JoinDAO extends AbstractDAO {
 	public void insertMember(Map<String, Object> map) throws Exception{
 		insert("join.insertMember", map);
 	}
-	//회원가입시 point테이블 새읏ㅇ
-/*	public void insertMemberPoint(Ma<String, Object>map) throws Exception{
-		insert()*/
-
 }
 
