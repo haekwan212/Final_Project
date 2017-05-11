@@ -52,4 +52,66 @@
 				</div>
 			</section>
 		</div>
+<<<<<<< HEAD
 	</div>
+=======
+	</div>
+	<script>
+function hp_code(){
+	var f = document.frm;
+	var hp = f.hp1.value+f.hp2.value+f.hp3.value;
+
+	if(hp == '') {
+		alert("핸드폰 번호를 입력하세요.");
+		return false ;
+	}
+	$.post("ajax",{mode:"sms_code", hp:hp},function(data){	
+		
+		if(data.result != 'ok') {
+			if(data.result == 'dup') 
+				alert("이미 가입된 핸드폰입니다.");
+			else if(data.result == 'month')
+				alert("탈퇴 후 한달이내에 재가입은 불가능합니다. "+data.val+" 이후에 가입하십시요.");
+		} else {
+			document.frm.code_chk.value = data.val;
+			alert("인증번호를 요청하신 핸드폰으로 발송했습니다.");
+		}
+	}, "json");
+}
+
+function email_code(){
+	var f = document.frm;
+	var email = f.email1.value+"@"+f.email2.value;
+
+	if(email == '@') {
+		alert("이메일을 입력하세요.");
+		return false ;
+	}
+	$.post("ajax",{mode:"email_code", email:email},function(data){	
+
+		if(data.result != 'ok') {
+			if(data.result == 'dup') 
+				alert("이미 가입된 이메일입니다.");
+			else if(data.result == 'month')
+				alert("탈퇴 후 한달이내에 재가입은 불가능합니다. "+data.val+" 이후에 가입하십시요.");
+		} else {
+			document.frm.code_chk.value = data.val;
+			alert("인증번호를 요청하신 이메일로 발송했습니다.");
+		}
+	}, "json");
+}
+
+function member_send(){
+	var f = document.frm;
+	if(!f.sing_code.value){
+		alert("인증번호를 입력해 주세요");
+		f.sing_code.focus();
+	}else if(f.sing_code.value !=  f.code_chk.value){
+		alert("인증번호가 맞지 않습니다.");
+	}else{
+		f.action = "./register";
+		f.submit();
+	}
+}
+</script>
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f

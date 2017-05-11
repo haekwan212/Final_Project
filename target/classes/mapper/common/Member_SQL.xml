@@ -68,6 +68,7 @@
 	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList0">
 			<![CDATA[
 		SELECT 
+<<<<<<< HEAD
 			M.MEMBER_NUMBER,
 			M.MEMBER_ID,
 			M.MEMBER_NAME,
@@ -80,6 +81,18 @@
 		SUM (P.POINT_POINT) MEMBER_POINT
 		FROM MEMBER M, POINT P
 		WHERE MEMBER_ONOFF= #{onOff}
+=======
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='0'
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 		AND MEMBER_ID like '%' || #{isSearch} || '%'
 		AND M.MEMBER_NUMBER = P.MEMBER_NUMBER
 		GROUP BY 
@@ -99,6 +112,7 @@
 	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList1">
 			<![CDATA[
 		SELECT 
+<<<<<<< HEAD
 			M.MEMBER_NUMBER,
 			M.MEMBER_ID,
 			M.MEMBER_NAME,
@@ -123,6 +137,19 @@
 			M.MEMBER_ADDRESS2,
 			M.MEMBER_REGDATE,
 			M.MEMBER_DELDATE
+=======
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='0'
+		AND MEMBER_ID like '%' || #{isSearch} || '%'
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 		ORDER BY MEMBER_NUMBER DESC
 	]]>
 	</select>
@@ -130,6 +157,7 @@
 	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList2">
 			<![CDATA[
 		SELECT 
+<<<<<<< HEAD
 			M.MEMBER_NUMBER,
 			M.MEMBER_ID,
 			M.MEMBER_NAME,
@@ -154,6 +182,19 @@
 			M.MEMBER_ADDRESS2,
 			M.MEMBER_REGDATE,
 			M.MEMBER_DELDATE
+=======
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='0'
+		AND MEMBER_ID like '%' || #{isSearch} || '%'
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 		ORDER BY MEMBER_NUMBER DESC
 	]]>
 	</select>
@@ -161,6 +202,7 @@
 	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList3">
 			<![CDATA[
 		SELECT 
+<<<<<<< HEAD
 			M.MEMBER_NUMBER,
 			M.MEMBER_ID,
 			M.MEMBER_NAME,
@@ -185,6 +227,19 @@
 			M.MEMBER_ADDRESS2,
 			M.MEMBER_REGDATE,
 			M.MEMBER_DELDATE
+=======
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='0'
+		AND MEMBER_ID like '%' || #{isSearch} || '%'
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 		ORDER BY MEMBER_NUMBER DESC
 	]]>
 	</select>

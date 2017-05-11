@@ -107,6 +107,11 @@ public class GoodsImageUtils {
         }
 		return list;*/
 	}
+	
+	//파일 삭제
+	public void parseDeleteFileInfo(Map<String,Object> map, HttpServletRequest request) throws Exception{
+		
+	}
 
 	/*public List<Map<String, Object>> parseUpdateFileInfo(Map<String, Object> map, HttpServletRequest request) throws Exception{
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
