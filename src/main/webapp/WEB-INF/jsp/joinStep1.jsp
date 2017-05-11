@@ -52,6 +52,9 @@
 				</div>
 			</section>
 		</div>
+<<<<<<< HEAD
+	</div>
+=======
 	</div>
 	<script>
 function hp_code(){
@@ -111,3 +114,4 @@ function member_send(){
 	}
 }
 </script>
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f

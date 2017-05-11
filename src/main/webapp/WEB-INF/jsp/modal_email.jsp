@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+<%@ page contentType="text/html; charset=utf-8
+" %>
+=======
 <%@ page contentType="text/html; charset=utf-8" %>
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 <div class="modal-body"><form name="frm" method="post" class="form-horizontal">
 <input name="code_chk" type="hidden">
 <input name="agreement" value="o" type="hidden">

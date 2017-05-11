@@ -17,11 +17,6 @@ public class MemberServiceImpl implements MemberService {
 	public List<Map<String, Object>> selectMemberList(Map<String, Object> map) throws Exception {
 		return memberDAO.selectMemberList(map);
 	}
-	
-	@Override
-	public List<Map<String, Object>> selectDelMemberList(Map<String, Object> map) throws Exception {
-		return memberDAO.selectDelMemberList(map);
-	}
 
 	@Override
 	public Map<String, Object> selectMemberDetail(Map<String, Object> map) throws Exception {
@@ -38,27 +33,35 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.deleteMember(map);
 	}
 
-	// 아이디 검색
+	// 회원 아이디 검색
 	@Override
-	public List<Map<String, Object>> searchMemberList0(Map<String, Object> map, String search) throws Exception {
-		return memberDAO.searchMemberList0(map, "%" + search + "%");
+	public List<Map<String, Object>> searchMemberList0(Map<String, Object> map) throws Exception {
+		return memberDAO.searchMemberList0(map);
 	}
-	
-	// 이름 검색
+
+	// 회원 이름 검색
 	@Override
-	public List<Map<String, Object>> searchMemberList1(Map<String, Object> map, String search) throws Exception {
-		return memberDAO.searchMemberList1(map, "%" + search + "%");
+	public List<Map<String, Object>> searchMemberList1(Map<String, Object> map) throws Exception {
+		return memberDAO.searchMemberList1(map);
 	}
-	
-	// 전화번호 검색
+
+	// 회원 전화번호 검색
 	@Override
-	public List<Map<String, Object>> searchMemberList2(Map<String, Object> map, String search) throws Exception {
-		return memberDAO.searchMemberList2(map, "%" + search + "%");
+	public List<Map<String, Object>> searchMemberList2(Map<String, Object> map) throws Exception {
+		return memberDAO.searchMemberList2(map);
 	}
-	
-	// 이메일 검색
+
+	// 회원 이메일 검색
 	@Override
-	public List<Map<String, Object>> searchMemberList3(Map<String, Object> map, String search) throws Exception {
-		return memberDAO.searchMemberList3(map, "%" + search + "%");
+	public List<Map<String, Object>> searchMemberList3(Map<String, Object> map) throws Exception {
+		return memberDAO.searchMemberList3(map);
 	}
+
+	// 회원포인트 수정
+	@Override
+	public void updatePoint(Map<String, Object> map) throws Exception {
+		memberDAO.updatePoint(map);
+
+	}
+
 }

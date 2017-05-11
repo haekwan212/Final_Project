@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 <%@page contentType="text/html; charset=utf-8" %>
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 <section class="step-panels">
 		<ol>
 			<li class="c01 col-xs-7">
@@ -16,7 +19,11 @@
 	</section>
 	<!-- step-panels//end -->
 	<div class="register-privacy">
+<<<<<<< HEAD
+		<form action="/membermethod="post" action="process">
+=======
 		<form action="/SIRORAGI/joinComplete" method="post">
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 		<input type="hidden" name="mode" value="register">
 		<input type="hidden" name="rurl" value="register_ok">
 		<input type="hidden" name="chkid">
@@ -378,8 +385,13 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 			</label>
 		</div>
 		<div class="col-lg-21 col-md-20">
+<<<<<<< HEAD
+			<input type="text" name="mid" id="mid" value="" maxlength="20" class="xx-control" label="아이디" required="">
+			<p class="alert"></p>
+=======
 			<input type="text" name="MEMBER_ID" id="MEMBER_ID" value="" maxlength="20" class="xx-control" label="아이디" required="">
 			<p class="alert alert-positive"></p>
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 		</div>
 	</li>
 	<!--
@@ -402,7 +414,11 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 			</label>
 		</div>
 		<div class="col-lg-21 col-md-20">
+<<<<<<< HEAD
+			<input type="password" id="input-password" class="xx-control" value="" name="password" required="" label="비밀번호">
+=======
 			<input type="password" id="input-password" class="xx-control" value="" name="MEMBER_PASSWORD" required="" label="비밀번호">
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 		</div>
 	</li>
 	<li class="password check">
@@ -422,7 +438,11 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 			</label>
 		</div>
 		<div class="col-lg-21 col-md-20">
+<<<<<<< HEAD
+			<input type="text" id="input-name" class="xx-control" name="name" value="" required="" label="이름"><!--disabled="disabled"-->
+=======
 			<input type="text" id="input-name" class="xx-control" name="MEMBER_NAME" value="" required="" label="이름"><!--disabled="disabled"-->
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 		</div>
 	</li>
 	<li class="gender checked-radio">
@@ -454,7 +474,13 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 		</div>
 		<div class="col-lg-21 col-md-20">
 			<div class="input-box">
+<<<<<<< HEAD
+				<input type="text" name="mobile[]" id="input-cell-phone01" label="휴대폰" value=""  maxlength="4" class="xx-control" required="">
+				<input type="text" name="mobile[]" id="input-cell-phone02" label="휴대폰" value=""  maxlength="4" class="xx-control" required="">
+				<input type="text" name="mobile[]" id="input-cell-phone02" label="휴대폰" value=""  maxlength="4" class="xx-control" required="">
+=======
 				<input type="text" name="MEMBER_PHONE" id="input-cell-phone01" label="휴대폰" value=""  maxlength="11" class="xx-control" required="">
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 			</div>
 			<div class="checkbox checkbox-inline c01 selected">
 				<label>
@@ -472,6 +498,30 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 			<!--</div>-->
 		</div>
 	</li>
+<<<<<<< HEAD
+	<li class="phone">
+		<div class="item-label col-lg-3 col-md-4">
+			<label for="input-phone01">
+				<strong>전화</strong>
+			</label>
+		</div>
+		<div class="col-lg-21 col-md-20">
+			<div class="input-box">
+				<input type="text" name="phone[]" id="input-phone01" class="xx-control" value="" maxlength="4">
+				<input type="text" name="phone[]" id="input-phone02" class="xx-control" value="" maxlength="4">
+				<input type="text" name="phone[]" id="input-phone02" class="xx-control" value="" maxlength="4">
+			</div>
+			<!--<div class="checkbox">-->
+				<!--<label>-->
+					<!--<input type="checkbox" name="" value="" checked="">-->
+					<!--<span class="icon icon-checkbox"></span>-->
+					<!--<span class="checkbox-label">전화번호 없음</span>-->
+				<!--</label>-->
+			<!--</div>-->
+		</div>
+	</li>
+=======
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 	<li class="mail">
 		<div class="item-label col-lg-3 col-md-4">
 			<label for="input-mail">
@@ -480,9 +530,15 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 		</div>
 		<div class="col-lg-21 col-md-20">
 			<div class="input-box">
+<<<<<<< HEAD
+				<input type="text" name="email[]" class="xx-control x01" label="이메일" required="" value="" size="10">
+				<span>@</span>
+				<input type="text" name="email[]" id="email2" class="xx-control x02" label="이메일" required="" value="" size="20">
+=======
 				<input type="text" name="MEMBER_EMAIL" class="xx-control x01" label="이메일" required="" value="" size="10">
 				<span>@</span>
 				<input type="text" name="MEMBER_EMAIL2" id="email2" class="xx-control x02" label="이메일" required="" value="" size="20">
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 				<div class="selectbox">
 					<div class="selectbox-data">
 						<strong class="text">직접입력
@@ -524,11 +580,20 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 		</div>
 		<div class="col-lg-21 col-md-20">
 			<div class="input-box">
+<<<<<<< HEAD
+				<input type="text" id="zipcode1" name="zipcode[]" disabled="disabled" label="우편번호" value="" maxlength="3" required="">
+				<input type="text" id="zipcode2" name="zipcode[]" disabled="disabled" label="우편번호" value="" maxlength="3" required="">
+				<span class="button button-dimmed" onclick="javascript:openDaumPostcode()">주소 찾기</span>
+			</div>
+			<input type="text" id="address" class="xx-control" name="address" label="주소" disabled="disabled" value="" size="48" readonly="" required="">
+			<input type="text" id="address_sub" class="xx-control" name="address_sub" value="" label="주소" required="">
+=======
 				<input type="text" id="sample6_postcode" name="MEMBER_ZIPCODE" disabled="disabled" label="우편번호" value="" maxlength="6" required="">
 				<span class="button button-dimmed" onclick="sample6_execDaumPostcode()">주소 찾기</span>
 			</div>
 			<input type="text" id="sample6_address" class="xx-control" name="MEMBER_ADDRESS1" label="주소" disabled="disabled" value="" size="48" readonly="" required="">
 			<input type="text" id="sample6_address2" class="xx-control" name="MEMBER_ADDRESS2" value="" label="주소" required="">
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 		</div>
 	</li>
 	<li class="birth input-placeholder">
@@ -540,7 +605,18 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 		<div class="col-lg-21 col-md-20">
 			<div class="input-box">
 				<div class="item">
+<<<<<<< HEAD
+					<input type="text" id="input-birth01" name="birth_year" value="" maxlength="4" placeholder="년" class="xx-control">
+				</div>
+				<div class="item">
+					<input type="text" id="input-birth02" name="birth_month" value="" maxlength="2" placeholder="월" class="xx-control">
+				</div>
+				<div class="item">
+					<input type="text" id="input-birth03" name="birth_day" value="" maxlength="2" placeholder="일" class="xx-control">
+				</div>
+=======
 					<input type="text" id="input-birth01" name="MEMBER_BIRTHDAY" value="" maxlength="8" placeholder="예)19000101" class="xx-control">
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 			</div>
 		</div>
 	</li>
@@ -562,6 +638,18 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 		</div>
 	</li>
 </ul>
+<<<<<<< HEAD
+<!--
+<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
+-->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script><script charset="UTF-8" type="text/javascript" src="http://s1.daumcdn.net/svc/attach/U03/cssjs/postcode/1484723365148/170118.js"></script>
+<script>
+$("input[name=mid]").blur(function(){
+	var mid = $(this).val();
+	var p = $(this).parent();
+	$.post("ajax",{mode:"chkid", mid:mid},function(data){
+		if (!mid){
+=======
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {
@@ -612,6 +700,7 @@ $("input[name=MEMBER_ID]").blur(function(){
 	var p = $(this).parent();
 	$.post("/SIRORAGI/joinStep2",{mode:"chkid", MEMBER_ID:MEMBER_ID},function(data){
 		if (!MEMBER_ID){
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 			$(".alert",p).removeClass("alert-positive").addClass("alert-negative").html("<span class='icon icon-negative-orange'></span> 아이디를 입력해주세요");
 			$("input[name=chkid]").val("");
 		} else if (data==1){
@@ -628,7 +717,11 @@ $(".auto_mail").change(function() {
 });
 
 </script>
+<<<<<<< HEAD
+				<div class="section-foot111">
+=======
 				<div class="section-foot">
+>>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 					<button type="submit" id="validateBtn" class="button large">
 						<span class="button-label">회원가입</span>
 					</button>
