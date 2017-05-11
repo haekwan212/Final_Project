@@ -95,11 +95,17 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	 * }
 	 */
 
+	//상품 수정폼으로 이동
+	public List<Map<String, Object>> goodsModifyForm(Map<String, Object> map) throws Exception{
+		List<Map<String,Object>> goodsDetail=adminGoodsDAO.goodsModifyForm(map);
+		return goodsDetail;
+	}
+	
 	// 상품 수정
 
 	// 상품 삭제
-	public void goodsDelete(Integer GOODS_NUMBER) throws Exception{
-		adminGoodsDAO.goodsDelete(GOODS_NUMBER);
+	public void goodsDelete(Map<String, Object> map) throws Exception{
+		adminGoodsDAO.goodsDelete(map);
 	}
 
 	// 상품 검색(상품명)

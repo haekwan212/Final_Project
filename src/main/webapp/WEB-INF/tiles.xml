@@ -27,30 +27,32 @@
 	<definition name="adminForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/main.jsp" />
 	</definition>
-
+	
 	<definition name="memberList" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/member/member.jsp" />
+	</definition>
+	
+	<definition name="openMemberDetail" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/member/openMemberDetail.jsp" />
 	</definition>
 	
 	<definition name="goodsForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
 	</definition>
 	
-	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
-		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp"/>
+	<definition name="faqAdmin" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
 	</definition>
 	
-	<definition name="common2" template="/WEB-INF/jsp/header.jsp">
-		<put-attribute name="body"></put-attribute>
+	<definition name="goodsList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goods.jsp" />
 	</definition>
 	
-	<definition name="joinStep1" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
+	<definition name="goodsModifyForm" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goodsModifyForm.jsp" />
 	</definition>
 	
-	<definition name="joinStep2" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/joinStep2.jsp"></put-attribute>
-	</definition>
+	
 </tiles-definitions>
 	
 	

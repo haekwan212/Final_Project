@@ -127,6 +127,19 @@ public class AdminGoodsController {
 		
 		return mv;
 	}
+	
+	//상품 수정 폼으로 이동
+	@RequestMapping(value="goods/goodsModifyForm")
+	public ModelAndView goodsModifyForm(CommandMap adminGoodsMap) throws Exception{
+		ModelAndView mv=new ModelAndView("goodsModifyForm");		
+		
+		List<Map<String, Object>> goodDetail=adminGoodsService.goodsModifyForm(adminGoodsMap.getMap());
+		Map<String,Object> goodBasic=goodDetail.get(0);
+		mv.addObject("goodDetail",goodDetail);
+		mv.addObject("goodBasic",goodBasic);
+		
+		return mv;
+	}
 
 	// 상품 수정
 
@@ -138,7 +151,7 @@ public class AdminGoodsController {
 		
 		ModelAndView mv=new ModelAndView("redirect:goodsList");
 		
-		adminGoodsService.goodsDelete((Integer)adminGoodsMap.get("GOODS_NUMBER"));
+		adminGoodsService.goodsDelete(adminGoodsMap.getMap());
 		
 		return mv;
 	}
