@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-<%@ page contentType="text/html; charset=utf-8
-" %>
-=======
 <%@ page contentType="text/html; charset=utf-8" %>
->>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
-<div class="modal-body"><form name="frm" method="post" class="form-horizontal">
-<input name="code_chk" type="hidden">
+<% String all = request.getAttribute("authNum").toString(); %>
+<div class="modal-body">
+<form name="frm" method="post" class="form-horizontal">
+<input name="code_chk" type="hidden" value="${authNum}">
 <input name="agreement" value="o" type="hidden">
-
 <section style="padding:30px 20px;">
-
 	<div class="form-group">
 		<label for="inputEmail3" class="col-xs-4 col-lg-4 control-label">이메일</label>
 		<div class="col-xs-20 col-lg-20 form-inline">
@@ -28,9 +23,7 @@
 	<div class="text-center" style="padding-top:10px">
 		<a href="javascript:member_send();" class="btn btn-default">회원가입하기</a>
 	</div>
-
 </section>
-
 </form></div>
 <div class="modal-foot">
 </div>

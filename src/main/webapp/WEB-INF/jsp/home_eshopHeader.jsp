@@ -64,8 +64,8 @@
 <div class="globalNavigation mobile">
 	<div class="tier1-group account">
 		<div class="tier1-head login">
-			<a href="/member/login" class="col-xs-12"><strong>login</strong></a>
-			<a href="/member/register" class="col-xs-12"><strong>join</strong></a>
+			<a href="/SIRORAGI/login/loginForm" class="col-xs-12"><strong>login</strong></a>
+			<a href="/SIRORAGI/joinStep1" class="col-xs-12"><strong>join</strong></a>
 		</div>
 	</div>
 	<nav>
@@ -305,11 +305,11 @@
 		<div class="globalUtility hidden-xs hidden-sm">
 			<ul>
 				<li class="login item">
-					<a href="/member/login" style="display:inline">login &</a>
+					<a href="/SIRORAGI/loginForm" style="display:inline">login &</a>
 					<a href="/SIRORAGI/joinStep1" style="display:inline">join</a>
 				</li>
 				<li class="item">
-					<a href="/order/cart">
+					<a href="/SIRORAGI/cartList">
 						<span class="icon icon-cart-black hidden-lg"></span>
 						<span class="hidden-md">cart</span>
 					</a>

@@ -88,7 +88,6 @@ function email_code(){
 		return false ;
 	}
 	$.post("ajax",{mode:"email_code", email:email},function(data){	
-
 		if(data.result != 'ok') {
 			if(data.result == 'dup') 
 				alert("이미 가입된 이메일입니다.");
@@ -109,9 +108,8 @@ function member_send(){
 	}else if(f.sing_code.value !=  f.code_chk.value){
 		alert("인증번호가 맞지 않습니다.");
 	}else{
-		f.action = "./register";
+		f.action = "./joinStep1";
 		f.submit();
 	}
 }
 </script>
->>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f

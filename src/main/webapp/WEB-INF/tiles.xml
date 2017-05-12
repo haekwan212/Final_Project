@@ -63,13 +63,19 @@
 		<put-attribute name="body"></put-attribute>
 	</definition>
 	  <definition name="joinStep1" extends="common2">
-      <put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
+      <put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"/>
    </definition>
 	<definition name="joinStep2" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/joinStep2.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/joinStep2.jsp"/>
 	</definition>
 	<definition name="joinComplete" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/joinComplete.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/joinComplete.jsp"/>
+	</definition>
+	<definition name="loginForm" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/loginForm.jsp"/>
+	</definition>
+	<definition name="cartList" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/cartForm.jsp"/>
 	</definition>
 </tiles-definitions>
 	

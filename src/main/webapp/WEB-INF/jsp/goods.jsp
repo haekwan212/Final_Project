@@ -639,7 +639,7 @@ function _exec(mode){
 		var fm = document.fmOrder;
 		fm.mode.value = mode;
 		fm.target = "_self";
-		fm.action = "../order/cart";
+		fm.action = "/SIRORAGI/cartList";
 		//if (mode=="wishlist") fm.action = "../mypage/wishlist";
 		fm.submit();
 
