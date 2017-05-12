@@ -128,6 +128,8 @@ public class JoinController {
 	@RequestMapping(value="/joinComplete", method=RequestMethod.POST)
 	public ModelAndView joinComplete(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		String MEMBER_EMAIL = request.getParameter("MEMBER_EMAIL1")+"@"+request.getParameter("MEMBER_EMAIL2");
+		commandMap.getMap().put("MEMBER_EMAIL", MEMBER_EMAIL);
 		joinService.insertMember(commandMap.getMap(), request);
 		mv.setViewName("joinComplete");
 		return mv;

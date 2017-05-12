@@ -305,11 +305,11 @@
 		<div class="globalUtility hidden-xs hidden-sm">
 			<ul>
 				<li class="login item">
-					<a href="/member/login" style="display:inline">login &</a>
+					<a href="/SIRORAGI/loginForm" style="display:inline">login &</a>
 					<a href="/SIRORAGI/joinStep1" style="display:inline">join</a>
 				</li>
 				<li class="item">
-					<a href="/order/cart">
+					<a href="/SIRORAGI/cartList">
 						<span class="icon icon-cart-black hidden-lg"></span>
 						<span class="hidden-md">cart</span>
 					</a>

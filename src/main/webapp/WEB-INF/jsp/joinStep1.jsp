@@ -158,7 +158,6 @@ function member_send(){
 	}
 	
 	$.post("ajax",{mode:"email_code", email:email},function(data){	
-
 		if(data.result != 'ok') {
 			if(data.result == 'dup') 
 				alert("이미 가입된 이메일입니다.");
@@ -171,9 +170,8 @@ function member_send(){
 	}, "json");
 }
 
+
   */
  
 </script>
-
-
 
