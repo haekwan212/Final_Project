@@ -116,9 +116,7 @@
                                 <li>
                                     <a href="/SIRORAGI/qna/qna">- Q&A</a>
                                 </li>
-                                <li>
-                                    <a href="/SIRORAGI/faq/faq">- FAQ</a>
-                                </li>
+
                             </ul>
                         </li>
                         

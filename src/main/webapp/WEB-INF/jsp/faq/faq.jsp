@@ -6,7 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 
-<!-- jQuery --> <!-- 이거 없으면 fn 이동안함 1 -->
+<!-- jQuery --> <!-- 버튼이동 1 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="<c:url value='/js/common.js'/>" charset="utf-8"></script>
 
@@ -58,12 +58,28 @@ a:link, a:visited {text-decoration: none; color: #656565;}
 
 .wdp_90 {width:90%}
 .btn {border-radius:3px;padding:5px 11px;color:#fff !important; display:inline-block; background-color:#6b9ab8; border:1px solid #56819d;vertical-align:middle}
+
+
+/* 페이징CSS */
+.paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
+.paging a,
+.paging strong{display:inline-block;width:36px;height:32px;line-height:28px;font-size:14px;border:1px solid #e0e0e0;margin-left:5px;
+-webkit-border-radius:3px;
+   -moz-border-radius:3px;
+		border-radius:3px;
+-webkit-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+	-moz-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+		  box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+}
+.paging a:first-child{margin-left:0;}
+.paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
+.paging .page_arw{font-size:11px;line-height:30px;}
 </style>
 
 </head>
 
 <body>
-<form id="commonForm" name="commonForm">	<!-- 이거 없으면 fn 이동안함 2 -->
+<form id="commonForm" name="commonForm">	<!-- 버튼이동 2 -->
 	<h2>자주묻는 질문</h2>
 	<table class="board_list">
 		<colgroup>
@@ -102,8 +118,28 @@ a:link, a:visited {text-decoration: none; color: #656565;}
 			</c:choose>
 		</tbody>
 	</table>
-	<br />
+		<br />
 	<a href="#this" class="btn" id="write">글쓰기</a>
+					<div class="paging">
+						${pagingHtml}
+					</div> 
+
+					<div class="row">
+						<div style="text-align: center;">
+							<div id="dataTables-example_filter" class="dataTables_filter">
+								<form action="">
+									<select class="form-control" name="searchNum" id="searchNum">
+										<option value="0">제목</option>
+										<option value="1">내용</option>
+
+									</select> <input class="form-control" type="text" name="isSearch" id="isSearch" /> <span>
+										<button type="submit" class="btn btn-default">검색</button>
+									</span>
+								</form>
+							</div>
+						</div>
+					</div>
+
 
 </form>
 </body>

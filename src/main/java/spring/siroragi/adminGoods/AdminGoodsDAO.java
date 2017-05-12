@@ -50,6 +50,11 @@ public class AdminGoodsDAO {
 	public List<Map<String, Object>> goodsModifyForm(Map<String, Object> map) throws Exception{
 		return sqlSession.selectList("adminGoods.selectOneGoods", map);
 	}
+	
+	// 상품 이미지 정보 불러오기
+	public List<Map<String, Object>> goodsModifyFormImage(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("adminGoods.selectOneGoodsImage", map);
+	}
 
 	// 상품 수정
 	public void goodsModify(Map<String, Object> map) throws Exception {

@@ -11,76 +11,59 @@ import spring.kh.siroragi.AbstractDAO;
 public class FaqDAO extends AbstractDAO {
 
 	@SuppressWarnings("unchecked")
-	//FAQ리스트
+	// FAQ리스트
 	public List<Map<String, Object>> faqList(Map<String, Object> map) throws Exception {
 		return (List<Map<String, Object>>) selectList("faq.faqList", map);
 	}
 
-	//FAQ등록
+	// FAQ등록
 	public void faqWrite(Map<String, Object> map) throws Exception {
 		insert("faq.faqWrite", map);
 	}
 
-	//FAQ조회수
+	// FAQ조회수
 	public void updateHitCnt(Map<String, Object> map) throws Exception {
 		update("faq.updateHitCnt", map);
 	}
 
-	//FAQ상세보기
+	// FAQ상세보기
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> faqDetail(Map<String, Object> map) throws Exception {
 		return (Map<String, Object>) selectOne("faq.faqDetail", map);
 	}
 
-	//FAQ수정
+	// FAQ수정
 	public void faqModify(Map<String, Object> map) throws Exception {
 		update("faq.faqModify", map);
 	}
 
-	//FAQ삭제
+	// FAQ삭제
 	public void faqDelete(Map<String, Object> map) throws Exception {
 		delete("faq.faqDelete", map);
 	}
 
-	/*//FAQ파일첨부
-	public void insertFile(Map<String, Object> map) throws Exception {
-		insert("faq.insertFile", map);
-	}
-
+	// 글제목 검색
 	@SuppressWarnings("unchecked")
-	//다중첨부
-	public List<Map<String, Object>> selectFileList(Map<String, Object> map) throws Exception {
-		return (List<Map<String, Object>>) selectList("faq.selectFileList", map);
+	public List<Map<String, Object>> searchTitleList(Map<String, Object> map, String isSearch) {
+		return (List<Map<String, Object>>) searchTitleList("faq.searchTitleList", map, "%" + isSearch + "%");
 	}
 
-	//첨부파일 삭제
-	public void deleteFileList(Map<String, Object> map) throws Exception {
-		update("faq.deleteFileList", map);
+	// 글내용 검색
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> searchContentList(Map<String, Object> map, String isSearch) {
+		return (List<Map<String, Object>>) searchContentList("faq.searchContentList", map, "%" + isSearch + "%");
 	}
-	
-	//첨부파일 수정
-	public void updateFile(Map<String, Object> map) throws Exception {
-		update("faq.updateFile", map);
-	}*/
 
-	
 
-	// FAQ 등록 폼으로 이동
+	// FAQ파일첨부1
+	public void faqImage1(Map<String,Object> map) throws Exception {
+		update("faq.faqImage1", map);
+	}
 
-	// FAQ 등록
-
-	// FAQ 수정
-
-	// FAQ 상세보기
-
-	// FAQ 삭제
-
-	// FAQ 검색
-	
-	
-	
-	
-	
-	
+	/*// FAQ파일첨부2
+	public void faqImage2(Map<String, Object> map) throws Exception {
+		update("faq.faqImage2", map);
+	}
+*/
 	
 }

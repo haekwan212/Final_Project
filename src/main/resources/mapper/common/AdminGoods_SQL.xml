@@ -32,6 +32,14 @@
 		]]>
 	</select>
 	
+	<select id="selectOneGoodsImage" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT IMAGE FROM IMAGE
+			WHERE GOODS_NUMBER=#{GOODS_NUMBER}
+			ORDER BY IMAGE_NUMBER ASC
+		]]>
+	</select>
+	
 	<insert id="insertAdminGoods" parameterType="hashmap" useGeneratedKeys="true" keyProperty="GOODS_NUMBER">
 		<selectKey keyProperty="GOODS_NUMBER" resultType="integer" order="BEFORE">
 			SELECT GOODS_NUMBER_SEQ.NEXTVAL FROM DUAL
@@ -51,9 +59,9 @@
 	<insert id="insertAdminGoodsKinds" parameterType="hashmap">
 		<![CDATA[
 			INSERT INTO GOODS_KINDS (
-			GOODS_NUMBER, GOODS_AMOUNT, GOODS_SIZE, GOODS_COLOR
+			GOODS_NUMBER, GOODS_AMOUNT, GOODS_SIZE, GOODS_COLOR,GOODS_KINDS_NUMBER
 			) VALUES ( #{GOODS_NUMBER}, #{GOODS_AMOUNT},
-			#{GOODS_SIZE}, #{GOODS_COLOR} )
+			#{GOODS_SIZE}, #{GOODS_COLOR}, GOODS_KINDS_NUMBER_SEQ.NEXTVAL )
 			
 		]]>
 	</insert>
