@@ -49,7 +49,7 @@ $("form").submit(function(event){
 	$(this).find("*").each(function(){	
 
 		if ($(this).attr("name")=="password_confirm"){
-			if ($(this).val() && $(this).val()!=$("input[name=password]",_self).val()){
+			if ($(this).val() && $(this).val()!=$("input[name=MEMBER_PASSWORD]",_self).val()){
 				alert("비밀번호가 일치하지 않습니다");
 				$(this).val("").focus();
 				event.preventDefault();
@@ -105,15 +105,4 @@ $("form").submit(function(event){
 			}
 		}
 	});
-});
-
-$(".openDaumPostcode").click(function(){
-	new daum.Postcode({
-		oncomplete: function(data) {
-			$("input[name='post[]']").eq(0).val(data.postcode1);
-			$("input[name='post[]']").eq(1).val(data.postcode2);
-			$("input[name=address]").val(data.address);
-			$("input[name=address_detail]").focus();
-		}
-	}).open();
 });

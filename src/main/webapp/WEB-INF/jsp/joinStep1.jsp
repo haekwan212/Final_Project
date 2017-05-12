@@ -60,6 +60,7 @@ System.out.println("야야야"+authNum);%>
 		</div>
 	</div>
 
+
 	<script>
 	
 function hp_code(){
@@ -129,7 +130,7 @@ function email_code(){
 
 function member_send(){
 	var f = document.frm;
- 	var authNum =[authNum}; 
+ 	var authNum ='authNum'; 
 	<%-- var user_id = '<%request.getParameter("id");%>'; --%>
 
 	if(!f.sing_code.value){
@@ -169,6 +170,10 @@ function member_send(){
 		}
 	}, "json");
 }
+
   */
  
 </script>
+
+
+

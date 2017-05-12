@@ -127,8 +127,32 @@ public class AdminGoodsController {
 		
 		return mv;
 	}
+	
+	//상품 수정 폼으로 이동
+	@RequestMapping(value="goods/goodsModifyForm")
+	public ModelAndView goodsModifyForm(CommandMap adminGoodsMap) throws Exception{
+		ModelAndView mv=new ModelAndView("goodsModifyForm");		
+		
+		List<Map<String, Object>> goodDetail=adminGoodsService.goodsModifyForm(adminGoodsMap.getMap());
+		mv.addObject("goodDetail",goodDetail);
+		Map<String,Object> goodBasic=goodDetail.get(0);
+		mv.addObject("goodBasic",goodBasic);
+		
+		List<Map<String,Object>> goodImage=adminGoodsService.goodsModifyFormImage(adminGoodsMap.getMap());
+		mv.addObject("goodImage",goodImage);
+		
+		return mv;
+	}
 
 	// 상품 수정
+	@RequestMapping(value="goods/goodsModify")
+	public ModelAndView goodsModify(CommandMap adminGoodsMap) throws Exception{
+		ModelAndView mv=new ModelAndView("goodsModifyForm");
+		System.out.println("상품 수정 정보 : "+adminGoodsMap.getMap());
+		
+		return mv;
+	}
+	
 
 	// 상품 수정 OFF시, 장바구니와 위시리스트에서 제외
 
@@ -138,7 +162,7 @@ public class AdminGoodsController {
 		
 		ModelAndView mv=new ModelAndView("redirect:goodsList");
 		
-		adminGoodsService.goodsDelete((Integer)adminGoodsMap.get("GOODS_NUMBER"));
+		adminGoodsService.goodsDelete(adminGoodsMap.getMap());
 		
 		return mv;
 	}

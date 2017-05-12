@@ -51,9 +51,10 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 
 		adminGoodsDAO.goodsInsert(map);
 
-		map = goodsImageUtils.goodsThumbnail(map, request);
-
-		adminGoodsDAO.goodsThumbnailInsert(map);
+		if (map.get("GOODS_THUMBNAIL") != null) {
+			map = goodsImageUtils.goodsThumbnail(map, request);
+			adminGoodsDAO.goodsThumbnailInsert(map);
+		}
 
 		// System.out.println(map);
 		String[] colors = request.getParameterValues("GOODS_COLOR");
@@ -67,13 +68,15 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 			adminGoodsDAO.goodsKindsInsert(map);
 		}
 
-		List<Map<String, Object>> goodsImageList = goodsImageUtils.parseInsertFileInfo(map, request);
+		if (map.get("IMAGE") != null) {
+			List<Map<String, Object>> goodsImageList = goodsImageUtils.parseInsertFileInfo(map, request);
 
-		// System.out.println("goodsImageList : "+goodsImageList);
-		// System.out.println("mapImage : "+map.get("IMAGE"));
+			// System.out.println("goodsImageList : "+goodsImageList);
+			// System.out.println("mapImage : "+map.get("IMAGE"));
 
-		for (int i = 0, size = goodsImageList.size(); i < size; i++) {
-			adminGoodsDAO.goodsImageInsert(goodsImageList.get(i));
+			for (int i = 0, size = goodsImageList.size(); i < size; i++) {
+				adminGoodsDAO.goodsImageInsert(goodsImageList.get(i));
+			}
 		}
 		/*
 		 * for(int i=0; i<colors.length;i++){
@@ -95,11 +98,23 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	 * }
 	 */
 
+	// 상품 수정폼으로 이동
+	public List<Map<String, Object>> goodsModifyForm(Map<String, Object> map) throws Exception {
+		List<Map<String, Object>> goodsDetail = adminGoodsDAO.goodsModifyForm(map);
+		return goodsDetail;
+	}
+
+	// 상품 이미지 불러오기
+	public List<Map<String, Object>> goodsModifyFormImage(Map<String, Object> map) throws Exception {
+		List<Map<String, Object>> goodImage = adminGoodsDAO.goodsModifyFormImage(map);
+		return goodImage;
+	}
+
 	// 상품 수정
 
 	// 상품 삭제
-	public void goodsDelete(Integer GOODS_NUMBER) throws Exception{
-		adminGoodsDAO.goodsDelete(GOODS_NUMBER);
+	public void goodsDelete(Map<String, Object> map) throws Exception {
+		adminGoodsDAO.goodsDelete(map);
 	}
 
 	// 상품 검색(상품명)

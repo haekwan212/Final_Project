@@ -7,23 +7,24 @@
 <tiles-definitions>
 
 	<!-- Main Page -->
-	<!-- <definition name="default" template="/WEB-INF/views/layout/layout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
-	</definition> -->
-	
-	<!-- <definition name="main" template="/WEB-INF/views/layout/layout_main.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/layout/header_main.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
-	</definition> -->
-	
+	<!-- <definition name="default" template="/WEB-INF/views/layout/layout.jsp"> 
+		<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" /> 
+		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" /> 
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" /> 
+		</definition> -->
+
+	<!-- <definition name="main" template="/WEB-INF/views/layout/layout_main.jsp"> 
+		<put-attribute name="header" value="/WEB-INF/views/layout/header_main.jsp" 
+		/> <put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" 
+		/> <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" 
+		/> </definition> -->
+
 	<!-- admin -->
 	<definition name="admin" template="/WEB-INF/jsp/layout/admin/layout.jsp">
-		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/container.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/layout/admin/container.jsp" />
 	</definition>
-	
+
 	<definition name="adminForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/main.jsp" />
 	</definition>
@@ -31,12 +32,18 @@
 	<definition name="memberList" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/member/member.jsp" />
 	</definition>
-	
-		
-	<definition name="goodsForm" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
+
+
+	<definition name="openMemberDetail" extends="admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/member/openMemberDetail.jsp" />
 	</definition>
 
+
+	<definition name="goodsForm" extends="admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
+	</definition>
 
 	<definition name="faqAdmin" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
@@ -45,9 +52,24 @@
 	
 	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
 		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp"/>
+</definition>
 
-	</definition>
 	
+	<definition name="faqAdminModify" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdminModify.jsp" />
+	</definition>
+
+	<definition name="goodsList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goods.jsp" />
+	</definition>
+
+	<definition name="goodsModifyForm" extends="admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/goods/goodsModifyForm.jsp" />
+	</definition>
+	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
+		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp" />
+	</definition>
 	<definition name="common2" template="/WEB-INF/jsp/header.jsp">
 		<put-attribute name="body"></put-attribute>
 	</definition>
@@ -64,15 +86,18 @@
 	
 
 	<definition name="joinStep1" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
+      <put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
 	</definition>
-
+   
 	<definition name="joinStep2" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/joinStep2.jsp"></put-attribute>
 	</definition>
-	
-	
-	
+	<definition name="joinComplete" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/joinComplete.jsp"></put-attribute>
+	</definition>
+
+
+
 </tiles-definitions>
 	
 	

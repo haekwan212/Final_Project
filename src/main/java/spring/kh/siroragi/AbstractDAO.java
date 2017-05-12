@@ -56,31 +56,49 @@ public class AbstractDAO {
 		return sqlSession.selectList(queryId, params);
 	}
 
-	// ID 검색
+	// 가입한 회원 아이디 검색
 	@SuppressWarnings("rawtypes")
-	public List searchMemberList0(String queryId, Object params, String search) {
+	public List searchMemberList0(String map, Object params) {
+		printQueryId(map);
+		return sqlSession.selectList(map, params);
+	}
+
+
+	// 가입한 회원 이름 검색
+	@SuppressWarnings("rawtypes")
+	public List searchMemberList1(String queryId, Object params) {
+		printQueryId(queryId);
+		return sqlSession.selectList(queryId, params);
+	}
+
+
+	// 가입한 회원 전화번호 검색
+	@SuppressWarnings("rawtypes")
+	public List searchMemberList2(String queryId, Object params) {
+		printQueryId(queryId);
+		return sqlSession.selectList(queryId, params);
+	}
+
+
+	// 가입한 회원 이메일 검색
+	@SuppressWarnings("rawtypes")
+	public List searchMemberList3(String queryId, Object params) {
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId, params);
 	}
 	
-	// 이름 검색
+	// 글제목 검색
 	@SuppressWarnings("rawtypes")
-	public List searchMemberList1(String queryId, Object params, String search) {
+	public List searchTitleList(String queryId, Object params, String isSearch) {
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId, params);
 	}
-	
-	// 회원아이디로 검색
+
+	// 글내용 검색
 	@SuppressWarnings("rawtypes")
-	public List searchMemberList2(String queryId, Object params, String search) {
+	public List searchContentList(String queryId, Object params, String isSearch) {
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId, params);
 	}
-	
-	// E-Mail 검색
-	@SuppressWarnings("rawtypes")
-	public List searchMemberList3(String queryId, Object params, String search) {
-		printQueryId(queryId);
-		return sqlSession.selectList(queryId, params);
-	}
+
 }

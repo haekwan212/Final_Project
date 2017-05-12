@@ -13,7 +13,7 @@ $( document ).ready(function() {
 	$('#dataTables-example').rowspan(4);
 	$('#dataTables-example').rowspan(5);
 	$('#dataTables-example').rowspan(9);
-	
+	$('#dataTables-example').rowspan(10);
 });
 
 $.fn.rowspan = function(colIdx, isStats) {       

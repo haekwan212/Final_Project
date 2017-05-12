@@ -2,6 +2,7 @@ package spring.siroragi.join;
 
 import java.util.Properties;
 
+import javax.annotation.Resource;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
@@ -22,6 +24,9 @@ import spring.kh.siroragi.CommandMap;
 @Controller
 public class JoinController {
 
+	@Resource(name="joinService")
+	private JoinService joinService;
+		
 	@RequestMapping(value="/joinStep1")
 	public ModelAndView joinStep1(){
 		ModelAndView mv = new ModelAndView();
@@ -41,7 +46,7 @@ public class JoinController {
 		mv.setViewName("joinStep2");
 		return mv;
 	}
-	
+
 	@RequestMapping(value="/joinStep1/modal_email_auth")
 	public ModelAndView email_auth(HttpServletResponse response, HttpServletRequest request,CommandMap Map)throws Exception{
 		System.out.println("나야나");
@@ -119,4 +124,13 @@ public class JoinController {
 		return buffer.toString();
 	}
 	//이메일인증 추가 여기까지
+
+	@RequestMapping(value="/joinComplete", method=RequestMethod.POST)
+	public ModelAndView joinComplete(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		joinService.insertMember(commandMap.getMap(), request);
+		mv.setViewName("joinComplete");
+		return mv;
+		
+	}
 }

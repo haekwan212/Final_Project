@@ -16,7 +16,7 @@ public interface AdminGoodsService {
 	// 상품 등록 폼으로 이동
 
 	// 상품 등록
-	void goodsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	public void goodsInsert(Map<String, Object> map, HttpServletRequest request) throws Exception;
 
 	// 상품 세분화 등록
 	// void goodsKindsInsert(Map<String, Object> map, HttpServletRequest
@@ -26,10 +26,14 @@ public interface AdminGoodsService {
 	// void goodsImageInsert(Map<String, Object> map, HttpServletRequest
 	// request) throws Exception;
 
+	// 상품 수정 폼으로 이동
+	public List<Map<String, Object>> goodsModifyForm(Map<String, Object> map) throws Exception;
+	
+	public List<Map<String, Object>> goodsModifyFormImage(Map<String, Object> map) throws Exception;
 	// 상품 수정
 
 	// 상품 삭제
-	public void goodsDelete(Integer GOODS_NUMBER) throws Exception;
+	public void goodsDelete(Map<String, Object> map) throws Exception;
 	// 상품 검색(상품 이름)
 	public List<Map<String, Object>> adminGoodsSearch0(String isSearch) throws Exception;
 

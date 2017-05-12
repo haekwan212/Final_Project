@@ -22,13 +22,21 @@
 		]]>
 	</select>
 	
-	<select id="selectOneGoods" parameterType="Integer" resultType="hashmap">
+	<select id="selectOneGoods" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT A.*, D.*,
       		decode(D.GOODS_SIZE, 'xxs', '1','XXS', '1', 'xs', '2','XS', '2', 's', '3','S', '3', 'm', '4','M', '4',  'l', '5','L', '5', 'xl', '6','XL', '6', 'xxl', '7','XXL', '7','free', '8','FREE', '8','Free', '8') as SIZE_ORDER 
       		FROM GOODS A, GOODS_KINDS D 
-			WHERE A.GOODS_NUMBER=D.GOODS_NUMBER AND A.GOODS_NUMBER=#{VALUE}
+			WHERE A.GOODS_NUMBER=D.GOODS_NUMBER AND A.GOODS_NUMBER=#{GOODS_NUMBER}
 			ORDER BY GOODS_COLOR ASC, GOODS_SIZE DESC
+		]]>
+	</select>
+	
+	<select id="selectOneGoodsImage" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT IMAGE FROM IMAGE
+			WHERE GOODS_NUMBER=#{GOODS_NUMBER}
+			ORDER BY IMAGE_NUMBER ASC
 		]]>
 	</select>
 	
@@ -51,9 +59,9 @@
 	<insert id="insertAdminGoodsKinds" parameterType="hashmap">
 		<![CDATA[
 			INSERT INTO GOODS_KINDS (
-			GOODS_NUMBER, GOODS_AMOUNT, GOODS_SIZE, GOODS_COLOR
+			GOODS_NUMBER, GOODS_AMOUNT, GOODS_SIZE, GOODS_COLOR,GOODS_KINDS_NUMBER
 			) VALUES ( #{GOODS_NUMBER}, #{GOODS_AMOUNT},
-			#{GOODS_SIZE}, #{GOODS_COLOR} )
+			#{GOODS_SIZE}, #{GOODS_COLOR}, GOODS_KINDS_NUMBER_SEQ.NEXTVAL )
 			
 		]]>
 	</insert>
@@ -79,9 +87,9 @@
 		]]>
 	</update>
 	
-	<delete id="deleteAdminGoods" parameterType="Integer">
+	<delete id="deleteAdminGoods" parameterType="hashmap">
 		<![CDATA[
-			DELETE FROM GOODS WHERE GOODS_NUMBER=#{VALUE}
+			DELETE FROM GOODS WHERE GOODS_NUMBER=#{GOODS_NUMBER}
 		]]>
 	</delete>
 	
