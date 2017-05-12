@@ -14,10 +14,22 @@ import org.springframework.web.servlet.ModelAndView;
 public class CommonController {
 
 	//실험용
-	@RequestMapping(value="/hello/")
+	@RequestMapping(value="/main")
 	public ModelAndView list() {
-		ModelAndView mv = new ModelAndView("home");
-
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("common");
     	return mv;
+	}
+	
+	@RequestMapping(value="/main/search_store")
+	public ModelAndView searchForm(){
+		ModelAndView mv = new ModelAndView("searchForm");
+		return mv;
+	}
+	
+	@RequestMapping(value="/main/goods")
+	public ModelAndView goods(){
+		ModelAndView mv = new ModelAndView("goods");
+		return mv;
 	}
 }
