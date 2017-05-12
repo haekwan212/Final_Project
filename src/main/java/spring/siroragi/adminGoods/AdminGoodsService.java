@@ -29,6 +29,7 @@ public interface AdminGoodsService {
 	// 상품 수정 폼으로 이동
 	public List<Map<String, Object>> goodsModifyForm(Map<String, Object> map) throws Exception;
 	
+	public List<Map<String, Object>> goodsModifyFormImage(Map<String, Object> map) throws Exception;
 	// 상품 수정
 
 	// 상품 삭제

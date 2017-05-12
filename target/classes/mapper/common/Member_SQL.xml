@@ -5,6 +5,33 @@
 	<select resultType="hashmap" parameterType="hashmap" id="selectMemberList">
 	<![CDATA[
 		SELECT 
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='0'
+		ORDER BY MEMBER_NUMBER DESC
+	]]>
+	</select>
+	
+	<select resultType="hashmap" parameterType="hashmap" id="selectDelMemberList">
+	<![CDATA[
+		SELECT 
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_ONOFF='1'
 			M.MEMBER_NUMBER,
 			M.MEMBER_ID,
 			M.MEMBER_NAME,
@@ -35,6 +62,18 @@
 	<select resultType="hashmap" parameterType="hashmap" id="selectMemberDetail">
 			<![CDATA[
 		SELECT
+			MEMBER_NUMBER,
+			MEMBER_ID,
+			MEMBER_PASSWORD,
+			MEMBER_NAME,
+			MEMBER_ZIPCODE,
+			MEMBER_ADDRESS1,
+			MEMBER_ADDRESS2,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_REGDATE
+		FROM MEMBER
+		WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
 			M.MEMBER_NUMBER,
 			M.MEMBER_ID,
 			M.MEMBER_PASSWORD,
@@ -263,6 +302,7 @@
 		<![CDATA[
 		UPDATE MEMBER
 		SET
+			MEMBER_DELDATE = #{MEMBER_DELDATE},
 			MEMBER_DELDATE = SYSDATE,
 			MEMBER_ONOFF = '1'
 		WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} 
