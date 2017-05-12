@@ -338,6 +338,15 @@
 			<artifactId>tiles-servlet</artifactId>
 			<version>2.2.2</version>
 		</dependency>
+		
+		<!-- SMTP -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+    		<artifactId>mail</artifactId>
+    		<version>1.4</version>
+		</dependency>
+
+
 		  
 	</dependencies>
 	
