@@ -64,7 +64,7 @@
 <div class="globalNavigation mobile">
 	<div class="tier1-group account">
 		<div class="tier1-head login">
-			<a href="/SIRORAGI/login/loginForm" class="col-xs-12"><strong>login</strong></a>
+			<a href="/member/login" class="col-xs-12"><strong>login</strong></a>
 			<a href="/SIRORAGI/joinStep1" class="col-xs-12"><strong>join</strong></a>
 		</div>
 	</div>

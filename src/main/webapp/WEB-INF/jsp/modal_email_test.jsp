@@ -1,14 +1,6 @@
-
 <%@ page contentType="text/html; charset=utf-8" %>
-<<<<<<< HEAD
-<div class="modal-body">
-<form name="frm" method="post" class="form-horizontal">
-<input name="code_chk" type="hidden" value="${authNum}">
-=======
 <div class="modal-body"><form name="frm" method="post" class="form-horizontal">
-<%-- <input name="authNum" type="hidden" value="${authNum}"> --%>
-<input type="hidden" name="authNum" id="authNum" value=${authNum}>
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
+<input name="code_chk" type="hidden">
 <input name="agreement" value="o" type="hidden">
 
 <section style="padding:30px 20px;">
@@ -18,8 +10,7 @@
 		<div class="col-xs-20 col-lg-20 form-inline">
 			<input name="email1" id="email1" class="form-control" size="10" type="text"> @ 
 			<input name="email2" id="email2" class="form-control" size="10" type="text">  
-			<a href="javascript:email_code();" class="btn btn-default form-control">인증번호받기2</a>
-			
+			<a href="javascript:email_code();" class="btn btn-default form-control">인증번호받기</a>
 			 <!-- <a href="/SIRORAGI/joinStep1/modal_email_auth" class="button" target="modal" data-size="sm" data-label="인증번호받기">인증번호받기</a> -->
 		</div>
 	</div>

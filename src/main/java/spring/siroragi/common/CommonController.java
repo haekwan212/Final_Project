@@ -1,11 +1,7 @@
 package spring.siroragi.common;
 
 
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,10 +29,13 @@ public class CommonController {
 		return mv;
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value="/about")
 	public ModelAndView about(){
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("about");
 		return mv;
 	}
+=======
+>>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
 }
