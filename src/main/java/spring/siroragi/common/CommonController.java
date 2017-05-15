@@ -32,4 +32,11 @@ public class CommonController {
 		ModelAndView mv = new ModelAndView("goods");
 		return mv;
 	}
+	
+	@RequestMapping(value="/about")
+	public ModelAndView about(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("about");
+		return mv;
+	}
 }

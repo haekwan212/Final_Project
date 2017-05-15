@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<% String all = request.getAttribute("authNum").toString(); %>
 <div class="modal-body">
 <form name="frm" method="post" class="form-horizontal">
 <input name="code_chk" type="hidden" value="${authNum}">

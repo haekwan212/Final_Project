@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<div class="container">
 <section class="page-category container">
 	<div class="selectboxWrap">
 		<div class="selectbox">
@@ -36,16 +37,16 @@
 						</div>
 						<!-- guide//end -->
 						<div class="item col-xs-24 col-sm-offset-6 col-sm-12 col-lg-offset-4 col-lg-16">
-							<form method="post" action="../member/process">
+							<form method="post" action="/SIRORAGI/login">
 								<input type="hidden" name="mode" value="login">
 								<input type="hidden" name="rurl" value="http://www.pancoat.com/about/collection">
 
 								<div class="input">
 									<div class="id">
-										<input type="text" id="ml-id" name="mid" required="" class="xx-control" placeholder="아이디">
+										<input type="text" id="ml-id" name="MEMBER_ID" required="" class="xx-control" placeholder="아이디">
 									</div>
 									<div class="password">
-										<input type="password" id="ml-password" name="password" required="" class="xx-control" placeholder="비밀번호">
+										<input type="password" id="ml-password" name="MEMBER_PASSWORD" required="" class="xx-control" placeholder="비밀번호">
 									</div>
 								</div>
 								<!-- input//end -->
@@ -186,4 +187,5 @@
 		<!--member-signup//end-->
 	</div>
 	<!-- member-login//end -->
+</div>
 </div>

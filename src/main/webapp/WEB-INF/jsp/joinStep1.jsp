@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<div class="container">
 <section class="step-panels">
 		<ol>
 			<li class="c01 col-xs-24 col-sm-10 selected">
@@ -52,9 +53,7 @@
 				</div>
 			</section>
 		</div>
-<<<<<<< HEAD
 	</div>
-=======
 	</div>
 	<script>
 function hp_code(){

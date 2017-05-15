@@ -1,5 +1,6 @@
 
 <%@page contentType="text/html; charset=utf-8" %>
+<div class="container">
 <section class="step-panels">
 		<ol>
 			<li class="c01 col-xs-7">
@@ -631,7 +632,6 @@ $(".auto_mail").change(function() {
 });
 
 </script>
-				<div class="section-foot111">
 				<div class="section-foot">
 					<button type="submit" id="validateBtn" class="button large">
 						<span class="button-label">회원가입</span>
@@ -641,5 +641,6 @@ $(".auto_mail").change(function() {
 			</section>
 			<!-- input-horizontal.section//end -->
 		</form>
+	</div>
 	</div>
 	<!-- register-privacy//end -->
