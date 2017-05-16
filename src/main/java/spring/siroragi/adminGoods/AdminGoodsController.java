@@ -1,7 +1,5 @@
 package spring.siroragi.adminGoods;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -107,8 +105,7 @@ public class AdminGoodsController {
 		
 		mv.addObject("goodsList",goodsList);
 		Integer count=adminGoodsService.countGoodsList();
-		int a=(int)count;
-		mv.addObject("count",a);
+		mv.addObject("count",count);
 		
 		return mv;
 	}
@@ -141,14 +138,6 @@ public class AdminGoodsController {
 		Map<String,Object> goodBasic=goodDetail.get(0);
 		mv.addObject("goodBasic",goodBasic);
 		
-		if(goodBasic.get("GOODS_SALEDATE")!=null){
-		Date from = new Date();
-		from=(Date) goodBasic.get("GOODS_SALEDATE");
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String to = transFormat.format(from);
-		mv.addObject("SALEDATE",to);
-		}
-		
 		List<Map<String,Object>> goodImage=adminGoodsService.goodsModifyFormImage(adminGoodsMap.getMap());
 		mv.addObject("goodImage",goodImage);
 		
@@ -157,9 +146,9 @@ public class AdminGoodsController {
 
 	// 상품 수정
 	@RequestMapping(value="goods/goodsModify")
-	public ModelAndView goodsModify(CommandMap adminGoodsMap, HttpServletRequest request) throws Exception{
+	public ModelAndView goodsModify(CommandMap adminGoodsMap) throws Exception{
 		ModelAndView mv=new ModelAndView("goodsModifyForm");
-		adminGoodsService.goodsModify(adminGoodsMap.getMap(), request);
+		System.out.println("상품 수정 정보 : "+adminGoodsMap.getMap());
 		
 		return mv;
 	}

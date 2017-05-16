@@ -107,7 +107,7 @@ function delchk(){
 							</select>											
 						</div>
 						<div class="col-sm-6" style="text-align:right;">
-							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 상품수 : ${count}</div>
+							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 주문수 : ${totalCount}</div>
 						</div>
 						
 					</div>
