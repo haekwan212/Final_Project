@@ -61,7 +61,7 @@
 							<span class="col-xs-8"><input type="text" class="xx-control" name="php3"></span>
 						</div>
 						<div class="text-primary col-xs-24">
-							<p>초기화된 비밀번호를 문자로 발송해 드립니다.</p>
+							<p>초기화된 비밀번호를 이메일로 발송해 드립니다.</p>
 						</div>
 					</div>
 				</div>

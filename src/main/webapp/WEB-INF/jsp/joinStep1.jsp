@@ -1,12 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<<<<<<< HEAD
-<div class="container">
-=======
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% String authNum = (String)request.getAttribute("authNum"); 
-System.out.println("야야야"+authNum);%>
 
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
+<div class="container">
 <section class="step-panels">
 		<ol>
 			<li class="c01 col-xs-24 col-sm-10 selected">
@@ -56,24 +51,17 @@ System.out.println("야야야"+authNum);%>
 						<a href="/SIRORAGI/joinStep1/modal_email" class="button" target="modal" data-size="sm" data-label="이메일 인증">
 							<span class="button-label">이메일 인증</span>
 						</a>
-						<input type="hidden" name="authNum" id="authNum" value=<%=authNum%>>
-						끼룩끼룩${authNum}
 					</div>
 				</div>
 			</section>
 		</div>
-<<<<<<< HEAD
 	</div>
-=======
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
-	</div>
-
 
 	<script>
-	
+
 function hp_code(){
-	var f = document.frm;
-	var hp = f.hp1.value+f.hp2.value+f.hp3.value;
+/* 	var f = document.frm;
+	 var hp = f.hp1.value+f.hp2.value+f.hp3.value; 
 
 	if(hp == '') {
 		alert("핸드폰 번호를 입력하세요.");
@@ -90,8 +78,10 @@ function hp_code(){
 			document.frm.code_chk.value = data.val;
 			alert("인증번호를 요청하신 핸드폰으로 발송했습니다.");
 		}
-	}, "json");
-}
+	}, "json"); */
+} 
+
+
 /* 
  function email_code(){
 	
@@ -109,51 +99,152 @@ function hp_code(){
 			alert("인증번호를 요청하신 이메일로 발송했습니다.");
 	
 		}
-}  */
-function email_code(){
+
+}  
+
+/* function email_code(){
+
 	   var f = document.frm;
 	   var email = f.email1.value+"@"+f.email2.value;
 
 	   if(email == '@') {
 	      alert("이메일을 입력하세요.");
-	      return false ;
-	   }else {
+	      console.log("로그 내용1");
+	      
+	   }/* else {
 		   alert("인증번호를 요청하신 이메일로 발송했습니다.");
-/*  		   location.href="/SIRORAGI/joinStep1/modal_email_test";  */
-	      }
-	   $.post("./joinStep1/modal_email_auth",{mode:"email_code", email:email},function(data){   
+/*  		   location.href="/SIRORAGI/joinStep1/modal_email_test";  
+	      } */
+	      /* alert("이새꺄0"); 
+	      else{
+	   $.post("./joinStep1/modal_email_auth",{mode:"email_code", email:email},function(){
+		   alert("이새꺄");
+		   console.log("로그 내용12");
 
 	      if(data.authNum != 'ok') {
+	    	  alert("이새꺄2");
+	    	  console.log("로그 내용"+authNum);
+	      } else {
+	         alert("인증번호를 요청하신 이메일로 발송했습니다.");
+	      }
+	   },"json");
+	      }
+	   
+	} */
+	
+	function email_code(){
+		   var f = document.frm;
+		   var email = f.email1.value+"@"+f.email2.value;
+		   
+		 	  if(email == '@') {
+			      alert("이메일을 입력하세요.");
+			   }else if(f.email1.value=="" || f.email2.value==""){
+			      alert("이메일을 정확히 입력하세요.");
+			      console.log("로그 내용1");  
+			   }else{
+		    	  $.ajax({
+		    	        type: "POST",
+		    	        url: "./joinStep1/modal_email_auth",
+		    	        data: ({mode:"email_code", email:email}),
+		    	        //contentType: "text/plain; charset=euc-kr",
+		    	        success: function(data) {
+		    	        	console.log(data);
+		    	        	if(data != 0){
+		    	        		alert("이미 가입된 이메일입니다.다른이메일을 입력해주세요");
+		    	        	}else{
+		    	        		alert("인증번호를 요청하신 이메일로 발송했습니다.");
+		    	        	}
+		    	        	
+		    	        	if(data != null)    {
+		    	            	console.log("로그 내용2"+data);
+		    	            }
+		    	        },
+		    	        error: function(e){
+		    	         alert('error' + e);
+		    	        }
+		    	    });
+		      }
+		   
+		}
+
+<%-- 	function member_send(){
+		var f = document.frm;
+ 		//var authNum ='authNum';  
+		var user_id = '<%request.getParameter("id");%>';
+
+		if(!f.sing_code.value){
+			alert("인증번호를 입력해 주세요");
+			f.sing_code.focus();
+		}else if(f.sing_code.value !=  authNum){
+			alert("인증번호가 맞지 않습니다.");
+
+	      return false ;
+	   }
+	   $.post("ajax",{mode:"email_code", email:email},function(data){   
+
+	      if(data.result != 'ok') {
 	         if(data.result == 'dup') 
 	            alert("이미 가입된 이메일입니다.");
 	         else if(data.result == 'month')
 	            alert("탈퇴 후 한달이내에 재가입은 불가능합니다. "+data.val+" 이후에 가입하십시요.");
 	      } else {
-/* 	         document.frm.code_chk.value1 = data.val; */
+	         document.frm.code_chk.value = data.val;
 	         alert("인증번호를 요청하신 이메일로 발송했습니다.");
 	      }
-	   });
-	   
-	}
+	   }, "json");
+	} */
 
+		}else{
+			
+			alert("인증번호가 맞습니다.");
+			f.action = "./joinStep2";
+			f.submit(); 
+		}
+	 } --%>
+	
 function member_send(){
 	var f = document.frm;
- 	var authNum ='authNum'; 
-	<%-- var user_id = '<%request.getParameter("id");%>'; --%>
+	
+	 var email = f.email1.value+"@"+f.email2.value;
 
-	if(!f.sing_code.value){
-		alert("인증번호를 입력해 주세요"+authNum);
-		f.sing_code.focus();
-	}else if(f.sing_code.value !=  authNum){
-		alert("인증번호가 맞지 않습니다." +authNum);
+	 if(email == '@') {
+	      alert("이메일을 입력하세요.");
+	   }else if(f.email1.value=="" || f.email2.value==""){
+	      alert("이메일을 정확히 입력하세요.");
+	      console.log("로그 내용1");  
+	   }else{
+   		$.ajax({
+      	 type: "POST",
+       	 url: "./joinStep1/modal_email_auth_success",
+      	  //data: ({Id:$("#Id").val(), Pwd:$("#Pwd").val()}),
+      	  //contentType: "text/plain; charset=euc-kr",
+      	  success: function(data) {
+        		 /* alert("auth값받음"+data); */
+   	     	 console.log("로그 내용1");
+           	 if(data != null)    {
+            		if(!f.sing_code.value){
+        				alert("인증번호를 입력해 주세요");
+        				f.sing_code.focus();
+        			}else if(f.sing_code.value !=  data){
+        				alert("인증번호가 맞지 않습니다.");
 
-	}else{
-		
-		alert("인증번호가 맞습니다.");
-		f.action = "./joinStep2";
-		f.submit(); 
+        			}else{
+        				//alert("인증번호가 맞습니다.");
+        				f.action = "./joinStep2";
+        				f.submit(); 
+        			}
+         	   } else {
+          	  	alert("data값없음"+data);
+          	  	console.log("로그 내용3");
+       	     }
+     	   },
+     	   error: function(e){
+     	    alert('error' + e);
+   	     }
+   	 });
 	}
- }
+}
+
  
 /* function email_code(){
 
@@ -178,24 +269,9 @@ function member_send(){
 	}, "json");
 }
 
-<<<<<<< HEAD
-function member_send(){
-	var f = document.frm;
-	if(!f.sing_code.value){
-		alert("인증번호를 입력해 주세요");
-		f.sing_code.focus();
-	}else if(f.sing_code.value !=  f.code_chk.value){
-		alert("인증번호가 맞지 않습니다.");
-	}else{
-		f.action = "./joinStep1";
-		f.submit();
-	}
-}
-</script>
-=======
 
   */
- 
-</script>
 
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
+</script>
+</div>
+

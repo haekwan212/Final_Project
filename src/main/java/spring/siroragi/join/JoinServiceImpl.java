@@ -20,4 +20,10 @@ public class JoinServiceImpl implements JoinService{
 		joinDAO.insertMember(map);
 		
 	}
+
+	@Override
+	public int checkMember(Map<String, Object> map, HttpServletRequest request) throws Exception {
+		return joinDAO.checkMember(map);
+		
+	}
 }

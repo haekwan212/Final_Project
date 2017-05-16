@@ -44,7 +44,6 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
 	</definition>
-
 	<definition name="faqAdmin" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
 	</definition>
@@ -57,8 +56,6 @@
 	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
 		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp"/>
 </definition>
-
-	
 	<definition name="faqAdminModify" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdminModify.jsp" />
 	</definition>
@@ -77,8 +74,6 @@
 	<definition name="common2" template="/WEB-INF/jsp/header.jsp">
 		<put-attribute name="body"></put-attribute>
 	</definition>
-
-	
 		<!-- 카테고리별 -->
 	<definition name="basic" template="/WEB-INF/jsp/layout/basic.jsp">
 		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/container.jsp" />
@@ -87,13 +82,9 @@
  	<definition name="goodsCategory" extends="basic">
 		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsList.jsp" />
 	</definition>
-	
-
 	<definition name="joinStep1" extends="common2">
       <put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
 	</definition>
-   
-
 	<definition name="joinStep2" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/joinStep2.jsp"/>
 	</definition>
@@ -106,7 +97,9 @@
 	<definition name="cartList" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/cartForm.jsp"/>
 	</definition>
-
+	<definition name="about" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
+	</definition>
 	<definition name="about" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
 	</definition>

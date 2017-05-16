@@ -1,5 +1,6 @@
 package spring.siroragi.join;
 
+import java.io.PrintWriter;
 import java.util.Properties;
 
 import javax.annotation.Resource;
@@ -13,16 +14,20 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
 
 @Controller
 public class JoinController {
+	
+	String authNUm = "";
 
 	@Resource(name="joinService")
 	private JoinService joinService;
@@ -41,34 +46,81 @@ public class JoinController {
 	}
 	
 	@RequestMapping(value="/joinStep2")
-	public ModelAndView joinStep2(){
+	public ModelAndView joinStep2(HttpSession session,HttpServletResponse response, HttpServletRequest request,CommandMap Map){
 		ModelAndView mv = new ModelAndView();
+		String email1 = (String) Map.getMap().get("email1");
+		String email2 = (String) Map.getMap().get("email2");
+		System.out.println(email1 +"@"+email2);
 		mv.setViewName("joinStep2");
+		session.setAttribute("email1",email1);
+		session.setAttribute("email2",email2);
+/*		mv.addObject("email1",email1);
+		mv.addObject("email2",email2);*/
 		return mv;
 	}
 
 	@RequestMapping(value="/joinStep1/modal_email_auth")
 	public ModelAndView email_auth(HttpServletResponse response, HttpServletRequest request,CommandMap Map)throws Exception{
 		System.out.println("나야나");
-		/*String email = request.getParameter("email1") + "@" + request.getParameter("email2");*/
+		//String email = request.getParameter("email1") + "@" + request.getParameter("email2");
 		String email = (String) Map.getMap().get("email");
 		System.out.println("email = " + email);
-		String authNum="";
-	
+		Map.getMap().put("MEMBER_EMAIL", email);
 		
-		authNum = RandomNum();
-		sendEmail(email.toString(),authNum);
+		int checkNum = joinService.checkMember(Map.getMap(), request);
+		System.out.println("checkNum="+checkNum);
 		
+		if(checkNum==0)
+		{
+		authNUm = RandomNum();
+		sendEmail(email.toString(),authNUm);
+		System.out.println("메일보냄");
+		}
+		String checkNumString=String.valueOf(checkNum);
+		PrintWriter writer =response.getWriter();
+		writer.write(checkNumString);
+		writer.flush();
+		writer.close();
 		
 		ModelAndView mv = new ModelAndView();
 		
 		mv.addObject("email",email);
-		mv.addObject("authNum", authNum);
+		mv.addObject("authNum", authNUm);
 		mv.setViewName("joinStep1");
-		System.out.println("오드넘2"+authNum);
+		
+		System.out.println("오드넘"+authNUm);
+		System.out.println("체크넘"+checkNum + checkNumString);
 		return mv;
 	}
 	
+/*	@RequestMapping(value = "/sample/ajax/test.jws", method=RequestMethod.GET )
+	 public ModelAndView ajaxTestMethod(HttpServletRequest req, HttpServletResponse res ) throws Exception {
+	  return new ModelAndView("sample/ajaxtest");
+	 }
+	 */
+	  /**
+	     * Ajax - @ResponseBody 어노테이션을 이용해 보자.
+	     * @param request
+	     * @returnf
+	     * @throws Exception
+	     */
+	    @RequestMapping(value="/joinStep1/modal_email_auth_success", method=RequestMethod.POST)
+	    public @ResponseBody String clickMethod (HttpServletRequest request) throws Exception   {
+	         
+	        String str = authNUm;
+	         System.out.println("authNUm뭐냐?"+authNUm);
+	        return str;
+	    }
+	     /*
+		    @RequestMapping(value="sample/ajax/click.jws", method=RequestMethod.POST)
+		    public @ResponseBody String clickMethod (HttpServletRequest request) throws Exception   {
+		         
+		        String str = authNUm;
+		         System.out.println("authNUm뭐냐 ?"+authNUm);
+		        return str;
+		    }
+	*/
+
 	private void sendEmail(String email,String authNum){
 		String host ="smtp.gmail.com";
 		String subject = "SIRORAGI 인증 번호 전달";
@@ -76,7 +128,7 @@ public class JoinController {
 		String from="siroragi@gmail.com";//보내는메일
 		String to1 = email;
 		
-		String content = "인증번호[" + authNum +"]";
+		String content = "인증번호[ " + authNum +" ]";
 		
 		try{
 			Properties props = new Properties();
@@ -136,3 +188,4 @@ public class JoinController {
 		
 	}
 }
+
