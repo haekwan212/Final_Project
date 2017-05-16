@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +57,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 
 		adminGoodsDAO.goodsInsert(map);
 
-		System.out.println("썸네일이미지 등록");
+		// System.out.println("썸네일이미지 등록");
 		map = goodsImageUtils.goodsThumbnail(map, request);
 		adminGoodsDAO.goodsThumbnailInsert(map);
 
@@ -72,13 +73,13 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 			adminGoodsDAO.goodsKindsInsert(map);
 		}
 
-		System.out.println("이미지 등록");
+		// System.out.println("이미지 등록");
 		List<Map<String, Object>> goodsImageList = goodsImageUtils.parseInsertFileInfo(map, request);
 
 		// System.out.println("goodsImageList : "+goodsImageList);
 		// System.out.println("mapImage : "+map.get("IMAGE"));
 
-		if (goodsImageList.size()>0) {
+		if (goodsImageList.size() > 0) {
 			for (int i = 0; i < goodsImageList.size(); i++) {
 				adminGoodsDAO.goodsImageInsert(goodsImageList.get(i));
 			}
@@ -114,24 +115,25 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		if (map.get("GOODS_ONOFF") == null) {
 			map.put("GOODS_ONOFF", 1);
 		}
-		
-		System.out.println("SALEDATE : "+map.get("GOODS_SALEDATE"));
-		System.out.println("SALEDATE2: "+map.get("GOODS_SALEDATE").toString().length());
-		if (map.get("GOODS_SALEDATE").toString().length()>0) {
+
+		// System.out.println("SALEDATE : "+map.get("GOODS_SALEDATE"));
+		// System.out.println("SALEDATE2:
+		// "+map.get("GOODS_SALEDATE").toString().length());
+		if (map.get("GOODS_SALEDATE").toString().length() > 0) {
 			Date GOODS_SALEDATE = new SimpleDateFormat("yyyy-MM-dd").parse((String) map.get("GOODS_SALEDATE"));
 			map.remove("GOODS_SALEDATE");
 			map.put("GOODS_SALEDATE", GOODS_SALEDATE);
-			System.out.println("HELLO");
-		}	
-			System.out.println("HELLO2");
-			adminGoodsDAO.goodsModify(map);
-		
+			// System.out.println("HELLO");
+		}
+		// System.out.println("HELLO2");
+		adminGoodsDAO.goodsModify(map);
+
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-		
+
 		// 상품 썸네일 수정
-		if (multipartHttpServletRequest.getFile("GOODS_THUMBNAIL").getSize()>0) {
+		if (multipartHttpServletRequest.getFile("GOODS_THUMBNAIL").getSize() > 0) {
 			map = goodsImageUtils.parseUpdateThumbImage(map, request);
-			System.out.println("썸네일 수정");	
+			System.out.println("썸네일 수정");
 			adminGoodsDAO.goodsThumbnailInsert(map);
 		}
 
@@ -159,34 +161,35 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 
 			// 상품 종류 정보 수정
 			for (int i = 0; i < orgList.size(); i++) {
-				//System.out.println("ORG : " + orgList.get(i));
-				//System.out.println("map : " + map.get(orgList.get(i)));
-				//System.out.println("MMM : " + map);
+				// System.out.println("ORG : " + orgList.get(i));
+				// System.out.println("map : " + map.get(orgList.get(i)));
+				// System.out.println("MMM : " + map);
 
 				if (map.get(orgList.get(i)) != null) {
-					//System.out.println("수정되는 상품종류 번호 : " + orgList.get(i));
-					map.put("GOODS_KINDS_NUMBER", orgList.get(i));;
+					// System.out.println("수정되는 상품종류 번호 : " + orgList.get(i));
+					map.put("GOODS_KINDS_NUMBER", orgList.get(i));
+					;
 					map.put("MD_GOODS_COLOR", ORG_COLOR[i]);
 					map.put("MD_GOODS_SIZE", ORG_SIZE[i]);
 					String ADD = "addAmount_" + orgList.get(i);
-					//System.out.println("aaa : " + request.getParameter(ADD));
-					//System.out.println("ADD : "+ADD);
-					if (map.get(ADD).toString().length()>0){
+					// System.out.println("aaa : " + request.getParameter(ADD));
+					// System.out.println("ADD : "+ADD);
+					if (map.get(ADD).toString().length() > 0) {
 						map.put("addAmount", map.get(ADD));
-						//System.out.println("ADD쪽 : "+map.get(ADD).toString().length());
-					}
-					else{
-						//System.out.println("cc쪽");
-						int cc=0;
+						// System.out.println("ADD쪽 :
+						// "+map.get(ADD).toString().length());
+					} else {
+						// System.out.println("cc쪽");
+						int cc = 0;
 						map.put("addAmount", cc);
 					}
-					//System.out.println("addAmount_" + orgList.get(i));
-					//System.out.println("수량1 : " + map.get(ADD));
-					//System.out.println("수량 : " + map.get("addAmount"));
+					// System.out.println("addAmount_" + orgList.get(i));
+					// System.out.println("수량1 : " + map.get(ADD));
+					// System.out.println("수량 : " + map.get("addAmount"));
 
 					adminGoodsDAO.goodsKindsModify(map);
 				} else {
-					//System.out.println("삭제되는 상품종류 번호 : " + orgList.get(i));
+					// System.out.println("삭제되는 상품종류 번호 : " + orgList.get(i));
 					map.put("GOODS_KINDS_NUMBER", orgList.get(i));
 					adminGoodsDAO.goodsKindsDelete(map);
 				}
@@ -212,12 +215,12 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		}
 
 		// 상픔 이미지 수정, 삭제
-		System.out.println("이미지 : "+map.get("ORIGINAL_IMAGE"));
+		System.out.println("이미지 : " + map.get("ORIGINAL_IMAGE"));
 		if (map.get("ORIGINAL_IMAGE") != null) {
-			
+
 			List<Map<String, Object>> goodsImageList = goodsImageUtils.parseUpdateImages(map, request);
-			
-			if(goodsImageList.size()>0){
+
+			if (goodsImageList.size() > 0) {
 				for (int i = 0; i < goodsImageList.size(); i++) {
 					adminGoodsDAO.goodsImageModify(goodsImageList.get(i));
 				}
@@ -235,24 +238,36 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		}
 
 		// 새로 입력된 이미지 등록
-		if (map.get("IMAGE") != null) {
-			List<Map<String, Object>> goodsImageList = goodsImageUtils.parseInsertFileInfo(map, request);
+		List<MultipartFile> IMAGES= multipartHttpServletRequest.getFiles("IMAGE");
+			//System.out.println("MAP이미지1 : " + multipartHttpServletRequest.getFile("IMAGE"));
+			//System.out.println("MAP이미지 : " + multipartHttpServletRequest.getFiles("IMAGE"));
+			//System.out.println("SIZE : "+IMAGES.size());
+			if (IMAGES.size()>0) {
+				List<Map<String, Object>> goodsImageList = goodsImageUtils.parseInsertFileInfo(map, request);
 
-			// System.out.println("goodsImageList : "+goodsImageList);
-			// System.out.println("mapImage : "+map.get("IMAGE"));
+				// System.out.println("goodsImageList : "+goodsImageList);
+				// System.out.println("mapImage : "+map.get("IMAGE"));
 
-			for (int i = 0; i < goodsImageList.size(); i++) {
-				adminGoodsDAO.goodsImageInsert(goodsImageList.get(i));
+				for (int i = 0; i < goodsImageList.size(); i++) {
+					adminGoodsDAO.goodsImageInsert(goodsImageList.get(i));
+				}
 			}
 		}
-
-	}
+	
 
 	// 상품 삭제
 	@Override
 	public void goodsDelete(Map<String, Object> map) throws Exception {
+		List<Map<String, Object>> listMap=new ArrayList<Map<String, Object>>();
+		
+		listMap=adminGoodsDAO.goodsModifyForm(map);	
+		goodsImageUtils.parseDeleteThumbnail(listMap.get(0));
+		
+		listMap=adminGoodsDAO.goodsModifyFormImage(map);
+		for(int i=0; i<listMap.size();i++)
+		goodsImageUtils.parseDeleteImages(listMap.get(i));
+		
 		adminGoodsDAO.goodsDelete(map);
-		goodsImageUtils.parseDeleteImages(map);
 	}
 
 	// 상품 검색(상품명)

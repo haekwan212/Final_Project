@@ -114,12 +114,12 @@ public class GoodsImageUtils {
 	// 썸네일 이미지 수정
 	public Map<String, Object> parseUpdateThumbImage(Map<String, Object> map, HttpServletRequest request)
 			throws Exception {
-		
+
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		MultipartFile file = multipartHttpServletRequest.getFile("GOODS_THUMBNAIL");
-		
+
 		String fileName = "상품썸네일_" + map.get("GOODS_NUMBER").toString();
-		
+
 		String IMAGEExtension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
 
 		File uploadFile = new File(filePath + fileName + IMAGEExtension);
@@ -142,40 +142,56 @@ public class GoodsImageUtils {
 	}
 
 	// 이미지 수정
-	@SuppressWarnings({ "null", "unused" })
 	public List<Map<String, Object>> parseUpdateImages(Map<String, Object> map, HttpServletRequest request)
 			throws Exception {
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-		List<MultipartFile> imageFile = new ArrayList<MultipartFile>();
 
 		// System.out.println("IMAGE : "+imageFile);
 		// Iterator<String> iterator =
 		// multipartHttpServletRequest.getFileNames();
 
 		// MultipartFile multipartFile = null;
-		String[] IMAGE=null;
 		String IMAGEExtension = null;
 
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		Map<String, Object> listMap = null;
+		MultipartFile multipartFile = null;
+
+		File file = new File(filePath);
+		if (file.exists() == false) {
+			file.mkdirs(); // 폴더가 존재하지 않으면 폴더 생성
+		}
 
 		String[] orgImage = request.getParameterValues("ORIGINAL_IMAGE");
-		System.out.println("기존 이미지 배열 : "+orgImage);
+		System.out.println("기존 이미지 배열 : " + orgImage);
 		// 기존파일 수정 및 삭제
 		for (String a : orgImage) { // 전송된 기존파일 정보가 있으면
-			System.out.println("기존 이미지 배열에서 꺼내옴 : "+a);
-			System.out.println("기존 이미지 배열에서 꺼내옴2 : "+request.getParameter(a));
-			System.out.println("기존 이미지 배열에서 꺼내옴3 : "+multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a));
-			if (request.getParameter(a) != null) {
-				// 기존파일이 수정되었으면
-				if (multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a).getSize()>0) {
-					System.out.println("MODIFY_IMAGE_" + a + " 삭제, 수정");
-					imageFile.add(multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a));
+			System.out.println("기존 이미지 배열에서 꺼내옴 : " + a);
+			System.out.println("기존 이미지 배열에서 꺼내옴2 : " + request.getParameter(a));
+			System.out.println("기존 이미지 배열에서 꺼내옴3 : " + multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a));
+			if (request.getParameter(a) != null) { //
+				// 기존파일이 수정되었으면 밑의 if문으로들어가고, 아니면 그냥 지나감
+				if (multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a).getSize() > 0) {
+					
+					multipartFile=multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a);
+					System.out.println("이미지 " + a + "수정!");
 					File removeFile = new File(filePath + a);
 					removeFile.delete();
-					for (int i = 0; ; i++) {
-						IMAGE[i]=a;
-					}
+
+					IMAGEExtension = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf("."));
+					System.out.println("확장자 : " + IMAGEExtension);
+					file = new File(filePath + a.substring(0, a.lastIndexOf(".")) + IMAGEExtension);
+					multipartFile.transferTo(file);
+					
+					System.out.println("저장될 파일 이름 : "+a.lastIndexOf(".") + IMAGEExtension);
+					listMap = new HashMap<String, Object>();
+					listMap.put("IMAGE", a.substring(0, a.lastIndexOf(".")) + IMAGEExtension);
+					listMap.put("ORIGINAL_IMAGE", a);
+
+					listMap.put("GOODS_NUMBER", map.get("GOODS_NUMBER"));
+					list.add(listMap);
+					
+
 				}
 			} else { // 기존파일의 정보가 없으면
 				File removeFile = new File(filePath + a);
@@ -184,53 +200,27 @@ public class GoodsImageUtils {
 			}
 		}
 
-		System.out.println("수정할 IMAGE : " + IMAGE);
-
-		File file = new File(filePath);
-		if (file.exists() == false) {
-			file.mkdirs(); // 폴더가 존재하지 않으면 폴더 생성
-		}
-		if (IMAGE !=null) {
-			for (MultipartFile multipartFile : imageFile) {
-				// System.out.println("IMAGE File : "+multipartFile);
-				if (multipartFile.isEmpty() == false) {
-					int i = 0;
-					IMAGEExtension = multipartFile.getOriginalFilename()
-							.substring(multipartFile.getOriginalFilename().lastIndexOf("."));
-					file = new File(filePath + IMAGE[i].substring(0, IMAGE[i].lastIndexOf(".")) + IMAGEExtension);
-					multipartFile.transferTo(file);
-
-					listMap = new HashMap<String, Object>();
-					listMap.put("IMAGE", IMAGE[i].substring(0, IMAGE[i].lastIndexOf(".")) + IMAGEExtension);
-					listMap.put("ORIGINAL_IMAGE", IMAGE[i]);
-
-					listMap.put("GOODS_NUMBER", map.get("GOODS_NUMBER"));
-					list.add(listMap);
-					i++;
-				}
-
-			}
-		}
 		return list;
 	}
 
-	// 이미지 삭제
-	public void parseDeleteImages(Map<String, Object> map) throws Exception {
+	// 썸네일이미지 삭제
+	public void parseDeleteThumbnail(Map<String, Object> map) throws Exception {
 
-		if (map.get("IMAGE") != null) {
-			String[] imageName = (String[]) map.get("IMAGE");
-
-			for (String a : imageName) {
-				File removeFile = new File(filePath + a);
-				removeFile.delete();
-			}
-		}
-
-		if (map.get("THUMBNAIL") != null) {
-			File removeFile = new File(filePath + map.get("THUMBNAIL"));
+		if (map.get("GOODS_THUMBNAIL") != null) {
+			File removeFile = new File(filePath + map.get("GOODS_THUMBNAIL"));
 			removeFile.delete();
 		}
 
+	}
+	
+	//이미지 삭제
+	public void parseDeleteImages(Map<String, Object> map) throws Exception {
+
+		if (map.get("IMAGE") != null) {
+				File removeFile = new File(filePath + map.get("IMAGE"));
+				removeFile.delete();
+			}
+		
 	}
 
 	/*
