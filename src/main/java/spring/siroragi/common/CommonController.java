@@ -29,4 +29,11 @@ public class CommonController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/about")
+	public ModelAndView about(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("about");
+		return mv;
+	}
+
 }

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<div class="container">
 <section class="step-panels">
 		<ol>
 			<li class="c01 col-xs-24 col-sm-10 selected">
@@ -56,7 +57,6 @@
 		</div>
 	</div>
 
-
 	<script>
 
 function hp_code(){
@@ -81,6 +81,7 @@ function hp_code(){
 	}, "json"); */
 } 
 
+
 /* 
  function email_code(){
 	
@@ -98,8 +99,11 @@ function hp_code(){
 			alert("인증번호를 요청하신 이메일로 발송했습니다.");
 	
 		}
+
 }  
- function email_code(){
+
+/* function email_code(){
+
 	   var f = document.frm;
 	   var email = f.email1.value+"@"+f.email2.value;
 
@@ -173,6 +177,22 @@ function hp_code(){
 			f.sing_code.focus();
 		}else if(f.sing_code.value !=  authNum){
 			alert("인증번호가 맞지 않습니다.");
+
+	      return false ;
+	   }
+	   $.post("ajax",{mode:"email_code", email:email},function(data){   
+
+	      if(data.result != 'ok') {
+	         if(data.result == 'dup') 
+	            alert("이미 가입된 이메일입니다.");
+	         else if(data.result == 'month')
+	            alert("탈퇴 후 한달이내에 재가입은 불가능합니다. "+data.val+" 이후에 가입하십시요.");
+	      } else {
+	         document.frm.code_chk.value = data.val;
+	         alert("인증번호를 요청하신 이메일로 발송했습니다.");
+	      }
+	   }, "json");
+	} */
 
 		}else{
 			
@@ -251,6 +271,7 @@ function member_send(){
 
 
   */
- 
+
 </script>
+</div>
 

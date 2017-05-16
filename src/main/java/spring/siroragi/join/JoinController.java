@@ -77,8 +77,6 @@ public class JoinController {
 		System.out.println("메일보냄");
 		}
 		String checkNumString=String.valueOf(checkNum);
-		String a = "aa";
-		String b = "bb";
 		PrintWriter writer =response.getWriter();
 		writer.write(checkNumString);
 		writer.flush();
@@ -190,3 +188,4 @@ public class JoinController {
 		
 	}
 }
+
