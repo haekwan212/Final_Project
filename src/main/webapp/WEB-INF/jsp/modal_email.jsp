@@ -1,18 +1,15 @@
-
 <%@ page contentType="text/html; charset=utf-8" %>
-<<<<<<< HEAD
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<% String authNum = (String)request.getAttribute("authNum"); 
+System.out.println(authNum);%>
+
 <div class="modal-body">
 <form name="frm" method="post" class="form-horizontal">
-<input name="code_chk" type="hidden" value="${authNum}">
-=======
-<div class="modal-body"><form name="frm" method="post" class="form-horizontal">
-<%-- <input name="authNum" type="hidden" value="${authNum}"> --%>
-<input type="hidden" name="authNum" id="authNum" value=${authNum}>
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
+
+<c:set var="authNum" scope="page">${authNum}</c:set>
 <input name="agreement" value="o" type="hidden">
-
 <section style="padding:30px 20px;">
-
 	<div class="form-group">
 		<label for="inputEmail3" class="col-xs-4 col-lg-4 control-label">이메일</label>
 		<div class="col-xs-20 col-lg-20 form-inline">
@@ -27,6 +24,7 @@
 		<label for="inputEmail3" class="col-sm-4 control-label">인증번호</label>
 		<div class="col-sm-20">
 			 <input name="sing_code" class="form-control" type="password">
+			 <input type="text" class="from-control" id="authNum" name="authNum" value="<%=authNum%>">
 			<%-- <input name="sing_code" class="form-control" type="text" value="${authNum}"> --%>
 		</div>
 	</div>
@@ -36,7 +34,7 @@
 	</div> 
 
 </section>
-
 </form></div>
+
 <div class="modal-foot">
 </div>

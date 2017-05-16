@@ -1,5 +1,6 @@
 package spring.siroragi.join;
 
+import java.io.PrintWriter;
 import java.util.Properties;
 
 import javax.annotation.Resource;
@@ -17,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
@@ -48,25 +51,41 @@ public class JoinController {
 	}
 
 	@RequestMapping(value="/joinStep1/modal_email_auth")
-	public ModelAndView email_auth(HttpServletResponse response, HttpServletRequest request,CommandMap Map)throws Exception{
+	@ResponseBody
+	public void email_auth(@RequestParam(value="email") String email, HttpServletResponse response)throws Exception{
 		System.out.println("나야나");
 		/*String email = request.getParameter("email1") + "@" + request.getParameter("email2");*/
-		String email = (String) Map.getMap().get("email");
+		/*String email = (String) Map.getMap().get("email");
 		System.out.println("email = " + email);
-		String authNum="";
-	
+		String authNum="";*/
+		  response.setContentType("test/plain");
+
+		  String authNum = RandomNum();
+		  sendEmail(email.toString(),authNum);
+	        //응답하는 text의 인코딩 설정
+	        response.setCharacterEncoding("UTF-8");
+	        
+	        //response에 응답을 싣기위해 Writer객체를 하나 가져온다.
+	        PrintWriter writer = response.getWriter();
+	        
+	        //가져온 Write 객체에 응답할 Text를 작성한다.
+	        writer.write(authNum);
+	        
+	        //응답을 보낸다.
+	        writer.flush();
+	        writer.close();
+
+
 		
-		authNum = RandomNum();
-		sendEmail(email.toString(),authNum);
 		
-		
-		ModelAndView mv = new ModelAndView();
+/*		return email;*/
+		/*ModelAndView mv = new ModelAndView();
 		
 		mv.addObject("email",email);
 		mv.addObject("authNum", authNum);
 		mv.setViewName("joinStep1");
-		System.out.println("오드넘2"+authNum);
-		return mv;
+		System.out.println("오드넘"+authNum);*/
+//		return mv;
 	}
 	
 	private void sendEmail(String email,String authNum){

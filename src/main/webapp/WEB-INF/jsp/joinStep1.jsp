@@ -1,12 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<<<<<<< HEAD
-<div class="container">
-=======
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% String authNum = (String)request.getAttribute("authNum"); 
-System.out.println("야야야"+authNum);%>
-
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
+<% String authNum = (String)request.getAttribute("authNum");
+System.out.println("authNum"+authNum);%>
+<div class="container">
 <section class="step-panels">
 		<ol>
 			<li class="c01 col-xs-24 col-sm-10 selected">
@@ -55,43 +51,16 @@ System.out.println("야야야"+authNum);%>
 						<p>이메일 인증은 따로 정보를 저장하지 않습니다. 해당 이메일로 전송받은 인증 번호를 입력해서 인증을 받는 방법입니다.</p>
 						<a href="/SIRORAGI/joinStep1/modal_email" class="button" target="modal" data-size="sm" data-label="이메일 인증">
 							<span class="button-label">이메일 인증</span>
+							<input type="text" id="aa" value="${authNum}"/>
 						</a>
-						<input type="hidden" name="authNum" id="authNum" value=<%=authNum%>>
-						끼룩끼룩${authNum}
 					</div>
 				</div>
 			</section>
 		</div>
-<<<<<<< HEAD
 	</div>
-=======
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
-	</div>
-
 
 	<script>
 	
-function hp_code(){
-	var f = document.frm;
-	var hp = f.hp1.value+f.hp2.value+f.hp3.value;
-
-	if(hp == '') {
-		alert("핸드폰 번호를 입력하세요.");
-		return false ;
-	}
-	$.post("ajax",{mode:"sms_code", hp:hp},function(data){	
-		
-		if(data.result != 'ok') {
-			if(data.result == 'dup') 
-				alert("이미 가입된 핸드폰입니다.");
-			else if(data.result == 'month')
-				alert("탈퇴 후 한달이내에 재가입은 불가능합니다. "+data.val+" 이후에 가입하십시요.");
-		} else {
-			document.frm.code_chk.value = data.val;
-			alert("인증번호를 요청하신 핸드폰으로 발송했습니다.");
-		}
-	}, "json");
-}
 /* 
  function email_code(){
 	
@@ -110,53 +79,10 @@ function hp_code(){
 	
 		}
 }  */
+
+
+
 function email_code(){
-	   var f = document.frm;
-	   var email = f.email1.value+"@"+f.email2.value;
-
-	   if(email == '@') {
-	      alert("이메일을 입력하세요.");
-	      return false ;
-	   }else {
-		   alert("인증번호를 요청하신 이메일로 발송했습니다.");
-/*  		   location.href="/SIRORAGI/joinStep1/modal_email_test";  */
-	      }
-	   $.post("./joinStep1/modal_email_auth",{mode:"email_code", email:email},function(data){   
-
-	      if(data.authNum != 'ok') {
-	         if(data.result == 'dup') 
-	            alert("이미 가입된 이메일입니다.");
-	         else if(data.result == 'month')
-	            alert("탈퇴 후 한달이내에 재가입은 불가능합니다. "+data.val+" 이후에 가입하십시요.");
-	      } else {
-/* 	         document.frm.code_chk.value1 = data.val; */
-	         alert("인증번호를 요청하신 이메일로 발송했습니다.");
-	      }
-	   });
-	   
-	}
-
-function member_send(){
-	var f = document.frm;
- 	var authNum ='authNum'; 
-	<%-- var user_id = '<%request.getParameter("id");%>'; --%>
-
-	if(!f.sing_code.value){
-		alert("인증번호를 입력해 주세요"+authNum);
-		f.sing_code.focus();
-	}else if(f.sing_code.value !=  authNum){
-		alert("인증번호가 맞지 않습니다." +authNum);
-
-	}else{
-		
-		alert("인증번호가 맞습니다.");
-		f.action = "./joinStep2";
-		f.submit(); 
-	}
- }
- 
-/* function email_code(){
-
 	var f = document.frm;
 	var email = f.email1.value+"@"+f.email2.value;
 
@@ -164,38 +90,61 @@ function member_send(){
 		alert("이메일을 입력하세요.");
 		return false ;
 	}
-	
-	$.post("ajax",{mode:"email_code", email:email},function(data){	
-		if(data.result != 'ok') {
-			if(data.result == 'dup') 
-				alert("이미 가입된 이메일입니다.");
-			else if(data.result == 'month')
-				alert("탈퇴 후 한달이내에 재가입은 불가능합니다. "+data.val+" 이후에 가입하십시요.");
-		} else {
-			document.frm.code_chk.value = data.val;
-			alert("인증번호를 요청하신 이메일로 발송했습니다.");
-		}
-	}, "json");
-}
 
-<<<<<<< HEAD
+	$.ajax({
+		url:"/SIRORAGI/joinStep1/modal_email_auth",
+		dataType: "text",
+		type:"get",
+		data:{"email" : email},
+		success : function(data){
+			var str = data;
+			alert(str);
+			$("#authNum").val(str);
+		         alert("인증번호를 요청하신 이메일로 발송했습니다.");
+		      },
+		error : function(data){
+			alert(data);
+			alert(data.status);
+			alert(data.readyState);
+		}
+	});
+	}
+/* function email_code(){
+	   var f = document.frm;
+	   var email = f.email1.value+"@"+f.email2.value;
+
+	   if(email == '@') {
+	      alert("이메일을 입력하세요.");
+	      return false ;
+	   }
+	   $.post("ajax",{mode:"email_code", email:email},function(data){   
+
+	      if(data.result != 'ok') {
+	         if(data.result == 'dup') 
+	            alert("이미 가입된 이메일입니다.");
+	         else if(data.result == 'month')
+	            alert("탈퇴 후 한달이내에 재가입은 불가능합니다. "+data.val+" 이후에 가입하십시요.");
+	      } else {
+	         document.frm.code_chk.value = data.val;
+	         alert("인증번호를 요청하신 이메일로 발송했습니다.");
+	      }
+	   }, "json");
+	} */
+
 function member_send(){
 	var f = document.frm;
+	var authNum= $("#authNum").val();
+	console.log(authNum);
 	if(!f.sing_code.value){
-		alert("인증번호를 입력해 주세요");
+		alert("인증번호를 입력해 주세요"+authNum);
 		f.sing_code.focus();
-	}else if(f.sing_code.value !=  f.code_chk.value){
-		alert("인증번호가 맞지 않습니다.");
+	}else if(f.sing_code.value != authNum){
+		alert("인증번호가 맞지 않습니다."+authNum);
 	}else{
-		f.action = "./joinStep1";
+		f.action = "./joinStep2";
 		f.submit();
 	}
-}
+} 
 </script>
-=======
+</div>
 
-  */
- 
-</script>
-
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
