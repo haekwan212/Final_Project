@@ -13,5 +13,10 @@ public class JoinDAO extends AbstractDAO {
 	public void insertMember(Map<String, Object> map) throws Exception{
 		insert("join.insertMember", map);
 	}
+	
+	//아이디체크
+	public int checkMember(Map<String, Object> map) throws Exception{
+		return selectMemberId("join.checkMember", map);
+	}
 }
 

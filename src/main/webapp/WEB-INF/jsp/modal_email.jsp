@@ -1,8 +1,7 @@
 
 <%@ page contentType="text/html; charset=utf-8" %>
 <div class="modal-body"><form name="frm" method="post" class="form-horizontal">
-<%-- <input name="authNum" type="hidden" value="${authNum}"> --%>
-<input type="hidden" name="authNum" id="authNum" value=${authNum}>
+<!-- <input type="hidden" name="authNum" id="email1" value="email1"> -->
 <input name="agreement" value="o" type="hidden">
 
 <section style="padding:30px 20px;">
@@ -12,7 +11,7 @@
 		<div class="col-xs-20 col-lg-20 form-inline">
 			<input name="email1" id="email1" class="form-control" size="10" type="text"> @ 
 			<input name="email2" id="email2" class="form-control" size="10" type="text">  
-			<a href="javascript:email_code();" class="btn btn-default form-control">인증번호받기2</a>
+			<a href="javascript:email_code();" class="btn btn-default form-control">인증번호받기</a>
 			
 			 <!-- <a href="/SIRORAGI/joinStep1/modal_email_auth" class="button" target="modal" data-size="sm" data-label="인증번호받기">인증번호받기</a> -->
 		</div>
@@ -26,7 +25,7 @@
 	</div>
 
 	<div class="text-center" style="padding-top:10px">
-		<a href="javascript:member_send();" class="btn btn-default">회원가입하기</a>
+		 <a href="javascript:member_send();" class="btn btn-default">회원가입하기</a> 
 	</div> 
 
 </section>

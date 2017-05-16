@@ -345,6 +345,13 @@
     		<artifactId>mail</artifactId>
     		<version>1.4</version>
 		</dependency>
+		
+		<!-- Ajax -->
+		<dependency>  
+       <groupId>org.codehaus.jackson</groupId>
+       <artifactId>jackson-mapper-asl</artifactId>
+       <version>1.8.5</version>
+		</dependency>  
 
 
 		  

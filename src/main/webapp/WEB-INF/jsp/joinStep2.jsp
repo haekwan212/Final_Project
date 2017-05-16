@@ -481,10 +481,10 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 		</div>
 		<div class="col-lg-21 col-md-20">
 			<div class="input-box">
-				<input type="text" name="MEMBER_EMAIL1" class="xx-control x01" label="이메일" required="" value="" size="10">
+				<input type="text" name="MEMBER_EMAIL1" class="xx-control x01" label="이메일" required="" value="${email1}" size="10" readonly>
 				<span>@</span>
-				<input type="text" name="MEMBER_EMAIL2" id="email2" class="xx-control x02" label="이메일" required="" value="" size="20">
-				<div class="selectbox">
+				<input type="text" name="MEMBER_EMAIL2" id="email2" class="xx-control x02" label="이메일" required="" value="${email2}" size="20" readonly>
+				<!-- <div class="selectbox">
 					<div class="selectbox-data">
 						<strong class="text">직접입력
 						 </strong>
@@ -500,7 +500,7 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 						</option><option value="chol.com">천리안
 						</option><option value="korea.com">코리아닷컴
 					</option></select>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="checkbox checkbox-inline c01 selected">
