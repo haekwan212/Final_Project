@@ -133,7 +133,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		// 상품 썸네일 수정
 		if (multipartHttpServletRequest.getFile("GOODS_THUMBNAIL").getSize() > 0) {
 			map = goodsImageUtils.parseUpdateThumbImage(map, request);
-			System.out.println("썸네일 수정");
+			//System.out.println("썸네일 수정");
 			adminGoodsDAO.goodsThumbnailInsert(map);
 		}
 
@@ -203,7 +203,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 			String[] sizes = request.getParameterValues("GOODS_SIZE");
 			String[] amounts = request.getParameterValues("GOODS_AMOUNT");
 
-			System.out.println("COLOR : " + colors[0]);
+			//System.out.println("COLOR : " + colors[0]);
 
 			for (int i = 0; i < colors.length; i++) {
 				map.put("GOODS_NUMBER", map.get("GOODS_NUMBER"));
@@ -215,7 +215,7 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		}
 
 		// 상픔 이미지 수정, 삭제
-		System.out.println("이미지 : " + map.get("ORIGINAL_IMAGE"));
+		//System.out.println("이미지 : " + map.get("ORIGINAL_IMAGE"));
 		if (map.get("ORIGINAL_IMAGE") != null) {
 
 			List<Map<String, Object>> goodsImageList = goodsImageUtils.parseUpdateImages(map, request);

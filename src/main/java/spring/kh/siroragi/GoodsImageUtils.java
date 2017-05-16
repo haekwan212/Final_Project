@@ -163,27 +163,27 @@ public class GoodsImageUtils {
 		}
 
 		String[] orgImage = request.getParameterValues("ORIGINAL_IMAGE");
-		System.out.println("기존 이미지 배열 : " + orgImage);
+		//System.out.println("기존 이미지 배열 : " + orgImage);
 		// 기존파일 수정 및 삭제
 		for (String a : orgImage) { // 전송된 기존파일 정보가 있으면
-			System.out.println("기존 이미지 배열에서 꺼내옴 : " + a);
-			System.out.println("기존 이미지 배열에서 꺼내옴2 : " + request.getParameter(a));
-			System.out.println("기존 이미지 배열에서 꺼내옴3 : " + multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a));
+			//System.out.println("기존 이미지 배열에서 꺼내옴 : " + a);
+			//System.out.println("기존 이미지 배열에서 꺼내옴2 : " + request.getParameter(a));
+			//System.out.println("기존 이미지 배열에서 꺼내옴3 : " + multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a));
 			if (request.getParameter(a) != null) { //
 				// 기존파일이 수정되었으면 밑의 if문으로들어가고, 아니면 그냥 지나감
 				if (multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a).getSize() > 0) {
 					
 					multipartFile=multipartHttpServletRequest.getFile("MODIFY_IMAGE_" + a);
-					System.out.println("이미지 " + a + "수정!");
+					//System.out.println("이미지 " + a + "수정!");
 					File removeFile = new File(filePath + a);
 					removeFile.delete();
 
 					IMAGEExtension = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf("."));
-					System.out.println("확장자 : " + IMAGEExtension);
+					//System.out.println("확장자 : " + IMAGEExtension);
 					file = new File(filePath + a.substring(0, a.lastIndexOf(".")) + IMAGEExtension);
 					multipartFile.transferTo(file);
 					
-					System.out.println("저장될 파일 이름 : "+a.lastIndexOf(".") + IMAGEExtension);
+					//System.out.println("저장될 파일 이름 : "+a.lastIndexOf(".") + IMAGEExtension);
 					listMap = new HashMap<String, Object>();
 					listMap.put("IMAGE", a.substring(0, a.lastIndexOf(".")) + IMAGEExtension);
 					listMap.put("ORIGINAL_IMAGE", a);
@@ -195,7 +195,7 @@ public class GoodsImageUtils {
 				}
 			} else { // 기존파일의 정보가 없으면
 				File removeFile = new File(filePath + a);
-				System.out.println("MODIFY_IMAGE_" + a + "삭제");
+				//System.out.println("MODIFY_IMAGE_" + a + "삭제");
 				removeFile.delete();
 			}
 		}
