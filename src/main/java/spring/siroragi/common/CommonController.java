@@ -35,4 +35,5 @@ public class CommonController {
 		mv.setViewName("about");
 		return mv;
 	}
+
 }

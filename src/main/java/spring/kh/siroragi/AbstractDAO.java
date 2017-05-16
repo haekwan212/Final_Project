@@ -63,7 +63,10 @@ public class AbstractDAO {
 		return sqlSession.selectList(map, params);
 	}
 
+
 	// 이름 검색
+
+
 	// 가입한 회원 이름 검색
 	@SuppressWarnings("rawtypes")
 	public List searchMemberList1(String queryId, Object params) {
@@ -71,7 +74,10 @@ public class AbstractDAO {
 		return sqlSession.selectList(queryId, params);
 	}
 
+
+
 	// 회원아이디로 검색
+
 
 	// 가입한 회원 전화번호 검색
 	@SuppressWarnings("rawtypes")
@@ -81,8 +87,10 @@ public class AbstractDAO {
 	}
 
 
+
 	// E-Mail 검색
 	// 가입한 회원 이메일 검색
+
 
 	// 가입한 회원 이메일 검색
 	@SuppressWarnings("rawtypes")
