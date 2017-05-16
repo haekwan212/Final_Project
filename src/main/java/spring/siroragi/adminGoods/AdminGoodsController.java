@@ -27,7 +27,7 @@ public class AdminGoodsController {
 	
 	private int currentPage = 1;	 
 	private int totalCount; 		 
-	private int blockCount = 10;	 
+	private int blockCount = 20;	 
 	private int blockPage = 10; 	 
 	private String pagingHtml;  
 	private Paging page;
@@ -158,7 +158,7 @@ public class AdminGoodsController {
 	// 상품 수정
 	@RequestMapping(value="goods/goodsModify")
 	public ModelAndView goodsModify(CommandMap adminGoodsMap, HttpServletRequest request) throws Exception{
-		ModelAndView mv=new ModelAndView("goodsModifyForm");
+		ModelAndView mv=new ModelAndView("redirect:goodsList");
 		adminGoodsService.goodsModify(adminGoodsMap.getMap(), request);
 		
 		return mv;
