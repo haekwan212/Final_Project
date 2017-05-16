@@ -63,10 +63,9 @@ public class AbstractDAO {
 		return sqlSession.selectList(map, params);
 	}
 
-<<<<<<< HEAD
+
 	// 이름 검색
-=======
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
+
 
 	// 가입한 회원 이름 검색
 	@SuppressWarnings("rawtypes")
@@ -76,11 +75,10 @@ public class AbstractDAO {
 	}
 
 
-<<<<<<< HEAD
+
 	// 회원아이디로 검색
 
-=======
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
+
 	// 가입한 회원 전화번호 검색
 	@SuppressWarnings("rawtypes")
 	public List searchMemberList2(String queryId, Object params) {
@@ -89,13 +87,12 @@ public class AbstractDAO {
 	}
 
 
-<<<<<<< HEAD
+
 	// E-Mail 검색
 	// 가입한 회원 이메일 검색
 
-=======
+
 	// 가입한 회원 이메일 검색
->>>>>>> b95123aaa06a89c41749441b7fbe52de49b30b49
 	@SuppressWarnings("rawtypes")
 	public List searchMemberList3(String queryId, Object params) {
 		printQueryId(queryId);
