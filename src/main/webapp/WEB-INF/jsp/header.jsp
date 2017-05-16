@@ -64,14 +64,14 @@
 <div class="globalNavigation mobile">
 	<div class="tier1-group account">
 		<div class="tier1-head login">
-			<a href="/member/login" class="col-xs-12"><strong>login</strong></a>
-			<a href="/member/register" class="col-xs-12"><strong>join</strong></a>
+			<a href="/SIRORAGI/loing/loginForm" class="col-xs-12"><strong>login</strong></a>
+			<a href="/SIRORAGI/joinStep1" class="col-xs-12"><strong>join</strong></a>
 		</div>
 	</div>
 	<nav>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/about">
+				<a href="/SIRORAGI/about">
 					<strong>about</strong>
 				</a>
 			</div>
@@ -207,7 +207,7 @@
 				<img src="/theme/pshp/img/home_btn.png" width="20" height="20">
 				<span class="sr-only">E-shop</span>
 			</a>
-			<a href="../main/index" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
+			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
 		</div>
 	</div>
 	<div class="container">
@@ -218,7 +218,7 @@
 				<!-- 각페이지로 들어갓을 때 페이지에 해당되는 nav-group에 selected클래스를 추가 -->
 
 				<div class="nav-group">
-					<a href="../about" class="nav-head">
+					<a href="/SIRORAGI/about" class="nav-head">
 						<span class="label">about<span class="border"></span></span>
 					</a>
 				</div>
@@ -305,11 +305,11 @@
 		<div class="globalUtility hidden-xs hidden-sm">
 			<ul>
 				<li class="login item">
-					<a href="/member/login" style="display:inline">login &</a>
+					<a href="/SIRORAGI/loginForm" style="display:inline">login &</a>
 					<a href="/SIRORAGI/joinStep1" style="display:inline">join</a>
 				</li>
 				<li class="item">
-					<a href="/order/cart">
+					<a href="/SIRORAGI/cartList">
 						<span class="icon icon-cart-black hidden-lg"></span>
 						<span class="hidden-md">cart</span>
 					</a>
@@ -360,12 +360,10 @@ $(function(){
 }
 </style>
 
-        <div class="container">
        		
             <!-- 메인container-->
            	 <tiles:insertAttribute name="body"/>
             <!-- // container -->
-        </div>
 
 <script>
 	function getItems(mode, page_num){
@@ -678,13 +676,10 @@ $(function(){
 				<span class="sr-only">이 창 닫기</span>
 			</button>
 		</div>
-<<<<<<< HEAD
-=======
 		<div class="modal-body">
 		</div>
 		<div class="modal-foot">
 		</div>
->>>>>>> e84fb078568739d3eeb369e628f292f7288eda2f
 	</div>
 </div>
 

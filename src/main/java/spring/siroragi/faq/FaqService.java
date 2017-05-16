@@ -18,12 +18,17 @@ public interface FaqService {
 	Map<String, Object> faqDetail(Map<String, Object> map) throws Exception;
 
 	// FAQ 수정
-	void faqModify(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	void faqModify(Map<String, Object> map) throws Exception;
 
 	// FAQ 삭제
 	void faqDelete(Map<String, Object> map) throws Exception;
 
-	// FAQ 검색
+	// 글제목 검색
+	List<Map<String, Object>> searchTitleList(Map<String, Object> map, String isSearch) throws Exception;
+
+	// 글내용 검색
+	List<Map<String, Object>> searchContentList(Map<String, Object> map, String isSearch) throws Exception;
+
 	// 파일첨부
 
 }

@@ -1,41 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<% String curDate = new java.text.SimpleDateFormat("yyyyMMdd").format(new java.util.Date()); %>
+ 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
-<%@ include file="/WEB-INF/include/include-body.jspf" %>	<!-- 버튼 이동 1 -->
 <head>
-<!-- jQuery --> <!-- 버튼이동 2 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="<c:url value='/js/common.js'/>" charset="utf-8"></script>
 
-<script type="text/javascript">
-
-    var gfv_count = '${fn:length(list)+1}';
-    $("#delete").on("click", function(e){ //삭제하기 버튼
-		e.preventDefault();
-		fn_faqDelete();
-	});
-    
-    $("#update").on("click", function(e){ //수정하기 버튼
-		e.preventDefault();
-		fn_faqModify();
-	});
-    
-    function fn_faqDelete(){
-		var comSubmit = new ComSubmit();
-		comSubmit.setUrl("<c:url value='/faq/faqDelete' />");
-		comSubmit.addParam("FAQ_NUMBER", $("#FAQ_NUMBER").val());
-		comSubmit.submit();
-		return confirm("삭제하시겠습니까?");		
-	}
-    
-    function fn_faqModify(){
-		var comSubmit = new ComSubmit("frm");
-		comSubmit.setUrl("<c:url value='/faq/faqModify' />");
-		comSubmit.submit();
-	}
-
+<script type="text/javascript">    
+    function delchk(){
+        return confirm("삭제하시겠습니까?");
+    }
 </script>
+
 <style type="text/css">
 .paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
 .paging a,
@@ -52,14 +31,13 @@
 .paging .page_arw{font-size:11px;line-height:30px;}
 </style>
 </head>
-<form id="commonForm" name="commonForm">	<!-- 버튼이동 3 -->
 <div class="row" style="padding-left:15px;width:900px;">    
 	<h1 class="page-header">자주묻는질문</h1>
 </div>
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         자주묻는질문페이지 검색, 수정, 삭제 기능하는 페이지입니다.
+                         자주묻는질문 검색, 수정, 삭제 기능하는 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
@@ -92,7 +70,7 @@
 								</thead>
 								<tbody>
 									<c:forEach var="faqList" items="${list}" varStatus="stat">
-										<c:url var="viewURL" value="/faq/faqModifyForm">
+										<c:url var="viewURL" value="faqAdminModifyForm">
 											<c:param name="FAQ_NUMBER" value="${faqList.FAQ_NUMBER }" />
 										</c:url>
 										<tr class="gradeA even" role="row">
@@ -102,18 +80,13 @@
 											<td style="text-align: center; vertical-align: middle;"><fmt:formatDate value="${faqList.FAQ_REGDATE}" pattern="YY.MM.dd HH:mm" /></td>
 											<td style="text-align: center; vertical-align: middle;">${faqList.FAQ_HITCOUNT}</td>
 											<td style="text-align: center; vertical-align: middle;">
-												<a href="/faq/faqModifyForm?FAQ_NUMBER=${faqList.FAQ_NUMBER }"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
+												<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
 												
-												<c:url var="viewURL2" value="/faq/faqDelete">
+												<c:url var="viewURL2" value="/admin/faqAdminDelete">
 													<c:param name="FAQ_NUMBER" value="${faqList.FAQ_NUMBER }" />
 												</c:url>
-												 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return fn_faqDelete()"></a> 
-												 
-												<%--  <a href="#this" class="btn" id="update"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png" value="${map.FAQ_NUMBER }"/></a>
-												 <a href="#this" class="btn" id="delete"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return fn_faqDelete()"></a>
-											
-										 --%>
-											
+												 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a> 
+										
 											</td>
 										</tr>
 									</c:forEach>
@@ -127,9 +100,8 @@
 							</table>
 						</div>
 					</div>
-
 					
-					<%-- <div class="paging">
+					<div class="paging">
 						${pagingHtml}
 					</div> 
 
@@ -141,15 +113,14 @@
 										<option value="0">제목</option>
 										<option value="1">내용</option>
 
-									</select> <input class="form-control" type="text" name="isSearch"
-										id="isSearch" /> <span>
+									</select> <input class="form-control" type="text" name="isSearch" id="isSearch" /> <span>
 										<button type="submit" class="btn btn-default">검색</button>
 									</span>
 								</form>
 							</div>
 						</div>
-
-					</div> --%>
+					</div>
+					
 				</div>
 			</div>
 			<!-- /.table-responsive -->
@@ -157,4 +128,4 @@
 	</div>
 	<!-- /.panel -->
 </div>
-</form>
+
