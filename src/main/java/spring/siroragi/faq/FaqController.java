@@ -116,10 +116,10 @@ public class FaqController {
 	// 글쓰기
 	@RequestMapping(value = "/faq/faqWrite")
 	public ModelAndView faqWrite(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("redirect:/faq/faqList");
 
 		faqService.faqWrite(commandMap.getMap(), request);
-		mv.setViewName("redirect:/faq/faqList");
+		/*mv.setViewName();*/
 
 		return mv;
 	}

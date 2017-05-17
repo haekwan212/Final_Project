@@ -37,7 +37,7 @@ public class FaqImageUtils {
 
 		}
 		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
-		Map<String, Object> listMap = null; 
+		Map<String, Object> listMap = null;
 		
 		map.put("FAQ_IMAGE1", fileName+IMAGEExtension);
 		
