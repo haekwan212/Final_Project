@@ -24,7 +24,7 @@ public class GoodsImageUtils {
 
 		if (multipartHttpServletRequest.getFile("GOODS_THUMBNAIL") != null) {
 			MultipartFile file = multipartHttpServletRequest.getFile("GOODS_THUMBNAIL");
-			String fileName = "상품썸네일_" + map.get("GOODS_NUMBER").toString();
+			String fileName = "Thumbnail_" + map.get("GOODS_NUMBER").toString();
 
 			String IMAGEExtension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
 
@@ -72,7 +72,7 @@ public class GoodsImageUtils {
 				if (multipartFile.isEmpty() == false) {
 					IMAGEExtension = multipartFile.getOriginalFilename()
 							.substring(multipartFile.getOriginalFilename().lastIndexOf("."));
-					IMAGE = "상품이미지_" + GOODS_NUMBER + "_" + System.currentTimeMillis() + IMAGEExtension;
+					IMAGE = "IMAGE_" + GOODS_NUMBER + "_" + System.currentTimeMillis() + IMAGEExtension;
 
 					file = new File(filePath + IMAGE);
 					multipartFile.transferTo(file);
@@ -100,7 +100,7 @@ public class GoodsImageUtils {
 		 * //확장자 구하기 IMAGEExtension =
 		 * multipartFile.getOriginalFilename().substring(multipartFile.
 		 * getOriginalFilename().lastIndexOf(".")); IMAGE =
-		 * "상품이미지_"+GOODS_NUMBER+"_"+System.currentTimeMillis()+IMAGEExtension;
+		 * "IMAGE_"+GOODS_NUMBER+"_"+System.currentTimeMillis()+IMAGEExtension;
 		 * 
 		 * 
 		 * file = new File(filePath + IMAGE); multipartFile.transferTo(file);
@@ -118,7 +118,7 @@ public class GoodsImageUtils {
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		MultipartFile file = multipartHttpServletRequest.getFile("GOODS_THUMBNAIL");
 
-		String fileName = "상품썸네일_" + map.get("GOODS_NUMBER").toString();
+		String fileName = "Thumbnail_" + map.get("GOODS_NUMBER").toString();
 
 		String IMAGEExtension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
 
