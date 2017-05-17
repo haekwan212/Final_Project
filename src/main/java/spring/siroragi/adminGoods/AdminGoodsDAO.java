@@ -3,7 +3,6 @@ package spring.siroragi.adminGoods;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -55,10 +54,35 @@ public class AdminGoodsDAO {
 	public List<Map<String, Object>> goodsModifyFormImage(Map<String, Object> map) throws Exception{
 		return sqlSession.selectList("adminGoods.selectOneGoodsImage", map);
 	}
-
+	
 	// 상품 수정
 	public void goodsModify(Map<String, Object> map) throws Exception {
-		sqlSession.insert("adminGoods.modifyAdminGoods", map);
+		sqlSession.update("adminGoods.modifyGoods", map);
+	}
+	
+	//상품 수정(NO DC)
+	public void goodsModify2(Map<String,Object> map) throws Exception{
+		sqlSession.update("adminGoods.modifyGoodsNoDC",map);
+	}
+	
+	// 상품 종류 수정
+	public void goodsKindsModify(Map<String, Object> map) throws Exception{
+		sqlSession.update("adminGoods.modifyGoodsKinds", map);
+	}
+	
+	// 상품 이미지 수정
+	public void goodsImageModify(Map<String, Object> map) throws Exception{
+		sqlSession.update("adminGoods.modifyGoodsImage", map);
+	}
+	
+	//상품 종류 삭제
+	public void goodsKindsDelete(Map<String, Object> map) throws Exception{
+		sqlSession.delete("adminGoods.deleteGoodsKinds", map);
+	}
+	
+	//상품 이미지 삭제
+	public void goodsImageDelete(Map<String, Object> map) throws Exception{
+		sqlSession.delete("adminGoods.deleteGoodsImage", map);
 	}
 
 	// 상품 수정 OFF시, 장바구니와 위시리스트에서 제외

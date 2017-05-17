@@ -1,16 +1,13 @@
-<div class="modal-body">
-<style>
-
+<div class="modal-body"><style>
 .popover-content {font-size:12px !important;}
 .label1 {border-radius: 0; padding: 5px; font-size: 11px; display: inline;font-weight: bold;line-height: 1;color: #fff;text-align: center;
 	white-space: nowrap;vertical-align: middle !important;}
 .label-primary1 {background-color: #337ab7;}
-
 </style>
 
 <form name="fmOrder">
-<input name="mode" type="hidden">
-<input name="goodsno" value="1491899643" type="hidden">
+<input type="hidden" name="mode">
+<input type="hidden" name="goodsno" value="1491899644">
 
 <div class="product-view-main-sub row">
 	<div class="col-lg-24">
@@ -18,7 +15,7 @@
 	<section class="product-view-thumbnail section col-xs-24 col-sm-13">
 		<div class="wrap">
 			<div class="thumbnail">
-				<img img_layer="http://pic.styleindex.co.kr/g/m/149/1491899643" goodsno="1491899643" src="http://pic.styleindex.co.kr/g/m/149/1491899643" class="img-responsive" width="500">
+				<img img_layer="http://pic.styleindex.co.kr/g/m/149/1491899644" goodsno="1491899644" src="http://pic.styleindex.co.kr/g/m/149/1491899644" width="500" class="img-responsive">
 			</div>
 			<!-- thumbnail//end -->
 			<!-- thumbnail-wrap//end -->
@@ -33,7 +30,7 @@
 			<div class="description">
 				<!--<em class="season">2015 F/W</em>-->
 				
-				<strong class="product-name" data-toggle="popover" data-content="상품번호 : 1491899643" data-trigger="hover" data-placement="bottom">트윈 캣 오드아이 8부 오버핏 크루넥(STRAWBERRY MILK PINK)_PPOEPCR25V</strong>
+				<strong class="product-name" data-toggle="popover" data-content="상품번호 : 1491899644" data-trigger="hover" data-placement="bottom">팬콧 플라워 레터링 원피스(MIDNIGHT BLACK)_PPOEPOP02M</strong>
 			</div>
 			<!-- description//end -->
 			<div class="guide">
@@ -42,7 +39,7 @@
 					<dd class="col-xs-18 col-md-19">
 						<div class="rating">
 						<span class="ratio">
-						  <span style="width:70%">
+						  <span style="width:0%">
 							  <span class="star"></span>
 						  </span>
 						</span>
@@ -51,7 +48,7 @@
 				</dl>
 				<dl class="hits">
 					<dt class="col-xs-6 col-md-5">상품 조회수</dt>
-					<dd class="count col-xs-18 col-md-19">1126&nbsp;Hit</dd>
+					<dd class="count col-xs-18 col-md-19">1156&nbsp;Hit</dd>
 				</dl>
 			</div>
 			<!-- guide//end -->
@@ -60,92 +57,12 @@
 					<dt class="col-xs-6 col-md-5">판매 가격</dt>
 					<dd class="col-xs-18 col-md-19">
 						<p class="now">
-							39,000원
+							79,000원
 						</p>
 					</dd>
 				</dl>
-				<!-- price-base//end -->
-				<dl class="price-benefit-rating">
-					<dt class="col-xs-6 col-md-5">레벨 할인가</dt>
-					<dd class="col-xs-18 col-md-19">
-						<div class="value">
-							37,050원 ~
-							39,000원
-							<div class="benefit-description">
-								<strong class="title"><span>레벨 할인가</span></strong>
-								<ul class="list">
-									<li>
-										<span class="member-rating member-rating-tier01">WHITE</span>
-										<span class="member-price">39,000</span>
-									</li>
-									<li>
-										<span class="member-rating member-rating-tier01">YELLOW</span>
-										<span class="member-price">38,610</span>
-									</li>
-									<li>
-										<span class="member-rating member-rating-tier01">RED</span>
-										<span class="member-price">38,610</span>
-									</li>
-									<li>
-										<span class="member-rating member-rating-tier01">SILVER</span>
-										<span class="member-price">38,220</span>
-									</li>
-									<li>
-										<span class="member-rating member-rating-tier01">GOLD</span>
-										<span class="member-price">37,830</span>
-									</li>
-									<li>
-										<span class="member-rating member-rating-tier01">PLATINUM</span>
-										<span class="member-price">37,440</span>
-									</li>
-									<li>
-										<span class="member-rating member-rating-tier01">DIAMOND</span>
-										<span class="member-price">37,050</span>
-									</li>
-								</ul>
-								<button class="button" target="modal-inner" data-size="sm" href="../service/member_benefit" data-label="레벨혜택 자세히 보기">
-									<span class="button-label">레벨 할인가 자세히 보기</span>
-								</button>
-							</div>
-							<!-- layer-description//end -->
-						</div>
-					</dd>
-				</dl>
-
-				
-				<!-- price-benefit//end -->
-				<dl class="price-coupon">
-					<dt class="col-xs-6 col-md-5">추가 쿠폰가</dt>
-					<dd class="col-xs-18 col-md-19">
-						35,100원
-						<a href="../goods/dncoupon?no=325" target="process" class="button">
-							<span class="button-label">10% 추가 쿠폰</span>
-						</a>
-					</dd>
-				</dl>
-
-
-
-				<!-- price-coupon//end -->
-				<dl class="price-benefit-new">
-					<dt class="col-xs-6 col-md-5">
-						<span>신규 회원가</span>
-					</dt>
-					<dd class="col-xs-18 col-md-19">32,100원
-					<div class="cabal-group" style="display:inline-block; cursor:pointer;">
-						<span class="cabal" style="display:block; border:1px solid #000; color:#000; margin-top:3px;">
-							<a data-toggle="popover" data-content="[신규회원가]는 회원가입시 제공되는 축하적립금 3,000원을 적용한 금액입니다. ★주문시 적립금 조회>적립금 적용" data-trigger="hover" data-placement="bottom"><span class="cabal-label" style="color:#000;">신규회원가란?</span></a>
-						</span>
-					</div>
-					</dd>
-				</dl>
-				<!-- price-benefit-new//end -->
-
 			</div>
-
 			<div class="benefit">
-            
-            
             	<!-- delivery charge -->
 				<dl class="delivery">
 					<dt class="col-xs-6 col-md-5">배송비</dt>
@@ -158,7 +75,7 @@
 
 				<dl class="price-earning">
 					<dt class="col-xs-6 col-md-5">예상 적립금</dt>
-					<dd class="col-xs-18 col-md-19">1,170원</dd>
+					<dd class="col-xs-18 col-md-19">2,370원</dd>
 				</dl>
 				<!--
 				<dl class="price-earning">
@@ -194,14 +111,9 @@
 		</div>
 		<select id="option" onchange="setOption(this)">
 			<option value="">옵션 선택
-			</option><option value="15820208" optnm="XS" stock="1" price="39000">
-			XS
-			(1개 남음)
-			</option><option value="15820209" optnm="S" stock="1" price="39000">
+			</option><option value="15820211" optnm="S" stock="10" price="79000">
 			S
-			(1개 남음)
-			</option><option value="15820210" optnm="M" stock="1" price="39000" disabled="">
-			M (1개남음)
+			(10개 남음)
 		</option></select>
 	</div>
 </div>
@@ -292,11 +204,6 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 </script>
 						</div>
 
-						<div class="col-xs-11 action">
-							<a href="../goods/restock?goodsno=1491899643" target="modal-inner" data-size="sm" data-label="재입고 요청" class="button button-dimmed">
-								<span class="button-label">재입고시 문자 받기</span>
-							</a>
-						</div>
 					</dd>
 				</dl>
 			</div>
@@ -304,7 +211,7 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 			<div class="action">
 				<div class="row">
 					<div class="col-xs-12">
-						<a href="../goods/1491899643" class="button button-dimmed col-xs-24">
+						<a href="../goods/1491899644" class="button button-dimmed col-xs-24">
 							<span class="button-label">상품상세보기</span>
 						</a>
 					</div>
@@ -317,14 +224,14 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 			</div>
 
 			<div class="hashTag-wrap">
-				<a href="/store/search?stxt=LONG+T-SHIRTS" class="hashTag">
-					<span class="hashTag-labl">#LONG T-SHIRTS</span>
+				<a href="/store/search?stxt=ONEPIECE" class="hashTag">
+					<span class="hashTag-labl">#ONEPIECE</span>
 				</a>
-				<a href="/store/search?stxt=%ED%8C%AC%EC%BD%A7+LONG+T-SHIRTS" class="hashTag">
-					<span class="hashTag-labl">#팬콧 LONG T-SHIRTS</span>
+				<a href="/store/search?stxt=%ED%8C%AC%EC%BD%A7+ONEPIECE" class="hashTag">
+					<span class="hashTag-labl">#팬콧 ONEPIECE</span>
 				</a>
-				<a href="/store/search?stxt=PANCOAT+LONG+T-SHIRTS" class="hashTag">
-					<span class="hashTag-labl">#PANCOAT LONG T-SHIRTS</span>
+				<a href="/store/search?stxt=PANCOAT+ONEPIECE" class="hashTag">
+					<span class="hashTag-labl">#PANCOAT ONEPIECE</span>
 				</a>
 				<a href="/store/search?stxt=%ED%8C%AC%EC%BD%A7" class="hashTag">
 					<span class="hashTag-labl">#팬콧</span>
@@ -360,137 +267,137 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 				<ul class="catalog">
 					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
 						<div class="thumbnail">
-							<a href="/goods/1489998868">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1489998868" style="background-image: url('http://pic.styleindex.co.kr/g/s/148/1489998868');" class="lazy">
+							<a href="/goods/1455093199">
+								<div data-original="http://pic.styleindex.co.kr/g/s/145/1455093199" style="background-image: url('http://pic.styleindex.co.kr/g/s/145/1455093199');" class="lazy">
 									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 								</div>
 							</a>
 						</div>
                        <!-- <div class="caption">
                             <p class="name">
-                                <a href="/goods/1489998868">★2017 봄신상 가격인하★팝캣 오드아이 스트라이프 세미오버 롱슬리브(BLUE HEAVEN)_PPOEPRL06V</a>
+                                <a href="/goods/1455093199">세사미 스트릿 클래식 원피스 (GALAXY NAVY)_PPOSPOP61S</a>
                             </p>
                             <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>29,000<span class="currency">원</span></span>
+                                <span class="now"><span class="label sr-only">할인가격:</span>40,000<span class="currency">원</span></span>
                             </p>
                         </div>-->
 					</li>
 					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
 						<div class="thumbnail">
-							<a href="/goods/1484899157">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1484899157" style="background-image: url('http://pic.styleindex.co.kr/g/s/148/1484899157');" class="lazy">
+							<a href="/goods/1454479152">
+								<div data-original="http://pic.styleindex.co.kr/g/s/145/1454479152" style="background-image: url('http://pic.styleindex.co.kr/g/s/145/1454479152');" class="lazy">
 									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 								</div>
 							</a>
 						</div>
                        <!-- <div class="caption">
                             <p class="name">
-                                <a href="/goods/1484899157">★2017 봄신상 가격인하★팬콧 컬러 스트라이프 7부 티셔츠 II (EP) (MIDNIGHT BLACK)_PPOEPRM02E</a>
+                                <a href="/goods/1454479152">팝테디 메시지 윈피스 (HEATHER GREY)_PPOSPOP01W</a>
                             </p>
                             <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>19,000<span class="currency">원</span></span>
+                                <span class="now"><span class="label sr-only">할인가격:</span>22,600<span class="currency">원</span></span>
                             </p>
                         </div>-->
 					</li>
 					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
 						<div class="thumbnail">
-							<a href="/goods/1484900796">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1484900796" style="background-image: url('http://pic.styleindex.co.kr/g/s/148/1484900796');" class="lazy">
+							<a href="/goods/1490661321">
+								<div data-original="http://pic.styleindex.co.kr/g/s/149/1490661321" style="background-image: url('http://pic.styleindex.co.kr/g/s/149/1490661321');" class="lazy">
 									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 								</div>
 							</a>
 						</div>
                        <!-- <div class="caption">
                             <p class="name">
-                                <a href="/goods/1484900796">★2017 봄신상 가격인하★팬콧 컬러 스트라이프 7부 티셔츠 II (EP) (OCEAN BLUE)_PPOEPRM02E</a>
+                                <a href="/goods/1490661321">멀티 전판 A라인 원피스(STRAWBERRY MILK PINK)_PPOEPOP20V</a>
                             </p>
                             <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>19,000<span class="currency">원</span></span>
+                                <span class="now"><span class="label sr-only">할인가격:</span>69,000<span class="currency">원</span></span>
                             </p>
                         </div>-->
 					</li>
 					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
 						<div class="thumbnail">
-							<a href="/goods/1489119932">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1489119932" style="background-image: url('http://pic.styleindex.co.kr/g/s/148/1489119932');" class="lazy">
+							<a href="/goods/1487051014">
+								<div data-original="http://pic.styleindex.co.kr/g/s/148/1487051014" style="background-image: url('http://pic.styleindex.co.kr/g/s/148/1487051014');" class="lazy">
 									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 								</div>
 							</a>
 						</div>
                        <!-- <div class="caption">
                             <p class="name">
-                                <a href="/goods/1489119932">팝아이즈 스트라이프 스탠다드 롱슬리브(SILENT NAVY)_PPOEPRL90P</a>
+                                <a href="/goods/1487051014">★2017 봄신상 가격인하★멀티 캐릭터 플라워 후디 원피스(PALE DOGWOOD)_PPOEPOP01M</a>
                             </p>
                             <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>22,000<span class="currency">원</span></span>
+                                <span class="now"><span class="label sr-only">할인가격:</span>48,300<span class="currency">원</span></span>
                             </p>
                         </div>-->
 					</li>
 					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
 						<div class="thumbnail">
-							<a href="/goods/1489119931">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1489119931" style="background-image: url('http://pic.styleindex.co.kr/g/s/148/1489119931');" class="lazy">
+							<a href="/goods/1490661320">
+								<div data-original="http://pic.styleindex.co.kr/g/s/149/1490661320" style="background-image: url('http://pic.styleindex.co.kr/g/s/149/1490661320');" class="lazy">
 									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 								</div>
 							</a>
 						</div>
                        <!-- <div class="caption">
                             <p class="name">
-                                <a href="/goods/1489119931">팝아이즈 스트라이프 스탠다드 롱슬리브(WHITE)_PPOEPRL90P</a>
+                                <a href="/goods/1490661320">멀티 전판 A라인 원피스(SILENT NAVY)_PPOEPOP20V</a>
                             </p>
                             <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>22,000<span class="currency">원</span></span>
+                                <span class="now"><span class="label sr-only">할인가격:</span>69,000<span class="currency">원</span></span>
                             </p>
                         </div>-->
 					</li>
 					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
 						<div class="thumbnail">
-							<a href="/goods/1484899153">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1484899153" style="background-image: url('http://pic.styleindex.co.kr/g/s/148/1484899153');" class="lazy">
+							<a href="/goods/1455092885">
+								<div data-original="http://pic.styleindex.co.kr/g/s/145/1455092885" style="background-image: url('http://pic.styleindex.co.kr/g/s/145/1455092885');" class="lazy">
 									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 								</div>
 							</a>
 						</div>
                        <!-- <div class="caption">
                             <p class="name">
-                                <a href="/goods/1484899153">★2017 봄신상 가격인하★팬콧 컬러 스트라이프 7부 티셔츠 (EP) (VEGA YELLOW)_PPOEPRM01E</a>
+                                <a href="/goods/1455092885">세사미 스트릿 라글란 원피스 (DAZZLING BLUE)_PPOSPOP60S</a>
                             </p>
                             <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>19,000<span class="currency">원</span></span>
+                                <span class="now"><span class="label sr-only">할인가격:</span>22,600<span class="currency">원</span></span>
                             </p>
                         </div>-->
 					</li>
 					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
 						<div class="thumbnail">
-							<a href="/goods/1482200239">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1482200239" style="background-image: url('http://pic.styleindex.co.kr/g/s/148/1482200239');" class="lazy">
+							<a href="/goods/1452659565">
+								<div data-original="http://pic.styleindex.co.kr/g/s/145/1452659565" style="background-image: url('http://pic.styleindex.co.kr/g/s/145/1452659565');" class="lazy">
 									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 								</div>
 							</a>
 						</div>
                        <!-- <div class="caption">
                             <p class="name">
-                                <a href="/goods/1482200239">★2017 봄신상 가격인하★팝아이즈 컬러 크루넥 (EP) (MIDNIGHT BLACK)_PPOEPCR03E</a>
+                                <a href="/goods/1452659565">팬콧 이큅먼트 원피스 (MIDNIGHT BLACK)_PPOSPOP03W</a>
                             </p>
                             <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>20,300<span class="currency">원</span></span>
+                                <span class="now"><span class="label sr-only">할인가격:</span>42,000<span class="currency">원</span></span>
                             </p>
                         </div>-->
 					</li>
 					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
 						<div class="thumbnail">
-							<a href="/goods/1489624415">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1489624415" style="background-image: url('http://pic.styleindex.co.kr/g/s/148/1489624415');" class="lazy">
+							<a href="/goods/1472618965">
+								<div data-original="http://pic.styleindex.co.kr/g/s/147/1472618965" style="background-image: url('http://pic.styleindex.co.kr/g/s/147/1472618965');" class="lazy">
 									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 								</div>
 							</a>
 						</div>
                        <!-- <div class="caption">
                             <p class="name">
-                                <a href="/goods/1489624415">★2017 봄신상 가격인하★팝도기 와일드 레터링 롱슬리브 (EP)(WHITE)_PPOEPRL02V</a>
+                                <a href="/goods/1472618965">팬콧 인디언 패치 원피스 (MIDNIGHT BLACK)_PPOSAOP06W</a>
                             </p>
                             <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>19,000<span class="currency">원</span></span>
+                                <span class="now"><span class="label sr-only">할인가격:</span>48,300<span class="currency">원</span></span>
                             </p>
                         </div>-->
 					</li>
@@ -514,63 +421,63 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 					<ul class="list-dropdown">
 						<li class="size_recomm">
 							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">170cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">56kg</div>
-							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">M</b></div>
-						</li>
-						<li class="size_recomm">
-							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">160cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">40kg</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">163cm</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">50kg</div>
 							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">XS</b></div>
 						</li>
 						<li class="size_recomm">
 							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">160cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">55kg</div>
-							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">M</b></div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">103cm</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">155kg</div>
+							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">S</b></div>
 						</li>
 						<li class="size_recomm">
 							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">000cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">00kg</div>
-							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">M</b></div>
-						</li>
-						<li class="size_recomm">
-							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">104cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">16kg</div>
-							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">XS</b></div>
-						</li>
-						<li class="size_recomm">
-							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">170cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">54kg</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">1cm</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">1kg</div>
 							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">S</b></div>
 						</li>
 						<li class="size_recomm">
 							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
 							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">155cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">45kg</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">40kg</div>
 							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">XS</b></div>
 						</li>
 						<li class="size_recomm">
 							<div class="col-md-6 col-xs-6 btn btn-primary btn-xs">남성</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">160cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">60kg</div>
-							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">XS</b></div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">180cm</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">90kg</div>
+							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">S</b></div>
 						</li>
 						<li class="size_recomm">
 							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">164cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">62kg</div>
-							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">L</b></div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">160cm</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">50kg</div>
+							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">S</b></div>
+						</li>
+						<li class="size_recomm">
+							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">155cm</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">50kg</div>
+							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">S</b></div>
 						</li>
 						<li class="size_recomm">
 							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
 							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">165cm</div>
-							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">55kg</div>
-							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">L</b></div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">100kg</div>
+							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">S</b></div>
+						</li>
+						<li class="size_recomm">
+							<div class="col-md-6 col-xs-6 btn btn-primary btn-xs">남성</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">175cm</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">65kg</div>
+							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">XS</b></div>
+						</li>
+						<li class="size_recomm">
+							<div class="col-md-6 col-xs-6 btn btn-danger btn-xs">여성</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">145cm</div>
+							<div class="col-md-5 col-xs-5 btn btn-default btn-xs">37kg</div>
+							<div class="col-md-6 col-xs-6 btn btn-warning btn-xs"><b style="font-weight:bold">XS</b></div>
 						</li>
 					</ul>
 				</div>
@@ -647,7 +554,7 @@ function _exec(mode){
 }
 </script>
 
-<script>modal_label("GOODSPREVIEW");</script>
+<script>modal_label("상품 PREVIEW");</script>
 </div>
-		<div class="modal-foot">
+<div class="modal-foot">
 		</div>

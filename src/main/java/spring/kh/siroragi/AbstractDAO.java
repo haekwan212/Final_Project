@@ -62,9 +62,17 @@ public class AbstractDAO {
 		printQueryId(map);
 		return sqlSession.selectList(map, params);
 	}
+	
+	// 가입한 회원 아이디 중복 확인
+	@SuppressWarnings("rawtypes")
+	public int selectMemberId(String queryId, Object params) {
+		printQueryId(queryId);
+		return sqlSession.selectOne(queryId, params);
+	}
 
 
 	// 이름 검색
+
 
 	// 가입한 회원 이름 검색
 	@SuppressWarnings("rawtypes")
@@ -78,6 +86,12 @@ public class AbstractDAO {
 
 	// 가입한 회원 전화번호 검색
 
+
+	// 회원아이디로 검색
+
+
+	// 가입한 회원 전화번호 검색
+
 	@SuppressWarnings("rawtypes")
 	public List searchMemberList2(String queryId, Object params) {
 		printQueryId(queryId);
@@ -85,7 +99,16 @@ public class AbstractDAO {
 	}
 
 
+
 	// E-Mail 검색
+
+	// 가입한 회원 이메일 검색
+
+
+
+	// E-Mail 검색
+	// 가입한 회원 이메일 검색
+
 
 	// 가입한 회원 이메일 검색
 
@@ -94,7 +117,7 @@ public class AbstractDAO {
 		printQueryId(queryId);
 		return sqlSession.selectList(queryId, params);
 	}
-
+	
 	// 글제목 검색
 	@SuppressWarnings("rawtypes")
 	public List searchTitleList(String queryId, Object params, String isSearch) {

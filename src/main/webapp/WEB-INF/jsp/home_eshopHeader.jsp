@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
 <head>
 	<meta charset="utf-8">
@@ -65,13 +66,13 @@
 	<div class="tier1-group account">
 		<div class="tier1-head login">
 			<a href="/member/login" class="col-xs-12"><strong>login</strong></a>
-			<a href="/member/register" class="col-xs-12"><strong>join</strong></a>
+			<a href="/SIRORAGI/joinStep1" class="col-xs-12"><strong>join</strong></a>
 		</div>
 	</div>
 	<nav>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/about">
+				<a href="/SIRORAGI/about">
 					<strong>about</strong>
 				</a>
 			</div>
@@ -218,7 +219,7 @@
 				<!-- 각페이지로 들어갓을 때 페이지에 해당되는 nav-group에 selected클래스를 추가 -->
 
 				<div class="nav-group">
-					<a href="../about" class="nav-head">
+					<a href="/SIRORAGI/about" class="nav-head">
 						<span class="label">about<span class="border"></span></span>
 					</a>
 				</div>
@@ -305,11 +306,18 @@
 		<div class="globalUtility hidden-xs hidden-sm">
 			<ul>
 				<li class="login item">
-					<a href="/member/login" style="display:inline">login &</a>
+				<c:choose>
+    				<c:when test="${not empty sessionScope.MEMBER_ID}">
+    				<a href="/SIRORAGI/logout" style="display:inline">logout</a>
+					</c:when>
+					<c:otherwise>
+					<a href="/SIRORAGI/loginForm" style="display:inline">login &</a>
 					<a href="/SIRORAGI/joinStep1" style="display:inline">join</a>
+					</c:otherwise>
+				</c:choose>
 				</li>
 				<li class="item">
-					<a href="/order/cart">
+					<a href="/SIRORAGI/cartList">
 						<span class="icon icon-cart-black hidden-lg"></span>
 						<span class="hidden-md">cart</span>
 					</a>
