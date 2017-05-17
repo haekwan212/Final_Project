@@ -42,21 +42,14 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
 	</definition>
-<<<<<<< HEAD
-	
-=======
->>>>>>> 3089641ac1094c98e318fa358a9dbf52b0f0e1ea
 
 	<definition name="faqAdmin" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
 	</definition>
-<<<<<<< HEAD
 	
 	<definition name="faqAdminModify" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdminModify.jsp" />
 	</definition>
-=======
->>>>>>> 3089641ac1094c98e318fa358a9dbf52b0f0e1ea
 
 	<definition name="goodsList" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goods.jsp" />

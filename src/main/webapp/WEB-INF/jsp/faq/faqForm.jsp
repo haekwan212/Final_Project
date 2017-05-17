@@ -84,14 +84,15 @@
 			</tbody>
 		</table>
 		
-		<!-- <div id="fileDiv">
-			<p> -->
-				<input type="file" id="FAQ_IMAGE1" name="FAQ_IMAGE1"><br/><br/>
+		<div id="fileDiv">
+			<p> 
+				<input type="file" id="faqImage1" name="faqImage1"><br/><br/>
 				<!-- <input type="file" id="file" name="FAQ_IMAGE2"> -->
-	<!-- 		</p>
+			</p>
 		</div>
-		 -->
-				
+		 
+		
+		
 		
 		<%-- <c:if test='%{#session.member_id == "admin"}'> --%><a href="#this" class="btn" id="write">작성하기</a><%-- </c:if> --%>
 		<a href="#this" class="btn" id="list">목록으로</a>
