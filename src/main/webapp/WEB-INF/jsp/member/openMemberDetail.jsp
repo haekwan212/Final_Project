@@ -4,38 +4,38 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <head>
 <script type="text/javascript">
-function joinValidation(frm){
+function joinValidation(updateMember){
 
 	
-	if(frm.MEMBER_PASSWORD.value==""){
+	if(updateMember.MEMBER_PASSWORD.value==""){
 		alert("비밀번호를 입력해 주세요.");
 		return false;
 	}
-	else if(frm.MEMBER_NAME.value==""){
+	else if(updateMember.MEMBER_NAME.value==""){
 		alert("이름을 입력해 주세요.");
 		return false;
 	}
-	else if(frm.MEMBER_ZIPCODE.value==""){
+	else if(updateMember.MEMBER_ZIPCODE.value==""){
 		alert("우편번호를 입력해 주세요.");
 		return false;
 	}
-	else if(frm.MEMBER_ADDRESS1.value==""){
+	else if(updateMember.MEMBER_ADDRESS1.value==""){
 		alert("주소를 입력해 주세요.");
 		return false;
 	}
-	else if(frm.MEMBER_ADDRESS2.value==""){
+	else if(updateMember.MEMBER_ADDRESS2.value==""){
 		alert("상세주소를 입력해 주세요.");
 		return false;
 	}
-	else if(frm.MEMBER_PHONE.value==""){
+	else if(updateMember.MEMBER_PHONE.value==""){
 		alert("전화번호를 입력해 주세요.");
 		return false;
 	}
-	else if(frm.MEMBER_EMAIL.value==""){
+	else if(updateMember.MEMBER_EMAIL.value==""){
 		alert("이메일을 입력해 주세요.");
 		return false;
 	}
-		alert("수정되었습니다.")
+		alert("작성이 완료되었습니다.");
 }
 
 function button1_click() {
@@ -65,7 +65,7 @@ function button2_click() {
 	<div class="panel panel-default">
 		<div class="panel-heading" >회원수정 페이지입니다.</div>
 			<div class="panel-body">
-				<form:form id="updateMember" action="updateMember" method="post" onsubmit="return joinValidation(this)">	
+				<form:form id="updateMember" name="updateMember" action="updateMember" method="post" onsubmit="return joinValidation(this)">	
 				<input type="hidden" id="MEMBER_NUMBER" name="MEMBER_NUMBER" value="${member.MEMBER_NUMBER}">	
                         <div class="form-group">
                             <label>아이디</label>                            
@@ -110,12 +110,14 @@ function button2_click() {
                         </div>
 						<button type="button" class="btn btn-default" onclick="button1_click();">적립</button>
 						<button type="button" class="btn btn-default" onclick="button2_click();">차감</button>
+						<p />
 						<div class="form-group">
                             <label>포인트</label>
                             <input type="text" class="form-control" value="${member.MEMBER_POINT}" style="width:250px;" readonly/>
                         </div>
 						<button type="submit" class="btn btn-success">회원수정</button>
-						<button type="reset" class="btn btn-default">초기화</button>						
+						<a href="/SIRORAGI/admin/memberList?onOff=0&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">목록으로</button></a>		
+						<p />
 				</form:form>
 			</div>
 	</div>
