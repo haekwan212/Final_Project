@@ -31,10 +31,9 @@ public class FaqServiceImpl implements FaqService {
 	@Override
 	public void faqWrite(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		faqDAO.faqWrite(map);
+		map = faqImageUtils.faqImage1(map, request);
+		faqDAO.faqImage1(map);
 		
-			map = faqImageUtils.faqImage1(map, request);
-			
-			faqDAO.faqImage1(map);
 			
 	}
 
