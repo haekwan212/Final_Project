@@ -237,6 +237,17 @@ public class AdController {
 		posting = Integer.parseInt(request.getParameter("posting"));
 		isSearch = request.getParameter("isSearch");
 
+		String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\adFile\\";
+		String image = request.getParameter("image");
+
+		File imageFile = new File(filePath + image);
+
+		System.out.println(imageFile.isFile());
+
+		if (imageFile.isFile()) {
+			imageFile.delete();
+		}
+
 		System.out.println("deleteMember : " + commandMap.getMap());
 
 		adService.adDelete(commandMap.getMap());

@@ -90,7 +90,7 @@ function delchk(){
 										<c:if test="${adList.AD_POSTING == '2'}">
 										<td style="text-align:center;vertical-align:middle;">측면</td>
 										</c:if>
-									
+										
 										<td style="text-align:center;vertical-align:middle;">${adList.AD_NAME}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${adList.AD_DATE}" pattern="YY.MM.dd" /></td>
 										<td style="text-align:center;vertical-align:middle;">
@@ -98,6 +98,7 @@ function delchk(){
 										<c:url var="viewURL2" value="adDelete" >
 											<c:param name="AD_NUMBER" value="${adList.AD_NUMBER }" />
 											<c:param name="posting" value="${adList.AD_POSTING }" />
+											<c:param name="image" value="${adList.AD_IMAGE }" />
 										</c:url>	
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
 									</tr>
