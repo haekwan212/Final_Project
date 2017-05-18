@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -109,22 +111,23 @@
 			<div class="product-view-main-sub row">
 				<div class="col-lg-24">
 				<div class="box-wrap box-shadow">
+				
 				<section class="product-view-thumbnail section col-xs-24 col-sm-13">
 					<div class="wrap">
 						<div class="thumbnail">
-							<img src="/SIRORAGI/file/goodsFile/${goodsBasic.GOODS_THUMBNAIL}" width="500" class="img-responsive">
+							<img img_layer="/SIRORAGI/file/goodsFile/${goodsBasic.GOODS_THUMBNAIL}" goodsno="${goodsBasic.GOODS_NUMBER }" src="/SIRORAGI/file/goodsFile/${goodsBasic.GOODS_THUMBNAIL}" width="500" class="img-responsive">
 						</div>
 						<!-- thumbnail//end -->
 						<!-- thumbnail-wrap//end -->
 			
 						<div class="addon">
-							<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.pancoat.com/goods/1494898147" class="button button-ghost" onclick="postToFeed();return false;">
+							<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.pancoat.com/goods/1489998868" class="button button-ghost" onclick="postToFeed();return false;">
 								<span class="icon icon-facebook"></span>
 							</a>
-							<a href="https://twitter.com/intent/tweet?url=http://www.pancoat.com/goods/1494898147" class="button button-ghost">
+							<a href="https://twitter.com/intent/tweet?url=http://www.pancoat.com/goods/1489998868" class="button button-ghost">
 								<span class="icon icon-twitter"></span>
 							</a>
-							<a href="https://story.kakao.com/s/share?url=http://www.pancoat.com/goods/1494898147" class="button button-ghost" style="border-left:0;">
+							<a href="https://story.kakao.com/s/share?url=http://www.pancoat.com/goods/1489998868" class="button button-ghost" style="border-left:0;">
 								<span class="icon icon-kakaostory"></span>
 							</a>
 							<a href="#none" class="button btn-inven" style="display: none;">
@@ -141,7 +144,7 @@
 						<div class="description">
 							<!--<em class="season">2015 F/W</em>-->
 							
-							<strong class="product-name" data-toggle="popover" data-content="상품번호 : 1494898147" data-trigger="click" data-placement="bottom" data-original-title="" title="">${goodsBasic.GOODS_NAME}</strong>
+							<strong class="product-name" data-toggle="popover" data-content="상품번호 : ${goodsBasic.GOODS_NUMBER}" data-trigger="click" data-placement="bottom" data-original-title="" title="">${goodsBasic.GOODS_NAME}</strong>
 						</div>
 						<!-- description//end -->
 						<div class="guide">
@@ -159,7 +162,7 @@
 							</dl>
 							<dl class="hits">
 								<dt class="col-xs-6 col-md-5">상품 조회수</dt>
-								<dd class="count col-xs-18 col-md-19">88&nbsp;Hit</dd>
+								<dd class="count col-xs-18 col-md-19">${goodsBasic.GOODS_COUNT}</dd>
 							</dl>
 						</div>
 						<!-- guide//end -->
@@ -167,12 +170,19 @@
 							<dl class="price-base">
 								<dt class="col-xs-6 col-md-5">판매 가격</dt>
 								<dd class="col-xs-18 col-md-19">
+									<c:if test="${goodsBasic.GOODS_DCPRICE eq null}">
+									<p class="now">
+										<fmt:formatNumber value="${goodsBasic.GOODS_PRICE}" type="number"/>원
+									</p>
+									</c:if>
+									<c:if test="${goodsBasic.GOODS_DCPRICE ne null}">
 									<p class="was">
-										29,000원
+										<fmt:formatNumber value="${goodsBasic.GOODS_PRICE}" type="number"/>원
 									</p>
 									<p class="now">
-										19,000원
+										<fmt:formatNumber value="${goodsBasic.GOODS_DCPRICE}" type="number"/>원
 									</p>
+									</c:if>
 									<!--<div class="cabal-group">
 										<span class="cabal">
 											<span class="cabal-label">34%</span>
@@ -186,55 +196,18 @@
 							</dl>
 							<!-- price-base//end -->
 							<dl class="price-benefit-rating">
-								<dt class="col-xs-6 col-md-5">레벨 할인가</dt>
-								<dd class="col-xs-18 col-md-19">
-									<div class="value">
-										18,050원 ~
-										19,000원
-										<div class="benefit-description">
-											<strong class="title"><span>레벨 할인가</span></strong>
-											<ul class="list">
-												<li>
-													<span class="member-rating member-rating-tier01">WHITE</span>
-													<span class="member-price">19,000</span>
-												</li>
-												<li>
-													<span class="member-rating member-rating-tier01">YELLOW</span>
-													<span class="member-price">18,810</span>
-												</li>
-												<li>
-													<span class="member-rating member-rating-tier01">RED</span>
-													<span class="member-price">18,810</span>
-												</li>
-												<li>
-													<span class="member-rating member-rating-tier01">SILVER</span>
-													<span class="member-price">18,620</span>
-												</li>
-												<li>
-													<span class="member-rating member-rating-tier01">GOLD</span>
-													<span class="member-price">18,430</span>
-												</li>
-												<li>
-													<span class="member-rating member-rating-tier01">PLATINUM</span>
-													<span class="member-price">18,240</span>
-												</li>
-												<li>
-													<span class="member-rating member-rating-tier01">DIAMOND</span>
-													<span class="member-price">18,050</span>
-												</li>
-											</ul>
-											<button class="button" target="modal" data-size="sm" href="../service/member_benefit" data-label="레벨혜택 자세히 보기">
-												<span class="button-label">레벨 할인가 자세히 보기</span>
-											</button>
-										</div>
-										<!-- layer-description//end -->
-									</div>
-								</dd>
+								<dt class="col-xs-6 col-md-5">간략 설명</dt>
+								<dt class="col-xs-18">
+									
+										${goodsBasic.GOODS_DETAIL}
+										
+									
+								</dt>
 							</dl>
 			
 							
 							<!-- price-benefit//end -->
-							<dl class="price-coupon">
+							<!-- <dl class="price-coupon">
 								<dt class="col-xs-6 col-md-5">추가 쿠폰가</dt>
 								<dd class="col-xs-18 col-md-19">
 									15,580원
@@ -246,7 +219,7 @@
 			
 			
 			
-							<!-- price-coupon//end -->
+							price-coupon//end
 							<dl class="price-benefit-new">
 								<dt class="col-xs-6 col-md-5">
 									<span>신규 회원가</span>
@@ -258,7 +231,7 @@
 									</span>
 								</div>
 								</dd>
-							</dl>
+							</dl> -->
 							<!-- price-benefit-new//end -->
 			
 						</div>
@@ -270,7 +243,7 @@
 							<dl class="delivery">
 								<dt class="col-xs-6 col-md-5">배송비</dt>
 								<dd class="col-xs-18 col-md-19">
-									<b>2,500원</b> 30,000원 이상 무료배송
+									<b>2,500원</b> (30,000원 이상 무료배송)
 								</dd>
 							</dl>
 							<!--delivery charge-->
@@ -278,7 +251,12 @@
 			
 							<dl class="price-earning">
 								<dt class="col-xs-6 col-md-5">예상 적립금</dt>
-								<dd class="col-xs-18 col-md-19">760원</dd>
+								<c:if test="${goodsBasic.GOODS_DCPRICE eq null}">
+								<dd class="col-xs-18 col-md-19"> <fmt:formatNumber value="${goodsBasic.GOODS_PRICE/100}" type="number"/>원</dd>
+								</c:if>
+								<c:if test="${goodsBasic.GOODS_DCPRICE ne null}">
+								<dd class="col-xs-18 col-md-19"> <fmt:formatNumber value="${goodsBasic.GOODS_DCPRICE/100}" type="number"/>원</dd>
+								</c:if>
 							</dl>
 							<!--
 							<dl class="price-earning">
@@ -314,17 +292,21 @@
 					</div>
 					<select id="option" onchange="setOption(this)">
 						<option value="">옵션 선택
-						</option><option value="15911124" optnm="XS" stock="23" price="19000">
-						XS
-						</option><option value="15911125" optnm="S" stock="30" price="19000">
-						S
-						</option><option value="15911126" optnm="M" stock="45" price="19000">
-						M
-						</option><option value="15911127" optnm="L" stock="30" price="19000">
-						L
-						</option><option value="15911128" optnm="XL" stock="23" price="19000">
-						XL
-					</option></select>
+						</option>
+						<c:forEach var="goodsDetail"  items="${goodsDetail}" varStatus="stat">
+							<c:if test="${goodsDetail.GOODS_AMOUNT ne 0}">
+							<option value="15911124" optnm="XS" stock="0" price="19000">
+							${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE } (${goodsDetail.GOODS_AMOUNT }개)
+							</option>
+							</c:if>
+							<c:if test="${goodsDetail.GOODS_AMOUNT eq 0}">
+							<option value="15911124" optnm="XS" stock="0" price="19000" disabled="">
+							${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE } (품절)
+							</option>
+							</c:if>
+						</c:forEach>
+						
+						</select>
 				</div>
 			</div>
 			
@@ -336,82 +318,82 @@
 			</div>
 			
 			<script>
-			var totprice = 0;
-			var r_optno = [];
-			function setOption(obj){
-				if (!chkSoldout(obj)) return;
-				if ($("#option option:selected").attr("disabled")=="disabled"){
-					alert("선택한 옵션은 품절된 상태입니다"); 
-					$("#option").get(0).selectedIndex = 0;
-					return;
-				}
-				var optno = $("#option option:selected").val();
-				if (!optno || in_array(optno,r_optno)) return;
-				var li = "<li><b>" + $("#option option:selected").attr("optnm") + "</b><input type='hidden' name='optno[]' value='" + optno + "'><input type='hidden' class='mstock' value='" + $("option:selected",$(obj)).attr("stock") + "'><input type='text' name='ea[]' value='1' class='input_ea' size='2' maxlength='3'> <span class='ea'><a class='btn-ea-up'><img src='/theme/pshp/img/btn_num_up.gif' alt='' /></a><a class='btn-ea-dn'><img src='/theme/pshp/img/btn_num_down.gif' alt='' /></a></span><span class='price'>" + comma($("option:selected",$(obj)).attr("price")) + "원</span><a href='#' optno='" + optno + "' class='btn-remove'><img src='/theme/pshp/img/btn_close.gif' alt='' /></a></li>";
-				$("#optionbox").append(li);
-				r_optno.push(optno);
-				totprice += parseInt($("option:selected",$(obj)).attr("price"));
-				$("#totprice").html(comma(totprice));
-			}
-			function chkSoldout(obj){
-				if (obj.options[obj.selectedIndex].stock=="0"){
-					alert("선택한 항목은 품절된 옵션입니다"); 
-					obj.selectedIndex = 0;
-					return false;
-				}
-				return true;
-			}
-			
-			
-			$("#optionbox").on("click", "li a.btn-remove", function(){
-				$(this).parent().remove();
-				var ritem = $(this).attr("optno");
-				r_optno = $.grep(r_optno,function(v){ return v != ritem; });
-				console.log(r_optno);
-				event.preventDefault();
-			});
-			
-			$("#optionbox").on("click", "li a.btn-ea-up", function(e) {
-				var thisIdx = $(".btn-ea-up").index(this); 
-				var inputEa = parseInt($(".input_ea").eq(thisIdx).val());
-				var mStock = parseInt($(".mstock").eq(thisIdx).val()); 
-			
-			
-				// 재고 수량 이상 주문 체크
-				if(inputEa >= mStock) {
-					alert(mStock+"개 이상 주문하실 수 없습니다.");
-					return false ;
-				} else {
-					change_ea(this,1); 
-					return false ;
-				}
-			});
-			
-			$("#optionbox").on("keyup", "li input.input_ea", function(e){
-				var thisIdx = $(".input_ea").index(this); 
-				var mStock = parseInt($(".mstock").eq(thisIdx).val()); 
-			
-				
-				$(this).val($(this).val().replace(/[^0-9]/g,""));
-			
-				if($(this).val() == "" || parseInt($(this).val()) <= 0) {
-					$(this).val("1");
-					return false ;
-				}
-			
-				if(parseInt($(this).val()) > mStock) {
-					alert(mStock+"개 이상 주문하실 수 없습니다.");
-					$(this).val(mStock);
-					return false ;
-				}
-			});
-			
-			$("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
-				change_ea(this,-1); 
-				return false ;
-			});
-			
-			</script>
+var totprice = 0;
+var r_optno = [];
+function setOption(obj){
+	if (!chkSoldout(obj)) return;
+	if ($("#option option:selected").attr("disabled")=="disabled"){
+		alert("선택한 옵션은 품절된 상태입니다"); 
+		$("#option").get(0).selectedIndex = 0;
+		return;
+	}
+	var optno = $("#option option:selected").val();
+	if (!optno || in_array(optno,r_optno)) return;
+	var li = "<li><b>" + $("#option option:selected").attr("optnm") + "</b><input type='hidden' name='optno[]' value='" + optno + "'><input type='hidden' class='mstock' value='" + $("option:selected",$(obj)).attr("stock") + "'><input type='text' name='ea[]' value='1' class='input_ea' size='2' maxlength='3'> <span class='ea'><a class='btn-ea-up'><img src='/theme/pshp/img/btn_num_up.gif' alt='' /></a><a class='btn-ea-dn'><img src='/theme/pshp/img/btn_num_down.gif' alt='' /></a></span><span class='price'>" + comma($("option:selected",$(obj)).attr("price")) + "원</span><a href='#' optno='" + optno + "' class='btn-remove'><img src='/theme/pshp/img/btn_close.gif' alt='' /></a></li>";
+	$("#optionbox").append(li);
+	r_optno.push(optno);
+	totprice += parseInt($("option:selected",$(obj)).attr("price"));
+	$("#totprice").html(comma(totprice));
+}
+function chkSoldout(obj){
+	if (obj.options[obj.selectedIndex].stock=="0"){
+		alert("선택한 항목은 품절된 옵션입니다"); 
+		obj.selectedIndex = 0;
+		return false;
+	}
+	return true;
+}
+
+
+$("#optionbox").on("click", "li a.btn-remove", function(){
+	$(this).parent().remove();
+	var ritem = $(this).attr("optno");
+	r_optno = $.grep(r_optno,function(v){ return v != ritem; });
+	console.log(r_optno);
+	event.preventDefault();
+});
+
+$("#optionbox").on("click", "li a.btn-ea-up", function(e) {
+	var thisIdx = $(".btn-ea-up").index(this); 
+	var inputEa = parseInt($(".input_ea").eq(thisIdx).val());
+	var mStock = parseInt($(".mstock").eq(thisIdx).val()); 
+
+
+	// 재고 수량 이상 주문 체크
+	if(inputEa >= mStock) {
+		alert(mStock+"개 이상 주문하실 수 없습니다.");
+		return false ;
+	} else {
+		change_ea(this,1); 
+		return false ;
+	}
+});
+
+$("#optionbox").on("keyup", "li input.input_ea", function(e){
+	var thisIdx = $(".input_ea").index(this); 
+	var mStock = parseInt($(".mstock").eq(thisIdx).val()); 
+
+	
+	$(this).val($(this).val().replace(/[^0-9]/g,""));
+
+	if($(this).val() == "" || parseInt($(this).val()) <= 0) {
+		$(this).val("1");
+		return false ;
+	}
+
+	if(parseInt($(this).val()) > mStock) {
+		alert(mStock+"개 이상 주문하실 수 없습니다.");
+		$(this).val(mStock);
+		return false ;
+	}
+});
+
+$("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
+	change_ea(this,-1); 
+	return false ;
+});
+
+</script>
 									</div>
 			
 								</dd>
@@ -421,19 +403,19 @@
 			
 						<div class="hashTag-wrap">
 							<a href="/store/search?stxt=SHORT+T-SHIRTS" class="hashTag">
-								<span class="hashTag-labl">#SHORT T-SHIRTS</span>
+								<span class="hashTag-labl">#${goodsBasic.GOODS_CATEGORY2 }</span>
 							</a>
 							<a href="/store/search?stxt=%ED%8C%AC%EC%BD%A7+SHORT+T-SHIRTS" class="hashTag">
-								<span class="hashTag-labl">#팬콧 SHORT T-SHIRTS</span>
+								<span class="hashTag-labl">#실오라기 ${goodsBasic.GOODS_CATEGORY2 }</span>
 							</a>
 							<a href="/store/search?stxt=PANCOAT+SHORT+T-SHIRTS" class="hashTag">
-								<span class="hashTag-labl">#PANCOAT SHORT T-SHIRTS</span>
+								<span class="hashTag-labl">#SIRORAGI ${goodsBasic.GOODS_CATEGORY2 }</span>
 							</a>
 							<a href="/store/search?stxt=%ED%8C%AC%EC%BD%A7" class="hashTag">
-								<span class="hashTag-labl">#팬콧</span>
+								<span class="hashTag-labl">#실오라기</span>
 							</a>
 							<a href="/store/search?stxt=PANCOAT" class="hashTag">
-								<span class="hashTag-labl">#PANCOAT</span>
+								<span class="hashTag-labl">#SIRORAGI</span>
 							</a>
 						</div>
 					</div>
@@ -767,20 +749,13 @@
 								<div align="center">
 								<table border="0" cellspacing="0" cellpadding="0" xwidth="800" align="center">
 			<tbody>
+			<c:forEach var="goodsImage"  items="${goodsImage}" varStatus="stat">
 			<tr>
-			<td><img src="http://pic.styleindex.co.kr/www/pancoat/PPOEURS91PC6.jpg" xwidth="800"></td></tr>
-			<tr>
-			<td><img src="http://pic.styleindex.co.kr/www/pancoat/2017_PANCOAT_S_TOP.jpg" xwidth="800"></td></tr>
-			<tr>
-			<td><img src="http://pic.styleindex.co.kr/www/pancoat/PPOEURS91PC6_01.jpg" xwidth="800"></td></tr>
-			<tr>
-			<td><img src="http://pic.styleindex.co.kr/www/pancoat/PPOEURS91PC6_02.jpg" xwidth="800"></td></tr>
-			<tr>
-			<td><img src="http://pic.styleindex.co.kr/www/pancoat/PPOEURS91PC6_03.jpg" xwidth="800"></td></tr>
-			<tr>
-			<td><img src="http://pic.styleindex.co.kr/www/pancoat/PPOEURS91PC6_04.jpg" xwidth="800"></td></tr>
-			<tr>
-			<td><img src="http://pic.styleindex.co.kr/www/pancoat/2017_PANCOAT_INFO.jpg" xwidth="800"></td></tr></tbody></table>
+			<td><img src="/SIRORAGI/file/goodsFile/${goodsImage.IMAGE}" xwidth="800"></td></tr>
+
+			</c:forEach>
+			
+			</tbody></table>
 								</div>
 			
 			                    <div class="information-goods">

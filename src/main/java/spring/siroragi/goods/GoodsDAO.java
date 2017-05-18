@@ -22,6 +22,17 @@ public class GoodsDAO extends AbstractDAO{
 		return (List<Map<String, Object>>) selectList("goods.selectOneGoods", map);
 	}
 	
+	//상품 총 판매량 가져오기
+	public int countTotalSell(Map<String, Object> map) throws Exception{
+		return (int)selectOne("goods.selectOneGoodsSellCount",map);
+	}
+	
+	//상품 이미지 가져오기
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> goodsImage(Map<String, Object> map) throws Exception{
+		return (List<Map<String, Object>>)selectList("goods.selectOneGoodsImage",map);
+	}
+	
 	//코디된 상품 보여주기
 
 }

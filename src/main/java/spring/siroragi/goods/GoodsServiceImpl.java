@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 @Service("goodsService")
 public class GoodsServiceImpl implements GoodsService {
 
-	@Resource(name="goodsDAO")
+	@Resource(name = "goodsDAO")
 	private GoodsDAO goodsDAO;
-	
+
 	// 카테고리별 상품 정렬
 
 	// 검색 결과에 대한 상품 정렬
@@ -20,10 +20,20 @@ public class GoodsServiceImpl implements GoodsService {
 	// 낮은가격/높은가격/상품명/리뷰수/평점순/인기순/신상순 정렬
 
 	// 상품 상세보기 페이지로 이동
-	public List<Map<String, Object>> goodsDetail(Map<String,Object> map) throws Exception{
+	public List<Map<String, Object>> goodsDetail(Map<String, Object> map) throws Exception {
 		return goodsDAO.goodsDetail(map);
 	}
+
+	// 상품 총 판매량 구하기
+	public int countTotalSell(Map<String, Object> map) throws Exception {
+		return goodsDAO.countTotalSell(map);
+	}
 	
+	// 상품 이미지 가져오기
+	public List<Map<String, Object>> goodsImage(Map<String, Object> map) throws Exception{
+		return goodsDAO.goodsImage(map);
+	}
+
 	// 코디된 상품 보여주기
-	
+
 }

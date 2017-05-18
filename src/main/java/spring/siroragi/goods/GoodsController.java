@@ -24,7 +24,7 @@ public class GoodsController {
 		return "goodsCategory";
 	}
 	
-	@RequestMapping(value="/goods/goodsDetail")
+	@RequestMapping(value="goodsDetail")
 	public ModelAndView goodsDetail(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		
 		ModelAndView mv=new ModelAndView("goodsDetail");
@@ -35,6 +35,13 @@ public class GoodsController {
 		
 		mv.addObject("goodsDetail",goodsDetail);
 		mv.addObject("goodsBasic",goodsBasic);
+		
+		int totalSellCount=goodsService.countTotalSell(commandMap.getMap());
+		
+		mv.addObject("totalSellCount", totalSellCount);
+		
+		List<Map<String, Object>> goodsImage=goodsService.goodsImage(commandMap.getMap());
+		mv.addObject("goodsImage", goodsImage);
 		
 		return mv;
 	}

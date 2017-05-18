@@ -13,5 +13,12 @@ public interface GoodsService {
 
 	// 상품 상세보기 페이지로 이동
 	public List<Map<String, Object>> goodsDetail(Map<String,Object> map) throws Exception;
+	
+	// 상품 총 판매량 구하기
+	public int countTotalSell(Map<String, Object> map) throws Exception;
+	
+	// 상품 이미지 가져오기
+	public List<Map<String, Object>> goodsImage(Map<String, Object> map) throws Exception;
+	
 	// 코디된 상품 보여주기
 }
