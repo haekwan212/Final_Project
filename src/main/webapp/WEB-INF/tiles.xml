@@ -33,10 +33,17 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/member/member.jsp" />
 	</definition>
 
-
 	<definition name="openMemberDetail" extends="admin">
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/member/openMemberDetail.jsp" />
+	</definition>
+
+	<definition name="adList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/ad/ad.jsp" />
+	</definition>
+
+	<definition name="adForm" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/ad/adForm.jsp" />
 	</definition>
 
 
@@ -100,9 +107,12 @@
 	<definition name="about" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
 	</definition>
-	<definition name="about" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
+
+	<definition name="goodsDetail" extends="common">
+      <put-attribute name="body" value="/WEB-INF/jsp/goods/goodsDetail.jsp"></put-attribute>
 	</definition>
+	
+	
 
 </tiles-definitions>
 	

@@ -84,7 +84,7 @@
 			
 			<tr> <!-- 글내용(이미지) -->
 				<td colspan="4">${map.FAQ_CONTENT }<br/>
-				<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1}" />
+				<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" />
 				
 				
 				</td>

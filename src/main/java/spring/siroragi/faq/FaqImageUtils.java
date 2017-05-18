@@ -25,7 +25,8 @@ public class FaqImageUtils {
 
 		MultipartFile file = multipartHttpServletRequest.getFile("FAQ_IMAGE1");
 		
-		String fileName = "이미지_" + map.get("FAQ_NUMBER").toString();
+		String fileName = "FAQ_" + map.get("FAQ_NUMBER").toString();
+		System.out.println("파일이름"+fileName);
 
 		String IMAGEExtension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
 		

@@ -66,6 +66,7 @@
 				FAQ_REGDATE,
 				FAQ_TITLE,
 				FAQ_CONTENT
+				FAQ_IMAGE1
 			FROM
 				FAQ
 			WHERE

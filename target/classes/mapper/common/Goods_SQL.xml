@@ -2,6 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="goods">
+
+	<select id="selectOneGoods" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT A.*, D.*,
+			decode(D.GOODS_SIZE, 'xxs', '1','XXS', '1', 'xs', '2','XS', '2', 's', '3','S', '3', 'm', '4','M', '4',  'l', '5','L', '5', 'xl', '6','XL', '6', 'xxl', '7','XXL', '7','free', '8','FREE', '8','Free', '8') as SIZE_ORDER 
+			FROM GOODS A, GOODS_KINDS D 
+			WHERE A.GOODS_NUMBER=D.GOODS_NUMBER AND A.GOODS_NUMBER=${GOODS_NUMBER}
+			ORDER BY GOODS_COLOR ASC, SIZE_ORDER ASC
+		]]>
+	</select>
 	
+	<select id="selectOneGoodsSellCount" parameterType="hashmap" resultType="Integer">
+		<![CDATA[
+			SELECT SUM(GOODS_SELLCOUNT) FROM GOODS_KINDS WHERE GOODS_NUMBER=#{GOODS_NUMBER}
+		]]>
+	</select>
+	
+	<select id="selectOneGoodsImage" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT * FROM IMAGE WHERE GOODS_NUMBER=#{GOODS_NUMBER} ORDER BY IMAGE_NUMBER ASC
+		]]>
+	</select>
 
 </mapper>

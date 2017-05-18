@@ -86,7 +86,7 @@
 		
 		<div id="fileDiv">
 			<p> 
-				<input type="file" id="faqImage1" name="faqImage1"><br/><br/>
+				<input type="file" id="FAQ_IMAGE1" name="FAQ_IMAGE1"><br/><br/>
 				<!-- <input type="file" id="file" name="FAQ_IMAGE2"> -->
 			</p>
 		</div>
