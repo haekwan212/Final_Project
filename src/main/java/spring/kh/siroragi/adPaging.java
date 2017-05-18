@@ -57,8 +57,13 @@ public class adPaging {
 		// 이전 block 페이지
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a class='page prv' href=" + list + "?posting=" + posting + "&searchNum=" + searchNum
-					+ "&isSearch=" + isSearch + "&currentPage=" + (startPage - 1) + ">");
+			if (isSearch == null) {
+				pagingHtml.append("<a class='page prv' href=" + list + "?posting=" + posting + "&searchNum=" + searchNum
+						+ "&isSearch=&currentPage=" + (startPage - 1) + ">");
+			} else {
+				pagingHtml.append("<a class='page prv' href=" + list + "?posting=" + posting + "&searchNum=" + searchNum
+						+ "&isSearch=" + isSearch + "&currentPage=" + (startPage - 1) + ">");
+			}
 			pagingHtml.append("&lt;");
 			pagingHtml.append("</a>");
 		}
@@ -73,8 +78,13 @@ public class adPaging {
 				pagingHtml.append(i);
 				pagingHtml.append("</strong>");
 			} else {
-				pagingHtml.append("<a class='page' href=" + list + "?posting=" + posting + "&searchNum=" + searchNum
-						+ "&isSearch=" + isSearch + "&currentPage=");
+				if (isSearch == null) {
+					pagingHtml.append("<a class='page' href=" + list + "?posting=" + posting + "&searchNum=" + searchNum
+							+ "&isSearch=&currentPage=");
+				} else {
+					pagingHtml.append("<a class='page' href=" + list + "?posting=" + posting + "&searchNum=" + searchNum
+							+ "&isSearch=" + isSearch + "&currentPage=");
+				}
 				pagingHtml.append(i);
 				pagingHtml.append(">");
 				pagingHtml.append(i);
@@ -84,8 +94,13 @@ public class adPaging {
 
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a class='page next' href=" + list + "?posting=" + posting + "&searchNum=" + searchNum
-					+ "&isSearch=" + isSearch + "&currentPage=" + (endPage + 1) + ">");
+			if (isSearch == null) {
+				pagingHtml.append("<a class='page next' href=" + list + "?posting=" + posting + "&searchNum="
+						+ searchNum + "&isSearch=&currentPage=" + (endPage + 1) + ">");
+			} else {
+				pagingHtml.append("<a class='page next' href=" + list + "?posting=" + posting + "&searchNum="
+						+ searchNum + "&isSearch=" + isSearch + "&currentPage=" + (endPage + 1) + ">");
+			}
 			pagingHtml.append("&gt;");
 			pagingHtml.append("</a>");
 		}
