@@ -1,136 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
 
-<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-	<!-- facebook -->
-    <meta property="og:url" content="" />
-    <meta property="og:title" content="PANCOAT" />
-    <meta property="og:description" content="" />
-	<meta property="og:image" content="" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="PANCOAT" />
-    <meta property="og:locale" content="ko_KR" />
-    <!-- facebook -->
-	<title>SIRORAGI</title>
 
-	<!--
-	<link rel="stylesheet" href="/theme/pshp/css/vendor/jquery-ui.css">
-	<link rel="stylesheet" href="/theme/pshp/css/vendor/bootstrap.css">
-	<link rel="stylesheet" href="/theme/pshp/css/main.min.css">
-	<link rel="stylesheet" href="/theme/pshp/css/ui.css">
-	-->
-
-	<link rel="stylesheet" href="/theme/pshp/css/vendor/jquery-ui.css?v=1">
-	<link rel="stylesheet" href="/theme/pshp/css/vendor/bootstrap.css?v=1">
-	
-
-	<link rel="stylesheet" href="/theme/pshp/css/fonts.css">
-	<link rel="shortcut icon" href="/favicon.ico">
-	<script src="/theme/pshp/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="/theme/pshp/js/vendor/selector.min.js"></script>
-	<script src="/theme/pshp/js/vendor/webfont.min.js"></script>
-	<script src="/dist/jquery/jquery-1.11.0.min.js"></script>
-	<script src="/dist/jquery/jquery-ui.js"></script>
-	<script src="/dist/jquery/jquery-migrate-1.2.1.min.js"></script>
-	<script src="/dist/jquery/plugin/jquery.cookie.js"></script>
-
-	<!-- font-awesome(icon) -->
-	<link href="/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-	<!-- owl -->
-	<link rel="stylesheet" href="/dist/owl/owl.carousel.css">
-	<link rel="stylesheet" href="/dist/owl/owl.theme.default.min.css">
-	<script src="/dist/owl/owl.carousel.min.js"></script>
-	<script src="/dist/owl/owl.js"></script>
-
-	<link rel="stylesheet" href="/theme/pshp/css/main.min.css?v=2">
-	<link rel="stylesheet" href="/theme/pshp/css/ui.css?v=1">
 </head>
 
 <body>
-<style>
-.rankGender-wrap .tab-navs li {
-	padding:0;
-	border-top: 1px solid gray;
-	border-right: 1px solid gray;
-	border-bottom: 2px solid #000;
-}
-.rankGender-wrap .tab-navs li:first-child{
-	border-left:1px solid gray;
-}
-.rankGender-wrap .tab-nav2{
-float:left;
-/*width:10%;*/
-text-align:center;
-}
-.rankGender-wrap .tab-nav2 a{
-	color: #ddd6cd;
-    text-decoration: none;
-}
-.rankGender-wrap .tab-nav2 a, .rankAge-wrap .tab-nav2 a {
-    display: block;
-    font-weight: bold;
-    color: #242424;
-    line-height: 2.4615384615;
-    font-size: 12px;
-    padding: 0 10px;
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    color: gray;
-}
-.rankGender-wrap .tab-nav2.active a, .rankAge-wrap .tab-nav2.active a {
-    background-color: #191919;
-    color: #fff;
-}
-.rankGender-wrap .list-dropdown li .brief .title {
-    display: block;
-    font-weight: bold;
-    font-size: 12px;
-    margin-top: -2px;
-	margin-left: 15px;
-	line-height:3em;
-	
-}
 
-.tab-content .answer img {width:100%;}
-.rankGender-wrap .list-dropdown li {
-    overflow: inherit;
-}
+<div class="viewport">
+<div id="container">
+<div id="page" class="page">
 
-/**** 20160406 ****/
-.detail {background:#fff !important;border-top:1px dashed #ccc;}
-
-.tab-content2 > div {display:none;}
-.tab-content2 > div.active {display:block;}
-
-.section-body {background:#fff;margin-bottom:10px;}
-.search-box {text-align:center; margin:25px 0 50px;}
-.search-box input[type=text] {border:3px solid #252c4f; height:35px; width:35%; box-sizing:border-box; padding:5px; outline:none; vertical-align:middle;}
-.search-box input[type=text]:focus {border-color:#808080;}
-.search-box input[type=submit] {height:35px; background:#252c4f; color:#fff; border:0; padding:0 15px; box-sizing:border-box; vertical-align:middle;}
-
-.tab-content-search {margin-bottom:30px;}
-.tab-content-search ul {border-top:1px solid #ccc; border-bottom:1px solid #ccc; }
-.tab-content-search ul li .brief {padding:10px 20px; }
-.tab-content-search ul li .brief .title {font-weight:bold;}
-.list-dropdown li .detail .answer {border:0; padding:0 0 0 15px; line-height:22px; margin:0;}
-.list-dropdown li .detail .answer p .icon {top:8px;}
-
-</style>
-
-<div class="viewport">		
-	<div id="container">
-		<div id="page" class="page">
 <div class="personal-account-info container">
 	<section class="page-category container">
 		<div class="selectboxWrap">
@@ -178,15 +63,7 @@ text-align:center;
 	<div class="account-home accountCatalog">
 	<section class="section box-line">
 		<div class="section-body">
-			<!-- 검색 -->
-			<div class="search-box">
-				<form>
-				<input type="text" name="sword_faq" value="" placeholder="팬콧 FAQ 검색해보세요">
-				<input type="submit" value="검색">
-				</form>
-			</div>
-
-			<!-- /검색 -->
+			
 
 			<div class="rankGender-wrap">
 				<ul class="tab-navs">
@@ -391,8 +268,6 @@ text-align:center;
 						</ul>
 					</div>
 					
-	
-			
 					<div class="pull-left">
 					<a href="faqWrite" class="button"><span class="button-label">글쓰기</span></a>
 					</div>
@@ -411,14 +286,7 @@ text-align:center;
 </div>
 </div>
 </div>
-<script src="/dist/bootstrap/js/bootstrap.min.js"></script>
-<script src="/dist/jquery/plugin/jquery.placeholder.js"></script>
-<script src="/dist/js/common.js?v=1"></script>
-<script src="/dist/js/event.js"></script>
-<script src="/theme/pshp/js/event.js"></script>
-<script src="/theme/pshp/js/plugins.min.js"></script>
-<script src="/theme/pshp/js/main.min.js"></script>
-<script src="/theme/pshp/js/vendor/fastclick.min.js"></script>
+
 
 </body>
 

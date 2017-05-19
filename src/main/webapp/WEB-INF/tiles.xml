@@ -112,6 +112,9 @@
       <put-attribute name="body" value="/WEB-INF/jsp/goods/goodsDetail.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="faqList" extends="common2">
+      <put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp"></put-attribute>
+	</definition>
 	
 
 </tiles-definitions>
