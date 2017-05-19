@@ -51,12 +51,11 @@ public class AdController {
 		ModelAndView mv = new ModelAndView();
 
 		List<Map<String, Object>> adList = adService.adList(commandMap.getMap());
-		
 
 		isSearch = request.getParameter("isSearch");
 
 		if (isSearch != null) {
-			
+
 			posting = Integer.parseInt(request.getParameter("posting"));
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
@@ -88,10 +87,10 @@ public class AdController {
 			return mv;
 
 		} else {
-			
+
 			posting = 0;
 			searchNum = 0;
-			
+
 			totalCount = adList.size();
 
 			page = new adPaging(currentPage, totalCount, blockCount, blockPage, "adList", posting, searchNum, isSearch);
@@ -126,7 +125,7 @@ public class AdController {
 		Map<String, Object> ad = adService.selectAdDetail(commandMap.getMap());
 
 		String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\adFile\\";
-		
+
 		mv.addObject("filePath", filePath);
 		mv.addObject("ad", ad);
 		mv.setViewName("adForm");
@@ -182,36 +181,45 @@ public class AdController {
 
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		posting = Integer.parseInt(request.getParameter("posting"));
-		
-		if(multipartRequest.getFile("AD_IMAGE1").isEmpty()) {
-			
+
+		if (multipartRequest.getFile("AD_IMAGE1").isEmpty()) {
+
 			commandMap.put("AD_IMAGE", request.getParameter("AD_IMAGE2"));
-			
+
 			System.out.println("adModify : " + commandMap.getMap());
-			
+
 			adService.adModify(commandMap.getMap());
-			
-			
+
 		} else {
 
-		MultipartFile AD_IMAGE = multipartRequest.getFile("AD_IMAGE1");
+			MultipartFile AD_IMAGE = multipartRequest.getFile("AD_IMAGE1");
 
-		commandMap.put("AD_IMAGE", AD_IMAGE.getOriginalFilename());
+			commandMap.put("AD_IMAGE", AD_IMAGE.getOriginalFilename());
 
-		System.out.println("adModify : " + commandMap.getMap());
-		
-		adService.adModify(commandMap.getMap());
+			System.out.println("adModify : " + commandMap.getMap());
 
-		String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\adFile\\";
-		String fileName = AD_IMAGE.getOriginalFilename();
+			adService.adModify(commandMap.getMap());
 
-		File file = new File(filePath + fileName);
+			String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\adFile\\";
+			String fileName = AD_IMAGE.getOriginalFilename();
 
-		if (file.exists() == false) {
-			file.mkdirs();
-		}
+			File file = new File(filePath + fileName);
 
-		AD_IMAGE.transferTo(file);
+			String image = request.getParameter("AD_IMAGE2");
+
+			File imageFile = new File(filePath + image);
+
+			System.out.println(imageFile.isFile());
+
+			if (imageFile.isFile()) {
+				imageFile.delete();
+			}
+
+			if (file.exists() == false) {
+				file.mkdirs();
+			}
+
+			AD_IMAGE.transferTo(file);
 		}
 
 		mv.setViewName("redirect:/ad/adList");
@@ -228,6 +236,17 @@ public class AdController {
 
 		posting = Integer.parseInt(request.getParameter("posting"));
 		isSearch = request.getParameter("isSearch");
+
+		String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\adFile\\";
+		String image = request.getParameter("image");
+
+		File imageFile = new File(filePath + image);
+
+		System.out.println(imageFile.isFile());
+
+		if (imageFile.isFile()) {
+			imageFile.delete();
+		}
 
 		System.out.println("deleteMember : " + commandMap.getMap());
 
