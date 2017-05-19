@@ -6,7 +6,7 @@
 	<!-- 조인으로 상품 가져와야돼 -->
 	<select id="selectAdminGoodsList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
-			SELECT A.GOODS_NUMBER, A.GOODS_CATEGORY1, A.GOODS_CATEGORY2, A.GOODS_NAME,
+			SELECT A.GOODS_NUMBER, A.GOODS_CATEGORY1, A.GOODS_CATEGORY2, A.GOODS_NAME, A.GOODS_SALEDATE,
 			A.GOODS_PRICE, A.GOODS_DCPRICE, A.GOODS_DATE, D.GOODS_SELLCOUNT, A.GOODS_THUMBNAIL,
 			D.GOODS_AMOUNT, D.GOODS_SIZE, D.GOODS_COLOR,
       		decode(D.GOODS_SIZE, 'xxs', '1','XXS', '1', 'xs', '2','XS', '2', 's', '3','S', '3', 'm', '4','M', '4',  'l', '5','L', '5', 'xl', '6','XL', '6', 'xxl', '7','XXL', '7','free', '8','FREE', '8','Free', '8') as SIZE_ORDER 

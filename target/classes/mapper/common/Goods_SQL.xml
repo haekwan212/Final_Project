@@ -24,5 +24,17 @@
 			SELECT * FROM IMAGE WHERE GOODS_NUMBER=#{GOODS_NUMBER} ORDER BY IMAGE_NUMBER ASC
 		]]>
 	</select>
+	
+	<select id="selectRelatedGoods" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT GOODS_THUMBNAIL,GOODS_NUMBER FROM GOODS WHERE GOODS_NUMBER=#{GOODS_NUMBER} AND GOODS_ONOFF=0
+		]]>
+	</select>
+	
+	<update id="goodsCountUp" parameterType="hashmap">
+		<![CDATA[
+			UPDATE GOODS SET GOODS_COUNT=GOODS_COUNT+1 WHERE GOODS_NUMBER=#{GOODS_NUMBER}
+		]]>
+	</update>
 
 </mapper>

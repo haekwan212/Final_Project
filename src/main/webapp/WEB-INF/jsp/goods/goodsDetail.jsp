@@ -96,7 +96,7 @@
 					<dd class="col-xs-18 col-md-19">
 						<div class="rating">
 						<span class="ratio">
-						  <span style="width:90%">
+						  <span style="width:100%">
 							  <span class="star"></span>
 						  </span>
 						</span>
@@ -206,18 +206,18 @@
 			<c:forEach var="goodsDetail"  items="${goodsDetail}" varStatus="stat">
 				<c:if test="${goodsDetail.GOODS_AMOUNT ne 0}">
 					<c:if test="${goodsBasic.GOODS_DCPRICE ne null }">
-						<option value="15911124" optnm="${goodsDetail.GOODS_SIZE }" stock="${goodsDetail.GOODS_AMOUNT }" price="${goodsBasic.GOODS_DCPRICE }">
+						<option value="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }" optnm="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }" stock="${goodsDetail.GOODS_AMOUNT }" price="${goodsBasic.GOODS_DCPRICE }">
 						${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE } (${goodsDetail.GOODS_AMOUNT }개)
 						</option>
 					</c:if>
 					<c:if test="${goodsBasic.GOODS_DCPRICE eq null }">
-						<option value="15911124" optnm="${goodsDetail.GOODS_SIZE }" stock="${goodsDetail.GOODS_AMOUNT }" price="${goodsBasic.GOODS_PRICE }">
+						<option value="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }" optnm="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }" stock="${goodsDetail.GOODS_AMOUNT }" price="${goodsBasic.GOODS_PRICE }">
 						${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE } (${goodsDetail.GOODS_AMOUNT }개)
 						</option>
 					</c:if>
 				</c:if>
 				<c:if test="${goodsDetail.GOODS_AMOUNT eq 0}">
-					<option value="15911124" optnm="XS" stock="0" price="19000" disabled="">
+					<option value="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }" optnm="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }" stock="0" price="0" disabled="">
 					${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE } (품절)
 					</option>
 				</c:if>
@@ -364,142 +364,27 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 			</div>
 			<div class="section-body">
 				<ul class="catalog">
-					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
-						<div class="thumbnail">
-							<a href="/goods/1408942356">
-								<div data-original="http://pic.styleindex.co.kr/g/s/140/1408942356" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/140/1408942356&quot;);" class="lazy">
-									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-								</div>
-							</a>
-						</div>
-                       <!-- <div class="caption">
-                            <p class="name">
-                                <a href="/goods/1408942356">[ONLINE FAMILY SALE]어반 플레이 후디 탑 (G-1/FP) (TRUE BLUE)_PROFPSZ03U</a>
-                            </p>
-                            <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>12,800<span class="currency">원</span></span>
-                            </p>
-                        </div>-->
-					</li>
-					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
-						<div class="thumbnail">
-							<a href="/goods/1484265771">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1484265771" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/148/1484265771&quot;);" class="lazy">
-									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-								</div>
-							</a>
-						</div>
-                       <!-- <div class="caption">
-                            <p class="name">
-                                <a href="/goods/1484265771">★2017 봄신상 가격인하★팬콧 로고 P 후드 (EP) (HEATHER GREY)_PPOEPHD02E</a>
-                            </p>
-                            <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>29,000<span class="currency">원</span></span>
-                            </p>
-                        </div>-->
-					</li>
-					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
-						<div class="thumbnail">
-							<a href="/goods/1484265772">
-								<div data-original="http://pic.styleindex.co.kr/g/s/148/1484265772" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/148/1484265772&quot;);" class="lazy">
-									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-								</div>
-							</a>
-						</div>
-                       <!-- <div class="caption">
-                            <p class="name">
-                                <a href="/goods/1484265772">★2017 봄신상 가격인하★팬콧 로고 P 후드 (EP) (MIDNIGHT BLACK)_PPOEPHD02E</a>
-                            </p>
-                            <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>29,000<span class="currency">원</span></span>
-                            </p>
-                        </div>-->
-					</li>
-					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
-						<div class="thumbnail">
-							<a href="/goods/1456735000">
-								<div data-original="http://pic.styleindex.co.kr/g/s/145/1456735000" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/145/1456735000&quot;);" class="lazy">
-									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-								</div>
-							</a>
-						</div>
-                       <!-- <div class="caption">
-                            <p class="name">
-                                <a href="/goods/1456735000">팬콧×세사미 스트릿 후디 (MIDNIGHT BLACK)_PPOSPHD60S</a>
-                            </p>
-                            <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>35,900<span class="currency">원</span></span>
-                            </p>
-                        </div>-->
-					</li>
-					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
-						<div class="thumbnail">
-							<a href="/goods/1410426650">
-								<div data-original="http://pic.styleindex.co.kr/g/s/141/1410426650" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/141/1410426650&quot;);" class="lazy">
-									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-								</div>
-							</a>
-						</div>
-                       <!-- <div class="caption">
-                            <p class="name">
-                                <a href="/goods/1410426650">팝아이즈 리버스 집업 후디(FA) (NEPTUNE MINT)_PPOFAHZ03U</a>
-                            </p>
-                            <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>35,600<span class="currency">원</span></span>
-                            </p>
-                        </div>-->
-					</li>
-					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
-						<div class="thumbnail">
-							<a href="/goods/1408942435">
-								<div data-original="http://pic.styleindex.co.kr/g/s/140/1408942435" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/140/1408942435&quot;);" class="lazy">
-									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-								</div>
-							</a>
-						</div>
-                       <!-- <div class="caption">
-                            <p class="name">
-                                <a href="/goods/1408942435">[ONLINE FAMILY SALE]에어 테크 후디 탑 (FP) (HEATHER GREY)_PROFPSZ04U</a>
-                            </p>
-                            <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>12,800<span class="currency">원</span></span>
-                            </p>
-                        </div>-->
-					</li>
-					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
-						<div class="thumbnail">
-							<a href="/goods/1398319116">
-								<div data-original="http://pic.styleindex.co.kr/g/s/139/1398319116" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/139/1398319116&quot;);" class="lazy">
-									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-								</div>
-							</a>
-						</div>
-                       <!-- <div class="caption">
-                            <p class="name">
-                                <a href="/goods/1398319116">[ONLINE FAMILY SALE]에어 테크 저지 탑 (FP) (HEATHER GREY)_PROFPSZ05U</a>
-                            </p>
-                            <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>12,800<span class="currency">원</span></span>
-                            </p>
-                        </div>-->
-					</li>
-					<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
-						<div class="thumbnail">
-							<a href="/goods/1408942440">
-								<div data-original="http://pic.styleindex.co.kr/g/s/140/1408942440" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/140/1408942440&quot;);" class="lazy">
-									<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-								</div>
-							</a>
-						</div>
-                       <!-- <div class="caption">
-                            <p class="name">
-                                <a href="/goods/1408942440">[ONLINE FAMILY SALE]에어 테크 후디 탑 (FP) (NEON GREEN)_PROFPSZ04U</a>
-                            </p>
-                            <p class="price">
-                                <span class="now"><span class="label sr-only">할인가격:</span>12,800<span class="currency">원</span></span>
-                            </p>
-                        </div>-->
-					</li>
+					<c:forEach var="relatedGoods"  items="${relatedGoods}" varStatus="stat">
+						<li class="catalog-item col-xs-6 col-sm-3 col-lg-6">
+							<div class="thumbnail">
+								<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${relatedGoods.GOODS_NUMBER }">
+									<div data-original="http://pic.styleindex.co.kr/g/s/140/1408942440" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/140/1408942440&quot;);" class="lazy">
+										<img src="/SIRORAGI/file/goodsFile/${relatedGoods.GOODS_THUMBNAIL}" class="img-responsive" width="500" height="500">
+									</div>
+								</a>
+							</div>
+	                       <!-- <div class="caption">
+	                            <p class="name">
+	                                <a href="/goods/1408942440">[ONLINE FAMILY SALE]에어 테크 후디 탑 (FP) (NEON GREEN)_PROFPSZ04U</a>
+	                            </p>
+	                            <p class="price">
+	                                <span class="now"><span class="label sr-only">할인가격:</span>12,800<span class="currency">원</span></span>
+	                            </p>
+	                        </div>-->
+						</li>
+					</c:forEach>
+					
+					
 				</ul>
 			</div>
 		</div>
@@ -945,7 +830,7 @@ function _exec(mode){
                 </div>
                 -->
                 <div class="section-foot">
-                    <a href="/SIRORAGI/qna/qnaForm" class="button" target="modal" data-size="md" data-label="구매 후기 작성">
+                    <a href="/SIRORAGI/review/reviewForm" class="button" target="modal" data-size="md" data-label="구매 후기 작성">
                         <span class="button-label">구매 후기 작성</span>
                     </a>
                 </div>

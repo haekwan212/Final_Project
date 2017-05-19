@@ -21,4 +21,8 @@ public interface GoodsService {
 	public List<Map<String, Object>> goodsImage(Map<String, Object> map) throws Exception;
 	
 	// 코디된 상품 보여주기
+	public List<Map<String,Object>> relatedGoods(Map<String, Object> map) throws Exception;
+	
+	//상품 조회수 올리기
+	public void goodsCountUp(Map<String, Object> map) throws Exception;
 }
