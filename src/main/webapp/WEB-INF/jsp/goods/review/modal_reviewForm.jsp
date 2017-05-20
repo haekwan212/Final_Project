@@ -9,9 +9,9 @@
 }
 
     </style>
-<div class="modal-body"><form method="post" action="process" enctype="multipart/form-data">
+<div class="modal-body"><form method="post" action="/SIRORAGI/reviewWrite" enctype="multipart/form-data">
 <input type="hidden" name="mode" value="cs">
-<input type="hidden" name="goodsno" value="1489998868">
+<input type="hidden" name="GOODS_NUMBER" value="${param.GOODS_NUMBER}">
 	<section class="inquiry box-shadow">
 		<div class="section-body list-horizontal">
 			<div class="list-item">
@@ -19,7 +19,16 @@
 					<label for="is-title"><strong>제목</strong></label>
 				</div>
 				<div class="item-contents col-xs-24 col-md-18">
-					<input type="text" id="is-title" name="subject" class="xx-control" required="">
+					<input type="text" id="is-title" name="REVIEW_TITLE" class="xx-control" required="">
+				</div>
+			</div>
+			<div class="list-item">
+				<div class="item-title col-xs-24 col-md-6">
+					<label for="is-title"><strong>작성자</strong></label>
+				</div>
+				<div class="item-contents col-xs-24 col-md-18">
+					${MEMBER_NAME}/${MEMBER_NUMBER }
+					<input type="hidden" id="is-title" name="MEMBER_NUMBER" class="xx-control" value="${MEMBER_NUMBER }">
 				</div>
 			</div>
 			<div class="list-item">
@@ -37,7 +46,7 @@
 						<label for="l-star1-4"><font color="#00B0E0" size="5">★★★★</font></label>
 						<input type="radio" id="l-star1-4" name="REVIEW_GRADE" class="radio" value="4">
 						<label for="l-star1-5"><font color="#00B0E0" size="5">★★★★★</font></label>
-						<input type="radio" id="l-star1-5" name="REVIEW_GRADE" class="radio" value="5">
+						<input type="radio" id="l-star1-5" name="REVIEW_GRADE" class="radio" value="5" checked="checked">
 					</span>
 				</div>
 			</div>
@@ -46,7 +55,7 @@
 					<label for="is-file"><strong>이미지 첨부</strong></label>
 				</div>
 				<div class="item-contents col-xs-24 col-md-8">
-					<input type="file" id="is-file" name="REVIEW_IMAGE" class="xx-control" required="">
+					<input type="file" id="is-file" name="REVIEW_IMAGE" class="xx-control" >
 				</div>
 			</div>
 			<div class="list-item">

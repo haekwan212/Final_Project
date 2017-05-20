@@ -40,9 +40,9 @@ public class GoodsController {
 
 		Calendar today=Calendar.getInstance();
 		Date d=new Date(today.getTimeInMillis());
-		
-
+	
 		Map<String, Object> goodsBasic = goodsDetail.get(0);
+
 		if (goodsBasic.get("GOODS_SALEDATE") != null && goodsBasic.get("GOODS_DCPRICE") != null) {
 			Date dDay = (Date) goodsBasic.get("GOODS_SALEDATE");
 			if ( dDay.getTime() < d.getTime()) {
@@ -50,10 +50,11 @@ public class GoodsController {
 				goodsBasic.remove("GOODS_DCPRICE");
 			}
 		}
-
+		
 		mv.addObject("goodsDetail", goodsDetail);
+		mv.addObject("GOODS_NUMBER",goodsDetail.get(0).get("GOODS_NUMBER"));
 		mv.addObject("goodsBasic", goodsBasic);
-
+		
 		int totalSellCount = goodsService.countTotalSell(commandMap.getMap());
 
 		mv.addObject("totalSellCount", totalSellCount);
@@ -64,7 +65,6 @@ public class GoodsController {
 		// 코디상품 정보 가져오기
 		List<Map<String, Object>> relatedGoods = goodsService.relatedGoods(goodsBasic);
 		mv.addObject("relatedGoods", relatedGoods);
-
 		// 리뷰 별점 가져오기
 
 		// 구매후기 가져오기

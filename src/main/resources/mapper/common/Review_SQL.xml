@@ -3,5 +3,22 @@
 
 <mapper namespace="review">
 	
+	<insert id="insertReview" parameterType="hashmap">
+		<selectKey keyProperty="REVIEW_NUMBER" resultType="string"	order="BEFORE">
+			SELECT REVIEW_NUMBER_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		<![CDATA[
+			INSERT INTO REVIEW (GOODS_NUMBER, REVIEW_NUMBER, MEMBER_NUMBER,
+			REVIEW_CONTENT, REVIEW_REGDATE, REVIEW_GRADE, REVIEW_TITLE)
+			VALUES (#{GOODS_NUMBER}, #{REVIEW_NUMBER}, #{MEMBER_NUMBER},
+			#{REVIEW_CONTENT}, SYSDATE, #{REVIEW_GRADE}, #{REVIEW_TITLE})
+		]]>
+	</insert>
+	
+	<select id="selectGoodsReview" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			
+		]]>
+	</select>
 
 </mapper>

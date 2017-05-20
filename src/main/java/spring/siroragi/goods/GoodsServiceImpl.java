@@ -1,6 +1,7 @@
 package spring.siroragi.goods;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,15 +40,16 @@ public class GoodsServiceImpl implements GoodsService {
 	public List<Map<String, Object>> relatedGoods(Map<String, Object> map) throws Exception {
 
 		List<Map<String, Object>> relatedGoodsList = new ArrayList<Map<String, Object>>();
-
+		Map<String,Object> goodsNum=new HashMap<String,Object>();
+		
 		if (map.get("GOODS_RELATED") != null) {
 			String related = (String) map.get("GOODS_RELATED");
 
 			String[] relatedGoods = related.split(",");
 
 			for (String a : relatedGoods) {
-				map.put("GOODS_NUMBER", a);
-				Map<String,Object> relatedInfo=goodsDAO.relatedGoodsThumbnail(map);
+				goodsNum.put("GOODS_NUMBER", a);
+				Map<String,Object> relatedInfo=goodsDAO.relatedGoodsThumbnail(goodsNum);
 				if(relatedInfo!=null){
 					relatedGoodsList.add(relatedInfo);
 				}
