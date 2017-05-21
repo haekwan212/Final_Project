@@ -153,9 +153,10 @@
 									<dt class="col-xs-6 col-md-5">고객 평가</dt>
 									<dd class="col-xs-18 col-md-19">
 										<div class="rating">
-											<span class="ratio"> <span style="width: 100%">
-													<span class="star"></span>
-											</span>
+											<span class="ratio">
+											  <span style="width:${avgGrade}%">
+												  <span class="star"></span>
+											  </span>
 											</span>
 										</div>
 									</dd>

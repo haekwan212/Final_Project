@@ -65,8 +65,9 @@ public class GoodsController {
 		// 코디상품 정보 가져오기
 		List<Map<String, Object>> relatedGoods = goodsService.relatedGoods(goodsBasic);
 		mv.addObject("relatedGoods", relatedGoods);
-		// 리뷰 별점 가져오기
-
+		// 리뷰 평점 가져오기
+		mv.addObject("avgGrade",goodsService.goodsAvgGrade(commandMap.getMap()));
+		
 		// 구매후기 가져오기
 
 		// 상품qna 가져오기

@@ -43,5 +43,13 @@ public class GoodsDAO extends AbstractDAO{
 	public void goodsCountUp(Map<String, Object> map) throws Exception{
 		update("goods.goodsCountUp",map);
 	}
+	
+	//상품 평점 가져오기
+	public int goodsAvgGrade(Map<String, Object> map) throws Exception{
+		if(selectOne("review.selectGoodsEvgGrade",map) !=null)
+		return (int) selectOne("review.selectGoodsEvgGrade",map);
+		
+		return 0;
+	}
 
 }

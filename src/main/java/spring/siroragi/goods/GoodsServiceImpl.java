@@ -40,8 +40,8 @@ public class GoodsServiceImpl implements GoodsService {
 	public List<Map<String, Object>> relatedGoods(Map<String, Object> map) throws Exception {
 
 		List<Map<String, Object>> relatedGoodsList = new ArrayList<Map<String, Object>>();
-		Map<String,Object> goodsNum=new HashMap<String,Object>();
-		
+		Map<String, Object> goodsNum = new HashMap<String, Object>();
+
 		if (map.get("GOODS_RELATED") != null) {
 			String related = (String) map.get("GOODS_RELATED");
 
@@ -49,8 +49,8 @@ public class GoodsServiceImpl implements GoodsService {
 
 			for (String a : relatedGoods) {
 				goodsNum.put("GOODS_NUMBER", a);
-				Map<String,Object> relatedInfo=goodsDAO.relatedGoodsThumbnail(goodsNum);
-				if(relatedInfo!=null){
+				Map<String, Object> relatedInfo = goodsDAO.relatedGoodsThumbnail(goodsNum);
+				if (relatedInfo != null) {
 					relatedGoodsList.add(relatedInfo);
 				}
 			}
@@ -59,10 +59,15 @@ public class GoodsServiceImpl implements GoodsService {
 		return relatedGoodsList;
 
 	}
-	
-	//상품 조회수 올리기
-	public void goodsCountUp(Map<String, Object> map) throws Exception{
+
+	// 상품 조회수 올리기
+	public void goodsCountUp(Map<String, Object> map) throws Exception {
 		goodsDAO.goodsCountUp(map);
+	}
+
+	// 상품 평점 가져오기
+	public int goodsAvgGrade(Map<String, Object> map) throws Exception {
+		return goodsDAO.goodsAvgGrade(map);
 	}
 
 }

@@ -15,9 +15,23 @@
 		]]>
 	</insert>
 	
+	<update id="reviewImage" parameterType="hashmap">
+		<![CDATA[
+			UPDATE REVIEW SET REVIEW_IMAGE=#{REVIEW_IMAGE} WHERE REVIEW_NUMBER=#{REVIEW_NUMBER}
+		]]>
+	</update>
+	
 	<select id="selectGoodsReview" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
-			
+			SELECT REVIEW_TITLE, REVIEW_CONTENT, REVIEW_GRADE, REVIEW_IMAGE, 
+			REVIEW_REGDATE, REVIEW_GRADE FROM REVIEW WHERE GOODS_NUMBER=#{GOODS_NUMBER}
+			ORDER BY REVIEW_NUMBER DESC
+		]]>
+	</select>
+	
+	<select id="selectGoodsEvgGrade" parameterType="hashmap" resultType="Integer">
+		<![CDATA[
+			SELECT AVG(REVIEW_GRADE)*20 FROM REVIEW WHERE GOODS_NUMBER=#{GOODS_NUMBER}
 		]]>
 	</select>
 
