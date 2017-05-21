@@ -10,5 +10,11 @@
 	#{MEMBER_PHONE}, SYSDATE, NULL, '0', #{MEMBER_PASSWORD})
 	]]>
 	</insert>
+	
+	<select id="checkMember" parameterType="hashmap" resultType="integer">
+	<![CDATA[
+	select count(member_email) from member where member_email = #{MEMBER_EMAIL}
+	]]>
+	</select>
 
 </mapper>

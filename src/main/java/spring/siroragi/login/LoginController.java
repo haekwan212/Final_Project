@@ -27,6 +27,7 @@ public class LoginController {
 	
 	@Resource(name="memberService")
 	private  MemberService memberService;
+	
 /*	function(data){
 		$("#are").html(data);
 	}*/
@@ -51,11 +52,12 @@ public class LoginController {
 	}else{
 		System.out.println("비밀번호1 : "+chk.get("MEMBER_PASSWORD")+"\n2 : "+commandMap.get("MEMBER_PASSWORD"));
 	if(chk.get("MEMBER_PASSWORD").equals(commandMap.get("MEMBER_PASSWORD"))){
-		System.out.println("야호");
 		session.setAttribute("MEMBER_ID", commandMap.get("MEMBER_ID"));
 		mv.addObject("MEMBER", chk);
-		
 		mv.setViewName("redirect:/main");
+		session.setAttribute("MEMBER_NAME", chk.get("MEMBER_NAME"));
+		session.setAttribute("MEMBER_NUMBER", chk.get("MEMBER_NUMBER"));
+		mv.setViewName("common");
 		return mv;
 	}else{
 		mv.setViewName("loginForm");
@@ -70,6 +72,7 @@ public class LoginController {
 		if(session != null)
 			session.invalidate();
 		ModelAndView mv= new ModelAndView();
+		mv.setViewName("common");
 		mv.setViewName("redirect:/main");
 		return mv;
 	}

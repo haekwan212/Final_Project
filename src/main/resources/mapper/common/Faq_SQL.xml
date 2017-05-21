@@ -9,6 +9,7 @@
 		<![CDATA[
 			SELECT
 			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
 			    FAQ_TITLE,
 			    FAQ_HITCOUNT,
 			    FAQ_REGDATE
@@ -28,6 +29,7 @@
 			INSERT INTO FAQ
 			(
 				FAQ_NUMBER,
+				FAQ_CATEGORY,
 			    FAQ_TITLE, 
 			    FAQ_CONTENT, 
 			    FAQ_HITCOUNT,  
@@ -36,6 +38,7 @@
 			VALUES
 			(
 				#{FAQ_NUMBER}, 
+				#{FAQ_CATEGORY},
 			    #{FAQ_TITLE}, 
 			    #{FAQ_CONTENT},
 			    0, 
@@ -62,10 +65,12 @@
 		<![CDATA[
 			SELECT
 				FAQ_NUMBER,
+				FAQ_CATEGORY,
 				FAQ_HITCOUNT,
 				FAQ_REGDATE,
 				FAQ_TITLE,
-				FAQ_CONTENT
+				FAQ_CONTENT,
+				FAQ_IMAGE1
 			FROM
 				FAQ
 			WHERE
@@ -78,6 +83,7 @@
 		<![CDATA[
 			UPDATE FAQ 
 			SET
+				FAQ_CATEGORY = #{FAQ_CATEGORY},
 				FAQ_TITLE = #{FAQ_TITLE},
 				FAQ_CONTENT = #{FAQ_CONTENT}
 			WHERE

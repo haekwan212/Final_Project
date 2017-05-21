@@ -11,13 +11,21 @@ public interface AdService {
 	// 광고 내역 불러오기
 	List<Map<String, Object>> adList(Map<String, Object> map) throws Exception;
 
-	// 광고 등록 폼
-	Map<String, Object> adForm(Map<String, Object> map) throws Exception;
+	// 광고 상세정보
+	Map<String, Object> selectAdDetail(Map<String, Object> map) throws Exception;
+
+	// 광고 등록 폼으로 이동
 
 	// 광고 등록
-	Map<String, Object> adWrite(Map<String, Object> map) throws Exception;
+	void adWrite(Map<String, Object> map) throws Exception;
 
 	// 광고 수정
 	void adModify(Map<String, Object> map) throws Exception;
+	
+	// 광고 삭제
+	void adDelete(Map<String, Object> map) throws Exception;
+
+	// 광고 이름으로 검색
+	List<Map<String, Object>> searchAdList(Map<String, Object> map) throws Exception;
 
 }

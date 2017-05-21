@@ -8,8 +8,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
 import spring.siroragi.faq.FaqImageUtils;
 import spring.siroragi.faq.FaqDAO;
 
@@ -33,11 +31,10 @@ public class FaqServiceImpl implements FaqService {
 	@Override
 	public void faqWrite(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		faqDAO.faqWrite(map);
-
 		map = faqImageUtils.faqImage1(map, request);
-
 		faqDAO.faqImage1(map);
-
+		
+			
 	}
 
 	// 상세보기

@@ -2,6 +2,70 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ad">
+	<select resultType="hashmap" parameterType="hashmap" id="adList">
+	<![CDATA[ 
+	SELECT 
+		* 
+	FROM AD 
+	WHERE AD_POSTING = '0'
+	ORDER BY AD_NUMBER DESC
+	]]>
+	</select>
+
+	<select resultType="hashmap" parameterType="hashmap" id="selectAdDetail">
+	<![CDATA[
+	SELECT
+		*
+	FROM AD
+	WHERE AD_NUMBER = #{AD_NUMBER}
+	ORDER BY AD_NUMBER DESC
+	]]>
+	</select>
+
+	<select resultType="hashmap" parameterType="hashmap" id="searchAdList">
+	<![CDATA[
+	SELECT
+		*
+	FROM AD
+	WHERE AD_POSTING = #{posting}
+	AND AD_NAME like '%' || #{isSearch} || '%'
+	ORDER BY AD_NUMBER DESC
+	]]>
+	</select>
+
+	<insert parameterType="hashmap" id="adWrite">
+		<![CDATA[
+		INSERT INTO AD (
+			AD_NUMBER,
+			AD_POSTING,
+			AD_IMAGE,
+			AD_DATE,
+			AD_NAME)
+		VALUES
+			(AD_NUMBER_SEQ.NEXTVAL,
+			 #{posting},
+			 #{AD_IMAGE},
+			 SYSDATE,
+			  #{AD_NAME})
+		]]>
+	</insert>
+
+	<update parameterType="hashmap" id="adModify">
+		<![CDATA[
+		UPDATE AD
+		SET
+			AD_POSTING = #{posting},
+			AD_IMAGE = #{AD_IMAGE},
+			AD_NAME = #{AD_NAME}
+		WHERE AD_NUMBER = #{AD_NUMBER}
+		]]>
+	</update>
 	
+	<update parameterType="hashmap" id="adDelete">
+		<![CDATA[
+		DELETE AD
+		WHERE AD_NUMBER = #{AD_NUMBER}
+		]]>
+	</update>
 
 </mapper>
