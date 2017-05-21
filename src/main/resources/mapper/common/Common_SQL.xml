@@ -2,6 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="common">
-	
-
+	<!-- top 불러오기 -->
+	<select id="listByTop" resultType="hashmap" parameterType="hashmap">
+	<![CDATA[
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'TOP') WHERE ROWNUM < 7
+	]]>
+	</select>
+		<!-- outer 불러오기 -->
+	<select id="listByOut" resultType="hashmap" parameterType="hashmap">
+	<![CDATA[
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'OUTER') WHERE ROWNUM < 7
+	]]>
+	</select>
+		<!-- PANTS 불러오기 -->
+	<select id="listByPan" resultType="hashmap" parameterType="hashmap">
+	<![CDATA[
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'PANTS') WHERE ROWNUM < 7
+	]]>
+	</select>
 </mapper>

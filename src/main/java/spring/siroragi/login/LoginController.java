@@ -27,7 +27,9 @@ public class LoginController {
 	
 	@Resource(name="memberService")
 	private  MemberService memberService;
-	
+/*	function(data){
+		$("#are").html(data);
+	}*/
 	//로그인 폼
 	@RequestMapping(value="/loginForm")
 	public ModelAndView loginForm(){
@@ -53,7 +55,7 @@ public class LoginController {
 		session.setAttribute("MEMBER_ID", commandMap.get("MEMBER_ID"));
 		mv.addObject("MEMBER", chk);
 		
-		mv.setViewName("common");
+		mv.setViewName("redirect:/main");
 		return mv;
 	}else{
 		mv.setViewName("loginForm");
@@ -68,7 +70,7 @@ public class LoginController {
 		if(session != null)
 			session.invalidate();
 		ModelAndView mv= new ModelAndView();
-		mv.setViewName("common");
+		mv.setViewName("redirect:/main");
 		return mv;
 	}
 }

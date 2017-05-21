@@ -109,7 +109,7 @@
 		<div class="tier1-group toggle">
 			<div class="tier1-head">
 				<a href="/main/index2">
-					<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15" >
+					<img src="theme/pshp/img/home_btn_r.png" width="15" height="15" >
 					<strong class="red">e-shop</strong>
 					<span class="icon icon-"></span>
 				</a>
@@ -205,10 +205,10 @@
 				<span class="button-label sr-only">메뉴 펼침/닫음</span>
 			</button>
 			<a href="/main/index2" class="globalHeader-account-mobile">
-				<img src="/theme/pshp/img/home_btn.png" width="20" height="20">
+				<img src="theme/pshp/img/home_btn.png" width="20" height="20">
 				<span class="sr-only">E-shop</span>
 			</a>
-			<a href="../main/index" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
+			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
 		</div>
 	</div>
 	<div class="container">
@@ -247,7 +247,7 @@
 
 				<div class="nav-group eshop active">
 					<a href="/main/index2" class="nav-head">
-						<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15">
+						<img src="theme/pshp/img/home_btn_r.png" width="15" height="15">
 						<span class="label red">e-shop<span class="border" style="background:red"></span></span>
 						<span class="bullet"></span>
 					</a>
@@ -263,7 +263,7 @@
 
 
 								<li class="nav-head c03">
-									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="/theme/pshp/img/category_back.png"></div>
+									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="theme/pshp/img/category_back.png"></div>
 									<a href="/store/category?no=101"><span>top</span></a>
 								</li>
 								<li class="nav-head c04">
@@ -316,6 +316,7 @@
 					</c:otherwise>
 				</c:choose>
 				</li>
+
 				<li class="item">
 					<a href="/SIRORAGI/cartList">
 						<span class="icon icon-cart-black hidden-lg"></span>
@@ -323,10 +324,20 @@
 					</a>
 				</li>
 				<li class="item">
-					<a href="/mypage/orderlist">
+				<c:choose>
+					<c:when test="${not empty sessionScope.MEMBER_ID}">
+					<a href="/SIRORAGI/mypage">
 						<span class="icon icon-identity-black hidden-lg"></span>
 						<span class="hidden-md">my-pancoat</span>
 					</a>
+					</c:when>
+					<c:otherwise>
+					<a href="/SIRORAGI/loginForm">
+						<span class="icon icon-identity-black hidden-lg"></span>
+						<span class="hidden-md">my-pancoat</span>
+					</a>
+					</c:otherwise>
+				</c:choose>
 				</li>
 			</ul>
 		</div>
@@ -367,13 +378,11 @@ $(function(){
 	.main-owl {margin-top:0px;}
 }
 </style>
-
-        <div class="container">
        		
             <!-- 메인container-->
            	 <tiles:insertAttribute name="body"/>
             <!-- // container -->
-        </div>
+
 
 <script>
 	function getItems(mode, page_num){
