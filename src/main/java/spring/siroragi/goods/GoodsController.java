@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
+import spring.kh.siroragi.Paging;
 import spring.siroragi.review.ReviewService;
 
 @Controller
@@ -23,6 +24,26 @@ public class GoodsController {
 	
 	@Resource(name = "goodsService")
 	private GoodsService goodsService;
+	
+	// 페이징 변수(리뷰)
+		private int reviewCurrentPage = 1;
+		private int reviewTotalCount;
+		
+		private int blockCount = 5;
+		private int blockPage = 5;
+		
+		private String reviewPagingHtml;
+		private Paging reviewPage;
+		
+	// 페이징 변수(Qna)
+		private int qnaCurrentPage = 1;
+		private int qnaTotalCount;
+		
+		private String qnaPagingHtml;
+		private Paging qnaPage;
+	
+	
+	
 
 	// 페이지이동
 	@RequestMapping(value = "/goods/goodsCategory")
@@ -77,7 +98,18 @@ public class GoodsController {
 		
 		//상품 리뷰 가져오기
 		List<Map<String, Object>> goodsReview=reviewService.goodsReview(commandMap.getMap());
-		mv.addObject("goodsReview",goodsReview);
+		
+		reviewTotalCount = goodsReview.size();
+		reviewPage = new Paging(reviewCurrentPage, reviewTotalCount, blockCount, blockPage, "goodsDetail");
+		reviewPagingHtml = reviewPage.getPagingHtml().toString();
+
+		int lastCount = reviewTotalCount;
+
+		if (reviewPage.getEndCount() < reviewTotalCount)
+			lastCount = reviewPage.getEndCount() + 1;
+
+		goodsReview = goodsReview.subList(reviewPage.getStartCount(), lastCount);
+		mv.addObject("goodsReview",goodsReview);		
 
 		return mv;
 	}

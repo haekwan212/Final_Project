@@ -223,7 +223,7 @@
 		   <c:forEach items="${listByTop}" var="top">
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
 				<div class="thumbnail">				
-					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
+					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${top.GOODS_NUMBER}">
 						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
 						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
@@ -239,7 +239,7 @@
 					</a>
 					<div class="addon">
 						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods">
+							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${top.GOODS_NUMBER}">
 								<span class="icon icon-expansion-white"></span>
 							</button>
 							<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
@@ -298,7 +298,7 @@
 			 <c:forEach items="${listByOut}" var="top">
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
 				<div class="thumbnail">				
-					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
+					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${top.GOODS_NUMBER}">
 						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
 						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
@@ -314,7 +314,7 @@
 					</a>
 					<div class="addon">
 						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods">
+							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${top.GOODS_NUMBER}">
 								<span class="icon icon-expansion-white"></span>
 							</button>
 							<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
@@ -372,7 +372,7 @@
 			<c:forEach items="${listByPan}" var="top">
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
 				<div class="thumbnail">				
-					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
+					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${top.GOODS_NUMBER}">
 						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
 						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
@@ -388,7 +388,7 @@
 					</a>
 					<div class="addon">
 						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods">
+							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${top.GOODS_NUMBER}">
 								<span class="icon icon-expansion-white"></span>
 							</button>
 							<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
