@@ -1,5 +1,6 @@
 package spring.siroragi.review;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -32,5 +33,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	// 상품에 대한 리뷰 정보 가져오기(글쓴이 이름도 가져와야함)
+	public List<Map<String, Object>> goodsReview(Map<String, Object> map) throws Exception{
+		return reviewDAO.goodsReview(map);
+	}
 
 }

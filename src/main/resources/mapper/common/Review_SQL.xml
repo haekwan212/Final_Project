@@ -15,7 +15,7 @@
 		]]>
 	</insert>
 	
-	<update id="reviewImage" parameterType="hashmap">
+	<update id="insertReviewImage" parameterType="hashmap">
 		<![CDATA[
 			UPDATE REVIEW SET REVIEW_IMAGE=#{REVIEW_IMAGE} WHERE REVIEW_NUMBER=#{REVIEW_NUMBER}
 		]]>

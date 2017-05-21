@@ -1,5 +1,6 @@
 package spring.siroragi.review;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -29,7 +30,14 @@ public class ReviewDAO extends AbstractDAO{
 	}
 	
 	//리뷰에 이미지 등록
+	public void reviewImageWrite(Map<String,Object> map) throws Exception{
+		update("review.insertReviewImage",map);
+	}
 	
 	//상품에 대한 리뷰 정보 가져오기(글쓴이 이름도 가져와야함)
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> goodsReview(Map<String, Object> map) throws Exception{
+		return selectList("review.selectGoodsReview",map);
+	}
 	
 }

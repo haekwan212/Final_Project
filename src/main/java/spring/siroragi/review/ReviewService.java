@@ -1,5 +1,6 @@
 package spring.siroragi.review;
 
+import java.util.List;
 import java.util.Map;
 
 public interface ReviewService {
@@ -22,5 +23,6 @@ public interface ReviewService {
 	public void reviewWrite(Map<String, Object> map) throws Exception;
 	
 	// 상품에 대한 리뷰 정보 가져오기(글쓴이 이름도 가져와야함)
+	public List<Map<String, Object>> goodsReview(Map<String, Object> map) throws Exception;
 
 }

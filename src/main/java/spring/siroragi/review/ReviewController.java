@@ -26,7 +26,6 @@ public class ReviewController {
 	@RequestMapping(value="/reviewWrite")
 	public ModelAndView reviewWrite(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		
-		System.out.println(commandMap.get("GOODS_NUMBER"));
 		ModelAndView mv=new ModelAndView("redirect:goodsDetail?GOODS_NUMBER="+commandMap.get("GOODS_NUMBER"));
 		
 		reviewService.reviewWrite(commandMap.getMap());

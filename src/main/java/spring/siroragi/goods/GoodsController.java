@@ -1,6 +1,5 @@
 package spring.siroragi.goods;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -14,10 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
+import spring.siroragi.review.ReviewService;
 
 @Controller
 public class GoodsController {
 
+	@Resource(name="reviewService")
+	private ReviewService reviewService;
+	
 	@Resource(name = "goodsService")
 	private GoodsService goodsService;
 
@@ -71,6 +74,10 @@ public class GoodsController {
 		// 구매후기 가져오기
 
 		// 상품qna 가져오기
+		
+		//상품 리뷰 가져오기
+		List<Map<String, Object>> goodsReview=reviewService.goodsReview(commandMap.getMap());
+		mv.addObject("goodsReview",goodsReview);
 
 		return mv;
 	}
