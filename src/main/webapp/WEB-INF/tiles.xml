@@ -24,11 +24,9 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/layout/admin/container.jsp" />
 	</definition>
-
 	<definition name="adminForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/main.jsp" />
 	</definition>
-
 	<definition name="memberList" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/member/member.jsp" />
 	</definition>
@@ -107,16 +105,25 @@
 	<definition name="about" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
 	</definition>
+	<!-- 마이페이지 -->
 	<definition name="mypage" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/mypage.jsp"/>
 	</definition>
-
-	<definition name="goodsDetail" extends="common">
-      <put-attribute name="body" value="/WEB-INF/jsp/goods/goodsDetail.jsp"></put-attribute>
+		<definition name="exchangelist" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/exchangelist.jsp"/>
 	</definition>
-	
+	<definition name="returnlist" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/returnlist.jsp"/>
+	</definition>
+	<definition name="review" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/reviewlist.jsp"/>
+	</definition>
+	<!-- 마이페이지 -->
+	<definition name="goodsDetail" extends="common">
+      <put-attribute name="body" value="/WEB-INF/jsp/goods/goodsDetail.jsp"/>
+	</definition>
 	<definition name="faqList" extends="common2">
-      <put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp"></put-attribute>
+      <put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp"/>
 	</definition>
 	
 

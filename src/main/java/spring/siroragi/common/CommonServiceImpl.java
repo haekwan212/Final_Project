@@ -25,4 +25,12 @@ public class CommonServiceImpl implements CommonService{
 	public List<Map<String, Object>> listByPan(Map<String, Object> map) throws Exception {
 		return commonDAO.listByPan(map);
 	}
+	@Override
+	public List<Map<String, Object>> listByAcc(Map<String, Object> map) throws Exception {
+		return commonDAO.listByAcc(map);
+	}
+	@Override
+	public List<Map<String, Object>> listByShoes(Map<String, Object> map) throws Exception {
+		return commonDAO.listByShoes(map);
+	}
 }

@@ -223,7 +223,7 @@
 		   <c:forEach items="${listByTop}" var="top">
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
 				<div class="thumbnail">				
-					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
+					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${GOODS_NUMBER}">
 						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
 						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
@@ -443,12 +443,13 @@
 	<!--section-head//end-->
     <div class="section-body">
 		<ul class="catalog row">
+			<c:forEach items="${listByAcc}" var="top">
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
-				<div class="thumbnail">
-					<a href="../goods/1493702717">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493702717" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493702717" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
+				<div class="thumbnail">				
+					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
+						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
+						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
+							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
 						<span class="cabal cabal-sale">
@@ -461,216 +462,30 @@
 					</a>
 					<div class="addon">
 						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493702717">
+							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods">
 								<span class="icon icon-expansion-white"></span>
 							</button>
-							<a href="../goods/sns?goodsno=1493702717" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
+							<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
 								<span class="icon icon-share-white"></span>
 							</a>
 						</div>
 					</div>
+
 				</div>
 				<!--thumbnail//end-->
 				<div class="caption">
 					<p class="brand">PANCOAT</p>
 					<p class="name">
-						<a href="../goods/1493702717" title="[팬콧샵] MULTI KIDS DOT RAIN BOOTS (PANCOAT YELLOW)_PLOEULF03UY9">[팬콧샵] MULTI KIDS DOT RAIN BOOTS (PANCOAT YELLOW)_PLOEULF03UY9</a>
+						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>17,100<span class="currency">원</span></span>
+						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
 					</p>
 				</div>
 				<!--caption//end-->
+				
 			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c2">
-				<div class="thumbnail">
-					<a href="../goods/1493702716">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493702716" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493702716" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493702716">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493702716" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT</p>
-					<p class="name">
-						<a href="../goods/1493702716" title="[팬콧샵] MULTI KIDS DOT RAIN BOOTS (ICE BLUE)_PLOEULF03UB1">[팬콧샵] MULTI KIDS DOT RAIN BOOTS (ICE BLUE)_PLOEULF03UB1</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>17,100<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c3">
-				<div class="thumbnail">
-					<a href="../goods/1493190909">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493190909" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493190909" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493190909">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493190909" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT</p>
-					<p class="name">
-						<a href="../goods/1493190909" title="[팬콧샵] MULTI KIDS VELCRO SHOES (YELLOW)_PLOEULF10VY7">[팬콧샵] MULTI KIDS VELCRO SHOES (YELLOW)_PLOEULF10VY7</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>11,700<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c4">
-				<div class="thumbnail">
-					<a href="../goods/1493190908">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493190908" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493190908" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493190908">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493190908" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT</p>
-					<p class="name">
-						<a href="../goods/1493190908" title="[팬콧샵] MULTI KIDS VELCRO SHOES (WHITE)_PLOEULF10VC2">[팬콧샵] MULTI KIDS VELCRO SHOES (WHITE)_PLOEULF10VC2</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>11,700<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c5">
-				<div class="thumbnail">
-					<a href="../goods/1489128968">
-						<img data-original="http://pic.styleindex.co.kr/g/s/148/1489128968" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/148/1489128968" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1489128968">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1489128968" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT KIDS</p>
-					<p class="name">
-						<a href="../goods/1489128968" title="[팬콧샵] PANCOAT MULTI KIDS YUMMI SOCKS (PARADISE PINK)_PKOEUSC07VP7">[팬콧샵] PANCOAT MULTI KIDS YUMMI SOCKS (PARADISE PINK)_PKOEUSC07VP7</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>3,510<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c6">
-				<div class="thumbnail">
-					<a href="../goods/1489128967">
-						<img data-original="http://pic.styleindex.co.kr/g/s/148/1489128967" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/148/1489128967" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1489128967">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1489128967" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT KIDS</p>
-					<p class="name">
-						<a href="../goods/1489128967" title="[팬콧샵] PANCOAT MULTI KIDS YUMMI SOCKS (NAVY)_PKOEUSC07VN7">[팬콧샵] PANCOAT MULTI KIDS YUMMI SOCKS (NAVY)_PKOEUSC07VN7</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>3,510<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
+				</c:forEach>
 		</ul>
     </div>
 	<!--section-body//end-->
@@ -695,19 +510,20 @@
 <section class="start-recommend catalogDisplay section container">
 	<div class="section-head">
 		<h3>
-			new arrivals - <strong>KIDS</strong>
+			new arrivals - <strong>SHOES</strong>
 		</h3>
 		<span class="border"></span>
 	</div>
 	<!--section-head//end-->
     <div class="section-body">
 		<ul class="catalog row">
+			<c:forEach items="${listByShoes}" var="top">
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
-				<div class="thumbnail">
-					<a href="../goods/1493702715">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493702715" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493702715" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
+				<div class="thumbnail">				
+					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
+						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
+						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
+							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
 						<span class="cabal cabal-sale">
@@ -720,488 +536,30 @@
 					</a>
 					<div class="addon">
 						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493702715">
+							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods">
 								<span class="icon icon-expansion-white"></span>
 							</button>
-							<a href="../goods/sns?goodsno=1493702715" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
+							<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
 								<span class="icon icon-share-white"></span>
 							</a>
 						</div>
 					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT KIDS</p>
-					<p class="name">
-						<a href="../goods/1493702715" title="[팬콧샵] POPBUNNY KIDS BUTTON Ⅰ SKIRT (BASIN NAVY)_PKOEUSK21VN4">[팬콧샵] POPBUNNY KIDS BUTTON Ⅰ SKIRT (BASIN NAVY)_PKOEUSK21VN4</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>44,100<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c2">
-				<div class="thumbnail">
-					<a href="../goods/1493702714">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493702714" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493702714" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493702714">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493702714" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT KIDS</p>
-					<p class="name">
-						<a href="../goods/1493702714" title="[팬콧샵] POPBUNNY KIDS BUTTON Ⅱ SKIRT (CRYSTAL BLUE)_PKOEUSK22VB2">[팬콧샵] POPBUNNY KIDS BUTTON Ⅱ SKIRT (CRYSTAL BLUE)_PKOEUSK22VB2</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>44,100<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c3">
-				<div class="thumbnail">
-					<a href="../goods/1493702712">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493702712" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493702712" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493702712">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493702712" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT KIDS</p>
-					<p class="name">
-						<a href="../goods/1493702712" title="[팬콧샵] POPBUNNY KIDS DENIM ONEPIECE (CRYSTAL BLUE)_PKOEUOP22VB2">[팬콧샵] POPBUNNY KIDS DENIM ONEPIECE (CRYSTAL BLUE)_PKOEUOP22VB2</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>53,100<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c4">
-				<div class="thumbnail">
-					<a href="../goods/1493702711">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493702711" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493702711" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493702711">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493702711" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT KIDS</p>
-					<p class="name">
-						<a href="../goods/1493702711" title="[팬콧샵] MULTI KIDS BLUE OCEAN SHORT PANTS (MONASTRAL BLUE)_PKOEUDS24VD8">[팬콧샵] MULTI KIDS BLUE OCEAN SHORT PANTS (MONASTRAL BLUE)_PKOEUDS24VD8</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>44,100<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c5">
-				<div class="thumbnail">
-					<a href="../goods/1493702710">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493702710" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493702710" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493702710">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493702710" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT KIDS</p>
-					<p class="name">
-						<a href="../goods/1493702710" title="[팬콧샵] MULTI KIDS BLUE OCEAN SHORT PANTS (CRYSTAL BLUE)_PKOEUDS24VB2">[팬콧샵] MULTI KIDS BLUE OCEAN SHORT PANTS (CRYSTAL BLUE)_PKOEUDS24VB2</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>44,100<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c6">
-				<div class="thumbnail">
-					<a href="../goods/1492654403">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1492654403" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1492654403" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-27%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1492654403">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1492654403" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT KIDS</p>
-					<p class="name">
-						<a href="../goods/1492654403" title="[팬콧샵] MULTI KIDS YUMMI SEMI OVER 7 T-SHIRT (CORAL PINK)_PKOEPRM06VP6">[팬콧샵] MULTI KIDS YUMMI SEMI OVER 7 T-SHIRT (CORAL PINK)_PKOEPRM06VP6</a>
-					</p>
-					<p class="price">
-						<span class="was"><span class="label sr-only">현재가격:</span>29,000<span class="currency">원</span></span>
-						<span class="now"><span class="label sr-only">할인가격:</span>21,410<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-		</ul>
-    </div>
-	<!--section-body//end-->
-	<!--
-	<div class="section-foot">
-		<div class="button-group">
-			<button class="button btn-more small left">
-				<span class="icon icon-downArrow-white"></span>
-				<span class="button-label">MORE</span>
-			</button>
-			<a href="#none" class="button btn-all small right">
-				<span class="icon icon-rightArrow-white"></span>
-				<span class="button-label">ALL</span>
-			</a>
-		</div>
-		<span class="border"></span>
-	</div>
 
-	-->
-	<!-- section-foot//end -->
-</section>
-<section class="start-recommend catalogDisplay section container">
-	<div class="section-head">
-		<h3>
-			new arrivals - <strong>LIFESTYLE</strong>
-		</h3>
-		<span class="border"></span>
-	</div>
-	<!--section-head//end-->
-    <div class="section-body">
-		<ul class="catalog row">
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
-				<div class="thumbnail">
-					<a href="../goods/1493712383">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493712383" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493712383" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493712383">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493712383" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
 				</div>
 				<!--thumbnail//end-->
 				<div class="caption">
 					<p class="brand">PANCOAT</p>
 					<p class="name">
-						<a href="../goods/1493712383" title="[팬콧샵] MULTI SOFT HANDLE PENCIL CASE (BUMBLEBEE YELLOW)_PLOEULF04VY7">[팬콧샵] MULTI SOFT HANDLE PENCIL CASE (BUMBLEBEE YELLOW)_PLOEULF04VY7</a>
+						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>3,600<span class="currency">원</span></span>
+						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
 					</p>
 				</div>
 				<!--caption//end-->
+				
 			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c2">
-				<div class="thumbnail">
-					<a href="../goods/1493712382">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493712382" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493712382" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493712382">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493712382" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT</p>
-					<p class="name">
-						<a href="../goods/1493712382" title="[팬콧샵] MULTI SOFT HANDLE PENCIL CASE (PATTAYA PINK)_PLOEULF04VP3">[팬콧샵] MULTI SOFT HANDLE PENCIL CASE (PATTAYA PINK)_PLOEULF04VP3</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>3,600<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c3">
-				<div class="thumbnail">
-					<a href="../goods/1493712381">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493712381" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493712381" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493712381">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493712381" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT</p>
-					<p class="name">
-						<a href="../goods/1493712381" title="[팬콧샵] MULTI SOFT HANDLE PENCIL CASE (MINT)_PLOEULF04VM3">[팬콧샵] MULTI SOFT HANDLE PENCIL CASE (MINT)_PLOEULF04VM3</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>3,600<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c4">
-				<div class="thumbnail">
-					<a href="../goods/1493712380">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493712380" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493712380" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493712380">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493712380" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT</p>
-					<p class="name">
-						<a href="../goods/1493712380" title="[팬콧샵] MULTI SOFT HANDLE PENCIL CASE (AQUATIC)_PLOEULF04VB2">[팬콧샵] MULTI SOFT HANDLE PENCIL CASE (AQUATIC)_PLOEULF04VB2</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>3,600<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c5">
-				<div class="thumbnail">
-					<a href="../goods/1493712379">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493712379" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493712379" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label=" PREVIEW" href="../goods/modalview?goodsno=1493712379">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493712379" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT</p>
-					<p class="name">
-						<a href="../goods/1493712379" title="[팬콧샵] MULTI PLAY ONE RING NOTE (BUMBLEBEE YELLOW)_PLOEULF06VY7">[팬콧샵] MULTI PLAY ONE RING NOTE (BUMBLEBEE YELLOW)_PLOEULF06VY7</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>2,250<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
-			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c6">
-				<div class="thumbnail">
-					<a href="../goods/1493712378">
-						<img data-original="http://pic.styleindex.co.kr/g/s/149/1493712378" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1493712378" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-						</div>
-						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
-						</div>
-					</a>
-					<div class="addon">
-						<div class="button-group">
-							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="../goods/modalview?goodsno=1493712378">
-								<span class="icon icon-expansion-white"></span>
-							</button>
-							<a href="../goods/sns?goodsno=1493712378" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-								<span class="icon icon-share-white"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--thumbnail//end-->
-				<div class="caption">
-					<p class="brand">PANCOAT</p>
-					<p class="name">
-						<a href="../goods/1493712378" title="[팬콧샵] MULTI PLAY ONE RING NOTE (PATTAYA PINK)_PLOEULF06VP3">[팬콧샵] MULTI PLAY ONE RING NOTE (PATTAYA PINK)_PLOEULF06VP3</a>
-					</p>
-					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>2,250<span class="currency">원</span></span>
-					</p>
-				</div>
-				<!--caption//end-->
-			</li>
+				</c:forEach>
 		</ul>
     </div>
 	<!--section-body//end-->

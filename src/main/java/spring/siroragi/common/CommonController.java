@@ -28,10 +28,16 @@ public class CommonController {
 		List<Map<String, Object>> listByOut = commonService.listByOut(commandMap.getMap());
 		//pants
 		List<Map<String, Object>> listByPan = commonService.listByPan(commandMap.getMap());
-		
+		//ACC
+		List<Map<String, Object>> listByAcc = commonService.listByAcc(commandMap.getMap());
+		//SHOES
+		List<Map<String, Object>> listByShoes = commonService.listByShoes(commandMap.getMap());
+
 		mv.addObject("listByTop", listByTop);
 		mv.addObject("listByOut", listByOut);
 		mv.addObject("listByPan", listByPan);
+		mv.addObject("listByAcc", listByAcc);
+		mv.addObject("listByShoes", listByShoes);
 	for(int i = 0; i< listByTop.size(); i++){
 		System.out.println(listByTop.get(i).toString());
 		}

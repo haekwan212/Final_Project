@@ -35,4 +35,14 @@ public class CommonDAO extends AbstractDAO {
 	public List<Map<String, Object>> listByPan(Map<String, Object> map) throws Exception{
 		return (List<Map<String, Object>>)selectList("common.listByPan", map);
 	}
+	//ACC불러오기
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> listByAcc(Map<String, Object> map) throws Exception{
+		return (List<Map<String, Object>>)selectList("common.listByAcc", map);
+	}
+	//Shoes불러오기
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> listByShoes(Map<String, Object> map) throws Exception{
+		return (List<Map<String, Object>>)selectList("common.listByShoes", map);
+	}
 }

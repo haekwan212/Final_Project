@@ -57,7 +57,6 @@ public class LoginController {
 		mv.setViewName("redirect:/main");
 		session.setAttribute("MEMBER_NAME", chk.get("MEMBER_NAME"));
 		session.setAttribute("MEMBER_NUMBER", chk.get("MEMBER_NUMBER"));
-		mv.setViewName("common");
 		return mv;
 	}else{
 		mv.setViewName("loginForm");
@@ -72,7 +71,6 @@ public class LoginController {
 		if(session != null)
 			session.invalidate();
 		ModelAndView mv= new ModelAndView();
-		mv.setViewName("common");
 		mv.setViewName("redirect:/main");
 		return mv;
 	}

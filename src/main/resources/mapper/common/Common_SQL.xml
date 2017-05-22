@@ -20,4 +20,16 @@
 		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'PANTS') WHERE ROWNUM < 7
 	]]>
 	</select>
+		<!-- ACC 불러오기 -->
+	<select id="listByAcc" resultType="hashmap" parameterType="hashmap">
+	<![CDATA[
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'ACC') WHERE ROWNUM < 7
+	]]>
+	</select>
+		<!-- SHOES 불러오기 -->
+	<select id="listByShoes" resultType="hashmap" parameterType="hashmap">
+	<![CDATA[
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'SHOES') WHERE ROWNUM < 7
+	]]>
+	</select>
 </mapper>

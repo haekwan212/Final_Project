@@ -11,14 +11,36 @@ public class MyPageController {
 	@RequestMapping(value="/mypage")
 	public ModelAndView mypageForm(){
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("mypage");
+		mv.setViewName("redirect:orderlist");
 		return mv;
 	}
 	
 	@RequestMapping(value="/orderlist")
 	@ResponseBody
-	public ModelAndView getAjaxTabContent1(){
-		ModelAndView mv = new ModelAndView("orderlist");
+	public ModelAndView orderlist(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("mypage");
+		return mv;
+	}
+	
+	@RequestMapping(value="/exchangelist")
+	public ModelAndView exchangelist(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("exchangelist");
+		return mv;
+	}
+	
+	@RequestMapping(value="/returnlist")
+	public ModelAndView returnlist(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("returnlist");
+		return mv;
+	}
+	
+	@RequestMapping(value="/review")
+	public ModelAndView review(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("review");
 		return mv;
 	}
 }
