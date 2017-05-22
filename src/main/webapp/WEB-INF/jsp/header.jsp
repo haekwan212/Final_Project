@@ -110,7 +110,7 @@
 		<div class="tier1-group toggle">
 			<div class="tier1-head">
 				<a href="/main/index2">
-					<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15" >
+					<img src="theme/pshp/img/home_btn_r.png" width="15" height="15" >
 					<strong class="red">e-shop</strong>
 					<span class="icon icon-"></span>
 				</a>
@@ -206,7 +206,7 @@
 				<span class="button-label sr-only">메뉴 펼침/닫음</span>
 			</button>
 			<a href="/main/index2" class="globalHeader-account-mobile">
-				<img src="/theme/pshp/img/home_btn.png" width="20" height="20">
+				<img src="theme/pshp/img/home_btn.png" width="20" height="20">
 				<span class="sr-only">E-shop</span>
 			</a>
 			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
@@ -248,7 +248,7 @@
 
 				<div class="nav-group eshop">
 					<a href="/main/index2" class="nav-head">
-						<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15">
+						<img src="theme/pshp/img/home_btn_r.png" width="15" height="15">
 						<span class="label red">e-shop<span class="border" style="background:red"></span></span>
 						<span class="bullet"></span>
 					</a>
@@ -264,7 +264,7 @@
 
 
 								<li class="nav-head c03">
-									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="/theme/pshp/img/category_back.png"></div>
+									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="theme/pshp/img/category_back.png"></div>
 									<a href="/store/category?no=101"><span>top</span></a>
 								</li>
 								<li class="nav-head c04">

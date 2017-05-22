@@ -3,5 +3,9 @@
 
 <mapper namespace="goods">
 	
-
+	<select id="goodsSearch" parameterType="String" resultType="hashmap">
+		<![CDATA[
+			select * from GOODS where GOODS_NAME like '%'||#{isSearch}||'%' or GOODS_SIMPLE like '%'||#{isSearch}||'%' order by GOODS_NUMBER DESC 
+		]]>
+	</select>
 </mapper>

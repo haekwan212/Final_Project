@@ -103,7 +103,12 @@
 	<definition name="about" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
 	</definition>
-
+	
+	<definition name="searchList" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/searchList.jsp"/>
+	</definition>
+	
+	
 </tiles-definitions>
 	
 	

@@ -230,8 +230,8 @@
 				<div class="thumbnail">
 					<a href="/SIRORAGI/main/goods">
 						<img data-original="http://pic.styleindex.co.kr/g/s/149/1491899644" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1491899644" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
+						<div data-original="http://pic.styleindex.co.kr/g/s/149/1491899644" style="background-image: url('theme/pshp/img/blank-square.png');" class="lazy bgimg">
+							<img src="theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 						</div>
 						<div class="cabal-group">
 						<span class="cabal cabal-sale">
@@ -269,8 +269,8 @@
 				<div class="thumbnail">
 					<a href="/SIRORAGI/main/goods">
 						<img data-original="http://pic.styleindex.co.kr/g/s/149/1491899643" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1491899643" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
+						<div data-original="http://pic.styleindex.co.kr/g/s/149/1491899643" style="background-image: url('theme/pshp/img/blank-square.png');" class="lazy bgimg">
+							<img src="theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 						</div>
 						<div class="cabal-group">
 						<span class="cabal cabal-sale">
@@ -308,8 +308,8 @@
 				<div class="thumbnail">
 					<a href="../goods/1491899642">
 						<img data-original="http://pic.styleindex.co.kr/g/s/149/1491899642" class="for-ie8 img-responsive lazy" width="500" height="500">
-						<div data-original="http://pic.styleindex.co.kr/g/s/149/1491899642" style="background-image: url('/theme/pshp/img/blank-square.png');" class="lazy bgimg">
-							<img src="/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
+						<div data-original="http://pic.styleindex.co.kr/g/s/149/1491899642" style="background-image: url('theme/pshp/img/blank-square.png');" class="lazy bgimg">
+							<img src="theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
 						</div>
 						<div class="cabal-group">
 						<span class="cabal cabal-sale">
