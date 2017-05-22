@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <script>
@@ -163,7 +163,7 @@
 								</dl>
 								<dl class="hits">
 									<dt class="col-xs-6 col-md-5">상품 조회수</dt>
-									<dd class="count col-xs-18 col-md-19">${goodsBasic.GOODS_COUNT}Hit</dd>
+									<dd class="count col-xs-18 col-md-19">${goodsBasic.GOODS_COUNT}&nbsp;Hit</dd>
 								</dl>
 							</div>
 							<!-- guide//end -->
@@ -277,8 +277,7 @@
 													</div>
 													<select id="option" onchange="setOption(this)">
 														<option value="">옵션 선택</option>
-														<c:forEach var="goodsDetail" items="${goodsDetail}"
-															varStatus="stat">
+														<c:forEach var="goodsDetail" items="${goodsDetail}"	varStatus="stat">
 															<c:if test="${goodsDetail.GOODS_AMOUNT ne 0}">
 																<c:if test="${goodsBasic.GOODS_DCPRICE ne null }">
 																	<option
@@ -755,7 +754,7 @@ function _exec(mode){
 }
 </style>
 
-		<section class="product-related section col-xs-24 col-lg-7"
+		<!-- <section class="product-related section col-xs-24 col-lg-7"
 			style="margin-top:-20px;">
 		<div class="product-related-event box-shadow storeCatalog event">
 			<div class="section-head left border">
@@ -809,7 +808,7 @@ function _exec(mode){
 				</div>
 			</div>
 		</div>
-		</section>
+		</section> -->
 
 		<div class="col-xs-24 col-md-7">
 			<section class="product-view-reviews-list section box-shadow">
@@ -821,18 +820,24 @@ function _exec(mode){
 				<div id="ajax_review_list">
 					<div class="section-body">
 						<ul class="list-dropdown">
+						
+							<c:forEach var="goodsReview" items="${goodsReview}"	varStatus="stat">
 							<li>
 								<div class="brief">
+									<%-- <c:if test="${goodsReview.REVIEW_IMAGE ne null }">
+									<div class="picture">
+										<img src="/SIRORAGI/file/reviewFile/${goodsReview.REVIEW_IMAGE}">
+									</div>
+									</c:if> --%>
 									<div class="caption">
 										<strong class="title"><span class="level">
-										</span>완전 짱	좋아요~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-										~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</strong>
+										</span>${goodsReview.REVIEW_TITLE }</strong>
 										<div class="info">
-											<p class="author">박형준</p>
-											<p class="date">/ 2017-04-18 10:15:06</p>
+											<p class="author">${goodsReview.MEMBER_NAME }</p>
+											<p class="date">/ <fmt:formatDate value="${goodsReview.REVIEW_REGDATE}" pattern="YYYY-MM-dd HH:mm" />/ 2017-04-18 10:15:06</p>
 										</div>
 										<div class="rating">
-											<span class="ratio"> <span style="width: 100%">
+											<span class="ratio"> <span style="width: ${goodsReview.REVIEW_GRADE*20}%">
 													<span class="star"></span>
 											</span>
 											</span>
@@ -841,128 +846,41 @@ function _exec(mode){
 								</div>
 								<div class="detail">
 									<div class="contents">
-										<div class="description">
-											<p>너무 이뻐요~~~</p>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="brief">
-									<div class="caption">
-										<strong class="title"><span class="level"></span>그냥</strong>
-										<div class="info">
-											<p class="author">박양신</p>
-											<p class="date">/ 2016-11-16 07:15:36</p>
-										</div>
-										<div class="rating">
-											<span class="ratio"> <span style="width: 60%">
-													<span class="star"></span>
-											</span>
-											</span>
-										</div>
-									</div>
-								</div>
-								<div class="detail">
-									<div class="contents">
-										<div class="description">
-											<p>빨간색이 존 촌스런 그런색이예요</p>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="brief">
-									<div class="caption">
-										<strong class="title"><span class="level"></span>후드티</strong>
-										<div class="info">
-											<p class="author">임완택</p>
-											<p class="date">/ 2016-10-24 01:02:02</p>
-										</div>
-										<div class="rating">
-											<span class="ratio"> <span style="width: 0%"> <span
-													class="star"></span>
-											</span>
-											</span>
-										</div>
-									</div>
-								</div>
-								<div class="detail">
-									<div class="contents">
-										<div class="description">
-											<p>촉감이 부드럽고 정말 이쁩니다</p>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="brief">
-									<div class="picture">
-										<img src="../data/review/1427073649/T5802ba7f35d9c.jpg">
-									</div>
-									<div class="caption">
-										<strong class="title"><span class="level"></span>생각보다
-											진한 빨강~</strong>
-										<div class="info">
-											<p class="author">김연경</p>
-											<p class="date">/ 2016-10-16 08:23:45</p>
-										</div>
-										<div class="rating">
-											<span class="ratio"> <span style="width: 80%">
-													<span class="star"></span>
-											</span>
-											</span>
-										</div>
-									</div>
-								</div>
-								<div class="detail">
-									<div class="contents">
+										<c:if test="${goodsReview.REVIEW_IMAGE ne null }">
 										<div class="picture">
-											<img src="../data/review/1427073649/5802ba7f35d9c.jpg">
+											<img src="/SIRORAGI/file/reviewFile/${goodsReview.REVIEW_IMAGE}">
 										</div>
+										</c:if>
 										<div class="description">
-											<p>라지사이즈 첨 주문해봤는데.. 박시하고 편하게 입기 좋아요~</p>
+											<p>${goodsReview.REVIEW_CONTENT }</p>
 										</div>
 									</div>
 								</div>
 							</li>
-							<li>
-								<div class="brief">
-									<div class="caption">
-										<strong class="title"><span class="level"></span>후기</strong>
-										<div class="info">
-											<p class="author">조원희</p>
-											<p class="date">/ 2016-07-07 22:35:25</p>
-										</div>
-										<div class="rating">
-											<span class="ratio"> <span style="width: 100%">
-													<span class="star"></span>
-											</span>
-											</span>
-										</div>
-									</div>
-								</div>
-								<div class="detail">
-									<div class="contents">
-										<div class="description">
-											<p>독수리가 튀어나온 부분이 느낌 좋다</p>
-										</div>
-									</div>
-								</div>
-							</li>
+							</c:forEach>
 						</ul>
 
 						<div class="page-navigator">
+                    <div class="page-navigator-horizon col-sm-14 col-sm-offset-5 col-lg-24 col-lg-offset-0">
+                        <a class="prev col-xs-6 btn-page-prev">prev</a>
+                        <div class="page-number col-xs-12">
+
+                        </div>
+                        <a class="next col-xs-6 btn-page-next">next</a>
+                    </div>
+                </div>
+
+						<%-- <div class="page-navigator">
 							<div class="page-navigator-horizon">
-								<a href="javascript:ajaxGo('review',0)"
+								<a href="javascript:ajaxGG(${goodsBasic.GOODS_NUMBER },'review',0)"
 									class="prev col-xs-6 btn-page-prev">prev</a>
-								<div class="page-number col-xs-12">
-									<a class="active">1</a>
-								</div>
+								<div class="page-number col-xs-12"> 
+								<a href="javascript:ajaxGG(${goodsBasic.GOODS_NUMBER },'review',1)" style="font:9pt tahoma">1</a>  
+								<a class="active">2</a> </div>
 								<a href="javascript:alert('마지막페이지입니다')"
 									class="next col-xs-6 btn-page-next">next</a>
 							</div>
-						</div>
+						</div> --%>
 
 					</div>
 
@@ -1073,7 +991,7 @@ function _exec(mode){
 
 						<div class="page-navigator">
 							<div class="page-navigator-horizon">
-								<a href="javascript:ajaxGo('qna',0)"
+								<a href="javascript:ajaxGG('qna',0)"
 									class="prev col-xs-6 btn-page-prev">prev</a>
 								<div class="page-number col-xs-12">
 									<a class="active">1</a>
@@ -1148,3 +1066,14 @@ function _exec(mode){
 		<!-- //end -->
 	</div>
 </div>
+
+<script>
+//$(".detail img").addClass("img-responsive");
+function ajaxGG(goodsno,flag, page){
+	$.get("inc_" + flag, {goodsno:goodsno, page:page}, function(data){
+		$("#ajax_" + flag + "_list").html(data);
+	});	
+}
+ajaxGG("review", 1);
+ajaxGG("qna", 1);
+</script>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
+import spring.kh.siroragi.Paging;
 
 @Controller
 public class ReviewController {
@@ -28,7 +29,7 @@ public class ReviewController {
 		
 		ModelAndView mv=new ModelAndView("redirect:goodsDetail?GOODS_NUMBER="+commandMap.get("GOODS_NUMBER"));
 		
-		reviewService.reviewWrite(commandMap.getMap());
+		reviewService.reviewWrite(commandMap.getMap(),request);
 		
 		return mv;
 	}

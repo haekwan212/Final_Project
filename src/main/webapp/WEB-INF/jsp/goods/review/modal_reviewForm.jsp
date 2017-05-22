@@ -27,7 +27,7 @@
 					<label for="is-title"><strong>작성자</strong></label>
 				</div>
 				<div class="item-contents col-xs-24 col-md-18">
-					${MEMBER_NAME}/${MEMBER_NUMBER }
+					${MEMBER_NAME}
 					<input type="hidden" id="is-title" name="MEMBER_NUMBER" class="xx-control" value="${MEMBER_NUMBER }">
 				</div>
 			</div>
