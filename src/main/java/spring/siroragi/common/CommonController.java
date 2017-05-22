@@ -43,8 +43,6 @@ public class CommonController {
 		mv.addObject("listByPan", listByPan);
 		mv.addObject("listByAcc", listByAcc);
 		mv.addObject("listByShoes", listByShoes);
-	for(int i = 0; i< listByTop.size(); i++){
-		System.out.println(listByTop.get(i).toString());
 		for (int i = 0; i < listByTop.size(); i++) {
 			System.out.println(listByTop.get(i).toString());
 		}
