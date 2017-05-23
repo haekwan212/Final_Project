@@ -872,10 +872,10 @@ function _exec(mode){
 
 						<%-- <div class="page-navigator">
 							<div class="page-navigator-horizon">
-								<a href="javascript:ajaxGG(${goodsBasic.GOODS_NUMBER },'review',0)"
+								<a href="javascript:ajaxGo('review',0)"
 									class="prev col-xs-6 btn-page-prev">prev</a>
 								<div class="page-number col-xs-12"> 
-								<a href="javascript:ajaxGG(${goodsBasic.GOODS_NUMBER },'review',1)" style="font:9pt tahoma">1</a>  
+								<a href="javascript:ajaxGo('review',1)" style="font:9pt tahoma">1</a>  
 								<a class="active">2</a> </div>
 								<a href="javascript:alert('마지막페이지입니다')"
 									class="next col-xs-6 btn-page-next">next</a>
@@ -991,7 +991,7 @@ function _exec(mode){
 
 						<div class="page-navigator">
 							<div class="page-navigator-horizon">
-								<a href="javascript:ajaxGG('qna',0)"
+								<a href="javascript:ajaxGo('qna',0)"
 									class="prev col-xs-6 btn-page-prev">prev</a>
 								<div class="page-number col-xs-12">
 									<a class="active">1</a>
@@ -1067,13 +1067,3 @@ function _exec(mode){
 	</div>
 </div>
 
-<script>
-//$(".detail img").addClass("img-responsive");
-function ajaxGG(goodsno,flag, page){
-	$.get("inc_" + flag, {goodsno:goodsno, page:page}, function(data){
-		$("#ajax_" + flag + "_list").html(data);
-	});	
-}
-ajaxGG("review", 1);
-ajaxGG("qna", 1);
-</script>
