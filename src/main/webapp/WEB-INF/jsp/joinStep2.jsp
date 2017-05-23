@@ -427,27 +427,6 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 			<input type="text" id="input-name" class="xx-control" name="MEMBER_NAME" value="" required="" label="이름"><!--disabled="disabled"-->
 		</div>
 	</li>
-	<li class="gender checked-radio">
-		<div class="item-label col-lg-3 col-md-4">
-			<strong>성별</strong>
-		</div>
-		<div class="col-lg-21 col-md-20">
-			<div class="radio">
-				<label>
-					<input type="radio" name="sex" value="m">
-					<span class="icon icon-radio"></span>
-					<span class="radio-label">남자</span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="sex" value="f">
-					<span class="icon icon-radio"></span>
-					<span class="radio-label">여자</span>
-				</label>
-			</div>
-		</div>
-	</li>
 	<li class="cell-phone">
 		<div class="item-label col-lg-3 col-md-4">
 			<label for="input-cell-phone01">

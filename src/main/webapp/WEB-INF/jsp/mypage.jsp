@@ -2,19 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<script>
-$(function () {
-    $(".tab_content").hide();
-    $(".tab_content:first").show();
 
-    $(".account-nav li").click(function () {
-        $(".account-nav li").removeClass("selected");
-        //$(this).addClass("active").css({"color": "darkred","font-weight": "bolder"});
-        $(this).addClass("selected");
-
-    });
-});
-</script>
 <section class="page-category container">
 	<div class="selectboxWrap">
 		<div class="selectbox">
@@ -131,13 +119,13 @@ $(function () {
 						</a>
 					</li>
 					<li class=" col-sm-3">
-						<a href="../mypage/qna">상품 문의 <em class="badge">0</em></a>
+						<a href="/SIRORAGI/qna">상품 문의 <em class="badge">0</em></a>
 					</li>
 					<li class=" col-sm-3">
-						<a href="../mypage/mycs">1:1 문의 <em class="badge">0</em></a>
+						<a href="/SIRORAGI/mycs">1:1 문의 <em class="badge">0</em></a>
 					</li>
 					<li class=" col-sm-3">
-						<a href="../mypage/myinfo">내 정보 수정</a>
+						<a href="/SIRORAGI/myinfo">내 정보 수정</a>
 					</li>
 					<!--<li class="">
 						<a href="../mypage/myinfo">내 정보</a>
