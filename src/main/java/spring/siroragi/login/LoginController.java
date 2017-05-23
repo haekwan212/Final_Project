@@ -1,6 +1,8 @@
 package spring.siroragi.login;
 
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -57,6 +59,22 @@ public class LoginController {
 		mv.setViewName("redirect:/main");
 		session.setAttribute("MEMBER_NAME", chk.get("MEMBER_NAME"));
 		session.setAttribute("MEMBER_NUMBER", chk.get("MEMBER_NUMBER"));
+		//이메일 포맷 변경
+		String email = chk.get("MEMBER_EMAIL").toString();
+		String[] sessionEmail = email.split("@");
+		session.setAttribute("MEMBER_EMAIL1", sessionEmail[0].toString());
+		session.setAttribute("MEMBER_EMAIL2", sessionEmail[1].toString());
+		//날짜 포맷 변경
+		String date = chk.get("MEMBER_BIRTHDAY").toString();
+		System.out.println(date);
+		SimpleDateFormat original_format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		SimpleDateFormat new_format = new SimpleDateFormat("yyyyMMdd");
+		
+		Date original_date = original_format.parse(date);
+		String new_date = new_format.format(original_date);
+		
+		session.setAttribute("MEMBER_BIRTHDAY",	new_date);
+		
 		return mv;
 	}else{
 		mv.setViewName("loginForm");

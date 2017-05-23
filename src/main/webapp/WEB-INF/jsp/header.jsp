@@ -325,7 +325,7 @@
 					</a>
 				</li>
 				<li class="item">
-					<a href="/mypage/orderlist">
+					<a href="/SIRORAGI/mypage">
 						<span class="icon icon-identity-black hidden-lg"></span>
 						<span class="hidden-md">my-pancoat</span>
 					</a>

@@ -2,6 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mypage">
-	
-
+		<select id="myinfoDetail" parameterType="String" resultType="hashmap">
+			<![CDATA[
+				SELECT * FROM MEMBER WHERE MEMBER_ID=#{MEMBER_ID}
+			]]>
+		</select>
+		<update id="updateMyinfo" parameterType="hashmap">
+		<![CDATA[
+			UPDATE MEMBER SET MEMBER_PHONE=#{MEMBER_PHONE}, MEMBER_ZIPCODE=#{MEMBER_ZIPCODE}, MEMBER_ADDRESS1=#{MEMBER_ADDRESS1}, 
+			MEMBER_ADDRESS2=#{MEMBER_ADDRESS2}, MEMBER_EMAIL=#{MEMBER_EMAIL} WHERE MEMBER_ID=#{MEMBER_ID}
+		]]>
+		</update>
+		<update id="changePassword" parameterType="hashmap">
+		<![CDATA[
+			UPDATE MEMBER SET MEMBER_PASSWORD = #{MEMBER_PASSWORD} WHERE MEMBER_ID=#{MEMBER_ID}
+		]]>
+		</update>
 </mapper>
