@@ -8,6 +8,7 @@ public interface CartService {
 		
 		//장바구니 등록
 		public void cartIn(Map<String,Object> map) throws Exception;
+		public void cartInn(Map<String, Object> map) throws Exception;
 		
 		//장바구니 해제(삭제)
 		
@@ -16,4 +17,5 @@ public interface CartService {
 		//3일이상된 장바구니 목록 삭제
 		
 		//장바구니 수정(옵션변경)
+		
 }
