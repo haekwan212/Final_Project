@@ -1093,7 +1093,7 @@ img.for-ie8.img-responsive {
 }
  */
 
-.ui-range .ui-slider .ui-slider-handle {
+/* .ui-range .ui-slider .ui-slider-handle {
     width: 17px;
     height: 16px;
     top: -2px;
@@ -1112,7 +1112,7 @@ img.for-ie8.img-responsive {
 
 .icon-share-white {
     background-image: url(../theme/pshp/img/icon/icon-share-white.png);
-}
+} */
 </style>
 </head>
 <body>
