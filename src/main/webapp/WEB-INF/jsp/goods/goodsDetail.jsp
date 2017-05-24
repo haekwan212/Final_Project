@@ -153,10 +153,9 @@
 									<dt class="col-xs-6 col-md-5">고객 평가</dt>
 									<dd class="col-xs-18 col-md-19">
 										<div class="rating">
-											<span class="ratio">
-											  <span style="width:${avgGrade}%">
-												  <span class="star"></span>
-											  </span>
+											<span class="ratio"> <span style="width:${avgGrade}%">
+													<span class="star"></span>
+											</span>
 											</span>
 										</div>
 									</dd>
@@ -277,7 +276,8 @@
 													</div>
 													<select id="option" onchange="setOption(this)">
 														<option value="">옵션 선택</option>
-														<c:forEach var="goodsDetail" items="${goodsDetail}"	varStatus="stat">
+														<c:forEach var="goodsDetail" items="${goodsDetail}"
+															varStatus="stat">
 															<c:if test="${goodsDetail.GOODS_AMOUNT ne 0}">
 																<c:if test="${goodsBasic.GOODS_DCPRICE ne null }">
 																	<option
@@ -666,7 +666,7 @@ function _exec(mode){
 		var fm = document.fmOrder;
 		fm.mode.value = mode;
 		fm.target = "_self";
-		fm.action = "../order/cart";
+		fm.action = "/SIRORAGI/cart/cartIn";
 		//if (mode=="wishlist") fm.action = "../mypage/wishlist";
 		fm.submit();
 
@@ -820,62 +820,71 @@ function _exec(mode){
 				<div id="ajax_review_list">
 					<div class="section-body">
 						<ul class="list-dropdown">
-						
-							<c:forEach var="goodsReview" items="${goodsReview}"	varStatus="stat">
-							<li>
-								<div class="brief">
-									<%-- <c:if test="${goodsReview.REVIEW_IMAGE ne null }">
+
+							<c:forEach var="goodsReview" items="${goodsReview}"
+								varStatus="stat">
+								<li>
+									<div class="brief">
+										<%-- <c:if test="${goodsReview.REVIEW_IMAGE ne null }">
 									<div class="picture">
 										<img src="/SIRORAGI/file/reviewFile/${goodsReview.REVIEW_IMAGE}">
 									</div>
 									</c:if> --%>
-									<div class="caption">
-										<strong class="title"><span class="level">
-										</span>${goodsReview.REVIEW_TITLE }</strong>
-										<div class="info">
-											<p class="author">${goodsReview.MEMBER_NAME }</p>
-											<p class="date">/ <fmt:formatDate value="${goodsReview.REVIEW_REGDATE}" pattern="YYYY-MM-dd HH:mm" />/ 2017-04-18 10:15:06</p>
-										</div>
-										<div class="rating">
-											<span class="ratio"> <span style="width: ${goodsReview.REVIEW_GRADE*20}%">
-													<span class="star"></span>
-											</span>
-											</span>
-										</div>
-									</div>
-								</div>
-								<div class="detail">
-									<div class="contents">
-										<c:if test="${goodsReview.REVIEW_IMAGE ne null }">
-										<div class="picture">
-											<img src="/SIRORAGI/file/reviewFile/${goodsReview.REVIEW_IMAGE}">
-										</div>
-										</c:if>
-										<div class="description">
-											<p>${goodsReview.REVIEW_CONTENT }</p>
+										<div class="caption">
+											<strong class="title"><span class="level"> </span>${goodsReview.REVIEW_TITLE }</strong>
+											<div class="info">
+												<p class="author">${goodsReview.MEMBER_NAME }</p>
+												<p class="date">
+													/
+													<fmt:formatDate value="${goodsReview.REVIEW_REGDATE}"
+														pattern="YYYY-MM-dd HH:mm" />
+													/ 2017-04-18 10:15:06
+												</p>
+											</div>
+											<div class="rating">
+												<span class="ratio"> <span
+													style="width: ${goodsReview.REVIEW_GRADE*20}%"> <span
+														class="star"></span>
+												</span>
+												</span>
+											</div>
 										</div>
 									</div>
-								</div>
-							</li>
+									<div class="detail">
+										<div class="contents">
+											<c:if test="${goodsReview.REVIEW_IMAGE ne null }">
+												<div class="picture">
+													<img
+														src="/SIRORAGI/file/reviewFile/${goodsReview.REVIEW_IMAGE}">
+												</div>
+											</c:if>
+											<div class="description">
+												<p>${goodsReview.REVIEW_CONTENT }</p>
+											</div>
+										</div>
+									</div>
+								</li>
 							</c:forEach>
 						</ul>
 
 						<div class="page-navigator">
-                    <div class="page-navigator-horizon col-sm-14 col-sm-offset-5 col-lg-24 col-lg-offset-0">
-                        <a class="prev col-xs-6 btn-page-prev">prev</a>
-                        <div class="page-number col-xs-12">
-
-                        </div>
-                        <a class="next col-xs-6 btn-page-next">next</a>
-                    </div>
-                </div>
+							<div class="page-navigator-horizon">
+								<a href="javascript:ajaxGo('review',0)"
+									class="prev col-xs-6 btn-page-prev">prev</a>
+								<div class="page-number col-xs-12">
+									<a class="active">1</a>
+								</div>
+								<a href="javascript:alert('마지막페이지입니다')"
+									class="next col-xs-6 btn-page-next">next</a>
+							</div>
+						</div>
 
 						<%-- <div class="page-navigator">
 							<div class="page-navigator-horizon">
-								<a href="javascript:ajaxGG(${goodsBasic.GOODS_NUMBER },'review',0)"
+								<a href="javascript:ajaxGo('review',0)"
 									class="prev col-xs-6 btn-page-prev">prev</a>
 								<div class="page-number col-xs-12"> 
-								<a href="javascript:ajaxGG(${goodsBasic.GOODS_NUMBER },'review',1)" style="font:9pt tahoma">1</a>  
+								<a href="javascript:ajaxGo('review',1)" style="font:9pt tahoma">1</a>  
 								<a class="active">2</a> </div>
 								<a href="javascript:alert('마지막페이지입니다')"
 									class="next col-xs-6 btn-page-next">next</a>
@@ -909,20 +918,19 @@ function _exec(mode){
                 </div>
                 -->
 			<div class="section-foot">
-			<c:if test="${MEMBER_ID eq null}">
-				<a
-					href="#"
-					class="button" data-size="md" data-label="구매 후기 작성" onClick="alert('로그인을 해주세요.'); return false;">
-					<span class="button-label" >구매 후기 작성</span>
-				</a>
-			</c:if>
-			<c:if test="${MEMBER_ID ne null }">
-				<a
-					href="/SIRORAGI/review/reviewForm?GOODS_NUMBER=${goodsBasic.GOODS_NUMBER}"
-					class="button" target="modal" data-size="md" data-label="구매 후기 작성" >
-					<span class="button-label" >구매 후기 작성</span>
-				</a>
-			</c:if>
+				<c:if test="${MEMBER_ID eq null}">
+					<a href="#" class="button" data-size="md" data-label="구매 후기 작성"
+						onClick="alert('로그인을 해주세요.'); return false;"> <span
+						class="button-label">구매 후기 작성</span>
+					</a>
+				</c:if>
+				<c:if test="${MEMBER_ID ne null }">
+					<a
+						href="/SIRORAGI/review/reviewForm?GOODS_NUMBER=${goodsBasic.GOODS_NUMBER}"
+						class="button" target="modal" data-size="md" data-label="구매 후기 작성">
+						<span class="button-label">구매 후기 작성</span>
+					</a>
+				</c:if>
 			</div>
 			</section>
 			<!-- product-view-reviews-list//end -->
@@ -973,13 +981,9 @@ function _exec(mode){
 										</div>
 									</div>
 									<div class="answer">
-										<p>고객님 안녕하세요!
-										저희 제품에 관심을 가져 주셔서 감사드립니다.
-										
-										사이즈는 55는 S, 66은 M정도라고 생각하시면 됩니다. 
-										다만 원단이나 혼용율에 따라서도 착용감이 다를 수 있으니 상세 정보 및 실측 참고하여 제품 구매를 부탁 드립니다.
-										
-										감사합니다.</p>
+										<p>고객님 안녕하세요! 저희 제품에 관심을 가져 주셔서 감사드립니다. 사이즈는 55는 S, 66은
+											M정도라고 생각하시면 됩니다. 다만 원단이나 혼용율에 따라서도 착용감이 다를 수 있으니 상세 정보 및 실측
+											참고하여 제품 구매를 부탁 드립니다. 감사합니다.</p>
 										<div class="info">
 											<p class="author">tylee</p>
 											<p class="date">/ 2017-04-11 14:04:33</p>
@@ -991,7 +995,7 @@ function _exec(mode){
 
 						<div class="page-navigator">
 							<div class="page-navigator-horizon">
-								<a href="javascript:ajaxGG('qna',0)"
+								<a href="javascript:ajaxGo('qna',0)"
 									class="prev col-xs-6 btn-page-prev">prev</a>
 								<div class="page-number col-xs-12">
 									<a class="active">1</a>
@@ -1067,13 +1071,3 @@ function _exec(mode){
 	</div>
 </div>
 
-<script>
-//$(".detail img").addClass("img-responsive");
-function ajaxGG(goodsno,flag, page){
-	$.get("inc_" + flag, {goodsno:goodsno, page:page}, function(data){
-		$("#ajax_" + flag + "_list").html(data);
-	});	
-}
-ajaxGG("review", 1);
-ajaxGG("qna", 1);
-</script>
