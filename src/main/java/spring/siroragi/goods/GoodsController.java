@@ -59,6 +59,7 @@ public class GoodsController {
 			
 			goodsList=goodsService.goodsCategory(isCategory);
 			goodsRank=goodsService.goodsRank(isCategory);
+			
 
 		}
 		else if(isCategory.equals("TOP")){
@@ -142,8 +143,47 @@ public class GoodsController {
 			
 			System.out.println("pr1 pr2 : " + pr1 +" "+ pr2);
 			
+			
 			//소분류 검색
-			String[] sub_category=(String[])Map.getMap().get("sub_category[]");
+			try {
+				String[] sub_category=(String[])Map.getMap().get("sub_category[]");
+				if(sub_category!=null){
+					for(int i=0;i<sub_category.length;i++){
+					System.out.println("서브 카테고리 :" +sub_category[i]);
+					Map.getMap().put("sub_categoryCheck","ON2");
+					Map.getMap().put("sub_category",sub_category);
+					}
+				}
+			}catch (Exception e) {
+				String sub_category=(String)Map.getMap().get("sub_category[]");
+				if(sub_category!=null){
+					System.out.println("서브 카테고리 :" +sub_category);
+					Map.getMap().put("sub_categoryCheck","ON1");
+					Map.getMap().put("sub_category",sub_category);
+				}
+			}
+			
+			//세일상품만 검색
+			String sale=(String)Map.getMap().get("sale");
+			if(sale!=null){
+				System.out.println("세일 여부 : " +sale);
+				if(sale.equals("on"))
+				{
+					Map.getMap().put("sale",sale);
+				}
+					
+			}
+			
+			//품절상품 제외 
+			//구현안함 : 품절상태표시할것이 없음
+/*			String running=(String)Map.getMap().get("running");
+			
+			if(running==null){
+					Map.getMap().put("running","off");					
+			}*/
+			
+			
+		
 			
 			//최종검색
 			List<Map<String,Object>> goodsSearchList = goodsService.goodsCategorySearch(Map.getMap());
@@ -159,31 +199,6 @@ public class GoodsController {
 
 		return mv;
 	}
-
-/*	@RequestMapping(value="/goods/searchAjax")
-	public ModelAndView goodsSearchAjax(HttpServletResponse response, HttpServletRequest request,CommandMap Map) throws Exception{
-		String isCategory=(String)Map.getMap().get("category");
-		System.out.println("카테고리 는 "+isCategory);
-		
-		String pr1 = (String) Map.getMap().get("priceRange1");
-		String pr2 = (String) Map.getMap().get("priceRange2");
-		
-		String prpr1=pr1.replaceAll(",","");
-		String prpr2=pr2.replaceAll(",","");//중간 문자열빼기
-		
-		Map.getMap().put("priceSearchRange1", prpr1);
-		Map.getMap().put("priceSearchRange2", prpr2);
-		
-		List<Map<String,Object>> goodsPriceSearchList = goodsService.goodsPriceSearch(Map.getMap());
-		goodsList = goodsService.goodsPriceSearch(Map.getMap());
-	
-		
-
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("goodsList",goodsList);
-		return mv;
-	}*/
-
 	
 	
 	//검색결과이동

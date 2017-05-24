@@ -278,7 +278,7 @@
 					 <c:forEach var="goodsClass"  items="${goodsClass}" varStatus="stat">
 						<div class="checkbox col-xs-auto">
 							<label>
-								<input type="checkbox" name="sub_category[]" value="${stat.count}" data-text="WINDBREAKER">
+								<input type="checkbox" name="sub_category[]" value="${goodsClass}" >
 								<span class="icon icon-checkbox"></span> 
 								<span class="checkbox-label">${goodsClass}</span>
 							</label>

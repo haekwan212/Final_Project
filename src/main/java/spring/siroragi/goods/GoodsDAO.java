@@ -13,9 +13,9 @@ public class GoodsDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	// 카테고리별 상품 정렬(OUTER)
+	// 카테고리별 상품 정렬
 	public List<Map<String, Object>> goodsCategory(String isCategory) throws Exception{
-		return sqlSession.selectList("goods.goodsOuter",isCategory);
+		return sqlSession.selectList("goods.goodsCategory",isCategory);
 	}
 	
 	//검색 결과에 대한 리스트 호출
