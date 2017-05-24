@@ -79,9 +79,10 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/container.jsp" />
 	</definition>
 	
- 	<definition name="goodsCategory" extends="basic">
-		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsList.jsp" />
+ 	<definition name="goodsCategory" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsCategory.jsp" />
 	</definition>
+
 	<definition name="joinStep1" extends="common2">
       <put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
 	</definition>

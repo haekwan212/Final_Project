@@ -138,7 +138,7 @@
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=102">
+						<a href="/SIRORAGI/goods/goodsCategory?category=OUTER">
 							<strong>outer</strong>
 						</a>
 					</div>
@@ -267,7 +267,7 @@
 									<a href="/store/category?no=101"><span>top</span></a>
 								</li>
 								<li class="nav-head c04">
-									<a href="/store/category?no=102"><span>outer</span></a>
+									<a href="/SIRORAGI/goods/goodsCategory?category=OUTER"><span>outer</span></a>
 								</li>
 								<li class="nav-head c05">
 									<a href="/store/category?no=103"><span>bottom</span></a>

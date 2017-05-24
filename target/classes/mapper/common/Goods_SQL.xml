@@ -8,4 +8,43 @@
 			select * from GOODS where GOODS_NAME like '%'||#{isSearch}||'%' or GOODS_SIMPLE like '%'||#{isSearch}||'%' order by GOODS_NUMBER DESC 
 		]]>
 	</select>
+	
+	<select id="goodsOuter" parameterType="String" resultType="hashmap">
+		<![CDATA[
+			select * from goods where goods_CATEGORY1=#{isCategory} order by GOODS_NUMBER DESC 
+		]]>
+	</select>
+
+	<select id="goodsRank" parameterType="String" resultType="hashmap">
+		<![CDATA[
+			SELECT sum(b.goods_sellcount) as sellcount, a.* from(select * from goods where goods_CATEGORY1=#{isCategory}) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by sellcount desc
+		]]>
+	</select>
+	
+	
+	<select id="goodsCategorySearch" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		select A.goods_number,A.goods_name,A.goods_price,A.goods_dcprice,A.goods_simple,A.goods_category1
+		from 
+		(select * from goods natural join goods_kinds) A where goods_PRICE >= ${priceSearchRange1} and goods_price <= ${priceSearchRange2} and goods_category1= #{category}  
+		]]>
+		
+		<if test="colorCheck == 'ON1'">
+		and	goods_color=#{color} 
+		</if>
+		<if test="colorCheck == 'ON2'">
+		and (
+		<foreach collection="color" item="color" separator="or">
+		goods_color=#{color} 
+		</foreach>
+		) 
+		</if>
+
+		group by A.goods_category1,A.goods_simple,A.goods_dcprice,A.goods_price,A.goods_number, A.goods_name order by GOODS_PRICE ASC
+		
+		 	
+	</select>
+	
+	
 </mapper>
+

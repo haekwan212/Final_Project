@@ -18,4 +18,20 @@ public class GoodsServiceImpl implements GoodsService{
 		return goodsDAO.goodsSearch(isSearch);
 	}
 
+	@Override
+	public List<Map<String, Object>> goodsCategory(String isCategory) throws Exception {
+		return goodsDAO.goodsCategory(isCategory);
+	}
+
+	@Override
+	public List<Map<String, Object>> goodsRank(String isCategory) throws Exception {
+		return goodsDAO.goodsRank(isCategory);
+	}
+
+	@Override
+	public List<Map<String, Object>> goodsCategorySearch(Map<String, Object> map) throws Exception {
+		return goodsDAO.goodsCategorySearch(map);
+	}
+
+
 }
