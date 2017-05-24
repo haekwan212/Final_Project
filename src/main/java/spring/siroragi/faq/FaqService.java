@@ -7,9 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface FaqService {
 
-
-	// FAQ 전체 목록 불러오기
+	//FAQ 리스트 (AdminPage)
 	List<Map<String, Object>> faqList(Map<String, Object> map) throws Exception;
+	
+	// FAQ 카테고리별 목록 불러오기
+	
+	List<Map<String, Object>> faqList1(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> faqList2(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> faqList3(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> faqList4(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> faqList5(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> faqList6(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> faqList7(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> faqList8(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> faqList9(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> faqList10(Map<String, Object> map) throws Exception;
+
 
 	// FAQ 등록
 	void faqWrite(Map<String, Object> map, HttpServletRequest request) throws Exception;
@@ -28,6 +41,7 @@ public interface FaqService {
 
 	// 글내용 검색
 	List<Map<String, Object>> searchContentList(Map<String, Object> map, String isSearch) throws Exception;
+	
 
 	// 파일첨부
 

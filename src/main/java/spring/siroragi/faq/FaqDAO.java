@@ -10,12 +10,57 @@ import spring.kh.siroragi.AbstractDAO;
 @Repository("faqDAO")
 public class FaqDAO extends AbstractDAO {
 
+	//전체 리스트(Admin Page)
+		@SuppressWarnings("unchecked")
+		public List<Map<String, Object>> faqList(Map<String, Object> map) throws Exception {
+			return (List<Map<String, Object>>) selectList("faq.faqList", map);
+		}
+		
+	//카테고리 리스트
 	@SuppressWarnings("unchecked")
-	// FAQ리스트
-	public List<Map<String, Object>> faqList(Map<String, Object> map) throws Exception {
-		return (List<Map<String, Object>>) selectList("faq.faqList", map);
+	public List<Map<String, Object>> faqList1(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList1", map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> faqList2(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList2", map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> faqList3(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList3", map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> faqList4(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList4", map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> faqList5(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList5", map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> faqList6(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList6", map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> faqList7(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList7", map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> faqList8(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList8", map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> faqList9(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList9", map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> faqList10(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>) selectList("faq.faqList10", map);
 	}
 
+	
+	
+	
 	// FAQ등록
 	public void faqWrite(Map<String, Object> map) throws Exception {
 		insert("faq.faqWrite", map);
@@ -59,6 +104,8 @@ public class FaqDAO extends AbstractDAO {
 	public void faqImage1(Map<String,Object> map) throws Exception {
 		update("faq.faqImage1", map);
 	}
+
+
 
 	/*// FAQ파일첨부2
 	public void faqImage2(Map<String, Object> map) throws Exception {
