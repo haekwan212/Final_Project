@@ -4,7 +4,7 @@
 <mapper namespace="faq">
 
 
-	<!-- 리스트 불러오기(AdminPage) -->
+	<!-- 리스트 전체 불러오기(AdminPage) -->
 	<select id="faqList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT
@@ -35,7 +35,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='1'
+				FAQ_CATEGORY='회원안내'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
@@ -54,7 +54,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='2'
+				FAQ_CATEGORY='배송안내'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
@@ -73,7 +73,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='3'
+				FAQ_CATEGORY='주문결제'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
@@ -92,7 +92,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='4'
+				FAQ_CATEGORY='주문취소/변경'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
@@ -111,7 +111,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='5'
+				FAQ_CATEGORY='교환/반품'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
@@ -130,7 +130,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='6'
+				FAQ_CATEGORY='환불'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
@@ -149,7 +149,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='7'
+				FAQ_CATEGORY='상품'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
@@ -168,7 +168,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='8'
+				FAQ_CATEGORY='A/S'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
@@ -187,7 +187,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='9'
+				FAQ_CATEGORY='거래증빙서류안내'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
@@ -206,7 +206,7 @@
 			FROM
 			    FAQ 
 			WHERE 
-				FAQ_CATEGORY='10'
+				FAQ_CATEGORY='사이트이용안내'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
