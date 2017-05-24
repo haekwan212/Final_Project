@@ -4,7 +4,7 @@
 <mapper namespace="faq">
 
 
-	<!-- 리스트 불러오기 -->
+	<!-- 리스트 불러오기(AdminPage) -->
 	<select id="faqList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT
@@ -12,16 +12,230 @@
 			    FAQ_CATEGORY,
 			    FAQ_TITLE,
 			    FAQ_HITCOUNT,
-			    FAQ_REGDATE
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(회원안내) -->
+	<select id="faqList1" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
 			FROM
 			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='1'
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(배송안내) -->
+	<select id="faqList2" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='2'
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(주문/결제) -->
+	<select id="faqList3" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='3'
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(주문취소/변경) -->
+	<select id="faqList4" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='4'
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(교환/반품) -->
+	<select id="faqList5" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='5'
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(환불) -->
+	<select id="faqList6" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='6'
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(상품) -->
+	<select id="faqList7" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='7'
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(A/S) -->
+	<select id="faqList8" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='8'
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(거래증빙서류안내) -->
+	<select id="faqList9" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='9'
+			ORDER BY FAQ_NUMBER DESC
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 리스트 불러오기(사이트이용안내) -->
+	<select id="faqList10" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    FAQ_NUMBER,
+			    FAQ_CATEGORY,
+			    FAQ_TITLE,
+			    FAQ_HITCOUNT,
+			    FAQ_REGDATE,
+			    FAQ_CONTENT,
+			    FAQ_IMAGE1
+			FROM
+			    FAQ 
+			WHERE 
+				FAQ_CATEGORY='10'
 			ORDER BY FAQ_NUMBER DESC
 		]]>
 	</select>
 
+
+	<!-- 상세보기 -->
+	<select id="faqDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				FAQ_NUMBER,
+				FAQ_CATEGORY,
+				FAQ_HITCOUNT,
+				FAQ_REGDATE,
+				FAQ_TITLE,
+				FAQ_CONTENT,
+				FAQ_IMAGE1
+			FROM
+				FAQ
+			WHERE
+				FAQ_NUMBER = #{FAQ_NUMBER}		
+		]]>
+	</select>
+
+
 	<!-- 글쓰기 -->
-	<insert id="faqWrite" parameterType="hashmap" useGeneratedKeys="true" keyProperty="FAQ_NUMBER">
-		<selectKey keyProperty="FAQ_NUMBER" resultType="string"	order="BEFORE">
+	<insert id="faqWrite" parameterType="hashmap" useGeneratedKeys="true"
+		keyProperty="FAQ_NUMBER">
+		<selectKey keyProperty="FAQ_NUMBER" resultType="string"
+			order="BEFORE">
 			SELECT FAQ_NUMBER_SEQ.NEXTVAL FROM DUAL
 		</selectKey>
 		<![CDATA[
@@ -60,23 +274,7 @@
 		]]>
 	</update>
 
-	<!-- 상세보기 -->
-	<select id="faqDetail" parameterType="hashmap" resultType="hashmap">
-		<![CDATA[
-			SELECT
-				FAQ_NUMBER,
-				FAQ_CATEGORY,
-				FAQ_HITCOUNT,
-				FAQ_REGDATE,
-				FAQ_TITLE,
-				FAQ_CONTENT,
-				FAQ_IMAGE1
-			FROM
-				FAQ
-			WHERE
-				FAQ_NUMBER = #{FAQ_NUMBER}		
-		]]>
-	</select>
+
 
 	<!-- 수정하기 -->
 	<update id="faqModify" parameterType="hashmap">
@@ -114,10 +312,11 @@
 		ORDER BY FAQ_NUMBER DESC
 	]]>
 	</select>
-	
-	
+
+
 	<!-- 글내용 검색 -->
-	<select id="searchContentList" resultType="hashmap" parameterType="hashmap">
+	<select id="searchContentList" resultType="hashmap"
+		parameterType="hashmap">
 			<![CDATA[
 		SELECT 
 			FAQ_NUMBER,
@@ -132,7 +331,7 @@
 	</select>
 
 	<!-- 파일첨부 1 -->
-	 <update id="faqImage1" parameterType="hashmap">
+	<update id="faqImage1" parameterType="hashmap">
 		<![CDATA[
 			UPDATE FAQ 
 			SET 
@@ -141,13 +340,9 @@
 				FAQ_NUMBER = #{FAQ_NUMBER}
 		]]>
 	</update>
-	
+
 	<!-- 파일첨부 2 -->
-	<!-- <update id="faqImage2" parameterType="hashmap">
-		<![CDATA[
-			UPDATE FAQ SET FAQ_IMAGE2= #{FAQ_IMAGE2} WHERE FAQ_NUMBER=#{FAQ_NUMBER}
-		]]>
-	</update>
- -->
-	
+	<!-- <update id="faqImage2" parameterType="hashmap"> <![CDATA[ UPDATE FAQ 
+		SET FAQ_IMAGE2= #{FAQ_IMAGE2} WHERE FAQ_NUMBER=#{FAQ_NUMBER} ]]> </update> -->
+
 </mapper>

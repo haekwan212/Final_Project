@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-
-<!DOCTYPE html>
-<html lang="ko">
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
 <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
@@ -28,31 +27,33 @@
 	<link rel="stylesheet" href="/theme/pshp/css/ui.css">
 	-->
 
-	<link rel="stylesheet" href="/theme/pshp/css/vendor/jquery-ui.css?v=1">
-	<link rel="stylesheet" href="/theme/pshp/css/vendor/bootstrap.css?v=1">
+	<link rel="stylesheet" href="../theme/pshp/css/vendor/jquery-ui.css">
+	<link rel="stylesheet" href="../theme/pshp/css/vendor/bootstrap.css">
 	
 
-	<link rel="stylesheet" href="/theme/pshp/css/fonts.css">
+	<link rel="stylesheet" href="../theme/pshp/css/fonts.css">
 	<link rel="shortcut icon" href="/favicon.ico">
-	<script src="/theme/pshp/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="/theme/pshp/js/vendor/selector.min.js"></script>
-	<script src="/theme/pshp/js/vendor/webfont.min.js"></script>
-	<script src="/dist/jquery/jquery-1.11.0.min.js"></script>
-	<script src="/dist/jquery/jquery-ui.js"></script>
-	<script src="/dist/jquery/jquery-migrate-1.2.1.min.js"></script>
-	<script src="/dist/jquery/plugin/jquery.cookie.js"></script>
+	
+	<script src="../theme/pshp/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<script src="../theme/pshp/js/vendor/selector.min.js"></script>
+	<script src="../theme/pshp/js/vendor/webfont.min.js"></script>
+	<script src="../dist/jquery/jquery-1.11.0.min.js"></script>
+	<script src="../dist/jquery/jquery-ui.js"></script>
+	<script src="../dist/jquery/jquery-migrate-1.2.1.min.js"></script>
+	<script src="../dist/jquery/plugin/jquery.cookie.js"></script>
 
 	<!-- font-awesome(icon) -->
-	<link href="/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="../dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- owl -->
-	<link rel="stylesheet" href="/dist/owl/owl.carousel.css">
-	<link rel="stylesheet" href="/dist/owl/owl.theme.default.min.css">
-	<script src="/dist/owl/owl.carousel.min.js"></script>
-	<script src="/dist/owl/owl.js"></script>
+	<link rel="stylesheet" href="../dist/owl/owl.carousel.css">
+	<link rel="stylesheet" href="../dist/owl/owl.theme.default.min.css">
+	<script src="../dist/owl/owl.carousel.min.js"></script>
+	<script src="../dist/owl/owl.js"></script>
 
-	<link rel="stylesheet" href="/theme/pshp/css/main.min.css?v=2">
-	<link rel="stylesheet" href="/theme/pshp/css/ui.css?v=1">
+	<link rel="stylesheet" href="../theme/pshp/css/main.min.css">
+	<link rel="stylesheet" href="../theme/pshp/css/ui.css">
+
 </head>
 
 <body>
@@ -140,11 +141,13 @@ text-align:center;
 					<span class="icon icon-dropdown-white"></span>
 				</div>
 				<select name="category[]" id="cate02">
-					<option value="">ÏûêÏ£ºÎ¨ªÎäîÏßàÎ¨∏</option>
+					<option value="">¿⁄¡÷πØ¥¬¡˙πÆ</option>
 				</select>
 			</div>
 		</div>
 	</section>
+	
+	
 	<section class="page-title section container">
 		<h2>
 			<strong>FAQ</strong>
@@ -156,62 +159,72 @@ text-align:center;
 			<nav class="account-nav">
 				<ul>
 					<li class="col-xs-8 col-sm-4 ">
-						<a href="/node/notice">Í≥µÏßÄÏÇ¨Ìï≠</a>
+						<a href="/node/notice">∞¯¡ˆªÁ«◊</a>
 					</li>
 					<li class="col-xs-8 col-sm-4 ">
-						<a href="/node/event">Ïù¥Î≤§Ìä∏</a>
+						<a href="/node/event">¿Ã∫•∆Æ</a>
 					</li>
 					<li class="col-xs-8 col-sm-4 selected">
 						<a href="/SIRORAGI/faq/faq">FAQ</a>
 					</li>
 					<li class="col-xs-12 col-sm-4">
-						<a href="/service/member_benefit" target="modal" data-size="md" data-label="Îì±Í∏âÌòúÌÉù ÏûêÏÑ∏Ìûà Î≥¥Í∏∞">ÌöåÏõêÌòúÌÉù</a>
+						<a href="/service/member_benefit" target="modal" data-size="md" data-label="µÓ±ﬁ«˝≈√ ¿⁄ºº»˜ ∫∏±‚">»∏ø¯«˝≈√</a>
 					</li>
 					<li class="col-xs-12 col-sm-8">
-						<a href="/member/findid" target="modal" data-size="md" data-label="ÏïÑÏù¥Îîî/ÎπÑÎ∞ÄÎ≤àÌò∏ Ï∞æÍ∏∞">ÏïÑÏù¥Îîî/ÎπÑÎ∞ÄÎ≤àÌò∏ Ï∞æÍ∏∞</a>
+						<a href="/member/findid" target="modal" data-size="md" data-label="æ∆¿Ãµ/∫Òπ–π¯»£ √£±‚">æ∆¿Ãµ/∫Òπ–π¯»£ √£±‚</a>
 					</li>
 				</ul>
 			</nav>
 		</section>
 	</div>
 	
+	
+	
 	<div class="account-home accountCatalog">
 	<section class="section box-line">
 		<div class="section-body">
-			<!-- Í≤ÄÏÉâ -->
+			<!-- ∞Àªˆ -->
 			<div class="search-box">
 				<form>
-				<input type="text" name="sword_faq" value="" placeholder="Ìå¨ÏΩß FAQ Í≤ÄÏÉâÌï¥Î≥¥ÏÑ∏Ïöî">
-				<input type="submit" value="Í≤ÄÏÉâ">
+				<input type="text" name="isSearch" id="isSearch" value="" placeholder="FAQ∏¶ ∞Àªˆ«ÿ∫∏ººø‰">
+				<input type="submit" value="∞Àªˆ">
 				</form>
 			</div>
 
-			<!-- /Í≤ÄÏÉâ -->
+			<!-- /∞Àªˆ -->
 
 			<div class="rankGender-wrap">
 				<ul class="tab-navs">
-					<li role="presentation" data-cate="100" class="tab-nav2 col-xs-12 col-md-2 col-lg-2 active"><a href="#faq-tab1" role="tab" data-toggle="tab">ÌöåÏõêÏïàÎÇ¥</a></li>
-					<li role="presentation" data-cate="101" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab2" role="tab" data-toggle="tab">Î∞∞ÏÜ°ÏïàÎÇ¥</a></li>
-					<li role="presentation" data-cate="102" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab3" role="tab" data-toggle="tab">Ï£ºÎ¨∏/Í≤∞Ï†ú</a></li>
-					<li role="presentation" data-cate="103" class="tab-nav2 col-xs-12 col-md-3 col-lg-3"><a href="#faq-tab4" role="tab" data-toggle="tab">Ï£ºÎ¨∏ Ï∑®ÏÜå/Î≥ÄÍ≤Ω</a></li>
-					<li role="presentation" data-cate="104" class="tab-nav2 col-xs-12 col-md-3 col-lg-3"><a href="#faq-tab5" role="tab" data-toggle="tab">ÍµêÌôò/Î∞òÌíà</a></li>
-					<li role="presentation" data-cate="105" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab6" role="tab" data-toggle="tab">ÌôòÎ∂à</a></li>
-					<li role="presentation" data-cate="106" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab7" role="tab" data-toggle="tab">ÏÉÅÌíà</a></li>
+				
+					
+				
+					<li role="presentation" data-cate="100" class="tab-nav2 col-xs-12 col-md-2 col-lg-2 active"><a href="" role="tab" data-toggle="tab">»∏ø¯æ»≥ª</a></li>
+					<li role="presentation" data-cate="101" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab2" role="tab" data-toggle="tab">πËº€æ»≥ª</a></li>
+					<li role="presentation" data-cate="102" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab3" role="tab" data-toggle="tab">¡÷πÆ/∞·¡¶</a></li>
+					<li role="presentation" data-cate="103" class="tab-nav2 col-xs-12 col-md-3 col-lg-3"><a href="#faq-tab4" role="tab" data-toggle="tab">¡÷πÆ √Îº“/∫Ø∞Ê</a></li>
+					<li role="presentation" data-cate="104" class="tab-nav2 col-xs-12 col-md-3 col-lg-3"><a href="#faq-tab5" role="tab" data-toggle="tab">±≥»Ø/π›«∞</a></li>
+					<li role="presentation" data-cate="105" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab6" role="tab" data-toggle="tab">»Ø∫“</a></li>
+					<li role="presentation" data-cate="106" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab7" role="tab" data-toggle="tab">ªÛ«∞</a></li>
 					<li role="presentation" data-cate="107" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab8" role="tab" data-toggle="tab">A/S</a></li>
-					<li role="presentation" data-cate="108" class="tab-nav2 col-xs-12 col-md-3 col-lg-3"><a href="#faq-tab9" role="tab" data-toggle="tab">Í±∞ÎûòÏ¶ùÎπôÏÑúÎ•òÏïàÎÇ¥</a></li>
-					<li role="presentation" data-cate="109" class="tab-nav2 col-xs-12 col-md-3 col-lg-3"><a href="#faq-tab10" role="tab" data-toggle="tab">ÏÇ¨Ïù¥Ìä∏ Ïù¥Ïö©ÏïàÎÇ¥</a></li>
+					<li role="presentation" data-cate="108" class="tab-nav2 col-xs-12 col-md-3 col-lg-3"><a href="#faq-tab9" role="tab" data-toggle="tab">∞≈∑°¡ı∫˘º≠∑˘æ»≥ª</a></li>
+					<li role="presentation" data-cate="109" class="tab-nav2 col-xs-12 col-md-3 col-lg-3"><a href="#faq-tab10" role="tab" data-toggle="tab">ªÁ¿Ã∆Æ ¿ÃøÎæ»≥ª</a></li>
+					
+					
 				</ul>
 
 				<div class="tab-content2">
 				
 				
 				
-				<!-- ÌöåÏõêÏïàÎÇ¥ Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- »∏ø¯æ»≥ª ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane active" id="faq-tab100">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list1}" varStatus="stat"> 
 							
 							<li>
-							<input type="hidden" id="FAQ_NUMBER" name="FAQ_NUMBER"	value="${map.FAQ_NUMBER}">
+							
+							<input type="hidden" id="FAQ_NUMBER" name="FAQ_NUMBER"	value="${map.FAQ_NUMBER }">
+							
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
 								</div>
@@ -222,13 +235,14 @@ text-align:center;
 									</div>
 								</div>
 							</li>
-							
+							 </c:forEach>
 						</ul>
 					</div>
 					
-				<!-- Î∞∞ÏÜ°ÏïàÎÇ¥ Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- πËº€æ»≥ª ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane " id="faq-tab101">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list2}" varStatus="stat"> 
 							<li>
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
@@ -240,13 +254,14 @@ text-align:center;
 									</div>
 								</div>
 							</li>
-							
+							</c:forEach>
 						</ul>
 					</div>
 					
-				<!-- Ï£ºÎ¨∏/Í≤∞Ï†ú Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- ¡÷πÆ/∞·¡¶ ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane " id="faq-tab102">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list3}" varStatus="stat"> 
 							<li>
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
@@ -258,13 +273,14 @@ text-align:center;
 									</div>
 								</div>
 							</li>
-							
+							</c:forEach>
 						</ul>
 					</div>
 					
-				<!-- Ï£ºÎ¨∏ Ï∑®ÏÜå Î∞è Î≥ÄÍ≤Ω Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- ¡÷πÆ √Îº“ π◊ ∫Ø∞Ê ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane " id="faq-tab103">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list4}" varStatus="stat"> 
 							<li>
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
@@ -276,13 +292,14 @@ text-align:center;
 									</div>
 								</div>
 							</li>
-							
+							</c:forEach>
 						</ul>
 					</div>
 					
-				<!-- ÍµêÌôò/Î∞òÌíà Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- ±≥»Ø/π›«∞ ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane " id="faq-tab104">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list5}" varStatus="stat"> 
 							<li>
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
@@ -294,13 +311,14 @@ text-align:center;
 								</div>
 								</div>
 							</li>
-							
+							</c:forEach>
 						</ul>
 					</div>
 					
-				<!-- ÌôòÎ∂à Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- »Ø∫“ ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane " id="faq-tab105">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list6}" varStatus="stat"> 
 							<li>
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
@@ -312,14 +330,15 @@ text-align:center;
 								</div>
 								</div>
 							</li>
-							
+							</c:forEach>
 						</ul>
 					</div>
 					
 					
-				<!-- ÏÉÅÌíà Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- ªÛ«∞ ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane " id="faq-tab106">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list7}" varStatus="stat"> 
 							<li>
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
@@ -331,14 +350,15 @@ text-align:center;
 									</div>
 								</div>
 							</li>
-							
+						</c:forEach>
 						</ul>
 					</div>
 					
 					
-				<!-- A/S Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- A/S ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane " id="faq-tab107">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list8}" varStatus="stat"> 
 							<li>
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
@@ -350,14 +370,15 @@ text-align:center;
 									</div>
 								</div>
 							</li>
-							
+							</c:forEach>
 						</ul>
 					</div>
 					
 					
-				<!-- Í±∞ÎûòÏ¶ùÎπôÏÑúÎ•òÏïàÎÇ¥ Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- ∞≈∑°¡ı∫˘º≠∑˘æ»≥ª ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane " id="faq-tab108">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list9}" varStatus="stat"> 
 							<li>
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
@@ -369,13 +390,14 @@ text-align:center;
 									</div>
 								</div>
 							</li>
-						
+						</c:forEach>
 						</ul>
 					</div>
 					
-				<!-- ÏÇ¨Ïù¥Ìä∏ Ïù¥Ïö©ÏïàÎÇ¥ Ïπ¥ÌÖåÍ≥†Î¶¨ -->
+				<!-- ªÁ¿Ã∆Æ ¿ÃøÎæ»≥ª ƒ´≈◊∞Ì∏Æ -->
 					<div role="tabpanel" class="tab-pane " id="faq-tab109">
 						<ul class="list-dropdown">
+						<c:forEach var="map"  items="${list10}" varStatus="stat"> 
 							<li>
 								<div class="brief">
 									<strong class="title">Q. ${map.FAQ_TITLE }</strong>
@@ -387,14 +409,14 @@ text-align:center;
 									</div>
 								</div>
 							</li>
-							
+							</c:forEach>
 						</ul>
 					</div>
 					
 	
 			
 					<div class="pull-left">
-					<a href="faqWrite" class="button"><span class="button-label">Í∏ÄÏì∞Í∏∞</span></a>
+					<a href="faqWrite" class="button"><span class="button-label">±€æ≤±‚</span></a>
 					</div>
 					
 				</div>
@@ -409,17 +431,41 @@ text-align:center;
 
 
 </div>
+
 </div>
 </div>
-<script src="/dist/bootstrap/js/bootstrap.min.js"></script>
-<script src="/dist/jquery/plugin/jquery.placeholder.js"></script>
-<script src="/dist/js/common.js?v=1"></script>
-<script src="/dist/js/event.js"></script>
-<script src="/theme/pshp/js/event.js"></script>
-<script src="/theme/pshp/js/plugins.min.js"></script>
-<script src="/theme/pshp/js/main.min.js"></script>
-<script src="/theme/pshp/js/vendor/fastclick.min.js"></script>
+<script src="../dist/bootstrap/js/bootstrap.min.js"></script>
+<script src="../dist/jquery/plugin/jquery.placeholder.js"></script>
+<script src="../dist/js/common.js"></script>
+<script src="../dist/js/event.js"></script>
+<script src="../theme/pshp/js/event.js"></script>
+<script src="../theme/pshp/js/plugins.min.js"></script>
+<script src="../theme/pshp/js/main.min.js"></script>
+<script src="../theme/pshp/js/vendor/fastclick.min.js"></script>
 
 </body>
 
 </html>
+
+<script>
+$(".tab-content-search .brief").click(function(){
+	$(".tab-content-search .detail").slideUp(200);
+	if ($(this).next().css("display")=="block") return;
+	$(this).next().slideDown(200);
+});
+
+$(".tab-content2 .list-dropdown .brief").click(function(){
+	$(".tab-content2 .list-dropdown .detail").slideUp(200);
+	if ($(this).next().css("display")=="block") return;
+	$(this).next().slideDown(200);
+});
+
+$(".tab-navs li").click(function(){
+	$(".tab-navs li").removeClass("active");
+	$(this).addClass("active");	
+
+	$(".tab-content2>div").hide();
+	var cate = $(this).data("cate");
+	$("#faq-tab" + cate).show();
+});
+</script>

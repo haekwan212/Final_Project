@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,7 +53,7 @@ public class GoodsController {
 	}
 
 	@RequestMapping(value = "goodsDetail")
-	public ModelAndView goodsDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
+	public ModelAndView goodsDetail(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
 
 		ModelAndView mv = new ModelAndView("goodsDetail");
 
@@ -66,7 +67,7 @@ public class GoodsController {
 		Date d=new Date(today.getTimeInMillis());
 	
 		Map<String, Object> goodsBasic = goodsDetail.get(0);
-
+		session.setAttribute("GOODS_NUMBER", goodsBasic.get("GOODS_NUMBER"));
 		if (goodsBasic.get("GOODS_SALEDATE") != null && goodsBasic.get("GOODS_DCPRICE") != null) {
 			Date dDay = (Date) goodsBasic.get("GOODS_SALEDATE");
 			if ( dDay.getTime() < d.getTime()) {
@@ -113,4 +114,5 @@ public class GoodsController {
 
 		return mv;
 	}
+
 }

@@ -20,10 +20,70 @@ public class FaqServiceImpl implements FaqService {
 	@Resource(name = "faqDAO")
 	private FaqDAO faqDAO;
 
-	// 리스트
+	// 리스트 불러오기(Admin Page)
 	@Override
 	public List<Map<String, Object>> faqList(Map<String, Object> map) throws Exception {
 		return faqDAO.faqList(map);
+	}
+			
+	// 카테고리 리스트
+	@Override
+	public List<Map<String, Object>> faqList1(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList1(map);
+
+	}
+
+	@Override
+	public List<Map<String, Object>> faqList2(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList2(map);
+
+	}
+
+	@Override
+	public List<Map<String, Object>> faqList3(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList3(map);
+
+	}
+
+	@Override
+	public List<Map<String, Object>> faqList4(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList4(map);
+
+	}
+
+	@Override
+	public List<Map<String, Object>> faqList5(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList5(map);
+
+	}
+
+	@Override
+	public List<Map<String, Object>> faqList6(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList6(map);
+
+	}
+
+	@Override
+	public List<Map<String, Object>> faqList7(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList7(map);
+
+	}
+
+	@Override
+	public List<Map<String, Object>> faqList8(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList8(map);
+
+	}
+
+	@Override
+	public List<Map<String, Object>> faqList9(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList9(map);
+
+	}
+
+	@Override
+	public List<Map<String, Object>> faqList10(Map<String, Object> map) throws Exception {
+		return faqDAO.faqList10(map);
 
 	}
 
@@ -33,8 +93,7 @@ public class FaqServiceImpl implements FaqService {
 		faqDAO.faqWrite(map);
 		map = faqImageUtils.faqImage1(map, request);
 		faqDAO.faqImage1(map);
-		
-			
+
 	}
 
 	// 상세보기

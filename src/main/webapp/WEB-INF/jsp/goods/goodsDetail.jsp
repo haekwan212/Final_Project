@@ -1011,7 +1011,7 @@ function _exec(mode){
 				</div>
 			</div>
 			<div class="section-foot">
-				<a href="/SIRORAGI/qna/qnaForm" class="button" target="modal"
+				<a href="/SIRORAGI/qna/modal_qnaForm" class="button" target="modal"
 					data-size="md" data-label="상품 문의 작성"> <span
 					class="button-label">상품 문의 작성</span>
 				</a>

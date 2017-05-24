@@ -2,6 +2,49 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="qna">
-	
-
+	<select id="qnalistById" parameterType="String" resultType="hashmap">
+	<![CDATA[
+	  SELECT * FROM QNA WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
+	]]>
+	</select>
+	<insert id="insertQna" parameterType="hashmap">
+ <![CDATA[
+      INSERT INTO QNA (
+         QNA_NUMBER,
+         QNA_CATEGORY,
+         GOODS_NUMBER,
+         MEMBER_NUMBER,
+         QNA_PASSWORD,
+         QNA_CONTENT,
+         QNA_IMAGE1,
+         QNA_IMAGE2,
+         QNA_REGDATE,
+         QNA_HITCOUNT,
+         QNA_RE_LEVEL,
+         QNA_RE_STEP,
+         QNA_TITLE,
+         QNA_REF)
+      VALUES 
+         (QNA_NUMBER_SEQ.NEXTVAL,
+         #{QNA_CATEGORY},
+         #{GOODS_NUMBER},
+         #{MEMBER_NUMBER},
+         #{QNA_PASSWORD},
+         '1',
+         #{QNA_IMAGE1},
+         #{QNA_IMAGE2},
+         SYSDATE,
+         0,
+         #{QNA_RE_LEVEL},
+         #{QNA_RE_STEP},
+         #{QNA_TITLE},
+         QNA_NUMBER_SEQ.CURRVAL)
+   ]]>
+	</insert>
+	<insert id="insertModalQna" parameterType="hashmap">
+ <![CDATA[
+      INSERT INTO QNA (QNA_NUMBER, QNA_CATEGORY, GOODS_NUMBER, MEMBER_NUMBER, QNA_PASSWORD, QNA_CONTENT, QNA_REGDATE, QNA_TITLE, QNA_REF) VALUES 
+      (QNA_NUMBER_SEQ.NEXTVAL, #{QNA_CATEGORY}, #{GOODS_NUMBER}, #{MEMBER_NUMBER}, #{QNA_PASSWORD}, #{QNA_CONTENT}, SYSDATE, #{QNA_TITLE}, QNA_NUMBER_SEQ.CURRVAL)
+   ]]>
+	</insert>
 </mapper>

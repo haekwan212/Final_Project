@@ -325,10 +325,20 @@
 					</a>
 				</li>
 				<li class="item">
+					<c:choose>
+					<c:when test="${not empty sessionScope.MEMBER_ID}">
 					<a href="/SIRORAGI/mypage">
 						<span class="icon icon-identity-black hidden-lg"></span>
 						<span class="hidden-md">my-pancoat</span>
 					</a>
+					</c:when>
+					<c:otherwise>
+					<a href="/SIRORAGI/loginForm">
+						<span class="icon icon-identity-black hidden-lg"></span>
+						<span class="hidden-md">my-pancoat</span>
+					</a>
+					</c:otherwise>
+				</c:choose>
 				</li>
 			</ul>
 		</div>

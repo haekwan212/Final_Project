@@ -1,9 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-
-<div class="modal-body"><form name="frm" method="post" class="form-horizontal">
-
-
-<div class="modal-body">
 <form name="frm" method="post" class="form-horizontal">
 
 <c:set var="authNum" scope="page">${authNum}</c:set>

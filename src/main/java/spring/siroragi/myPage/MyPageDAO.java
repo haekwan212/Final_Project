@@ -1,5 +1,6 @@
 package spring.siroragi.myPage;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -19,6 +20,12 @@ public class MyPageDAO extends AbstractDAO {
 	 void changeMypassword(Map<String, Object> map) throws Exception{
 		 update("mypage.changePassword", map);
 	 }
+	 
+	 @SuppressWarnings("unchecked")
+	 List<Map<String, Object>> myreviewList(Map<String, Object> map) throws Exception{
+		return (List<Map<String,Object>>)selectList("mypage.myreviewList", map);
+	 }
+	 
 	 //마이페이지 정보 불러오기
 	 @SuppressWarnings("unchecked")
 	 Map<String, Object> myinfoDetail(String id) throws Exception{
