@@ -20,7 +20,8 @@ public class FaqImageUtils {
 	// FAQ 파일 업로드 1
 	public Map<String, Object> faqImage1(Map<String, Object> map, HttpServletRequest request)
 			throws Exception {
-
+		String FAQ_IMAGE1 = request.getParameter("FAQ_IMAGE1");
+		System.out.println(FAQ_IMAGE1);
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 
 		MultipartFile file = multipartHttpServletRequest.getFile("FAQ_IMAGE1");

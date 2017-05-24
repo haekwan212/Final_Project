@@ -109,7 +109,7 @@
 		<div class="tier1-group toggle">
 			<div class="tier1-head">
 				<a href="/main/index2">
-					<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15" >
+					<img src="theme/pshp/img/home_btn_r.png" width="15" height="15" >
 					<strong class="red">e-shop</strong>
 					<span class="icon icon-"></span>
 				</a>
@@ -131,7 +131,7 @@
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=101">
+						<a href="/SIRORAGI/goods/goodsCategory?category=TOP">
 							<strong>top</strong>
 						</a>
 					</div>
@@ -145,22 +145,22 @@
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=103">
-							<strong>bottom</strong>
+						<a href="/SIRORGI/goods/goodsCategory?category=PANTS">
+							<strong>pants</strong>
 						</a>
 					</div>
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=104">
+						<a href="/SIRORGI/goods/goodsCategory?category=SHOES">
+							<strong>shoes</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/SIRORGI/goods/goodsCategory?category=ACC">
 							<strong>Accessory</strong>
-						</a>
-					</div>
-				</li>
-				<li class="tier2-group col-xs-12">
-					<div class="tier2-head">
-						<a href="/store/../store/category?no=105">
-							<strong>kids</strong>
 						</a>
 					</div>
 				</li>
@@ -205,10 +205,10 @@
 				<span class="button-label sr-only">메뉴 펼침/닫음</span>
 			</button>
 			<a href="/main/index2" class="globalHeader-account-mobile">
-				<img src="/theme/pshp/img/home_btn.png" width="20" height="20">
+				<img src="theme/pshp/img/home_btn.png" width="20" height="20">
 				<span class="sr-only">E-shop</span>
 			</a>
-			<a href="../main/index" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
+			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
 		</div>
 	</div>
 	<div class="container">
@@ -247,7 +247,7 @@
 
 				<div class="nav-group eshop active">
 					<a href="/main/index2" class="nav-head">
-						<img src="/theme/pshp/img/home_btn_r.png" width="15" height="15">
+						<img src="theme/pshp/img/home_btn_r.png" width="15" height="15">
 						<span class="label red">e-shop<span class="border" style="background:red"></span></span>
 						<span class="bullet"></span>
 					</a>
@@ -263,20 +263,20 @@
 
 
 								<li class="nav-head c03">
-									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="/theme/pshp/img/category_back.png"></div>
-									<a href="/store/category?no=101"><span>top</span></a>
+									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="theme/pshp/img/category_back.png"></div>
+									<a href="/SIRORAGI/goods/goodsCategory?category=TOP"><span>top</span></a>
 								</li>
 								<li class="nav-head c04">
 									<a href="/SIRORAGI/goods/goodsCategory?category=OUTER"><span>outer</span></a>
 								</li>
 								<li class="nav-head c05">
-									<a href="/store/category?no=103"><span>bottom</span></a>
+									<a href="/SIRORAGI/goods/goodsCategory?category=PANTS"><span>pants</span></a>
 								</li>
 								<li class="nav-head c06">
-									<a href="/store/category?no=104"><span>accessory</span></a>
+									<a href="/SIRORAGI/goods/goodsCategory?category=SHOES"><span>shoes</span></a>
 								</li>
 								<li class="nav-head c07">
-									<a href="/store/category?no=105"><span>kids</span></a>
+									<a href="/SIRORAGI/goods/goodsCategory?category=ACC"><span>accessory</span></a>
 								</li>
 								<li class="nav-head c08">
 									<a href="/store/category?no=106"><span>life style</span></a>
@@ -316,6 +316,7 @@
 					</c:otherwise>
 				</c:choose>
 				</li>
+
 				<li class="item">
 					<a href="/SIRORAGI/cartList">
 						<span class="icon icon-cart-black hidden-lg"></span>
@@ -323,10 +324,20 @@
 					</a>
 				</li>
 				<li class="item">
-					<a href="/mypage/orderlist">
+				<c:choose>
+					<c:when test="${not empty sessionScope.MEMBER_ID}">
+					<a href="/SIRORAGI/mypage">
 						<span class="icon icon-identity-black hidden-lg"></span>
 						<span class="hidden-md">my-pancoat</span>
 					</a>
+					</c:when>
+					<c:otherwise>
+					<a href="/SIRORAGI/loginForm">
+						<span class="icon icon-identity-black hidden-lg"></span>
+						<span class="hidden-md">my-pancoat</span>
+					</a>
+					</c:otherwise>
+				</c:choose>
 				</li>
 			</ul>
 		</div>
@@ -367,13 +378,11 @@ $(function(){
 	.main-owl {margin-top:0px;}
 }
 </style>
-
-        <div class="container">
        		
             <!-- 메인container-->
            	 <tiles:insertAttribute name="body"/>
             <!-- // container -->
-        </div>
+
 
 <script>
 	function getItems(mode, page_num){

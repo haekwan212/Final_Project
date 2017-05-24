@@ -24,19 +24,24 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/layout/admin/container.jsp" />
 	</definition>
-
 	<definition name="adminForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/main.jsp" />
 	</definition>
-
 	<definition name="memberList" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/member/member.jsp" />
 	</definition>
 
-
 	<definition name="openMemberDetail" extends="admin">
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/member/openMemberDetail.jsp" />
+	</definition>
+
+	<definition name="adList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/ad/ad.jsp" />
+	</definition>
+
+	<definition name="adForm" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/ad/adForm.jsp" />
 	</definition>
 
 
@@ -55,7 +60,7 @@
 	
 	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
 		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp"/>
-</definition>
+	</definition>
 	<definition name="faqAdminModify" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdminModify.jsp" />
 	</definition>
@@ -101,15 +106,39 @@
 	<definition name="about" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
 	</definition>
-	<definition name="about" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
+	<!-- 마이페이지 -->
+	<definition name="mypage" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/mypage.jsp"/>
 	</definition>
 	
 	<definition name="searchList" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/searchList.jsp"/>
 	</definition>
 	
+	<definition name="exchangelist" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/exchangelist.jsp"/>
+	</definition>
+	<definition name="returnlist" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/returnlist.jsp"/>
+	</definition>
+	<definition name="review" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/reviewlist.jsp"/>
+	</definition>
+	<definition name="qnalist" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/qnalist.jsp"/>
+	</definition>
+	<definition name="myinfo" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/myinfo.jsp"/>
+	</definition>
+	<!-- 마이페이지 -->
+	<definition name="goodsDetail" extends="common">
+      <put-attribute name="body" value="/WEB-INF/jsp/goods/goodsDetail.jsp"/>
+	</definition>
+	<definition name="faqList" extends="common2">
+      <put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp"/>
+	</definition>
 	
+
 </tiles-definitions>
 	
 	

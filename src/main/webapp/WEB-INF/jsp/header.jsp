@@ -132,36 +132,36 @@
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=101">
+						<a href="/SIRORGI/goods/goodsCategory?category=TOP">
 							<strong>top</strong>
 						</a>
 					</div>
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/SIRORGI/goods/goodsCategory?category=outer">
+						<a href="/SIRORGI/goods/goodsCategory?category=OUTER">
 							<strong>outer</strong>
 						</a>
 					</div>
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=103">
-							<strong>bottom</strong>
+						<a href="/SIRORGI/goods/goodsCategory?category=PANTS">
+							<strong>pants</strong>
 						</a>
 					</div>
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=104">
+						<a href="/SIRORGI/goods/goodsCategory?category=SHOES">
+							<strong>shoes</strong>
+						</a>
+					</div>
+				</li>
+					<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/SIRORGI/goods/goodsCategory?category=ACC">
 							<strong>Accessory</strong>
-						</a>
-					</div>
-				</li>
-				<li class="tier2-group col-xs-12">
-					<div class="tier2-head">
-						<a href="/store/../store/category?no=105">
-							<strong>kids</strong>
 						</a>
 					</div>
 				</li>
@@ -325,10 +325,20 @@
 					</a>
 				</li>
 				<li class="item">
-					<a href="/mypage/orderlist">
+					<c:choose>
+					<c:when test="${not empty sessionScope.MEMBER_ID}">
+					<a href="/SIRORAGI/mypage">
 						<span class="icon icon-identity-black hidden-lg"></span>
 						<span class="hidden-md">my-pancoat</span>
 					</a>
+					</c:when>
+					<c:otherwise>
+					<a href="/SIRORAGI/loginForm">
+						<span class="icon icon-identity-black hidden-lg"></span>
+						<span class="hidden-md">my-pancoat</span>
+					</a>
+					</c:otherwise>
+				</c:choose>
 				</li>
 			</ul>
 		</div>

@@ -95,6 +95,8 @@
 						${map.FAQ_NUMBER }
 						<input type="hidden" id="FAQ_NUMBER" name="FAQ_NUMBER" value="${map.FAQ_NUMBER }">
 					</td>
+					<th scope="row">카테고리</th>
+					<td>${map.FAQ_CATEGORY }</td>
 					<th scope="row">조회수</th>
 					<td>${map.FAQ_HITCOUNT }</td>
 				</tr>
@@ -119,11 +121,9 @@
 						<div id="fileDiv">				
 							<c:forEach var="row" items="${list }" varStatus="var">
 								<p>
-									<input type="hidden" id="IDX" name="IDX_${var.index }" value="${row.IDX }">
+									<input type="hidden" id="FAQ_NUMBER" name="FAQ_NUMBER_${var.FAQ_IMAGE1 }" value="${row.FAQ_NUMBER }">
 									<a href="#this" id="name_${var.index }" name="name_${var.index }">${row.ORIGINAL_FILE_NAME }</a>
 									<input type="file" id="file_${var.index }" name="file_${var.index }"> 
-									(${row.FILE_SIZE }kb)
-									<a href="#this" class="btn" id="delete_${var.index }" name="delete_${var.index }">삭제</a>
 								</p>
 							</c:forEach>
 						</div>

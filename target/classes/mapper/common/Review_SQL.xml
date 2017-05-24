@@ -3,5 +3,37 @@
 
 <mapper namespace="review">
 	
+	<insert id="insertReview" parameterType="hashmap">
+		<selectKey keyProperty="REVIEW_NUMBER" resultType="string"	order="BEFORE">
+			SELECT REVIEW_NUMBER_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		<![CDATA[
+			INSERT INTO REVIEW (GOODS_NUMBER, REVIEW_NUMBER, MEMBER_NUMBER,
+			REVIEW_CONTENT, REVIEW_REGDATE, REVIEW_GRADE, REVIEW_TITLE)
+			VALUES (#{GOODS_NUMBER}, #{REVIEW_NUMBER}, #{MEMBER_NUMBER},
+			#{REVIEW_CONTENT}, SYSDATE, #{REVIEW_GRADE}, #{REVIEW_TITLE})
+		]]>
+	</insert>
+	
+	<update id="insertReviewImage" parameterType="hashmap">
+		<![CDATA[
+			UPDATE REVIEW SET REVIEW_IMAGE=#{REVIEW_IMAGE} WHERE REVIEW_NUMBER=#{REVIEW_NUMBER}
+		]]>
+	</update>
+	
+	<select id="selectGoodsReview" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT D.MEMBER_NAME,A.REVIEW_TITLE, A.REVIEW_CONTENT, A.REVIEW_GRADE, A.REVIEW_IMAGE, 
+			A.REVIEW_REGDATE FROM REVIEW A, MEMBER D WHERE GOODS_NUMBER=#{GOODS_NUMBER} AND
+      		D.MEMBER_NUMBER=A.MEMBER_NUMBER
+			ORDER BY REVIEW_NUMBER DESC
+		]]>
+	</select>
+	
+	<select id="selectGoodsEvgGrade" parameterType="hashmap" resultType="Integer">
+		<![CDATA[
+			SELECT AVG(REVIEW_GRADE)*20 FROM REVIEW WHERE GOODS_NUMBER=#{GOODS_NUMBER}
+		]]>
+	</select>
 
 </mapper>

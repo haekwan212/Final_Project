@@ -60,11 +60,12 @@
 								aria-describedby="dataTables-example_info">
 								<thead>
 									<tr role="row">
-										<th style="width: 12%; text-align: center;">번호</th>
+										<th style="width: 8%; text-align: center;">번호</th>
+										<th style="width: 12%; text-align: center;">카테고리</th>
 										<th style="width: 40%; text-align: center;">제목</th>
-										<th style="width: 12%; text-align: center;">작성자</th> 
+										<th style="width: 8%; text-align: center;">작성자</th> 
 										<th style="width: 12%; text-align: center;">등록일자</th>
-										<th style="width: 12%; text-align: center;">조회수</th>
+										<th style="width: 8%; text-align: center;">조회수</th>
 										<th style="width: 12%; text-align: center;">관리</th>
 									</tr>
 								</thead>
@@ -75,7 +76,8 @@
 										</c:url>
 										<tr class="gradeA even" role="row">
 											<td style="text-align: center; vertical-align: middle;">${faqList.FAQ_NUMBER}</td>
-											<td style="text-align: center; vertical-align: middle;">${faqList.FAQ_TITLE}</td>
+											<td style="text-align: center; vertical-align: middle;">${faqList.FAQ_CATEGORY}</td>
+											<td style="text-align: center; vertical-align: middle;">Q.${faqList.FAQ_TITLE}</td>
 											<td style="text-align: center; vertical-align: middle;">Admin</td>
 											<td style="text-align: center; vertical-align: middle;"><fmt:formatDate value="${faqList.FAQ_REGDATE}" pattern="YY.MM.dd HH:mm" /></td>
 											<td style="text-align: center; vertical-align: middle;">${faqList.FAQ_HITCOUNT}</td>
