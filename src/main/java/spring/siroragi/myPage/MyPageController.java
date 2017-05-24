@@ -2,6 +2,7 @@ package spring.siroragi.myPage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -14,12 +15,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
+import spring.siroragi.qna.QnaService;
 
 @Controller
 public class MyPageController {
 	
 	@Resource(name="mypageService")
 	private MyPageService mypageService;
+	
+	@Resource(name="qnaService")
+	private QnaService qnaService;
 
 	@RequestMapping(value="/mypage")
 	public ModelAndView mypageForm(){
@@ -51,15 +56,20 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value="/review")
-	public ModelAndView review(){
+	public ModelAndView review(HttpSession session) throws Exception{
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("review");
 		return mv;
 	}
 	
 	@RequestMapping(value="/qna")
-	public ModelAndView qnalist(){
+	public ModelAndView qnalist(HttpSession session) throws Exception{
+		String m_num = session.getAttribute("MEMBER_NUMBER").toString();
+		List<Map<String, Object>> qnalist = qnaService.qanlistById(m_num);
+		System.out.println("목록"+qnalist.toString());
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("qnalist", qnalist);
 		mv.setViewName("qnalist");
 		return mv;
 	}
