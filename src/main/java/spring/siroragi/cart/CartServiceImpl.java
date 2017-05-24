@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.activation.CommandMap;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -45,11 +44,10 @@ public class CartServiceImpl implements CartService {
 			cart.put("CART_AMOUNT", b);
 
 			if (cartDAO.confirmCart(cart) != null)
-				cartDAO.addCartAmount(cartDAO.confirmCart(cart));
+				return;
 			else
 				cartDAO.cartIn(cart);
 
-			cartDAO.cartIn(cart);
 		}
 
 	}
@@ -58,7 +56,7 @@ public class CartServiceImpl implements CartService {
 	public void cartInn(Map<String, Object> map) throws Exception {
 
 		if (cartDAO.confirmCart(map) != null)
-			cartDAO.addCartAmount(cartDAO.confirmCart(map));
+			return;
 		else
 			cartDAO.cartIn(map);
 	}

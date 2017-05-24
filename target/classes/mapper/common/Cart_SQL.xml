@@ -6,13 +6,13 @@
 	<select id="confirmCart" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
 			SELECT * FROM CART 
-			WHERE GOODS_KINDS_NUMBER=#{GOODS_KINDS_NUMBER}
+			WHERE GOODS_KINDS_NUMBER=#{GOODS_KINDS_NUMBER} AND MEMBER_NUMBER=#{MEMBER_NUMBER}
 		]]>
 	</select>
 	
 	<update id="addAmount" parameterType="hashmap" >
 		<![CDATA[
-			UPDATE CART SET CART_AMOUNT=CART_AMOUNT+1 WHERE CART_NUMBER=#{CART_NUMBER}
+			UPDATE CART SET CART_AMOUNT=CART_AMOUNT+#{CART_AMOUNT} WHERE CART_NUMBER=#{CART_NUMBER}
 		]]>
 	</update>
 		

@@ -31,8 +31,6 @@ public class CartController {
 		mv.setViewName("cartList");
 
 		HttpSession session = request.getSession();
-		
-		int j = 0;
 
 		if (session.getAttribute("MEMBER_NUMBER") != null) {
 			commandMap.put("GOODS_NUMBER", commandMap.get("goodsno"));

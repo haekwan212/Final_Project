@@ -80,6 +80,7 @@ public class LoginController {
 
 				session.setAttribute("MEMBER_BIRTHDAY", new_date);
 				
+				//로그인하면 세션에 있던 장바구니 정보 넣기
 				Map<String, Object> cart = new HashMap<String, Object>();
 
 				for (int i = 0;; i++) {
@@ -91,9 +92,9 @@ public class LoginController {
 						cart.put("GOODS_NUMBER", session.getAttribute("cartGoodsNum"+i));
 						
 						cartService.cartInn(cart);
-						session.removeAttribute("cartKinds");
-						session.removeAttribute("cartAmount");
-						session.removeAttribute("cartGoodsNum");
+						session.removeAttribute("cartKinds"+i);
+						session.removeAttribute("cartAmount"+i);
+						session.removeAttribute("cartGoodsNum"+i);
 					}else{
 						break;
 					}

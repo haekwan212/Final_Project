@@ -59,9 +59,77 @@
 		</thead>
 		<tbody>
 			<tr>
-			<td colspan="10" style="padding:30px 0;">
-				장바구니에 주문하실 상품을 담아주세요<br>
-			</td>
+				<td>
+				<input type="checkbox" name="no[]" value="330662">
+				</td>
+				<td class="info-img">
+					<a href="../goods/1451873935"><img img_layer="http://pic.styleindex.co.kr/g/s/145/1451873935" goodsno="1451873935" src="http://pic.styleindex.co.kr/g/s/145/1451873935" width="167" class="img-responsive"></a>
+				</td>
+				<td class="info-caption">
+					<strong class="brand">팬콧</strong>
+					<em class="name">[팬콧샵] POPBOW CREWNECK (A-1/SP) (PATTAYA PINK)_PPOSPCR04PP3</em>
+					<div class="option">
+						<em>:S / 2개</em>
+						<a href="../order/setoption?no=330662" class="button button-dimmed" target="modal" data-size="sm" data-label="선택사항 추가/변경">
+							<span class="button-label">옵션변경</span>
+						</a>
+					</div>
+				</td>
+				<!-- 쿠폰다운로드 부분은 payment페이지에서 삭제 -->
+				<td class="coupon">
+					<a href="../goods/dncoupon?no=325" target="process" class="button"><span class="button-label">다운로드</span></a>
+				</td>
+				<td class="payment">
+					<span>49,000원</span>
+				</td>
+				<td class="sale">
+				</td>
+				<td class="delivery">
+					<span>0원</span>
+					<!-- 배송비없을때 <span>무료</span>-->
+				</td>
+				<td class="delete">
+					<a href="?mode=del&amp;no=330662" class="button button-dimmed">
+						<span class="button-label">삭제</span>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<input type="checkbox" name="no[]" value="331847">
+				</td>
+				<td class="info-img">
+					<a href="../goods/1486103800"><img img_layer="http://pic.styleindex.co.kr/g/s/148/1486103800" goodsno="1486103800" src="http://pic.styleindex.co.kr/g/s/148/1486103800" width="167" class="img-responsive"></a>
+				</td>
+				<td class="info-caption">
+					<strong class="brand">팬콧키즈</strong>
+					<em class="name">[팬콧샵] POPEYES KIDS POINT LEGGINGS (EP) (MIDNIGHT BLACK)_PKOEPLG30EC6</em>
+					<div class="option">
+						<em>:3T / 1개</em>
+						<em>:7T / 1개</em>
+						<a href="../order/setoption?no=331847" class="button button-dimmed" target="modal" data-size="sm" data-label="선택사항 추가/변경">
+							<span class="button-label">옵션변경</span>
+						</a>
+					</div>
+				</td>
+				<!-- 쿠폰다운로드 부분은 payment페이지에서 삭제 -->
+				<td class="coupon">
+					<a href="../goods/dncoupon?no=325" target="process" class="button"><span class="button-label">다운로드</span></a>
+				</td>
+				<td class="payment">
+					<span>34,200원</span>
+				</td>
+				<td class="sale">
+				</td>
+				<td class="delivery">
+					<span>0원</span>
+					<!-- 배송비없을때 <span>무료</span>-->
+				</td>
+				<td class="delete">
+					<a href="?mode=del&amp;no=331847" class="button button-dimmed">
+						<span class="button-label">삭제</span>
+					</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>
@@ -73,20 +141,136 @@
 
 <div class="thumbnail-list">
 	&lt;!&ndash;&ndash;&gt;
-	<div class="text-center" style="padding:100px 0">
-	장바구니에 주문하실 상품을 담아주세요
+	<div class="col-xs-12">
+		<div class="thumbnail col-sm-8">
+			<a href="../goods/1451873935"><img  img_layer='http://pic.styleindex.co.kr/g/s/145/1451873935' goodsno='1451873935' src='http://pic.styleindex.co.kr/g/s/145/1451873935'  width=167 class='img-responsive'></a>
+		</div>
+		<div class="caption col-sm-16">
+			<strong>팬콧</strong>
+			<em>[팬콧샵] POPBOW CREWNECK (A-1/SP) (PATTAYA PINK)_PPOSPCR04PP3</em>
+			<dl class="price">
+				&lt;!&ndash;&ndash;&gt;
+				<dt>할인 전 가격</dt>
+				<dd class="discount">68,000원</dd>
+				&lt;!&ndash;&ndash;&gt;
+				<dt>할인 후 가격</dt>
+				<dd>24,500원</dd>
+			</dl>
+			<div class="option">
+				&lt;!&ndash;&ndash;&gt;
+				<em>:S / 2개</em>
+				&lt;!&ndash;&ndash;&gt;
+				&lt;!&ndash;&ndash;&gt;
+				<a href="../order/setoption?no=330662" class="button button-dimmed" target="modal" data-size="sm" data-label="선택사항 추가/변경">
+
+					<span class="button-label">옵션변경</span>
+				</a>
+				&lt;!&ndash;&ndash;&gt;
+			</div>
+			<dl class="price-detail">
+				<dt>상품 금액&nbsp;:&nbsp;</dt>
+				<dd>49,000원 &nbsp; &nbsp; </dd>
+				<dt>할인 금액&nbsp;:&nbsp;</dt>
+				<dd>0원</dd><br class="hidden-sm hidden-md hidden-lg" />
+				<dt>&nbsp;/&nbsp;배송비&nbsp;:&nbsp;</dt>
+				<dd>0원</dd>
+			</dl>
+			<div style="padding-top:6px">
+			&lt;!&ndash;&ndash;&gt;
+			<a href="../goods/dncoupon?no=325" target="process">
+				<span class="cabal cabal-coupon">
+					<span class="cabal-label">COUPON</span>
+					<span class="icon icon-download-blue"></span>
+				</span>
+			</a>
+			&lt;!&ndash;&ndash;&gt;
+			</div>
+		</div>
+		&lt;!&ndash;&ndash;&gt;
+		<div class="checkbox col-xs-12 col-sm-6 col-md-auto">
+			<label>
+				<input type="checkbox" name="no[]" value="330662" checked>
+				<span class="icon icon-checkbox"></span>
+			</label>
+		</div>
+		&lt;!&ndash;&ndash;&gt;
+	</div>
+	&lt;!&ndash;&ndash;&gt;
+	<div class="col-xs-12">
+		<div class="thumbnail col-sm-8">
+			<a href="../goods/1486103800"><img  img_layer='http://pic.styleindex.co.kr/g/s/148/1486103800' goodsno='1486103800' src='http://pic.styleindex.co.kr/g/s/148/1486103800'  width=167 class='img-responsive'></a>
+		</div>
+		<div class="caption col-sm-16">
+			<strong>팬콧키즈</strong>
+			<em>[팬콧샵] POPEYES KIDS POINT LEGGINGS (EP) (MIDNIGHT BLACK)_PKOEPLG30EC6</em>
+			<dl class="price">
+				&lt;!&ndash;&ndash;&gt;
+				<dt>할인 전 가격</dt>
+				<dd class="discount">19,000원</dd>
+				&lt;!&ndash;&ndash;&gt;
+				<dt>할인 후 가격</dt>
+				<dd>17,100원</dd>
+			</dl>
+			<div class="option">
+				&lt;!&ndash;&ndash;&gt;
+				<em>:3T / 1개</em>
+				&lt;!&ndash;&ndash;&gt;
+				<em>:7T / 1개</em>
+				&lt;!&ndash;&ndash;&gt;
+				&lt;!&ndash;&ndash;&gt;
+				<a href="../order/setoption?no=331847" class="button button-dimmed" target="modal" data-size="sm" data-label="선택사항 추가/변경">
+
+					<span class="button-label">옵션변경</span>
+				</a>
+				&lt;!&ndash;&ndash;&gt;
+			</div>
+			<dl class="price-detail">
+				<dt>상품 금액&nbsp;:&nbsp;</dt>
+				<dd>34,200원 &nbsp; &nbsp; </dd>
+				<dt>할인 금액&nbsp;:&nbsp;</dt>
+				<dd>0원</dd><br class="hidden-sm hidden-md hidden-lg" />
+				<dt>&nbsp;/&nbsp;배송비&nbsp;:&nbsp;</dt>
+				<dd>0원</dd>
+			</dl>
+			<div style="padding-top:6px">
+			&lt;!&ndash;&ndash;&gt;
+			<a href="../goods/dncoupon?no=325" target="process">
+				<span class="cabal cabal-coupon">
+					<span class="cabal-label">COUPON</span>
+					<span class="icon icon-download-blue"></span>
+				</span>
+			</a>
+			&lt;!&ndash;&ndash;&gt;
+			</div>
+		</div>
+		&lt;!&ndash;&ndash;&gt;
+		<div class="checkbox col-xs-12 col-sm-6 col-md-auto">
+			<label>
+				<input type="checkbox" name="no[]" value="331847" checked>
+				<span class="icon icon-checkbox"></span>
+			</label>
+		</div>
+		&lt;!&ndash;&ndash;&gt;
 	</div>
 	&lt;!&ndash;&ndash;&gt;
 </div>
 -->
+
+<ul class="collapse">
+	<li>총 상품금액 <b>83,200원</b></li>
+	<li>배송비 <b>0원</b></li>
+	<li>결제금액 <b style="color:#cd2b2b">83,200원</b></li>
+</ul>
+
+
 					<div class="button-wrap">
-						<a class="button disabled btn-checked-all">
+						<a class="button  btn-checked-all">
 							<span class="button-label">전체 선택</span>
 						</a>
-						<a class="button disabled btn-unchecked-all">
+						<a class="button  btn-unchecked-all">
 							<span class="button-label">전체 해제</span>
 						</a>
-						<button class="button disabled">
+						<button class="button ">
 							<span class="button-label">선택 삭제</span>
 						</button>
 						<!--
@@ -103,6 +287,87 @@
 		</section>
 		<!-- product-thumbnail//end -->
 		
+		<section class="sum-calculator section col-lg-6">
+			<div class="box-shadow">
+				<div class="section-head left border">
+					<h3>주문 요약</h3>
+				</div>
+				<!-- heading-title//end -->
+				<div class="section-body calculator">
+					<div class="price col-sm-8 col-lg-24">
+						<div class="sum">
+							<em>주문 금액 합계</em>
+							<strong>83,200원</strong>
+						</div>
+						<div class="detail">
+							<div class="item col-xs-12">
+								<div class="item-label">
+									<strong>상품 금액</strong>
+								</div>
+								<div>
+									<em>83,200원</em>
+								</div>
+							</div>
+							<div class="item col-xs-12">
+								<div class="item-label">
+									<strong>배송비</strong>
+								</div>
+								<div>
+									<em>0원</em>
+								</div>
+							</div>
+						</div>
+						<!--<span class="icon"></span>-->
+					</div>
+					<div class="discount col-sm-8 col-lg-24">
+						<div class="sum">
+							<em>할인 금액 합계</em>
+							<strong>-0원</strong>
+						</div>
+						<div class="detail">
+							<div class="item col-xs-12">
+								<div class="item-label">
+									<strong>회원 할인</strong>
+								</div>
+								<div>
+									<em>-0원</em>
+								</div>
+							</div>
+							<div class="item col-xs-12">
+								<div class="item-label">
+									<strong>쿠폰할인예정액</strong>
+								</div>
+								<div>
+									<em>-0원</em>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="total col-sm-8 col-lg-24">
+						<div class="sum">
+							<em>최종 결제 금액</em>
+							<strong>83,200원</strong>
+						</div>
+						<div class="detail">
+							<p>카드사 제휴 할인 및 제휴 포인트 사용,<br>무이자 혜택등은 결제 단계에서 적용됩니다.</p>
+						</div>
+					</div>
+				</div>
+				<!-- calculator//end -->
+			</div>
+			<div class="button-group">
+				<div class="col-xs-12 col-lg-24">
+					<a href="order" class="button large">
+						<span class="button-label">다음 단계</span>
+					</a>
+				</div>
+				<div class="col-xs-12 col-lg-24">
+					<a href="/main" class="button button-dimmed large">
+						<span class="button-label">쇼핑 계속</span>
+					</a>
+				</div>
+			</div>
+		</section>
 		<!-- sum-calculator//end -->
 		<section class="storeCatalog section collapse">
 			<div class="section-head">
@@ -131,4 +396,4 @@
 	<!-- order-shoppingBag//end -->
 
 	<!-- page-action//end -->
-</div>	<!-- page-action//end -->
+</div>
