@@ -60,7 +60,7 @@
 	
 	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
 		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp"/>
-</definition>
+	</definition>
 	<definition name="faqAdminModify" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdminModify.jsp" />
 	</definition>
@@ -84,9 +84,10 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/container.jsp" />
 	</definition>
 	
- 	<definition name="goodsCategory" extends="basic">
-		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsList.jsp" />
+ 	<definition name="goodsCategory" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsCategory.jsp" />
 	</definition>
+
 	<definition name="joinStep1" extends="common2">
       <put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
 	</definition>
@@ -109,7 +110,12 @@
 	<definition name="mypage" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/mypage.jsp"/>
 	</definition>
-		<definition name="exchangelist" extends="common2">
+	
+	<definition name="searchList" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/searchList.jsp"/>
+	</definition>
+	
+	<definition name="exchangelist" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/exchangelist.jsp"/>
 	</definition>
 	<definition name="returnlist" extends="common2">

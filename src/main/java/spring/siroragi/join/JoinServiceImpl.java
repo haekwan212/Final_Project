@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
-import spring.kh.siroragi.CommandMap;
-
 @Service("joinService")
 public class JoinServiceImpl implements JoinService{
 
@@ -22,7 +20,7 @@ public class JoinServiceImpl implements JoinService{
 	}
 
 	@Override
-	public int checkMember(Map<String, Object> map, HttpServletRequest request) throws Exception {
+	public int checkMember(Map<String, Object> map) throws Exception {
 		return joinDAO.checkMember(map);
 		
 	}

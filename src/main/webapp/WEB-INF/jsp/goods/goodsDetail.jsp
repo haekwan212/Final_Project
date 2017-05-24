@@ -95,7 +95,7 @@
 
 		<form name="fmOrder">
 			<input type="hidden" name="mode"> <input type="hidden"
-				name="goodsno" value="1427073649">
+				name="goodsno" value="${goodsBasic.GOODS_NUMBER }">
 
 			<div class="product-view-main-sub row">
 				<div class="col-lg-24">
@@ -284,7 +284,8 @@
 																		value="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																		optnm="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																		stock="${goodsDetail.GOODS_AMOUNT }"
-																		price="${goodsBasic.GOODS_DCPRICE }">
+																		price="${goodsBasic.GOODS_DCPRICE }"
+																		kinds="${goodsDetail.GOODS_KINDS_NUMBER }">
 																		${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE }
 																		(${goodsDetail.GOODS_AMOUNT }개)</option>
 																</c:if>
@@ -293,7 +294,8 @@
 																		value="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																		optnm="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																		stock="${goodsDetail.GOODS_AMOUNT }"
-																		price="${goodsBasic.GOODS_PRICE }">
+																		price="${goodsBasic.GOODS_PRICE }"
+																		kinds="${goodsDetail.GOODS_KINDS_NUMBER }">
 																		${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE }
 																		(${goodsDetail.GOODS_AMOUNT }개)</option>
 																</c:if>
@@ -302,7 +304,8 @@
 																<option
 																	value="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																	optnm="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
-																	stock="0" price="0" disabled="">
+																	stock="0" price="0" disabled=""
+																	kinds="${goodsDetail.GOODS_KINDS_NUMBER }">
 																	${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE }
 																	(품절)</option>
 															</c:if>
@@ -330,7 +333,7 @@ function setOption(obj){
 	}
 	var optno = $("#option option:selected").val();
 	if (!optno || in_array(optno,r_optno)) return;
-	var li = "<li><b>" + $("#option option:selected").attr("optnm") + "</b><input type='hidden' name='optno[]' value='" + optno + "'><input type='hidden' class='mstock' value='" + $("option:selected",$(obj)).attr("stock") + "'><input type='text' name='ea[]' value='1' class='input_ea' size='2' maxlength='3'> <span class='ea'><a class='btn-ea-up'><img src='/SIRORAGI/theme/pshp/img/btn_num_up.gif' alt='' /></a><a class='btn-ea-dn'><img src='/SIRORAGI/theme/pshp/img/btn_num_down.gif' alt='' /></a></span><span class='price'>" + comma($("option:selected",$(obj)).attr("price")) + "원</span><a href='#' optno='" + optno + "' class='btn-remove'><img src='/SIRORAGI/theme/pshp/img/btn_close.gif' alt='' /></a></li>";
+	var li = "<li><b>" + $("#option option:selected").attr("optnm") + "</b><input type='hidden' name='optno[]' value='" + optno + "'><input type='hidden' name='kinds[]' value='" + $("option:selected",$(obj)).attr("kinds") + "'><input type='hidden' class='mstock' value='" + $("option:selected",$(obj)).attr("stock") + "'><input type='text' name='ea[]' value='1' class='input_ea' size='2' maxlength='3'> <span class='ea'><a class='btn-ea-up'><img src='/SIRORAGI/theme/pshp/img/btn_num_up.gif' alt='' /></a><a class='btn-ea-dn'><img src='/SIRORAGI/theme/pshp/img/btn_num_down.gif' alt='' /></a></span><span class='price'>" + comma($("option:selected",$(obj)).attr("price")) + "원</span><a href='#' optno='" + optno + "' class='btn-remove'><img src='/SIRORAGI/theme/pshp/img/btn_close.gif' alt='' /></a></li>";
 	$("#optionbox").append(li);
 	r_optno.push(optno);
 	totprice += parseInt($("option:selected",$(obj)).attr("price"));
@@ -398,7 +401,7 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 										</div>
 
 										<div class="col-xs-11 action">
-											<a href="../goods/restock?goodsno=1427073649" target="modal"
+											<a href="../goods/restock?goodsno=${goodsBasic.GOODS_NUMBER }" target="modal"
 												data-size="sm" data-label="재입고 요청"
 												class="button button-dimmed"> <span class="button-label">재입고시
 													문자 받기</span>

@@ -131,36 +131,36 @@
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=101">
+						<a href="/SIRORAGI/goods/goodsCategory?category=TOP">
 							<strong>top</strong>
 						</a>
 					</div>
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=102">
+						<a href="/SIRORAGI/goods/goodsCategory?category=OUTER">
 							<strong>outer</strong>
 						</a>
 					</div>
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=103">
-							<strong>bottom</strong>
+						<a href="/SIRORGI/goods/goodsCategory?category=PANTS">
+							<strong>pants</strong>
 						</a>
 					</div>
 				</li>
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/../store/category?no=104">
+						<a href="/SIRORGI/goods/goodsCategory?category=SHOES">
+							<strong>shoes</strong>
+						</a>
+					</div>
+				</li>
+				<li class="tier2-group col-xs-12">
+					<div class="tier2-head">
+						<a href="/SIRORGI/goods/goodsCategory?category=ACC">
 							<strong>Accessory</strong>
-						</a>
-					</div>
-				</li>
-				<li class="tier2-group col-xs-12">
-					<div class="tier2-head">
-						<a href="/store/../store/category?no=105">
-							<strong>kids</strong>
 						</a>
 					</div>
 				</li>
@@ -264,19 +264,19 @@
 
 								<li class="nav-head c03">
 									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="theme/pshp/img/category_back.png"></div>
-									<a href="/store/category?no=101"><span>top</span></a>
+									<a href="/SIRORAGI/goods/goodsCategory?category=TOP"><span>top</span></a>
 								</li>
 								<li class="nav-head c04">
-									<a href="/store/category?no=102"><span>outer</span></a>
+									<a href="/SIRORAGI/goods/goodsCategory?category=OUTER"><span>outer</span></a>
 								</li>
 								<li class="nav-head c05">
-									<a href="/store/category?no=103"><span>bottom</span></a>
+									<a href="/SIRORAGI/goods/goodsCategory?category=PANTS"><span>pants</span></a>
 								</li>
 								<li class="nav-head c06">
-									<a href="/store/category?no=104"><span>accessory</span></a>
+									<a href="/SIRORAGI/goods/goodsCategory?category=SHOES"><span>shoes</span></a>
 								</li>
 								<li class="nav-head c07">
-									<a href="/store/category?no=105"><span>kids</span></a>
+									<a href="/SIRORAGI/goods/goodsCategory?category=ACC"><span>accessory</span></a>
 								</li>
 								<li class="nav-head c08">
 									<a href="/store/category?no=106"><span>life style</span></a>

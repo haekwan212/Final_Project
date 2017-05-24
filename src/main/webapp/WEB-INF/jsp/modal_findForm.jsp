@@ -11,25 +11,30 @@
 	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane active" id="search-id">
 			<div class="section-body list-horizontal">
+
 				<div class="list-item">
 					<div class="item-title col-xs-24 col-md-6">
 						<strong>이름</strong>
 					</div>
 					<div class="item-contents hasCol col-xs-24 col-md-18">
-						<div class="col-xs-24 col-sm-18 multy">
-							<input type="text" class="xx-control" name="name">
+						<div class="col-xs-20 col-lg-20 form-inline">
+							<input type="text" class="form-control" name="idname" size="28">
 						</div>
 					</div>
 				</div>
 				<div class="list-item">
 					<div class="item-title col-xs-24 col-md-6">
-						<strong>핸드폰 번호</strong>
+						<strong>이메일</strong>
 					</div>
 					<div class="item-contents hasCol col-xs-24 col-md-18">
-						<div class="col-xs-24 col-sm-18 multy">
-							<span class="col-xs-8"><input type="text" class="xx-control" id="pcm-mobile" name="hp1"></span>
+						<!-- <div class="col-xs-24 col-sm-18 multy"> -->
+						<div class="col-xs-20 col-lg-20 form-inline">
+							<input name="idemail1" id="idemail1" class="form-control" size="12" type="text"> @ 
+							<input name="idemail2" id="idemail2" class="form-control" size="9" type="text">
+							<!-- <span class="col-xs-8"><input type="text" class="xx-control" name="hp2"></span> -->
+							<!-- <span class="col-xs-8"><input type="text" class="xx-control" id="pcm-mobile" name="hp1"></span>
 							<span class="col-xs-8"><input type="text" class="xx-control" name="hp2"></span>
-							<span class="col-xs-8"><input type="text" class="xx-control" name="hp3"></span>
+							<span class="col-xs-8"><input type="text" class="xx-control" name="hp3"></span> -->
 						</div>
 					</div>
 				</div>
@@ -41,24 +46,34 @@
 			<div class="section-body list-horizontal">
 				<div class="list-item">
 					<div class="item-title col-xs-24 col-md-6">
+						<strong>이름</strong>
+					</div>
+					<div class="item-contents hasCol col-xs-24 col-md-18">
+						<div class="col-xs-20 col-lg-20 form-inline">
+							<input type="text" class="form-control" name="pwname" size="28">
+						</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<div class="item-title col-xs-24 col-md-6">
 						<strong>아이디</strong>
 					</div>
 					<div class="item-contents hasCol col-xs-24 col-md-18">
-						<div class="col-xs-24 col-sm-18 multy">
-							<input type="text" class="xx-control" name="mem_id">
+						<div class="col-xs-20 col-lg-20 form-inline">
+							<input type="text" class="form-control" name="mem_id" size="28">
 						</div>
 					</div>
 				</div>
 				<!-- list-item//end -->
 				<div class="list-item">
 					<div class="item-title col-xs-24 col-md-6">
-						<label for="pcm-mobile"><strong>핸드폰 번호</strong></label>
+						<label for="pcm-mobile"><strong>이메일</strong></label>
 					</div>
-					<div class="item-contents hasCol col-xs-24 col-md-18">
-						<div class="col-xs-24 col-sm-18 multy">
-							<span class="col-xs-8"><input type="text" class="xx-control" id="pcm-mobile" name="php1"></span>
-							<span class="col-xs-8"><input type="text" class="xx-control" name="php2"></span>
-							<span class="col-xs-8"><input type="text" class="xx-control" name="php3"></span>
+						<div class="item-contents hasCol col-xs-24 col-md-18">
+							<div class="col-xs-20 col-lg-20 form-inline">	
+								<input name="pwemail1" id="pwemail1" class="form-control" size="12" type="text"> @ 
+								<input name="pwemail2" id="pwemail2" class="form-control" size="9" type="text">
+							</div>
 						</div>
 						<div class="text-primary col-xs-24">
 							<p>초기화된 비밀번호를 이메일로 발송해 드립니다.</p>
@@ -87,48 +102,60 @@ function check_find(a){
 function popup_nice_open(){
 	var f = document.frm;
 	var check_find = f.check_find.value;
-	var name = f.name.value;
+	var idname = f.idname.value;
+	var pwname = f.pwname.value;
 	var mid = f.mem_id.value;
-	var phone = f.hp1.value+"-"+f.hp2.value+"-"+f.hp3.value;
-	var phone2 = f.php1.value+"-"+f.php2.value+"-"+f.php3.value;
-	
-	if(check_find == 'i'){
+	var idemail = f.idemail1.value+"@"+f.idemail2.value;
+	var pwemail = f.pwemail1.value+"@"+f.pwemail2.value;
+	console.log("로그 내용1"+pwemail);
+	if(check_find == 'i'){//아이디찾기일때
 		var mode = "find_id_chk";
+		console.log("로그 내용2"+idemail);
 		$.ajax({
-			type:'POST',
-			data:{
-					mode:mode,
-					name:name,
-					phone:phone
-			},
-			url:"/member/id_pw_find",
-			dataType : "html",
-			success : function(data, textStatus, jqXHR){
-				alert(data);
-			},
-			error: function(xhr,status,error){
-				alert(error);
-			}
-		});		
+	        type: "POST",
+	        url: "./login/find",
+	        data: ({mode:mode,idemail:idemail,idname:idname,check_find:check_find}),
+	        //contentType: "text/plain; charset=euc-kr",
+	        success: function(data) {
+	        	console.log(data);
+	        	if(data != 0){
+	        		alert("가입하신 아이디는 "+ data +" 입니다.");
+	        	}else{
+	        		alert("해당정보로 가입된 아이디가 없습니다.");
+	        	}
+/* 	        	
+	        	if(data != null)    {
+	            	/* console.log("로그 내용2"+data); 
+	            } */
+	        },
+	        error: function(e){
+	         alert('error' + e);
+	        }
+	    });		
 		
-	}else if(check_find == 'p'){
+	}else if(check_find == 'p'){//패스워드찾기일떄
+		console.log("로그 내용2"+pwemail);
 		var mode = "find_pw_chk";
 		$.ajax({
-			type:'POST',
-			data:{
-					mode:mode,
-					mid:mid,
-					phone:phone2
-			},
-			url:"/member/id_pw_find",
-			dataType : "html",
-			success : function(data, textStatus, jqXHR){
-				alert(data);
-			},
-			error: function(xhr,status,error){
-				alert(error);
-			}
-		});	
+	        type: "POST",
+	        url: "./login/find",
+	        data: ({mode:mode,pwemail:pwemail,mid:mid,pwname:pwname,check_find:check_find}),
+	        //contentType: "text/plain; charset=euc-kr",
+	        success: function(data) {
+	        	if(data != 0){
+	        		alert("가입하신 이메일로 비밀번호를 보냈습니다.");
+	        	}else{
+	        		alert("일치하는 정보가 없습니다.");
+	        	}
+/* 	        	
+	        	if(data != null)    {
+	            	/* console.log("로그 내용2"+data); 
+	            } */
+	        },
+	        error: function(e){
+	         alert('error' + e);
+	        }
+	    });		
 
 	}
 }

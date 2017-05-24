@@ -3,13 +3,19 @@
 
 <mapper namespace="cart">
 
-	<select id="findGoodsKind" parameterType="hashmap" resultType="hashmap">
+	<select id="confirmCart" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
-		SELECT GOODS_KINDS_NUMBER FROM GOODS_KINDS WHERE 
-		GOODS_NUMBER=#{GOODS_NUMBER}, GOODS_COLOR=#{GOODS_COLOR}, GOODS_SIZE=#{GOODS_SIZE}
+			SELECT * FROM CART 
+			WHERE GOODS_KINDS_NUMBER=#{GOODS_KINDS_NUMBER} AND MEMBER_NUMBER=#{MEMBER_NUMBER}
 		]]>
 	</select>
 	
+	<update id="addAmount" parameterType="hashmap" >
+		<![CDATA[
+			UPDATE CART SET CART_AMOUNT=CART_AMOUNT+#{CART_AMOUNT} WHERE CART_NUMBER=#{CART_NUMBER}
+		]]>
+	</update>
+		
 	<insert id="insertCart" parameterType="hashmap" useGeneratedKeys="true" keyProperty="CART_NUMBER">
 		<selectKey keyProperty="CART_NUMBER" resultType="integer" order="BEFORE">
 			SELECT CART_NUMBER_SEQ.NEXTVAL FROM DUAL
