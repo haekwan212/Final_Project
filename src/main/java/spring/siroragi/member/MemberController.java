@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
-import spring.kh.siroragi.Paging;
+import spring.kh.siroragi.memberPaging;
 
 @Controller
 public class MemberController {
@@ -27,7 +27,7 @@ public class MemberController {
 	private int blockCount = 7;
 	private int blockPage = 5;
 	private String pagingHtml;
-	private Paging page;
+	private memberPaging page;
 
 	@Resource(name = "memberService")
 	private MemberService memberService;
@@ -57,17 +57,17 @@ public class MemberController {
 			System.out.println("getMap : " + commandMap.getMap());
 
 			if (searchNum == 0) { // 아이디
-				memberList = memberService.searchMemberList0(commandMap.getMap());
+				memberList = memberService.searchMemberId(commandMap.getMap());
 			} else if (searchNum == 1) { // 이름
-				memberList = memberService.searchMemberList1(commandMap.getMap());
+				memberList = memberService.searchMemberName(commandMap.getMap());
 			} else if (searchNum == 2) { // 전화번호
-				memberList = memberService.searchMemberList2(commandMap.getMap());
+				memberList = memberService.searchMemberPhone(commandMap.getMap());
 			} else if (searchNum == 3) { // 이메일
-				memberList = memberService.searchMemberList3(commandMap.getMap());
+				memberList = memberService.searchMemberEmail(commandMap.getMap());
 			}
 
 			totalCount = memberList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "memberList", searchNum, isSearch);
+			page = new memberPaging(currentPage, totalCount, blockCount, blockPage, "memberList", onOff, searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 
 			int lastCount = totalCount;
@@ -92,7 +92,7 @@ public class MemberController {
 
 			totalCount = memberList.size();
 
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "memberList");
+			page = new memberPaging(currentPage, totalCount, blockCount, blockPage, "memberList", onOff, searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 
 			int lastCount = totalCount;

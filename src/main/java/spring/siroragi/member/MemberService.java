@@ -18,16 +18,16 @@ public interface MemberService {
 	void deleteMember(Map<String, Object> map) throws Exception;
 
 	// 회원 아이디 검색
-	List<Map<String, Object>> searchMemberList0(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> searchMemberId(Map<String, Object> map) throws Exception;
 
 	// 회원 이름 검색
-	List<Map<String, Object>> searchMemberList1(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> searchMemberName(Map<String, Object> map) throws Exception;
 
 	// 회원 전화번호 검색
-	List<Map<String, Object>> searchMemberList2(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> searchMemberPhone(Map<String, Object> map) throws Exception;
 
 	// 회원 이메일 검색
-	List<Map<String, Object>> searchMemberList3(Map<String, Object> map) throws Exception;
+	List<Map<String, Object>> searchMemberEmail(Map<String, Object> map) throws Exception;
 
 	// 회원포인트 수정
 	void updatePoint(Map<String, Object> map) throws Exception;

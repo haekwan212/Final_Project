@@ -18,23 +18,6 @@ public class QnaServiceImpl implements QnaService {
 	public List<Map<String, Object>> qnaList(Map<String, Object> map) throws Exception {
 		return qnaDAO.qnaList(map);
 	}
-	
-	@Override
-	public List<Map<String, Object>> qanlistById(String id) throws Exception {
-		return qnaDAO.qnalistById(id);
-	}
-
-	// 회원 개인의 Q&A 목록 불러오기
-	@Override
-	public List<Map<String, Object>> qnaSearchMember(Map<String, Object> map) throws Exception {
-		return qnaDAO.qnaSearchMember(map);
-	}
-
-	// 상품에 해당하는 Q&A 목록 불러오기
-	@Override
-	public List<Map<String, Object>> qnaSearchGoods(Map<String, Object> map) throws Exception {
-		return qnaDAO.qnaSearchGoods(map);
-	}
 
 	// Q&A 상세보기
 	@Override
@@ -53,33 +36,69 @@ public class QnaServiceImpl implements QnaService {
 		qnaDAO.updateReplyStep(map);
 	}
 
+	// Q&A 작성
 	@Override
 	public void insertQna(Map<String, Object> map) throws Exception {
 		qnaDAO.insertQna(map);
 	}
 
+	// Q&A 답변달기
 	@Override
 	public void insertQnaReply(Map<String, Object> map) throws Exception {
 		qnaDAO.insertQnaReply(map);
 	}
 
-	@Override
-	public List<Map<String, Object>> qnaCategoryList(Map<String, Object> map) throws Exception {
-		return qnaDAO.qnaCategoryList(map);
-	}
-
-	@Override
-	public List<Map<String, Object>> qnaMemberList(Map<String, Object> map) throws Exception {
-		return qnaDAO.qnaMemberList(map);
-	}
-
+	// Q&A 수정
 	@Override
 	public void qnaModify(Map<String, Object> map) throws Exception {
 		qnaDAO.qnaModify(map);
+	}
+
+	// Q&A 삭제
+	@Override
+	public void qnaDelete(Map<String, Object> map) throws Exception {
+		qnaDAO.qnaDelete(map);
+	}
+
+	// 답변 삭제
+	@Override
+	public void qnaReplyDelete(Map<String, Object> map) throws Exception {
+		qnaDAO.qnaReplyDelete(map);
+	}
+
+	@Override
+	public List<Map<String, Object>> qanlistById(String id) throws Exception {
+		return qnaDAO.qnalistById(id);
 	}
 
 	@Override
 	public void insertModalQna(Map<String, Object> map) throws Exception {
 		qnaDAO.insertModalQna(map);
 	}
+
+	// 제목&카테고리 검색
+	@Override
+	public List<Map<String, Object>> qnaTitleList(Map<String, Object> map) throws Exception {
+		return qnaDAO.qnaTitleList(map);
+	}
+
+	// 아이디&카테고리 검색
+	@Override
+	public List<Map<String, Object>> qnaMemberList(Map<String, Object> map) throws Exception {
+		return qnaDAO.qnaMemberList(map);
+	}
+
+	// 아이디 검색
+	@Override
+	public List<Map<String, Object>> qnaSearchMemberList(Map<String, Object> map) throws Exception {
+		return qnaDAO.qnaSearchMemberList(map);
+	}
+
+	// 제목 검색
+	@Override
+	public List<Map<String, Object>> qnaSearchTitleList(Map<String, Object> map) throws Exception {
+		return qnaDAO.qnaSearchTitleList(map);
+	}
+
+	// Q&A 비밀번호 확인(비회원때문에 필요)
 }

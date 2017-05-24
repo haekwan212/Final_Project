@@ -44,6 +44,17 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/ad/adForm.jsp" />
 	</definition>
 
+	<definition name="qnaList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/qna/qna.jsp" />
+	</definition>
+
+	<definition name="qnaForm" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/qna/qnaForm.jsp" />
+	</definition>
+	
+		<definition name="qnaDetail" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/qna/qnaDetail.jsp" />
+	</definition>
 
 	<definition name="goodsForm" extends="admin">
 		<put-attribute name="body"
