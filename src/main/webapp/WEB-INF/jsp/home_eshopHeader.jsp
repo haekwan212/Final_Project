@@ -263,7 +263,7 @@
 
 
 								<li class="nav-head c03">
-									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="theme/pshp/img/category_back.png"></div>
+									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="/SIRORAGI/theme/pshp/img/category_back.png"></div>
 									<a href="/SIRORAGI/goods/goodsCategory?category=TOP"><span>top</span></a>
 								</li>
 								<li class="nav-head c04">

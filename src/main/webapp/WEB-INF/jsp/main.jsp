@@ -222,7 +222,6 @@
 		<ul class="catalog row">
 		   <c:forEach items="${listByTop}" var="top">
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
-<<<<<<< HEAD
 				<div class="thumbnail">
 					<a href="/SIRORAGI/main/goods">
 						<img data-original="http://pic.styleindex.co.kr/g/s/149/1491899644" class="for-ie8 img-responsive lazy" width="500" height="500">
@@ -1403,8 +1402,8 @@
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c5">
 				<div class="thumbnail">				
 					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${top.GOODS_NUMBER}">
-						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
-						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
+						<img data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
+						<div data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
@@ -1478,8 +1477,8 @@
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
 				<div class="thumbnail">				
 					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${top.GOODS_NUMBER}">
-						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
-						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
+						<img data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
+						<div data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
@@ -1552,8 +1551,8 @@
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
 				<div class="thumbnail">				
 					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${top.GOODS_NUMBER}">
-						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
-						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
+						<img data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
+						<div data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
@@ -1700,8 +1699,8 @@
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
 				<div class="thumbnail">				
 					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
-						<img data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
-						<div data-original="/SIRORAGI/file/goodsfile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
+						<img data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
+						<div data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">

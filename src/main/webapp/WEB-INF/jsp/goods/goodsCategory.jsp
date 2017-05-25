@@ -51,8 +51,8 @@
 	<script src="../dist/owl/owl.carousel.min.js"></script>
 	<script src="../dist/owl/owl.js"></script>
 
-	<link rel="stylesheet" href="../theme/pshp/css/main.min.css">
-	<link rel="stylesheet" href="../theme/pshp/css/ui.css">
+	<link rel="stylesheet" href="/SIRORAGI/theme/pshp/css/main.min.css">
+	<link rel="stylesheet" href="/SIRORAGI/theme/pshp/css/ui.css">
 	
 	<style>
 	
@@ -529,10 +529,10 @@
 		</a>
 		<div class="addon">
 			<div class="button-group">
-				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="../goods/modalview?goodsno=1456896416">
+				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="/SIRORAGI/main/goods">
 					<span class="icon icon-expansion-white"></span>
 				</button>
-				<a href="../goods/sns?goodsno=1456896416" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
+				<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
 					<span class="icon icon-share-white"></span>
 				</a>
 			</div>
@@ -561,7 +561,7 @@
 <c:forEach var="goodsRank"  items="${goodsRank}" varStatus="stat">
 <c:if test="${stat.count <7}">
 
-<c:url var="viewURL" value="/SIRORAGI/goodsDetail" >
+<c:url var="viewURL" value="/goodsDetail" >
 	<c:param name="GOODS_NUMBER" value="${goodsRank.GOODS_NUMBER }" />							
 </c:url>	
 <li class="catalog-item col-xs-12 col-sm-6 col-md-4 items_0 c1">
@@ -595,7 +595,7 @@
 		</a>
 		<div class="addon">
 			<div class="button-group">
-				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="../goods/modalview?goodsno=1456896416">
+				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="/SIRORAGI/goods">
 					<span class="icon icon-expansion-white"></span>
 				</button>
 				<a href="${viewURL}" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
@@ -743,7 +743,7 @@
 		</a>
 		<div class="addon">
 			<div class="button-group">
-				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="../goods/modalview?goodsno=1487554074">
+				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="/SIRORAGI/main/goods">
 					<span class="icon icon-expansion-white"></span>
 				</button>
 				<a href="../goods/sns?goodsno=1487554074" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
@@ -777,7 +777,7 @@
 
 <c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
 
-<c:url var="viewURL" value="/SIRORAGI/goodsDetail" >
+<c:url var="viewURL" value="/goodsDetail" >
 	<c:param name="GOODS_NUMBER" value="${goodsList.GOODS_NUMBER }" />							
 </c:url>	
 
@@ -815,7 +815,7 @@
 		</a>
 		<div class="addon">
 			<div class="button-group">
-				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="${viewURL}">
+				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="/SIRORAGI/admin/goods/goods.jsp">
 					<span class="icon icon-expansion-white"></span>
 				</button>
 				<a href="${viewURL}" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
