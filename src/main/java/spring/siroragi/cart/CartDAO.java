@@ -11,6 +11,10 @@ import spring.kh.siroragi.AbstractDAO;
 public class CartDAO extends AbstractDAO{
 
 	//회원 개인의 장바구니 목록 불러오기(OFF된 상품은 제외)
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> cartList(Map<String, Object> map) throws Exception{
+		return selectList("cart.selectMyCart",map);
+	}
 	
 	//장바구니 등록
 	public void cartIn(Map<String,Object> map) throws Exception{
@@ -29,11 +33,20 @@ public class CartDAO extends AbstractDAO{
 	}
 	
 	//장바구니 해제(삭제)
+	public void deleteMyCart(Map<String,Object> map) throws Exception{
+		delete("cart.deleteMyCart",map);
+	}
 	
 	//장바구니 카운트
 	
-	//3일이상된 장바구니 목록 삭제
+	//회원의 3일이상된 장바구니 목록 삭제
+	public void deleteCarts(Map<String, Object> map) throws Exception{
+		delete("cart.deleteCarts",map);
+	}
 	
 	//장바구니 수정(옵션변경)
+	public void updateCarts(Map<String, Object> map) throws Exception{
+		update("cart.updateCarts", map);
+	}
 	
 }

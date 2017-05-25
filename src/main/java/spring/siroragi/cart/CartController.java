@@ -15,10 +15,19 @@ public class CartController {
 
 	@Resource(name = "cartService")
 	private CartService cartService;
-
+	
+	//장바구니 리스트 불러오기
 	@RequestMapping(value = "/cart/cartList")
-	public ModelAndView cartList() {
+	public ModelAndView cartList(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		HttpSession session=request.getSession();
+		
+		if (session.getAttribute("MEMBER_NUMBER") != null) {
+			commandMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+			cartService.cartList(commandMap.getMap());
+		}
+		
 		mv.setViewName("cartList");
 		return mv;
 	}
@@ -83,5 +92,7 @@ public class CartController {
 
 		return mv;
 	}
+	
+	
 
 }
