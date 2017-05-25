@@ -35,26 +35,26 @@ public class MemberServiceImpl implements MemberService {
 
 	// 회원 아이디 검색
 	@Override
-	public List<Map<String, Object>> searchMemberList0(Map<String, Object> map) throws Exception {
-		return memberDAO.searchMemberList0(map);
+	public List<Map<String, Object>> searchMemberId(Map<String, Object> map) throws Exception {
+		return memberDAO.searchMemberId(map);
 	}
 
 	// 회원 이름 검색
 	@Override
-	public List<Map<String, Object>> searchMemberList1(Map<String, Object> map) throws Exception {
-		return memberDAO.searchMemberList1(map);
+	public List<Map<String, Object>> searchMemberName(Map<String, Object> map) throws Exception {
+		return memberDAO.searchMemberName(map);
 	}
 
 	// 회원 전화번호 검색
 	@Override
-	public List<Map<String, Object>> searchMemberList2(Map<String, Object> map) throws Exception {
-		return memberDAO.searchMemberList2(map);
+	public List<Map<String, Object>> searchMemberPhone(Map<String, Object> map) throws Exception {
+		return memberDAO.searchMemberPhone(map);
 	}
 
 	// 회원 이메일 검색
 	@Override
-	public List<Map<String, Object>> searchMemberList3(Map<String, Object> map) throws Exception {
-		return memberDAO.searchMemberList3(map);
+	public List<Map<String, Object>> searchMemberEmail(Map<String, Object> map) throws Exception {
+		return memberDAO.searchMemberEmail(map);
 	}
 
 	// 회원포인트 수정
