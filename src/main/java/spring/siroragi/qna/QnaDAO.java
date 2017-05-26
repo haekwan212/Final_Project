@@ -70,22 +70,18 @@ public class QnaDAO extends AbstractDAO{
 	public void qnaModify(Map<String, Object> map)  throws Exception {
 		sqlSession.update("qna.qnaModify", map);
 	}
+	//답변대기, 답변완료  상품문의 불러오기
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> qnalistById(String MEMBER_NUMBER) throws Exception{
-		return (List<Map<String,Object>>)selectList("qna.qnalistById", MEMBER_NUMBER);
+		return (List<Map<String,Object>>)selectList("qna.qnalistByNumber", MEMBER_NUMBER);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> qnalistById2(String MEMBER_NUMBER) throws Exception{
+		return (List<Map<String,Object>>)selectList("qna.qnalistByNumber2", MEMBER_NUMBER);
+	}
+	//답변 상태 업데이트
+	public void updateRepState(Map<String, Object> map) throws Exception{
+		update("qna.updateRepState", map);
 	}
 
-	// Q&A 등록하기 폼으로 이동
-
-	// Q&A 수정하기
-
-	// Q&A 비밀번호 확인(비회원때문에 필요)
-
-	// Q&A 삭제하기
-
-	// Q&A 검색하기
-
-	// Q&A
-
-	// Q&A
 }

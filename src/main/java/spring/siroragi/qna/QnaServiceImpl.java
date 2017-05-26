@@ -20,8 +20,13 @@ public class QnaServiceImpl implements QnaService {
 	}
 	
 	@Override
-	public List<Map<String, Object>> qanlistById(String id) throws Exception {
+	public List<Map<String, Object>> qnalistById(String id) throws Exception {
 		return qnaDAO.qnalistById(id);
+	}
+	
+	@Override
+	public List<Map<String, Object>> qnalistById2(String id) throws Exception {
+		return qnaDAO.qnalistById2(id);
 	}
 
 	// 회원 개인의 Q&A 목록 불러오기
@@ -81,5 +86,11 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public void insertModalQna(Map<String, Object> map) throws Exception {
 		qnaDAO.insertModalQna(map);
+	}
+	
+	@Override
+	public void updateRepState(Map<String, Object> map) throws Exception {
+		qnaDAO.updateRepState(map);
+		
 	}
 }

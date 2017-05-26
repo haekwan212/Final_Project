@@ -1,8 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<script>
+$(function () {
+    $(".tab_content").hide();
+    $(".tab_content:first").show();
 
+    $(".account-nav li").click(function () {
+        $(".account-nav li").removeClass("selected");
+        //$(this).addClass("active").css({"color": "darkred","font-weight": "bolder"});
+        $(this).addClass("selected");
+    });
+});
+function gg(){
+	var qna_num = document.getElementById("qna_number").value;
+	var qna_state = document.getElementById("qna_state").value;
+	if(qna_state != "답변대기"){
+	$.ajax({
+		url: "/SIRORAGI/qna/updateRepState",
+		type : "get",
+		data: {"QNA_NUMBER":qna_num},
+		success:function(data){
+			$("#account-contentsWrap").html(data);
+			alert(data);
+		}
+	});}
+};
+$(document).ready(function(){
+var link = document.location.href;
+var tab = link.split('mypage').pop();
+if(tab == ""){
+	$('a[href=#orderlist]').trigger("click");	
+}else{
+$('a[href$='+tab+']').trigger("click");
+}
+});
+
+function tab(num){
+		if(num == 1){
+ 			$.ajax({
+ 				url: "/SIRORAGI/orderlist",
+ 				type : "get",
+ 				success:function(data){
+ 					$("#account-contentsWrap").html(data);
+ 				}
+ 			});
+		}
+		if(num == 5){
+ 			$.ajax({
+			url: "/SIRORAGI/qna",
+			type : "get",
+			success:function(data){
+				$("#account-contentsWrap").html(data);
+			}
+		});
+		}
+};
+</script>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <section class="page-category container">
 	<div class="selectboxWrap">
 		<div class="selectbox">
@@ -98,8 +153,8 @@
 						<a href="../mypage/">마이팬콧 홈</a>
 					</li>
 					-->
-					<li class="selected col-sm-3 xx">
-						<a href="/SIRORAGI/orderlist">주문조회/취소
+					<li class=" col-sm-3 xx">
+						<a href="#orderlist" onclick="javascript:tab(1)">주문조회/취소
 							<!-- 글이 있을 경우 exist라는 클래스명 붙임 -->
 							<em class="badge badge-point">0</em>
 						</a>
@@ -119,7 +174,7 @@
 						</a>
 					</li>
 					<li class=" col-sm-3">
-						<a href="/SIRORAGI/qna">상품 문의 <em class="badge">0</em></a>
+						<a href="#qna" onclick="javascript:tab(5)">상품 문의 <em class="badge">0</em></a>
 					</li>
 					<li class=" col-sm-3">
 						<a href="/SIRORAGI/mycs">1:1 문의 <em class="badge">0</em></a>
@@ -155,42 +210,7 @@
 		</section>
 	</div>
 	<div id="account-contentsWrap"class="account-contentsWrap">
-	<div class="account-review">
-
-
-			<section class="review-list section box-shadow">
-				<div class="section-head left border">
-					<h3>지난 후기</h3>
-				</div>
-				<!-- heading-title//end -->
-				<div class="section-body">
-					<div class="table-responsive">
-						<table class="table list-dropdown">
-							<thead>
-								<tr>
-									<th class="info-img">상품 정보</th>
-									<th class="info-caption">&nbsp;</th>
-									<th class="subject">내용</th>
-									<th class="grade">평점</th>
-									<th class="purchasing-decision">작성 일자</th>
-									<th class="deadline">적립금</th>
-								</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
-					</div>
-				</div>
-
-				<!-- table-responsive//end -->
-				<div class="section-foot account-list-page-navigator">
-					<div class="page-navigator-horizon">
-						
-					</div>
-				</div>
-				<!-- account-list-page-navigator//end -->
-			</section>
-		</div>
+	
 	</div>
 </div>
 <script>
