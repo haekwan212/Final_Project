@@ -60,21 +60,25 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
 	</definition>
-	<definition name="faqAdmin" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
-	</definition>
-
-	<definition name="faqAdmin" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
-	</definition>
-
+	
 	
 	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
 		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp"/>
 	</definition>
+	
+	
+	<definition name="faqAdmin" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
+	</definition>
+	
 	<definition name="faqAdminModify" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdminModify.jsp" />
 	</definition>
+	
+	<definition name="faqAdminForm" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdminForm.jsp" />
+	</definition>
+	
 
 	<definition name="goodsList" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goods.jsp" />
@@ -84,12 +88,19 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/goods/goodsModifyForm.jsp" />
 	</definition>
+	
+	<!-- admin -->
+	
+	
+	
 	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
 		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp" />
 	</definition>
 	<definition name="common2" template="/WEB-INF/jsp/header.jsp">
 		<put-attribute name="body"></put-attribute>
 	</definition>
+	
+	
 		<!-- 카테고리별 -->
 	<definition name="basic" template="/WEB-INF/jsp/layout/basic.jsp">
 		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/container.jsp" />
@@ -117,6 +128,8 @@
 	<definition name="about" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
 	</definition>
+	
+	
 	<!-- 마이페이지 -->
 	<definition name="mypage" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/mypage.jsp"/>
@@ -142,9 +155,13 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/myinfo.jsp"/>
 	</definition>
 	<!-- 마이페이지 -->
+	
+	
+	
 	<definition name="goodsDetail" extends="common">
       <put-attribute name="body" value="/WEB-INF/jsp/goods/goodsDetail.jsp"/>
 	</definition>
+	
 	<definition name="faqList" extends="common2">
       <put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp"/>
 	</definition>

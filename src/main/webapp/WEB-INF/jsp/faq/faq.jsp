@@ -178,25 +178,24 @@ text-align:center;
 		</section>
 	</div>
 	
-	
+	<br/><br/><br/><br/>
 	
 	<div class="account-home accountCatalog">
 	<section class="section box-line">
-		<div class="section-body">
+		 <div class="section-body">
 			<!-- 검색 -->
-			<div class="search-box">
+			<!-- <div class="search-box">
 				<form>
-				<input type="text" name="isSearch" id="isSearch" value="" placeholder="FAQ를 검색해보세요">
-				<input type="submit" value="검색">
+				<input type="text" name="isSearch" id="isSearch" value="" placeholder="FAQ를 검색해보세요"/><span>
+				<input type="submit" value="검색"></span>
 				</form>
-			</div>
-
-			<!-- /검색 -->
+			</div> -->
+		
+			<!-- 검색 -->
 
 			<div class="rankGender-wrap">
 				<ul class="tab-navs">
 				
-					
 				
 					<li role="presentation" data-cate="100" class="tab-nav2 col-xs-12 col-md-2 col-lg-2 active"><a href="" role="tab" data-toggle="tab">회원안내</a></li>
 					<li role="presentation" data-cate="101" class="tab-nav2 col-xs-12 col-md-2 col-lg-2"><a href="#faq-tab2" role="tab" data-toggle="tab">배송안내</a></li>
@@ -211,6 +210,7 @@ text-align:center;
 					
 					
 				</ul>
+				
 
 				<div class="tab-content2">
 				

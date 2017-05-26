@@ -111,10 +111,9 @@ public class AdminController {
 	}
 
 	// FAQ 등록폼
-	// 광고 등록 폼으로 이동
-	@RequestMapping(value = "/admin/faqForm")
-	public String faqForm() {
-		return "faqForm";
+	@RequestMapping(value = "/admin/faqAdminForm")
+	public String faqWrite() {
+		return "faqAdminForm";
 	}
 
 

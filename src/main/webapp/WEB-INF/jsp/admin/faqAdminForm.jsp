@@ -14,7 +14,7 @@
 			alert("내용을 입력해 주세요.");
 			return false;
 		}
-		alert("수정되었습니다.")
+		alert("등록되었습니다.")
 	}
 	
 	$(function() {
@@ -33,19 +33,15 @@
 <!-- 메뉴 시작 -->
 
 <div class="row" style="padding-left: 15px; width: 700px;">
-	<h1 class="page-header">게시글 수정</h1>
+	<h1 class="page-header">게시글 등록</h1>
 </div>
 
 <div class="row" style="padding-left: 15px; width: 700px;">
 	<div class="panel panel-default">
-		<div class="panel-heading">자주묻는질문 수정 페이지입니다.</div>
+		<div class="panel-heading">자주묻는질문 등록 페이지입니다.</div>
 		<div class="panel-body">
-			<form:form id="faqAdminModify" action="faqAdminModify" method="post" name="joinform"
-				onsubmit="return joinValidation(this)">
+			<form:form id="faqWrite" action="faqWrite" method="post" name="joinform" onsubmit="return joinValidation(this)">
 				
-		<%-- <form:form commandName="goodsModel" action="faqAdminModify" enctype="multipart/form-data" method="post" name="joinform" onsubmit="return validateForm(this)"> --%>	
-				
-				<input type="hidden" id="FAQ_NUMBER" name="FAQ_NUMBER"	value="${map.FAQ_NUMBER}">
 
 				<div class="form-group">
 					<label>카테고리</label>
@@ -68,14 +64,16 @@
 				
 				<div class="form-group">
 					<label>제목</label> <input type="text" class="form-control"
-						id="FAQ_TITLE" name="FAQ_TITLE" value="${map.FAQ_TITLE}"
+						id="FAQ_TITLE" name="FAQ_TITLE" placeholder="제목을 입력하세요" value="${map.FAQ_TITLE}"
 						style="width: 500px;" />
 				</div>
 				<div class="form-group">
 					<label>내용</label> <input type="text" class="form-control"
-						id="FAQ_CONTENT" name="FAQ_CONTENT" value="${map.FAQ_CONTENT}"					style="width: 500px;" /> 
+						id="FAQ_CONTENT" name="FAQ_CONTENT" placeholder="내용을 입력하세요" value="${map.FAQ_CONTENT}"	style="width: 500px;" /> 
 						<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%>
 				</div>
+				
+
 				<%--  <div class="form-group">
                             <label>이미지1</label>
                             <input type="file" class="form-control" id="FAQ_IMAGE1" name="FAQ_IMAGE1" value="${map.FAQ_IMAGE1}" style="width:100px;"/>
@@ -89,7 +87,7 @@
 					<fmt:formatDate value="${map.FAQ_REGDATE}" pattern="YYYY.MM.dd" />
 				</div>
 
-				<button type="submit" class="btn btn-success">수정</button>
+				<button type="submit" class="btn btn-success">등록</button>
 				<button type="reset" class="btn btn-default">초기화</button>
 			</form:form>
 		</div>
