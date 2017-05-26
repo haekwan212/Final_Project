@@ -1,5 +1,9 @@
 package spring.siroragi.cart;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,10 +19,23 @@ public class CartController {
 
 	@Resource(name = "cartService")
 	private CartService cartService;
-
+	
+	//장바구니 리스트 불러오기
 	@RequestMapping(value = "/cart/cartList")
-	public ModelAndView cartList() {
+	public ModelAndView cartList(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		List<Map<String, Object>> cartList=new ArrayList<Map<String, Object>>();
+		
+		HttpSession session=request.getSession();
+		
+		if (session.getAttribute("MEMBER_NUMBER") != null) {
+			commandMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+			cartList=cartService.cartList(commandMap.getMap());
+		}
+		
+		mv.addObject("cartList",cartList);
+		
 		mv.setViewName("cartList");
 		return mv;
 	}
@@ -83,5 +100,7 @@ public class CartController {
 
 		return mv;
 	}
+	
+	
 
 }

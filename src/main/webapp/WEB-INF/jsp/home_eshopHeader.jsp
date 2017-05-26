@@ -25,31 +25,31 @@
 	<link rel="stylesheet" href="/theme/pshp/css/ui.css">
 	-->
 
-	<link rel="stylesheet" href="theme/pshp/css/vendor/jquery-ui.css">
-	<link rel="stylesheet" href="theme/pshp/css/vendor/bootstrap.css">
+	<link rel="stylesheet" href="/SIRORAGI/theme/pshp/css/vendor/jquery-ui.css">
+	<link rel="stylesheet" href="/SIRORAGI/theme/pshp/css/vendor/bootstrap.css">
 	
 
-	<link rel="stylesheet" href="theme/pshp/css/fonts.css">
+	<link rel="stylesheet" href="/SIRORAGI/theme/pshp/css/fonts.css">
 	<link rel="shortcut icon" href="/favicon.ico">
-	<script src="theme/pshp/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="theme/pshp/js/vendor/selector.min.js"></script>
-	<script src="theme/pshp/js/vendor/webfont.min.js"></script>
-	<script src="dist/jquery/jquery-1.11.0.min.js"></script>
-	<script src="dist/jquery/jquery-ui.js"></script>
-	<script src="dist/jquery/jquery-migrate-1.2.1.min.js"></script>
-	<script src="dist/jquery/plugin/jquery.cookie.js"></script>
+	<script src="/SIRORAGI/theme/pshp/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<script src="/SIRORAGI/theme/pshp/js/vendor/selector.min.js"></script>
+	<script src="/SIRORAGI/theme/pshp/js/vendor/webfont.min.js"></script>
+	<script src="/SIRORAGI/dist/jquery/jquery-1.11.0.min.js"></script>
+	<script src="/SIRORAGI/dist/jquery/jquery-ui.js"></script>
+	<script src="/SIRORAGI/dist/jquery/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/SIRORAGI/dist/jquery/plugin/jquery.cookie.js"></script>
 
 	<!-- font-awesome(icon) -->
-	<link href="dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/SIRORAGI/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- owl -->
-	<link rel="stylesheet" href="dist/owl/owl.carousel.css">
-	<link rel="stylesheet" href="dist/owl/owl.theme.default.min.css">
-	<script src="dist/owl/owl.carousel.min.js"></script>
-	<script src="dist/owl/owl.js"></script>
+	<link rel="stylesheet" href="/SIRORAGI/dist/owl/owl.carousel.css">
+	<link rel="stylesheet" href="/SIRORAGI/dist/owl/owl.theme.default.min.css">
+	<script src="/SIRORAGI/dist/owl/owl.carousel.min.js"></script>
+	<script src="/SIRORAGI/dist/owl/owl.js"></script>
 
-	<link rel="stylesheet" href="theme/pshp/css/main.min.css">
-	<link rel="stylesheet" href="theme/pshp/css/ui.css">
+	<link rel="stylesheet" href="/SIRORAGI/theme/pshp/css/main.min.css">
+	<link rel="stylesheet" href="/SIRORAGI/theme/pshp/css/ui.css">
 
 </head>
 <body>
@@ -109,7 +109,7 @@
 		<div class="tier1-group toggle">
 			<div class="tier1-head">
 				<a href="/main/index2">
-					<img src="theme/pshp/img/home_btn_r.png" width="15" height="15" >
+					<img src="/SIRORAGI/theme/pshp/img/home_btn_r.png" width="15" height="15" >
 					<strong class="red">e-shop</strong>
 					<span class="icon icon-"></span>
 				</a>
@@ -205,7 +205,7 @@
 				<span class="button-label sr-only">메뉴 펼침/닫음</span>
 			</button>
 			<a href="/main/index2" class="globalHeader-account-mobile">
-				<img src="theme/pshp/img/home_btn.png" width="20" height="20">
+				<img src="/SIRORAGI/theme/pshp/img/home_btn.png" width="20" height="20">
 				<span class="sr-only">E-shop</span>
 			</a>
 			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
@@ -247,7 +247,7 @@
 
 				<div class="nav-group eshop active">
 					<a href="/main/index2" class="nav-head">
-						<img src="theme/pshp/img/home_btn_r.png" width="15" height="15">
+						<img src="/SIRORAGI/theme/pshp/img/home_btn_r.png" width="15" height="15">
 						<span class="label red">e-shop<span class="border" style="background:red"></span></span>
 						<span class="bullet"></span>
 					</a>
@@ -263,7 +263,7 @@
 
 
 								<li class="nav-head c03">
-									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="theme/pshp/img/category_back.png"></div>
+									<div style="potistion:absolute;margin:-20px 0 -5px 0"><img src="/SIRORAGI/theme/pshp/img/category_back.png"></div>
 									<a href="/SIRORAGI/goods/goodsCategory?category=TOP"><span>top</span></a>
 								</li>
 								<li class="nav-head c04">
@@ -347,7 +347,7 @@
 
 
 
-<script src="dist/js/taxonomy.js"></script>
+<script src="/SIRORAGI/dist/js/taxonomy.js"></script>
 <script>
 $(function(){
 	taxonomy('tid[]',"");
@@ -705,17 +705,17 @@ $(function(){
 <div id="ajaxLoader" class="ajax-loading">
 	<div class="ajaxLoader-mask"></div>
 	<span class="ajaxLoader-spinner">
-		<img src="theme/pshp/img/ajax-loader.gif" width="30" height="30">
+		<img src="/SIRORAGI/theme/pshp/img/ajax-loader.gif" width="30" height="30">
 	</span>
 </div>
-<script src="dist/bootstrap/js/bootstrap.min.js"></script>
-<script src="dist/jquery/plugin/jquery.placeholder.js"></script>
-<script src="dist/js/common.js"></script>
-<script src="dist/js/event.js"></script>
-<script src="theme/pshp/js/event.js"></script>
-<script src="theme/pshp/js/plugins.min.js"></script>
-<script src="theme/pshp/js/main.min.js"></script>
-<script src="theme/pshp/js/vendor/fastclick.min.js"></script>
+<script src="/SIRORAGI/dist/bootstrap/js/bootstrap.min.js"></script>
+<script src="/SIRORAGI/dist/jquery/plugin/jquery.placeholder.js"></script>
+<script src="/SIRORAGI/dist/js/common.js"></script>
+<script src="/SIRORAGI/dist/js/event.js"></script>
+<script src="/SIRORAGI/theme/pshp/js/event.js"></script>
+<script src="/SIRORAGI/theme/pshp/js/plugins.min.js"></script>
+<script src="/SIRORAGI/theme/pshp/js/main.min.js"></script>
+<script src="/SIRORAGI/theme/pshp/js/vendor/fastclick.min.js"></script>
 <script>window.addEventListener('load', function() { FastClick.attach(document.body); }, false);</script>
 
 <script>

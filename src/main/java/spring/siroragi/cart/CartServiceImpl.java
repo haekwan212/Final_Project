@@ -15,6 +15,11 @@ public class CartServiceImpl implements CartService {
 	@Resource(name = "cartDAO")
 	private CartDAO cartDAO;
 
+	// 회원 개인의 장바구니 목록 불러오기(OFF된 상품은 제외)
+	public List<Map<String, Object>> cartList(Map<String, Object> map) throws Exception {
+		return cartDAO.cartList(map);
+	}
+
 	// 장바구니 등록
 	public void cartIn(Map<String, Object> map) throws Exception {
 
@@ -54,11 +59,25 @@ public class CartServiceImpl implements CartService {
 
 	// 로그인시 장바구니 등록
 	public void cartInn(Map<String, Object> map) throws Exception {
-
 		if (cartDAO.confirmCart(map) != null)
 			return;
 		else
 			cartDAO.cartIn(map);
+	}
+
+	// 장바구니 삭제
+	public void deleteMyCart(Map<String, Object> map) throws Exception {
+		cartDAO.deleteCarts(map);
+	}
+
+	// 3일이상된 장바구니 목록 삭제
+	public void deleteCarts(Map<String, Object> map) throws Exception {
+		cartDAO.deleteCarts(map);
+	}
+
+	// 장바구니 수정(옵션변경)
+	public void updateCarts(Map<String, Object> map) throws Exception {
+		cartDAO.updateCarts(map);
 	}
 
 }
