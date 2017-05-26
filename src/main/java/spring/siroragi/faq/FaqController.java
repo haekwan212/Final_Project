@@ -163,7 +163,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView("redirect:/faq/faqList");
 
 		faqService.faqWrite(commandMap.getMap(), request);
-		/* mv.setViewName(); */
+		 //mv.setViewName(); 
 
 		return mv;
 	}

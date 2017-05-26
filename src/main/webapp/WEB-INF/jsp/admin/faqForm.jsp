@@ -127,3 +127,70 @@ function FAQ_CATEGORYChange() {
 </body>
 
 </html>
+
+
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+
+<head>
+<script type="text/javascript">
+function validateForm() {
+    var x = document.forms["joinform"]["FAQ_TITLE"].value;
+    if (x == null || x == "") {
+        alert("제목은 입력해야합니다");
+        return false;
+    }
+}
+</script>
+</head>
+
+
+<!-- 메뉴 시작 -->
+
+<div class="row" style="padding-left:15px;width:900px;">    
+	<h1 class="page-header">자주묻는질문 등록</h1>
+</div>
+
+<div class="row" style="padding-left:15px;width:900px;">
+	<div class="panel panel-default">
+		<div class="panel-heading">자주묻는질문 등록 페이지입니다. 빠짐없이 입력하셔야합니다</div>
+			<div class="panel-body">
+				<form:form commandName="faqForm" action="faqForm" enctype="multipart/form-data" method="post"name="joinform" onsubmit="return validateForm()">	
+						<div class="form-group">
+                            <label>카테고리</label>	                            
+                               <form:select path="faq_category" class="form-control" style="width:initial;" >
+								<form:option value="" label="카테고리" />
+								<form:option value="회원안내" label="회원안내" />
+								<form:option value="배송안내" label="배송안내" />
+								<form:option value="주문결제" label="주문결제" />
+								<form:option value="주문취소/변경" label="주문취소/변경" />
+								<form:option value="교환/반품" label="교환/반품" />
+								<form:option value="환불" label="환불" />
+								<form:option value="상품" label="상품" />
+								<form:option value="A/S" label="A/S" />
+								<form:option value="거래증빙서류안내" label="거래증빙서류안내" />
+								<form:option value="사이트이용안내" label="사이트이용안내" />
+								
+							</form:select>
+                        </div>
+                        <div class="form-group">
+                            <label>제목</label>
+                            <form:input type="text" name="FAQ_TITLE" class="form-control" path="FAQ_TITLE"  placeholder="제목을 입력하세요" style="width:500px;"/>
+                        </div>
+                        <div class="form-group">
+                            <label>내용</label>
+                            <form:input type="text" class="form-control" path="FAQ_CONTENT"  placeholder="내용을 입력해주세요" value="1" style="width:107px;"/>
+                        </div>
+                       
+						<button type="submit" class="btn btn-success">등록</button>
+						<button type="reset" class="btn btn-default">취소</button>					
+				</form:form>
+			</div>
+	</div>
+</div>
+
+
+ --%>

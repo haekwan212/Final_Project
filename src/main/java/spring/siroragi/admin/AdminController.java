@@ -13,26 +13,24 @@ import org.springframework.web.servlet.ModelAndView;
 import spring.kh.siroragi.CommandMap;
 import spring.kh.siroragi.Paging;
 
-
 import spring.siroragi.faq.FaqService;
 
 @Controller
 public class AdminController {
 
-	@Resource
+	@Resource(name = "faqService")
 	private FaqService faqService;
-	
+
 	// 검색, 페이징
-		private int searchNum;
-		private String isSearch;
+	private int searchNum;
+	private String isSearch;
 
-		private int currentPage = 1;
-		private int totalCount;
-		private int blockCount = 7;
-		private int blockPage = 5;
-		private String pagingHtml;
-		private Paging page;
-
+	private int currentPage = 1;
+	private int totalCount;
+	private int blockCount = 7;
+	private int blockPage = 5;
+	private String pagingHtml;
+	private Paging page;
 
 	// 관리자페이지로 이동
 	@RequestMapping(value = "/admin/adminPage")
@@ -40,14 +38,12 @@ public class AdminController {
 		return "adminForm";
 	}
 
-	
-	
-	//////<!---------  FAQ start -------->//////
-	
+	////// <!--------- FAQ start -------->//////
+
 	// FAQ 관리자페이지 이동
 	@RequestMapping(value = "/admin/faqAdmin")
 	public ModelAndView faqList(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		
+
 		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
 				|| request.getParameter("currentPage").equals("0")) {
 			currentPage = 1;
@@ -58,8 +54,6 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		List<Map<String, Object>> list = faqService.faqList(commandMap.getMap());
 
-		
-		
 		isSearch = request.getParameter("isSearch");
 		if (isSearch != null) {
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
@@ -72,7 +66,7 @@ public class AdminController {
 			}
 
 			totalCount = list.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList", searchNum, isSearch);
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqAdmin", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 
 			int lastCount = totalCount;
@@ -89,13 +83,13 @@ public class AdminController {
 			mv.addObject("currentPage", currentPage);
 			mv.addObject("list", list);
 			mv.setViewName("faqAdmin");
-			
+
 			return mv;
 
 		} else {
 			totalCount = list.size();
 
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList");
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqAdmin");
 			pagingHtml = page.getPagingHtml().toString();
 
 			int lastCount = totalCount;
@@ -111,11 +105,29 @@ public class AdminController {
 
 			mv.addObject("list", list);
 			mv.setViewName("faqAdmin");
-			
+
 			return mv;
 		}
 	}
-		
+
+	// FAQ 등록폼
+	// 광고 등록 폼으로 이동
+	@RequestMapping(value = "/admin/faqForm")
+	public String faqForm() {
+		return "faqForm";
+	}
+
+
+	// FAQ 등록
+	@RequestMapping(value = "/admin/faqWrite")
+	public ModelAndView faqWrite(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView();
+
+		faqService.faqWrite(commandMap.getMap(), request);
+		mv.setViewName("redirect:/admin/faqAdmin");
+
+		return mv;
+	}
 
 	// FAQ 수정폼 이동
 	@RequestMapping(value = "/admin/faqAdminModifyForm")
@@ -153,11 +165,7 @@ public class AdminController {
 
 		return mv;
 	}
-	
-	//////<!---------  FAQ end -------->//////
-	
-	
-	
-	
-	
+
+	////// <!--------- FAQ end -------->//////
+
 }

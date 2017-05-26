@@ -122,7 +122,7 @@
 							</div>
 						</div>
 					</div>
-					
+					<a href="/SIRORAGI/admin/faqForm"><button type="button" class="btn btn-outline btn-default">등록</button></a>	
 				</div>
 			</div>
 			<!-- /.table-responsive -->

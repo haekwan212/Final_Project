@@ -21,6 +21,7 @@
 		]]>
 	</select>
 	
+	
 	<!-- 카테고리 별 리스트 불러오기(회원안내) -->
 	<select id="faqList1" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[

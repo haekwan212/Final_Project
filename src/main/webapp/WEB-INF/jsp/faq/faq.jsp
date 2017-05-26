@@ -159,7 +159,7 @@ text-align:center;
 			<nav class="account-nav">
 				<ul>
 					<li class="col-xs-8 col-sm-4 ">
-						<a href="/node/notice">공지사항</a>
+						<a href="/SIRORAGI/notice/noticeList">공지사항</a>
 					</li>
 					<li class="col-xs-8 col-sm-4 ">
 						<a href="/node/event">이벤트</a>
@@ -231,7 +231,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>
 							</li>
@@ -250,7 +250,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>
 							</li>
@@ -269,7 +269,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>
 							</li>
@@ -288,7 +288,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>
 							</li>
@@ -307,7 +307,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 								</div>
 								</div>
 							</li>
@@ -326,7 +326,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 								</div>
 								</div>
 							</li>
@@ -346,7 +346,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>
 							</li>
@@ -366,7 +366,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>
 							</li>
@@ -386,7 +386,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>
 							</li>
@@ -405,7 +405,7 @@ text-align:center;
 								<div class="detail">
 									<div class="answer">
 									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
-									<img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /></p>
+									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>
 							</li>
