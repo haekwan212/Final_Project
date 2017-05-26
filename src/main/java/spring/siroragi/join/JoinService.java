@@ -11,8 +11,8 @@ public interface JoinService {
 	// 회원가입 폼으로 이동
 	// 회원가입시, ID중복체크 폼으로 이동
 
-	// 회원가입시, ID중복체크
-	int checkMember(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	// 이메일인증시, ID중복체크
+	int checkMember(Map<String, Object> map) throws Exception;
 
 	// 회원정보를 DB에 등록(회원가입)
 	void insertMember(Map<String, Object> map, HttpServletRequest request) throws Exception;

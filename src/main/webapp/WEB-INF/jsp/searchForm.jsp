@@ -10,7 +10,7 @@
 <div class="modal-status-possessions modal-possessions">
 	<section class="modal-search" style="height:470px">
 		<div class="section-body">
-			<form action="../store/search">
+			<form action="/SIRORAGI/searchList">
 				<div class="searchStore">
 					<div class="form-group">
 						<input id="input-modal-searchKeyword" name="stxt" class="form-control col-xs-18 col-md-18" required="" placeholder="검색어 입력" autocomplete="off" type="text">	

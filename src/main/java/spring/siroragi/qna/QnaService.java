@@ -8,12 +8,6 @@ public interface QnaService {
 	// Q&A 전체 글 목록 불러오기
 	List<Map<String, Object>> qnaList(Map<String, Object> map) throws Exception;
 
-	// 회원 개인의 Q&A 목록 불러오기
-	List<Map<String, Object>> qnaSearchMember(Map<String, Object> map) throws Exception;
-
-	// 상품에 해당하는 Q&A 목록 불러오기
-	List<Map<String, Object>> qnaSearchGoods(Map<String, Object> map) throws Exception;
-
 	// Q&A 상세보기
 	Map<String, Object> selectQnaDetail(Map<String, Object> map) throws Exception;
 
@@ -41,4 +35,33 @@ public interface QnaService {
 	List<Map<String, Object>> qnalistById2(String id) throws Exception;
 	
 	void updateRepState(Map<String, Object> map) throws Exception;
+}
+
+	// Q&A 수정
+	void qnaModify(Map<String, Object> map) throws Exception;
+
+	// Q&A 삭제
+	void qnaDelete(Map<String, Object> map) throws Exception;
+
+	// 답변 삭제
+	void qnaReplyDelete(Map<String, Object> map) throws Exception;
+
+	void insertModalQna(Map<String, Object> map) throws Exception;
+
+	List<Map<String, Object>> qanlistById(String id) throws Exception;
+
+	// 제목&카테고리 검색
+	List<Map<String, Object>> qnaTitleList(Map<String, Object> map) throws Exception;
+
+	// 아이디&카테고리 검색
+	List<Map<String, Object>> qnaMemberList(Map<String, Object> map) throws Exception;
+
+	// 아이디 검색
+	List<Map<String, Object>> qnaSearchMemberList(Map<String, Object> map) throws Exception;
+
+	// 제목 검색
+	List<Map<String, Object>> qnaSearchTitleList(Map<String, Object> map) throws Exception;
+
+	// Q&A 비밀번호 확인(비회원때문에 필요)
+
 }

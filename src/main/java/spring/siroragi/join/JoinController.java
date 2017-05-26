@@ -67,7 +67,7 @@ public class JoinController {
 		System.out.println("email = " + email);
 		Map.getMap().put("MEMBER_EMAIL", email);
 		
-		int checkNum = joinService.checkMember(Map.getMap(), request);
+		int checkNum = joinService.checkMember(Map.getMap());
 		System.out.println("checkNum="+checkNum);
 		
 		if(checkNum==0)
@@ -89,7 +89,6 @@ public class JoinController {
 		mv.setViewName("joinStep1");
 		
 		System.out.println("오드넘"+authNUm);
-		System.out.println("체크넘"+checkNum + checkNumString);
 		return mv;
 	}
 	
@@ -128,7 +127,7 @@ public class JoinController {
 		String from="siroragi@gmail.com";//보내는메일
 		String to1 = email;
 		
-		String content = "인증번호[ " + authNum +" ]";
+		String content = "인증번호[" + authNum +"]";
 		
 		try{
 			Properties props = new Properties();

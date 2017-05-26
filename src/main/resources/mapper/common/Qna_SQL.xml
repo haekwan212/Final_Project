@@ -8,6 +8,11 @@
 		FROM (select * from goods natural join qna) A WHERE QNA_CATEGORY = '상품문의' AND MEMBER_NUMBER = #{MEMBER_NUMBER}  AND ( QNA_REPSTATE = '답변대기' OR QNA_REPSTATE = '답변완료') 
 		GROUP BY A.QNA_NUMBER, A.GOODS_NUMBER, A.GOODS_NAME, A.GOODS_THUMBNAIL, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_REGDATE, A.QNA_REPSTATE, A.QNA_REPCONTENT, A.QNA_REPDATE ORDER BY QNA_REGDATE DESC
 	]]>
+
+	<select id="qnalistById" parameterType="String" resultType="hashmap">
+    <![CDATA[
+      SELECT * FROM QNA WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
+    ]]>
 	</select>
 	<select id="qnalistByNumber2" parameterType="String" resultType="hashmap">
 	<![CDATA[
@@ -60,4 +65,247 @@
       (QNA_NUMBER_SEQ.NEXTVAL, #{QNA_CATEGORY}, #{GOODS_NUMBER}, #{MEMBER_NUMBER}, #{QNA_PASSWORD}, #{QNA_CONTENT}, SYSDATE, #{QNA_TITLE}, 0, 0, QNA_NUMBER_SEQ.CURRVAL)
    ]]>
 	</insert>
+
+
+<!-- Q&A 전체 글 목록 불러오기 -->
+	<select id="qnaList" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+	select Q.QNA_NUMBER,
+       Q.QNA_CATEGORY,
+       Q.GOODS_NUMBER,
+       Q.MEMBER_NUMBER,
+       Q.QNA_PASSWORD,
+       Q.QNA_CONTENT,
+       Q.QNA_IMAGE1,
+       Q.QNA_IMAGE2,
+       Q.QNA_REGDATE,
+       Q.QNA_HITCOUNT,
+       Q.QNA_RE_LEVEL,
+       Q.QNA_RE_STEP,
+       Q.QNA_TITLE,
+       Q.QNA_REF,
+       M.MEMBER_ID
+       FROM QNA Q, MEMBER M
+       WHERE Q.MEMBER_NUMBER = M.MEMBER_NUMBER
+       ORDER BY QNA_REF DESC, QNA_RE_STEP ASC
+	]]>
+	</select>
+
+	<!-- Q&A 전체 글 목록 불러오기 -->
+	<select id="qnaSearchMemberList" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+	select Q.QNA_NUMBER,
+       Q.QNA_CATEGORY,
+       Q.GOODS_NUMBER,
+       Q.MEMBER_NUMBER,
+       Q.QNA_PASSWORD,
+       Q.QNA_CONTENT,
+       Q.QNA_IMAGE1,
+       Q.QNA_IMAGE2,
+       Q.QNA_REGDATE,
+       Q.QNA_HITCOUNT,
+       Q.QNA_RE_LEVEL,
+       Q.QNA_RE_STEP,
+       Q.QNA_TITLE,
+       Q.QNA_REF,
+       M.MEMBER_ID
+       FROM QNA Q, MEMBER M
+       WHERE Q.MEMBER_NUMBER = M.MEMBER_NUMBER
+        AND M.MEMBER_ID like '%' || #{MEMBER_ID} || '%'
+       ORDER BY QNA_REF DESC, QNA_RE_STEP ASC
+	]]>
+	</select>
+	
+	<select id="qnaSearchTitleList" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+	select Q.QNA_NUMBER,
+       Q.QNA_CATEGORY,
+       Q.GOODS_NUMBER,
+       Q.MEMBER_NUMBER,
+       Q.QNA_PASSWORD,
+       Q.QNA_CONTENT,
+       Q.QNA_IMAGE1,
+       Q.QNA_IMAGE2,
+       Q.QNA_REGDATE,
+       Q.QNA_HITCOUNT,
+       Q.QNA_RE_LEVEL,
+       Q.QNA_RE_STEP,
+       Q.QNA_TITLE,
+       Q.QNA_REF,
+       M.MEMBER_ID
+       FROM QNA Q, MEMBER M
+       WHERE Q.MEMBER_NUMBER = M.MEMBER_NUMBER
+        AND Q.QNA_TITLE like '%' || #{QNA_TITLE} || '%'
+       ORDER BY QNA_REF DESC, QNA_RE_STEP ASC
+	]]>
+	</select>
+
+	<!-- Q&A 카테고리 검색 -->
+	<select id="qnaMemberList" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		select Q.QNA_NUMBER,
+       Q.QNA_CATEGORY,
+       Q.GOODS_NUMBER,
+       Q.MEMBER_NUMBER,
+       Q.QNA_PASSWORD,
+       Q.QNA_CONTENT,
+       Q.QNA_IMAGE1,
+       Q.QNA_IMAGE2,
+       Q.QNA_REGDATE,
+       Q.QNA_HITCOUNT,
+       Q.QNA_RE_LEVEL,
+       Q.QNA_RE_STEP,
+       Q.QNA_TITLE,
+       Q.QNA_REF,
+       M.MEMBER_ID
+       FROM QNA Q, MEMBER M
+       WHERE Q.MEMBER_NUMBER = M.MEMBER_NUMBER
+       AND Q.QNA_CATEGORY = #{QNA_CATEGORY}
+       AND M.MEMBER_ID like '%' || #{MEMBER_ID} || '%'
+       ORDER BY QNA_REF DESC, QNA_RE_STEP ASC
+	]]>
+	</select>
+
+<!-- Q&A 제목 검색 -->
+	<select id="qnaTitleList" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		select Q.QNA_NUMBER,
+       Q.QNA_CATEGORY,
+       Q.GOODS_NUMBER,
+       Q.MEMBER_NUMBER,
+       Q.QNA_PASSWORD,
+       Q.QNA_CONTENT,
+       Q.QNA_IMAGE1,
+       Q.QNA_IMAGE2,
+       Q.QNA_REGDATE,
+       Q.QNA_HITCOUNT,
+       Q.QNA_RE_LEVEL,
+       Q.QNA_RE_STEP,
+       Q.QNA_TITLE,
+       Q.QNA_REF,
+       M.MEMBER_ID
+       FROM QNA Q, MEMBER M
+       WHERE Q.MEMBER_NUMBER = M.MEMBER_NUMBER
+       AND Q.QNA_CATEGORY = #{QNA_CATEGORY}
+       AND Q.QNA_TITLE like '%' || #{QNA_TITLE} || '%'
+       ORDER BY QNA_REF DESC, QNA_RE_STEP ASC
+	]]>
+	</select>
+
+	<!-- Q&A 글 상세보기 -->
+	<select id="selectQnaDetail" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+	select Q.QNA_NUMBER,
+       Q.QNA_CATEGORY,
+       Q.GOODS_NUMBER,
+       Q.MEMBER_NUMBER,
+       Q.QNA_PASSWORD,
+       Q.QNA_CONTENT,
+       Q.QNA_IMAGE1,
+       Q.QNA_IMAGE2,
+       Q.QNA_REGDATE,
+       Q.QNA_HITCOUNT,
+       Q.QNA_RE_LEVEL,
+       Q.QNA_RE_STEP,
+       Q.QNA_TITLE,
+       Q.QNA_REF,
+       M.MEMBER_ID
+       FROM QNA Q, MEMBER M
+       WHERE Q.MEMBER_NUMBER = M.MEMBER_NUMBER
+	AND QNA_NUMBER = #{QNA_NUMBER}
+	]]>
+	</select>
+
+	<!-- Q&A 글 조회수 증가 -->
+	<update id="selectQnaCount" parameterType="hashmap">
+	<![CDATA[
+		UPDATE QNA
+			SET
+		QNA_HITCOUNT = QNA_HITCOUNT + 1
+		WHERE QNA_NUMBER = #{QNA_NUMBER}
+	]]>
+	</update>
+
+	<!-- <insert id="insertQna" parameterType="hashmap"> <![CDATA[ INSERT INTO 
+		QNA ( QNA_NUMBER, QNA_CATEGORY, GOODS_NUMBER, MEMBER_NUMBER, QNA_PASSWORD, 
+		QNA_CONTENT, QNA_IMAGE1, QNA_IMAGE2, QNA_REGDATE, QNA_HITCOUNT, QNA_RE_LEVEL, 
+		QNA_RE_STEP, QNA_TITLE, QNA_REF) VALUES (QNA_NUMBER_SEQ.NEXTVAL, #{QNA_CATEGORY}, 
+		#{GOODS_NUMBER}, #{MEMBER_NUMBER}, #{QNA_PASSWORD}, #{QNA_CONTENT}, #{QNA_IMAGE1}, 
+		#{QNA_IMAGE2}, SYSDATE, 0, #{QNA_RE_LEVEL}, #{QNA_RE_STEP}, #{QNA_TITLE}, 
+		QNA_NUMBER_SEQ.CURRVAL) ]]> </insert> -->
+
+	<insert id="insertQnaReply" parameterType="hashmap">
+		<![CDATA[
+		INSERT INTO QNA (
+			QNA_NUMBER,
+			QNA_CATEGORY,
+			GOODS_NUMBER,
+			MEMBER_NUMBER,
+			QNA_PASSWORD,
+			QNA_CONTENT,
+			QNA_IMAGE1,
+			QNA_IMAGE2,
+			QNA_REGDATE,
+			QNA_HITCOUNT,
+			QNA_RE_LEVEL,
+			QNA_RE_STEP,
+			QNA_TITLE,
+			QNA_REF)
+		VALUES 
+			(QNA_NUMBER_SEQ.NEXTVAL,
+			#{QNA_CATEGORY},
+			#{GOODS_NUMBER},
+			#{MEMBER_NUMBER},
+			#{QNA_PASSWORD},
+			#{QNA_CONTENT},
+			#{QNA_IMAGE1},
+			#{QNA_IMAGE2},
+			SYSDATE,
+			0,
+			#{QNA_RE_LEVEL},
+			#{QNA_RE_STEP},
+			#{QNA_TITLE},
+			#{QNA_REF})
+	]]>
+	</insert>
+
+	<update id="updateReplyStep" parameterType="hashmap">
+		<![CDATA[
+		UPDATE QNA
+		SET
+			QNA_RE_STEP = QNA_RE_STEP + 1
+		WHERE 
+			QNA_REF = #{QNA_REF}
+		AND
+			QNA_RE_STEP > #{QNA_RE_STEP}
+		
+		]]>
+	</update>
+
+	<update parameterType="hashmap" id="qnaModify">
+		<![CDATA[
+		UPDATE QNA
+		SET
+			QNA_TITLE = #{QNA_TITLE},
+			QNA_CONTENT = #{QNA_CONTENT},
+			QNA_IMAGE1 = #{QNA_IMAGE1},
+			QNA_IMAGE2 = #{QNA_IMAGE2}
+		WHERE QNA_NUMBER = #{QNA_NUMBER}
+		]]>
+	</update>
+
+	<delete parameterType="hashmap" id="qnaDelete">
+		<![CDATA[
+		DELETE QNA
+		WHERE QNA_REF = #{QNA_REF}
+		]]>
+	</delete>
+
+	<delete parameterType="hashmap" id="qnaReplyDelete">
+		<![CDATA[
+		DELETE QNA
+		WHERE QNA_NUMBER = #{QNA_NUMBER}
+		]]>
+	</delete>
+
 </mapper>

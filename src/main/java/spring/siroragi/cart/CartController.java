@@ -1,5 +1,9 @@
 package spring.siroragi.cart;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,10 +19,23 @@ public class CartController {
 
 	@Resource(name = "cartService")
 	private CartService cartService;
-
+	
+	//장바구니 리스트 불러오기
 	@RequestMapping(value = "/cart/cartList")
-	public ModelAndView cartList() {
+	public ModelAndView cartList(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		List<Map<String, Object>> cartList=new ArrayList<Map<String, Object>>();
+		
+		HttpSession session=request.getSession();
+		
+		if (session.getAttribute("MEMBER_NUMBER") != null) {
+			commandMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+			cartList=cartService.cartList(commandMap.getMap());
+		}
+		
+		mv.addObject("cartList",cartList);
+		
 		mv.setViewName("cartList");
 		return mv;
 	}
@@ -26,55 +43,64 @@ public class CartController {
 	// 장바구니 등록
 	@RequestMapping(value = "/cart/cartIn")
 	public ModelAndView cartIn(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("cartList");
-		
+
 		HttpSession session = request.getSession();
-		System.out.println("회원번호 : " + session.getAttribute("MEMBER_NO"));
-		
-		int j=0;
-		
-		if (session.getAttribute("MEMBER_NO") != null) {	
-			//로그인 정보가 있으면 DB에 등록
+
+		if (session.getAttribute("MEMBER_NUMBER") != null) {
+			commandMap.put("GOODS_NUMBER", commandMap.get("goodsno"));
+			// 로그인 정보가 있으면 DB에 등록
+			commandMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+
 			cartService.cartIn(commandMap.getMap());
-		} else {	
-			//로그인 정보가 없으면 세션에 저장
+		} else {
+			commandMap.put("GOODS_NUMBER", commandMap.get("goodsno"));
+			// 로그인 정보가 없으면 세션에 저장
 			if (commandMap.get("optno[]") instanceof String) {
-				//카트이름이 이미 세션에 존재하면 다음 숫자로 넘어가야해.
-				String a=(String) commandMap.get("optno[]");
-				String b=(String)commandMap.get("ea[]");
-				System.out.println("되나? : "+new String(a.getBytes("8859_1"), "UTF-8"));
-				String cartGoods[]= a.split("-");
-				session.setAttribute("cartColor0", cartGoods[0]);
-				session.setAttribute("cartSize0", cartGoods[1]);
-				session.setAttribute("cartAmount0", b);
+				// 카트 이름이 이미 세션에 존재하면 다음 숫자로 넘어가야해.
+				String b = (String) commandMap.get("ea[]");
+				String c = (String) commandMap.get("kinds[]");
+				Integer e = Integer.parseInt(commandMap.get("GOODS_NUMBER").toString());
+				
+				for (int i = 0;; i++) {
+					if (session.getAttribute("cartKinds" + i) == null) {
+						session.setAttribute("cartKinds" + i, c);
+						session.setAttribute("cartAmount" + i, b);
+						session.setAttribute("cartGoodsNum"+i, e);
+						break;
+					}
+				}
 			} else {
-				System.out.println(" : " + commandMap.get("optno[]"));
-				String[] a = (String[]) commandMap.get("optno[]");
+				String[] a = (String[]) commandMap.get("kinds[]");
 				String[] b = (String[]) commandMap.get("ea[]");
+				Integer e = Integer.parseInt(commandMap.get("GOODS_NUMBER").toString());
 				for (int i = 1; i < a.length; i++) {
-					System.out.println("optno[] : " + new String(a[i].getBytes("8859_1"), "UTF-8"));
-					System.out.println("ea[] : " + b[i]);
-					String cartGoods[]= a[i].split("-");
-					session.setAttribute("cartColor"+i, cartGoods[0]);
-					session.setAttribute("cartSize"+i, cartGoods[1]);
-					session.setAttribute("cartAmount"+i, b[i]);
+					
+					for (int d = 0; ; d++) {
+						if (session.getAttribute("cartKinds" + d) == null) {
+							session.setAttribute("cartKinds" + d, a[i]);
+							session.setAttribute("cartAmount" + d, b[i]);
+							session.setAttribute("cartGoodsNum"+d, e);
+							break;
+						}
+					}
 				}
 			}
 
 		}
-		
-		for(int i=0;;i++){
-			if(session.getAttribute("cartColor"+i) !=null){
-				System.out.println("color : "+session.getAttribute("cartSize"+i));
-			}
-			else
+
+		for (int i = 0;; i++) {
+			if (session.getAttribute("cartColor" + i) != null) {
+				System.out.println("color : " + session.getAttribute("cartSize" + i));
+			} else
 				break;
 		}
 
-		
 		return mv;
 	}
+	
+	
 
 }

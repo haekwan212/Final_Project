@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
-import spring.kh.siroragi.Paging;
+//import spring.kh.siroragi.Paging;
 
 import spring.siroragi.faq.FaqService;
 
@@ -22,7 +22,7 @@ public class FaqController {
 	private FaqService faqService;
 
 	// 검색, 페이징
-	private int searchNum;
+	/*private int searchNum;
 	private String isSearch;
 
 	private int currentPage = 1;
@@ -30,24 +30,68 @@ public class FaqController {
 	private int blockCount = 7;
 	private int blockPage = 5;
 	private String pagingHtml;
-	private Paging page;
+	private Paging page;*/
+
 
 	// 리스트불러오기(검색)
 	@RequestMapping(value = "/faq/faqList")
 	public ModelAndView faqList(CommandMap commandMap, HttpServletRequest request) throws Exception {
 
-		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+		/*if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
 				|| request.getParameter("currentPage").equals("0")) {
 			currentPage = 1;
 		} else {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		}
+		}*/
 
 		ModelAndView mv = new ModelAndView();
-		List<Map<String, Object>> list = faqService.faqList(commandMap.getMap());
+		
+	/*////////
+			Map<String,Object> map = commandMap.getMap();
+				for(int i=0; i<11; i++){
+					map.put("FAQ_CATEGORY", i);
+				}
+				List<List<Map<String, Object>>> list2 = faqService.faqCategory(commandMap.getMap());
+					for(int i=0; i<11; i++){
+						
+					mv.addObject("list_"+i, list2.get(i));
+					
+					
+				
+					return mv;
+					}
+			//////
+	 	*/				
+				
+		List<Map<String, Object>> list = faqService.faqList(commandMap.getMap()); //Admin Page 전체리스트
+	 
+		List<Map<String, Object>> list1 = faqService.faqList1(commandMap.getMap());  //카테고리별 리스트 
+		List<Map<String, Object>> list2 = faqService.faqList2(commandMap.getMap());
+		List<Map<String, Object>> list3 = faqService.faqList3(commandMap.getMap());
+		List<Map<String, Object>> list4 = faqService.faqList4(commandMap.getMap());
+		List<Map<String, Object>> list5 = faqService.faqList5(commandMap.getMap());
+		List<Map<String, Object>> list6 = faqService.faqList6(commandMap.getMap());
+		List<Map<String, Object>> list7 = faqService.faqList7(commandMap.getMap());
+		List<Map<String, Object>> list8 = faqService.faqList8(commandMap.getMap());
+		List<Map<String, Object>> list9 = faqService.faqList9(commandMap.getMap());
+		List<Map<String, Object>> list10 = faqService.faqList10(commandMap.getMap());
+		
+		
+		mv.addObject("list", list);  //Admin Page 전체리스트
+		
+		mv.addObject("list1", list1);	//카테고리별 리스트
+		mv.addObject("list2", list2);
+		mv.addObject("list3", list3);
+		mv.addObject("list4", list4);
+		mv.addObject("list5", list5);
+		mv.addObject("list6", list6);
+		mv.addObject("list7", list7);
+		mv.addObject("list8", list8);
+		mv.addObject("list9", list9);
+		mv.addObject("list10", list10);
+		
 
-
-		isSearch = request.getParameter("isSearch");
+		/*isSearch = request.getParameter("isSearch");
 		if (isSearch != null) {
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
@@ -95,12 +139,12 @@ public class FaqController {
 			mv.addObject("totalCount", totalCount);
 			mv.addObject("pagingHtml", pagingHtml);
 			mv.addObject("currentPage", currentPage);
-
-			mv.addObject("list", list);
+*/
+			
 			mv.setViewName("/faq/faq");
 			
 			return mv;
-		}
+		//}
 	}
 
 	// 입력폼
@@ -119,7 +163,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView("redirect:/faq/faqList");
 
 		faqService.faqWrite(commandMap.getMap(), request);
-		/*mv.setViewName();*/
+		/* mv.setViewName(); */
 
 		return mv;
 	}
@@ -174,7 +218,6 @@ public class FaqController {
 		return mv;
 
 		// 파일첨부
-
 
 	}
 }

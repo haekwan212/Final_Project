@@ -11,10 +11,9 @@ import spring.kh.siroragi.AbstractDAO;
 public class CartDAO extends AbstractDAO{
 
 	//회원 개인의 장바구니 목록 불러오기(OFF된 상품은 제외)
-	
-	//상품 종류번호 꺼내오기
-	public int findGoodsKinds(Map<String, Object> map) throws Exception{
-		return (int)selectOne("cart.findGoodsKind");
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> cartList(Map<String, Object> map) throws Exception{
+		return selectList("cart.selectMyCart",map);
 	}
 	
 	//장바구니 등록
@@ -22,12 +21,32 @@ public class CartDAO extends AbstractDAO{
 		insert("cart.insertCart",map);
 	}
 	
+	//장바구니에 이미 들어있나 확인
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> confirmCart(Map<String,Object> map) throws Exception{
+		return (Map<String, Object>)selectOne("cart.confirmCart",map);
+	}
+	
+	//이미 장바구니에 들어있으면 수량 하나 증가
+	public void addCartAmount(Map<String,Object> map) throws Exception{
+		update("cart.addAmount",map);
+	}
+	
 	//장바구니 해제(삭제)
+	public void deleteMyCart(Map<String,Object> map) throws Exception{
+		delete("cart.deleteMyCart",map);
+	}
 	
 	//장바구니 카운트
 	
-	//3일이상된 장바구니 목록 삭제
+	//회원의 3일이상된 장바구니 목록 삭제
+	public void deleteCarts(Map<String, Object> map) throws Exception{
+		delete("cart.deleteCarts",map);
+	}
 	
 	//장바구니 수정(옵션변경)
+	public void updateCarts(Map<String, Object> map) throws Exception{
+		update("cart.updateCarts", map);
+	}
 	
 }

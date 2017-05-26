@@ -65,7 +65,7 @@
 	]]>
 	</select>
 	
-	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList0">
+	<select resultType="hashmap" parameterType="hashmap" id="searchMemberId">
 			<![CDATA[
 		SELECT 
 			M.MEMBER_NUMBER,
@@ -80,16 +80,6 @@
 		SUM (P.POINT_POINT) MEMBER_POINT
 		FROM MEMBER M, POINT P
 		WHERE MEMBER_ONOFF= #{onOff}
-			MEMBER_NUMBER,
-			MEMBER_ID,
-			MEMBER_NAME,
-			MEMBER_PHONE,
-			MEMBER_EMAIL,
-			MEMBER_ADDRESS1,
-			MEMBER_ADDRESS2,
-			MEMBER_REGDATE
-		FROM MEMBER
-		WHERE MEMBER_ONOFF='0'
 		AND MEMBER_ID like '%' || #{isSearch} || '%'
 		AND M.MEMBER_NUMBER = P.MEMBER_NUMBER
 		GROUP BY 
@@ -106,7 +96,7 @@
 	]]>
 	</select>
 	
-	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList1">
+	<select resultType="hashmap" parameterType="hashmap" id="searchMemberName">
 			<![CDATA[
 		SELECT 
 			M.MEMBER_NUMBER,
@@ -133,22 +123,11 @@
 			M.MEMBER_ADDRESS2,
 			M.MEMBER_REGDATE,
 			M.MEMBER_DELDATE
-			MEMBER_NUMBER,
-			MEMBER_ID,
-			MEMBER_NAME,
-			MEMBER_PHONE,
-			MEMBER_EMAIL,
-			MEMBER_ADDRESS1,
-			MEMBER_ADDRESS2,
-			MEMBER_REGDATE
-		FROM MEMBER
-		WHERE MEMBER_ONOFF='0'
-		AND MEMBER_ID like '%' || #{isSearch} || '%'
 		ORDER BY MEMBER_NUMBER DESC
 	]]>
 	</select>
 	
-	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList2">
+	<select resultType="hashmap" parameterType="hashmap" id="searchMemberPhone">
 			<![CDATA[
 		SELECT 
 			M.MEMBER_NUMBER,
@@ -175,22 +154,11 @@
 			M.MEMBER_ADDRESS2,
 			M.MEMBER_REGDATE,
 			M.MEMBER_DELDATE
-			MEMBER_NUMBER,
-			MEMBER_ID,
-			MEMBER_NAME,
-			MEMBER_PHONE,
-			MEMBER_EMAIL,
-			MEMBER_ADDRESS1,
-			MEMBER_ADDRESS2,
-			MEMBER_REGDATE
-		FROM MEMBER
-		WHERE MEMBER_ONOFF='0'
-		AND MEMBER_ID like '%' || #{isSearch} || '%'
 		ORDER BY MEMBER_NUMBER DESC
 	]]>
 	</select>
 	
-	<select resultType="hashmap" parameterType="hashmap" id="searchMemberList3">
+	<select resultType="hashmap" parameterType="hashmap" id="searchMemberEmail">
 			<![CDATA[
 		SELECT 
 			M.MEMBER_NUMBER,
@@ -217,17 +185,6 @@
 			M.MEMBER_ADDRESS2,
 			M.MEMBER_REGDATE,
 			M.MEMBER_DELDATE
-			MEMBER_NUMBER,
-			MEMBER_ID,
-			MEMBER_NAME,
-			MEMBER_PHONE,
-			MEMBER_EMAIL,
-			MEMBER_ADDRESS1,
-			MEMBER_ADDRESS2,
-			MEMBER_REGDATE
-		FROM MEMBER
-		WHERE MEMBER_ONOFF='0'
-		AND MEMBER_ID like '%' || #{isSearch} || '%'
 		ORDER BY MEMBER_NUMBER DESC
 	]]>
 	</select>
