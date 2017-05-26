@@ -148,9 +148,6 @@
 	<definition name="review" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/reviewlist.jsp"/>
 	</definition>
-	<definition name="qnalist" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/qnalist.jsp"/>
-	</definition>
 	<definition name="myinfo" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/myinfo.jsp"/>
 	</definition>

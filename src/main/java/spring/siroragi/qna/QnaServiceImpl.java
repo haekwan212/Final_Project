@@ -18,6 +18,28 @@ public class QnaServiceImpl implements QnaService {
 	public List<Map<String, Object>> qnaList(Map<String, Object> map) throws Exception {
 		return qnaDAO.qnaList(map);
 	}
+	
+	@Override
+	public List<Map<String, Object>> qnalistById(String id) throws Exception {
+		return qnaDAO.qnalistById(id);
+	}
+	
+	@Override
+	public List<Map<String, Object>> qnalistById2(String id) throws Exception {
+		return qnaDAO.qnalistById2(id);
+	}
+
+	// 회원 개인의 Q&A 목록 불러오기
+	@Override
+	public List<Map<String, Object>> qnaSearchMember(Map<String, Object> map) throws Exception {
+		return qnaDAO.qnaSearchMember(map);
+	}
+
+	// 상품에 해당하는 Q&A 목록 불러오기
+	@Override
+	public List<Map<String, Object>> qnaSearchGoods(Map<String, Object> map) throws Exception {
+		return qnaDAO.qnaSearchGoods(map);
+	}
 
 	// Q&A 상세보기
 	@Override
@@ -74,6 +96,12 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public void insertModalQna(Map<String, Object> map) throws Exception {
 		qnaDAO.insertModalQna(map);
+	}
+	
+	@Override
+	public void updateRepState(Map<String, Object> map) throws Exception {
+		qnaDAO.updateRepState(map);
+		
 	}
 
 	// 제목&카테고리 검색

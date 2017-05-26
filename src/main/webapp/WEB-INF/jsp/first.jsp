@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<div class="account-qna">
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<div class="account-qna">
 		<section class="qna-past-list account-qna-list section box-shadow">
 			<div class="section-head left border">
 				<h3>진행중인 상품문의</h3>
@@ -52,7 +52,8 @@
 									${qna.QNA_REPSTATE}
 								</td>
 							</tr>
-							<c:if test="${null ne qna.QNA_REPDATE }">
+						<c:choose>
+						<c:when test="${qna.QNA_REPDATE != null}">
 						<tr class="detail end">
 								<td colspan="7">
 									<div class="contents">
@@ -61,14 +62,18 @@
 										</div>
 									</div>
 									<div class="answer">
-									${qna.QNA_REPCONTENT}
-									<div class="info">
+										<p>고객님 안녕하세요!<br>
+저희 제품에 관심을 가져 주셔서 감사드립니다.<br>
+앞면 디자인은 강아지종으로 확인됩니다.<br>
+감사합니다.</p>
+										<div class="info">
 											<p class="date">2017-05-23 10:14:37</p>
 										</div>
 									</div>
 								</td>
 							</tr>
-							</c:if>
+							</c:when>
+							</c:choose>
 						</tbody>
 						</c:forEach>
 						</c:otherwise>
@@ -103,12 +108,12 @@
 							</tr>
 						</thead>
 						<c:choose>
-						<c:when test="${qnalist2 eq null}">
+						<c:when test="${reqnalist eq null}">
 						<tbody>
 						</tbody>
 						</c:when>
 						<c:otherwise>
-						<c:forEach items="${qnalist2}" var="qna">
+						<c:forEach items="${reqnalist }" var="qna">
 						<tbody>
 							<tr class="brief end"><!-- 문의가 종료되었을때, end클래스명 붙여줌 -->
 								<td class="info-img">
@@ -125,26 +130,32 @@
 									${qna.QNA_REGDATE }
 								</td>
 								<td class="date-answer">
-									${qna.QNA_REPDATE }
+									2017-05-23 10:14:37
 								</td>
 								<td class="situation">
-									${qna.QNA_REPSTATE}
+									문의 종료
 								</td>
 							</tr>
 						<tr class="detail end">
 								<td colspan="7">
 									<div class="contents">
 										<div class="description">
-											<p>${qna.QNA_CONTENT }</p>
+											<p>앞에 캐릭터 병아리인가요?</p>
 										</div>
+										description//end
 									</div>
+									contents//end
 									<div class="answer">
 										<p>고객님 안녕하세요!<br>
-										${qna.QNA_REPCONTENT}
+저희 제품에 관심을 가져 주셔서 감사드립니다.<br>
+앞면 디자인은 강아지종으로 확인됩니다.<br>
+감사합니다.</p>
 										<div class="info">
-										<p class="date">2017-05-23 10:14:37</p>
+											<p class="date">2017-05-23 10:14:37</p>
 										</div>
+										info//end
 									</div>
+									answer//end
 								</td>
 							</tr>
 						</tbody>
@@ -195,8 +206,3 @@
 		
 		<!-- asking-list-guide//end -->
 	</div>
-<script>
-$(".account-individual-list tr.brief").click(function(){
-	$(this).next().toggle();
-});	
-</script>
