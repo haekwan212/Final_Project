@@ -28,7 +28,7 @@ public class LoginController {
 
 	@Resource(name = "cartService")
 	private CartService cartService;
-	
+
 	@Resource(name = "loginService")
 	private LoginService loginService;
 
@@ -70,44 +70,38 @@ public class LoginController {
 				session.setAttribute("MEMBER_EMAIL1", sessionEmail[0].toString());
 				session.setAttribute("MEMBER_EMAIL2", sessionEmail[1].toString());
 				// 날짜 포맷 변경
-				if(chk.get("MEMBER_BIRTHDAY") !=null){
-				String date = chk.get("MEMBER_BIRTHDAY").toString();
-				System.out.println(date);
-				SimpleDateFormat original_format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-				SimpleDateFormat new_format = new SimpleDateFormat("yyyyMMdd");
+				if (chk.get("MEMBER_BIRTHDAY") != null) {
+					String date = chk.get("MEMBER_BIRTHDAY").toString();
+					System.out.println(date);
+					SimpleDateFormat original_format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+					SimpleDateFormat new_format = new SimpleDateFormat("yyyyMMdd");
 
-				Date original_date = original_format.parse(date);
-				String new_date = new_format.format(original_date);
+					Date original_date = original_format.parse(date);
+					String new_date = new_format.format(original_date);
 
-				session.setAttribute("MEMBER_BIRTHDAY", new_date);
+					session.setAttribute("MEMBER_BIRTHDAY", new_date);
 				}
-				
+
 				Map<String, Object> cart = new HashMap<String, Object>();
-				
-				//로그인하면 등록기간 3일 이상된 상품 지우기
+
+				// 로그인하면 등록기간 3일 이상된 상품 지우기
 				cart.put("MEMBER_NUMBER", chk.get("MEMBER_NUMBER"));
 				cartService.deleteCarts(cart);
 				cart.remove("MEMBER_NUMBER");
-				
-				
-				//로그인하면 세션에 있던 장바구니 정보 넣기
 
-				for (int i = 0;; i++) {
+				// 로그인하면 세션에 있던 장바구니 정보 넣기
+				if (session.getAttribute("cartSession") != null) {
+					List<Map<String, Object>> cartSession = (List<Map<String, Object>>) session.getAttribute("cartSession");
 
-					if (session.getAttribute("cartKinds" + i) != null) {
+					for (int i = 0; i < cartSession.size(); i++) {
+						cart = cartSession.get(i);
+						System.out.println("장바구니 세션"+i+" : "+cartSession.get(i));
+
 						cart.put("MEMBER_NUMBER", chk.get("MEMBER_NUMBER"));
-						cart.put("GOODS_KINDS_NUMBER", session.getAttribute("cartKinds"+i));
-						cart.put("CART_AMOUNT", session.getAttribute("cartAmount"+i));
-						cart.put("GOODS_NUMBER", session.getAttribute("cartGoodsNum"+i));
-						
-						cartService.cartInn(cart);
-						session.removeAttribute("cartKinds"+i);
-						session.removeAttribute("cartAmount"+i);
-						session.removeAttribute("cartGoodsNum"+i);
-					}else{
-						break;
-					}
 
+						cartService.cartInn(cart);
+					}
+					session.removeAttribute("cartSession");
 				}
 
 				return mv;
