@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -29,15 +30,29 @@ public class MyPageController {
 	@RequestMapping(value="/mypage")
 	public ModelAndView mypageForm(){
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:orderlist");
+		mv.setViewName("mypage");
+		return mv;
+	}
+	@RequestMapping(value="/qna/updateRepState")
+	@ResponseBody
+	public ModelAndView updateRepState(CommandMap commandMap, HttpSession session) throws Exception{
+		String QNA_NUMBER = commandMap.get("QNA_NUMBER").toString();
+		System.out.println("QNA번호="+QNA_NUMBER);
+		qnaService.updateRepState(commandMap.getMap());
+		String m_num = session.getAttribute("MEMBER_NUMBER").toString();
+		List<Map<String, Object>> qnalist = qnaService.qnalistById(m_num);
+		List<Map<String, Object>> qnalist2 = qnaService.qnalistById2(m_num);
+		System.out.println("목록2"+qnalist2.toString());
+		ModelAndView mv = new ModelAndView("first");
+		mv.addObject("qnalist", qnalist);
+		mv.addObject("qnalist2", qnalist2);
 		return mv;
 	}
 	
 	@RequestMapping(value="/orderlist")
 	@ResponseBody
 	public ModelAndView orderlist(){
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("mypage");
+		ModelAndView mv = new ModelAndView("orderlist");
 		return mv;
 	}
 	
@@ -64,13 +79,16 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value="/qna")
+	@ResponseBody
 	public ModelAndView qnalist(HttpSession session) throws Exception{
 		String m_num = session.getAttribute("MEMBER_NUMBER").toString();
-		List<Map<String, Object>> qnalist = qnaService.qanlistById(m_num);
-		System.out.println("목록"+qnalist.toString());
-		ModelAndView mv = new ModelAndView();
+		System.out.println("멤넘 : "+m_num);
+		List<Map<String, Object>> qnalist = qnaService.qnalistById(m_num);
+		List<Map<String, Object>> qnalist2 = qnaService.qnalistById2(m_num);
+		System.out.println("목록2"+qnalist2.toString());
+		ModelAndView mv = new ModelAndView("qnalist");
 		mv.addObject("qnalist", qnalist);
-		mv.setViewName("qnalist");
+		mv.addObject("qnalist2", qnalist2);
 		return mv;
 	}
 	

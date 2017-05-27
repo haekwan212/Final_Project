@@ -88,16 +88,16 @@ function FAQ_CATEGORYChange() {
 					<td>
 						<select name="FAQ_CATEGORY" onchange="FAQ_CATEGORYChange();" size=1>
 						<OPTION value=''>카테고리</OPTION>
-						<OPTION value='1'>회원안내</OPTION>
-						<OPTION value='2'>배송안내</OPTION>
-						<OPTION value='3'>주문결제</OPTION>
-						<OPTION value='4'>주문 취소/변경</OPTION>
-						<OPTION value='5'>교환/반품</OPTION>
-						<OPTION value='6'>환불</OPTION>
-						<OPTION value='7'>상품</OPTION>
-						<OPTION value='8'>A/S</OPTION>
-						<OPTION value='9'>거래증빙서류안내</OPTION>
-						<OPTION value='10'>사이트 이용안내</OPTION>
+						<OPTION value='회원안내'>회원안내</OPTION>
+						<OPTION value='배송안내'>배송안내</OPTION>
+						<OPTION value='주문결제'>주문결제</OPTION>
+						<OPTION value='주문 취소/변경'>주문 취소/변경</OPTION>
+						<OPTION value='교환/반품'>교환/반품</OPTION>
+						<OPTION value='환불'>환불</OPTION>
+						<OPTION value='상품'>상품</OPTION>
+						<OPTION value='A/S'>A/S</OPTION>
+						<OPTION value='거래증빙서류안내'>거래증빙서류안내</OPTION>
+						<OPTION value='사이트 이용안내'>사이트 이용안내</OPTION>
 						 
 						</select>
 						
@@ -114,12 +114,12 @@ function FAQ_CATEGORYChange() {
 				</tr>
 			</tbody>
 		</table>
-		<div id="fileDiv">
+		<!-- <div id="fileDiv">
 			<p> 
 				<input type="file" id="FAQ_IMAGE1" name="FAQ_IMAGE1"><br/><br/>
-				<!-- <input type="file" id="file" name="FAQ_IMAGE2"> -->
+				<input type="file" id="file" name="FAQ_IMAGE2">
 			</p>
-		</div>
+		</div> -->
 		<%-- <c:if test='%{#session.member_id == "admin"}'> --%><a href="#this" class="btn" id="write">작성하기</a><%-- </c:if> --%>
 		<a href="#this" class="btn" id="list">목록으로</a>
 	 </form> 
