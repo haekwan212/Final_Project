@@ -108,7 +108,7 @@
                                     <a href="/SIRORAGI/ad/adList">- 광고</a>
                                 </li>
                                 <li>
-                                    <a href="/SIRORAGI/review/review">- 구매후기</a>
+                                    <a href="/SIRORAGI/review/reviewAdmin">- 구매후기</a>
                                 </li>
                                  <li>
                                     <a href="/SIRORAGI/admin/faqAdmin">- FAQ</a>

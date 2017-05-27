@@ -2,20 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="qna">
-<<<<<<< HEAD
 	<select id="qnalistByNumber" parameterType="String" resultType="hashmap">
 	<![CDATA[
 	  select A.QNA_NUMBER, A.GOODS_NUMBER, A.GOODS_NAME, A.GOODS_THUMBNAIL, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_REGDATE, A.QNA_REPSTATE, A.QNA_REPCONTENT, A.QNA_REPDATE
 		FROM (select * from goods natural join qna) A WHERE QNA_CATEGORY = '상품문의' AND MEMBER_NUMBER = #{MEMBER_NUMBER}  AND ( QNA_REPSTATE = '답변대기' OR QNA_REPSTATE = '답변완료') 
 		GROUP BY A.QNA_NUMBER, A.GOODS_NUMBER, A.GOODS_NAME, A.GOODS_THUMBNAIL, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_REGDATE, A.QNA_REPSTATE, A.QNA_REPCONTENT, A.QNA_REPDATE ORDER BY QNA_REGDATE DESC
 	]]>
-=======
 
 	<select id="qnalistById" parameterType="String" resultType="hashmap">
     <![CDATA[
       SELECT * FROM QNA WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
     ]]>
->>>>>>> 3b7cf3be02e8d33d988b5f9fa5a8cea0381b7d5d
 	</select>
 	<select id="qnalistByNumber2" parameterType="String" resultType="hashmap">
 	<![CDATA[

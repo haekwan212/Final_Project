@@ -66,6 +66,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp"/>
 	</definition>
 	
+	<definition name="reviewAdmin" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/reviewAdmin.jsp" />
+	</definition>
 	
 	<definition name="faqAdmin" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
