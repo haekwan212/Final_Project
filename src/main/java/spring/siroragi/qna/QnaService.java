@@ -23,19 +23,13 @@ public interface QnaService {
 	void insertQnaReply(Map<String, Object> map) throws Exception;
 	//카테고리로 리스트 불러오기
 	List<Map<String, Object>> qnaCategoryList(Map<String, Object> map) throws Exception;
-	//멤버리스트로 검색
-	List<Map<String, Object>> qnaMemberList(Map<String, Object> map) throws Exception;
-	//qna 수정
-	void qnaModify(Map<String, Object> map) throws Exception;
-	//qna 팝업창에서 정보 입력
-	void insertModalQna(Map<String, Object> map) throws Exception;
-		
+	
 	List<Map<String, Object>> qnalistById(String id) throws Exception;
 
 	List<Map<String, Object>> qnalistById2(String id) throws Exception;
 	
 	void updateRepState(Map<String, Object> map) throws Exception;
-}
+
 
 	// Q&A 수정
 	void qnaModify(Map<String, Object> map) throws Exception;

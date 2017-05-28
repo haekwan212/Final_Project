@@ -73,12 +73,6 @@ public class QnaDAO extends AbstractDAO {
 		update("qna.updateRepState", map);
 	}
 
-
-	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> qnalistById(String MEMBER_NUMBER) throws Exception {
-		return (List<Map<String, Object>>) selectList("qna.qnalistById", MEMBER_NUMBER);
-	}
-
 	public void insertModalQna(Map<String, Object> map) throws Exception {
 		insert("qna.insertModalQna", map);
 	}

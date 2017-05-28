@@ -79,7 +79,7 @@ public class CartServiceImpl implements CartService {
 
 	// 장바구니 삭제
 	public void deleteMyCart(Map<String, Object> map) throws Exception {
-		cartDAO.deleteCarts(map);
+		cartDAO.deleteMyCart(map);
 	}
 
 	// 3일이상된 장바구니 목록 삭제

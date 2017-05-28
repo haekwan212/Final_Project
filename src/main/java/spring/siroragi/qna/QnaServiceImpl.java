@@ -29,18 +29,6 @@ public class QnaServiceImpl implements QnaService {
 		return qnaDAO.qnalistById2(id);
 	}
 
-	// 회원 개인의 Q&A 목록 불러오기
-	@Override
-	public List<Map<String, Object>> qnaSearchMember(Map<String, Object> map) throws Exception {
-		return qnaDAO.qnaSearchMember(map);
-	}
-
-	// 상품에 해당하는 Q&A 목록 불러오기
-	@Override
-	public List<Map<String, Object>> qnaSearchGoods(Map<String, Object> map) throws Exception {
-		return qnaDAO.qnaSearchGoods(map);
-	}
-
 	// Q&A 상세보기
 	@Override
 	public Map<String, Object> selectQnaDetail(Map<String, Object> map) throws Exception {
@@ -126,6 +114,12 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public List<Map<String, Object>> qnaSearchTitleList(Map<String, Object> map) throws Exception {
 		return qnaDAO.qnaSearchTitleList(map);
+	}
+
+	@Override
+	public List<Map<String, Object>> qnaCategoryList(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	// Q&A 비밀번호 확인(비회원때문에 필요)

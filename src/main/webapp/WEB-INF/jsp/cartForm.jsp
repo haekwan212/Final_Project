@@ -84,10 +84,10 @@
 										<tr>
 											<td>
 											<c:if test="${!empty sessionScope.MEMBER_ID}">
-											<input type="checkbox" name="CART_NUMBER" value="${cartList.CART_NUMBER}">
+											<input type="checkbox" name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
 											</c:if>
 											<c:if test="${empty sessionScope.MEMBER_ID}">
-											<input type="checkbox" name="CART_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
+											<input type="checkbox" name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
 											</c:if>
 											</td>
 											<td class="info-img"><a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${cartList.GOODS_NUMBER }"><img
@@ -95,8 +95,8 @@
 													goodsno="${cartList.GOODS_NUMBER }"
 													src="/SIRORAGI/file/goodsFile/${cartList.GOODS_THUMBNAIL}"
 													width="167" class="img-responsive"></a></td>
-											<td class="info-caption"><strong class="brand">팬콧</strong>
-												<em class="name">${cartList.GOODS_NAME}</em>
+											<td class="info-caption"><strong class="brand">SIRORAGI</strong>
+												<em class="name">${cartList.GOODS_NAME}/${cartList.GOODS_KINDS_NUMBER}</em>
 												<div class="option">
 													<em>색상:${cartList.GOODS_COLOR} / 사이즈:${cartList.GOODS_SIZE} / ${cartList.CART_AMOUNT}개</em> <!-- <em>사이즈:XS / 1개</em> -->
 													<c:choose>
@@ -117,7 +117,7 @@
 													</c:choose>
 													
 												</div></td>
-											<!-- 쿠폰다운로드 부분은 payment페이지에서 삭제 -->
+											<!-- 쿠폰다운로드 부분은 payment페이지에서  -->
 											
 											<c:if test="${cartList.GOODS_DCPRICE eq null}">
 												<td class="payment"><span>${cartList.GOODS_PRICE }원</span></td>
@@ -138,12 +138,12 @@
 											</td>
 											<td class="delete">
 											<c:if test="${!empty sessionScope.MEMBER_ID}">
-											<a href="/SIRORAGI/cartDelete?CART_NUMBER=${cartList.CART_NUMBER }"
+											<a href="/SIRORAGI/cartDelete?GOODS_KINDS_NUMBER=${cartList.GOODS_KINDS_NUMBER }"
 												class="button button-dimmed" onClick='return confirm("정말로 장바구니를 삭제하시겠습니까?");'> <span class="button-label">삭제</span>
 											</a>
 											</c:if>
 											<c:if test="${empty sessionScope.MEMBER_ID}">
-											<a href="/SIRORAGI/cartDelete?CART_NUMBER=${cartList.GOODS_KINDS_NUMBER }"
+											<a href="/SIRORAGI/cartDelete?GOODS_KINDS_NUMBER=${cartList.GOODS_KINDS_NUMBER }"
 												class="button button-dimmed"> <span class="button-label">삭제</span>
 											</a>
 											</c:if>
@@ -377,15 +377,15 @@
 
 <script>
 $(".btn-checked-all").click(function(){
-	$(".order-shoppingBag input[name='CART_NUMBER']").not(":checked").trigger("click");
+	$(".order-shoppingBag input[name='GOODS_KINDS_NUMBER']").not(":checked").trigger("click");
 });
 
 $(".btn-unchecked-all").click(function(){
-	$(".order-shoppingBag input[name='CART_NUMBER']:checked").trigger("click");
+	$(".order-shoppingBag input[name='GOODS_KINDS_NUMBER']:checked").trigger("click");
 });
 
 $("form[name=fmCart]").submit(function(){
-	if (!$(".order-shoppingBag input[name='CART_NUMBER']").is(":checked")){
+	if (!$(".order-shoppingBag input[name='GOODS_KINDS_NUMBER']").is(":checked")){
 		alert("삭제하실 상품을 선택해주세요");
 		return false;
 	}

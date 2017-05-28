@@ -246,21 +246,32 @@ public class CartController {
 		HttpSession session = request.getSession();
 		List<Map<String, Object>> cartSession = new ArrayList<Map<String, Object>>();
 		Map<String, Object> cartMap = new HashMap<String, Object>();
-		System.out.println("MAP1 : "+commandMap);
-		System.out.println("MAP2 : "+commandMap.get("CART_NUMBER"));
 		
-		if (session.getAttribute("MEMBER_NUMBER") != null) {
-			
+		if (session.getAttribute("MEMBER_NUMBER") != null) {	//로그인 했을 때 장바구니 삭제
+			if (commandMap.get("GOODS_KINDS_NUMBER") instanceof String){
+				cartMap = new HashMap<String, Object>();
+				cartMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+				cartMap.put("GOODS_KINDS_NUMBER", commandMap.get("GOODS_KINDS_NUMBER"));
+				cartService.deleteMyCart(cartMap);
+			} else{
+				String[] a = (String[]) commandMap.get("GOODS_KINDS_NUMBER");
+				for (int j=0; j<a.length;j++) {
+					cartMap = new HashMap<String, Object>();
+					cartMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+					cartMap.put("GOODS_KINDS_NUMBER", a[j]);
+					cartService.deleteMyCart(cartMap);
+				}
+			}
 		} else {
-			if (commandMap.get("CART_NUMBER") instanceof String) {
+			if (commandMap.get("GOODS_KINDS_NUMBER") instanceof String) {
 				cartSession = (List<Map<String, Object>>) session.getAttribute("cartSession");
 				for (int i = 0; i < cartSession.size(); i++) {
-					if (cartSession.get(i).get("GOODS_KINDS_NUMBER").equals(commandMap.get("CART_NUMBER"))) {
+					if (cartSession.get(i).get("GOODS_KINDS_NUMBER").equals(commandMap.get("GOODS_KINDS_NUMBER"))) {
 						cartSession.remove(i);
 					}
 				}
 			} else {
-				String[] a = (String[]) commandMap.get("CART_NUMBER");
+				String[] a = (String[]) commandMap.get("GOODS_KINDS_NUMBER");
 				for (int j=0; j<a.length;j++) {
 					cartSession = (List<Map<String, Object>>) session.getAttribute("cartSession");
 					for (int i = 0; i < cartSession.size(); i++) {

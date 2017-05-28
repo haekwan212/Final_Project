@@ -92,7 +92,7 @@
 	<!-- cart 해제 -->
 	<delete id="deleteMyCart" parameterType="hashmap">
 		<![CDATA[
-			DELETE FROM CART WHERE CART_NUMBER=#{CART_NUMBER}
+			DELETE FROM CART WHERE MEMBER_NUMBER=#{MEMBER_NUMBER} AND GOODS_KINDS_NUMBER=#{GOODS_KINDS_NUMBER}
 		]]>
 	</delete>
 
