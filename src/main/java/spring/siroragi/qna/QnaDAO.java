@@ -72,13 +72,6 @@ public class QnaDAO extends AbstractDAO {
 	public void updateRepState(Map<String, Object> map) throws Exception{
 		update("qna.updateRepState", map);
 	}
-
-
-	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> qnalistById(String MEMBER_NUMBER) throws Exception {
-		return (List<Map<String, Object>>) selectList("qna.qnalistById", MEMBER_NUMBER);
-	}
-
 	public void insertModalQna(Map<String, Object> map) throws Exception {
 		insert("qna.insertModalQna", map);
 	}
@@ -102,6 +95,9 @@ public class QnaDAO extends AbstractDAO {
 	public List<Map<String, Object>> qnaSearchTitleList(Map<String, Object> map) throws Exception {
 		return sqlSession.selectList("qna.qnaSearchTitleList", map);
 	}
-
-	// Q&A 비밀번호 확인(비회원때문에 필요)
+	//qna 새글 알람
+	@SuppressWarnings(value="unchecked")
+	public int qnaNewAlarm(Map<String, Object> map) throws Exception{
+		return (int)selectOne("qna.qnaNewAlarm", map);
+	}
 }

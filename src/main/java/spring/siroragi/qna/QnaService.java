@@ -21,10 +21,6 @@ public interface QnaService {
 
 	// Q&A에 답변달기
 	void insertQnaReply(Map<String, Object> map) throws Exception;
-	//카테고리로 리스트 불러오기
-	List<Map<String, Object>> qnaCategoryList(Map<String, Object> map) throws Exception;
-	//멤버리스트로 검색
-	List<Map<String, Object>> qnaMemberList(Map<String, Object> map) throws Exception;
 	//qna 수정
 	void qnaModify(Map<String, Object> map) throws Exception;
 	//qna 팝업창에서 정보 입력
@@ -35,18 +31,12 @@ public interface QnaService {
 	List<Map<String, Object>> qnalistById2(String id) throws Exception;
 	
 	void updateRepState(Map<String, Object> map) throws Exception;
-}
-
 	// Q&A 수정
-	void qnaModify(Map<String, Object> map) throws Exception;
-
 	// Q&A 삭제
 	void qnaDelete(Map<String, Object> map) throws Exception;
 
 	// 답변 삭제
 	void qnaReplyDelete(Map<String, Object> map) throws Exception;
-
-	void insertModalQna(Map<String, Object> map) throws Exception;
 
 	List<Map<String, Object>> qanlistById(String id) throws Exception;
 
@@ -62,6 +52,8 @@ public interface QnaService {
 	// 제목 검색
 	List<Map<String, Object>> qnaSearchTitleList(Map<String, Object> map) throws Exception;
 
-	// Q&A 비밀번호 확인(비회원때문에 필요)
+	List<Map<String, Object>> qnaSearchMember(Map<String, Object> map) throws Exception;
+
+	int qnaNewAlarm(Map<String, Object> map) throws Exception;
 
 }

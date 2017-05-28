@@ -56,11 +56,6 @@ public class QnaController {
 		mv.setViewName("redirect:/goodsDetail?GOODS_NUMBER=" + commandMap.get("GOODS_NUMBER").toString());
 		return mv;
 	}
-	
-
-	
-	@RequestMapping(value="/qna/qnaWrite")
-	public ModelAndView qnaModify(CommandMap commandMap, HttpServletRequest request) throws Exception {
 
 	// Q&A 전체 글 목록 불러오기
 	@RequestMapping(value = "/qna/qnaList")
@@ -292,84 +287,6 @@ public class QnaController {
 		mv.setViewName("redirect:/qna/qnaList");
 
 		return mv;
-	}
-
-	// Q&A 수정
-	@RequestMapping(value = "/qna/qnaModify")
-	public ModelAndView qnaModify(CommandMap commandMap, HttpServletRequest request) throws Exception {
-
-		ModelAndView mv = new ModelAndView();
-
-		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-		
-		String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\qnaFile\\";
-
-		String image1 = null;
-		String image2 = null;
-		
-		if (request.getParameter("QNA_IMAGE3") != null && request.getParameter("QNA_IMAGE4").isEmpty()) {
-			image1 = request.getParameter("QNA_IMAGE3");
-		}
-		if (request.getParameter("QNA_IMAGE4") != null && request.getParameter("QNA_IMAGE3").isEmpty()) {
-			image1 = request.getParameter("QNA_IMAGE4");
-		}
-		if (request.getParameter("QNA_IMAGE3") != null && request.getParameter("QNA_IMAGE4") != null) {
-			image1 = request.getParameter("QNA_IMAGE3");
-			image2 = request.getParameter("QNA_IMAGE4");
-
-			File imageFile1 = new File(filePath + image1);
-			File imageFile2 = new File(filePath + image2);
-
-			System.out.println(imageFile1.isFile());
-			System.out.println(imageFile2.isFile());
-
-			if (imageFile1.isFile()) {
-				imageFile1.delete();
-			}
-			if (imageFile2.isFile()) {
-				imageFile2.delete();
-			}
-		}
-
-		MultipartFile QNA_IMAGE1 = multipartRequest.getFile("QNA_IMAGE1");
-		MultipartFile QNA_IMAGE2 = multipartRequest.getFile("QNA_IMAGE2");
-
-		commandMap.put("QNA_IMAGE1", QNA_IMAGE1.getOriginalFilename());
-		commandMap.put("QNA_IMAGE2", QNA_IMAGE2.getOriginalFilename());
-
-		System.out.println("adModify : " + commandMap.getMap());
-
-		qnaService.qnaModify(commandMap.getMap());
-
-		String fileName1 = QNA_IMAGE1.getOriginalFilename();
-		String fileName2 = QNA_IMAGE2.getOriginalFilename();
-
-		File file1 = new File(filePath + fileName1);
-		File file2 = new File(filePath + fileName2);
-
-		if (file1.exists() == false) {
-			file1.mkdirs();
-		}
-		if (file2.exists() == false) {
-			file2.mkdirs();
-		}
-
-		if (!multipartRequest.getFile("QNA_IMAGE1").isEmpty() && multipartRequest.getFile("QNA_IMAGE2").isEmpty()) {
-			QNA_IMAGE1.transferTo(file1);
-		}
-		if (multipartRequest.getFile("QNA_IMAGE1").isEmpty() && !multipartRequest.getFile("QNA_IMAGE2").isEmpty()) {
-			QNA_IMAGE2.transferTo(file2);
-		}
-		if (!multipartRequest.getFile("QNA_IMAGE1").isEmpty() && !multipartRequest.getFile("QNA_IMAGE2").isEmpty()) {
-			QNA_IMAGE1.transferTo(file1);
-			QNA_IMAGE2.transferTo(file2);
-
-		}
-
-		mv.setViewName("redirect:/qna/qnaList");
-
-		return mv;
-
 	}
 
 	// Q&A 삭제

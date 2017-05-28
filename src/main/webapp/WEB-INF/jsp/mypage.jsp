@@ -21,8 +21,6 @@ function gg(){
 		type : "get",
 		data: {"QNA_NUMBER":qna_num},
 		success:function(data){
-			$("#account-contentsWrap").html(data);
-			alert(data);
 		}
 	});}
 };
