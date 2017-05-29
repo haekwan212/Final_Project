@@ -27,17 +27,66 @@ public class CommonController {
 	@RequestMapping(value = "/main")
 	public ModelAndView list(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		
+		Calendar today = Calendar.getInstance();
+		Date d = new Date(today.getTimeInMillis());
+		
 		//commonService.goodsSale(commandMap.getMap());
 		// Top
 		List<Map<String, Object>> listByTop = commonService.listByTop(commandMap.getMap());
+		for(int i=0; i<listByTop.size();i++){
+			if(listByTop.get(i).get("GOODS_SALEDATE")!=null && listByTop.get(i).get("GOODS_DCPRICE") != null){
+				Date dDay = (Date) listByTop.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					listByTop.get(i).remove("GOODS_SALEDATE");
+					listByTop.get(i).remove("GOODS_DCPRICE");
+				}
+			}
+		}
 		// Outer
 		List<Map<String, Object>> listByOut = commonService.listByOut(commandMap.getMap());
+		for(int i=0; i<listByOut.size();i++){
+			if(listByOut.get(i).get("GOODS_SALEDATE")!=null && listByOut.get(i).get("GOODS_DCPRICE") != null){
+				Date dDay = (Date) listByOut.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					listByOut.get(i).remove("GOODS_SALEDATE");
+					listByOut.get(i).remove("GOODS_DCPRICE");
+				}
+			}
+		}
 		// pants
 		List<Map<String, Object>> listByPan = commonService.listByPan(commandMap.getMap());
+		for(int i=0; i<listByPan.size();i++){
+			if(listByPan.get(i).get("GOODS_SALEDATE")!=null && listByPan.get(i).get("GOODS_DCPRICE") != null){
+				Date dDay = (Date) listByPan.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					listByPan.get(i).remove("GOODS_SALEDATE");
+					listByPan.get(i).remove("GOODS_DCPRICE");
+				}
+			}
+		}
 		//ACC
 		List<Map<String, Object>> listByAcc = commonService.listByAcc(commandMap.getMap());
+		for(int i=0; i<listByAcc.size();i++){
+			if(listByAcc.get(i).get("GOODS_SALEDATE")!=null && listByAcc.get(i).get("GOODS_DCPRICE") != null){
+				Date dDay = (Date) listByAcc.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					listByAcc.get(i).remove("GOODS_SALEDATE");
+					listByAcc.get(i).remove("GOODS_DCPRICE");
+				}
+			}
+		}
 		//SHOES
 		List<Map<String, Object>> listByShoes = commonService.listByShoes(commandMap.getMap());
+		for(int i=0; i<listByShoes.size();i++){
+			if(listByShoes.get(i).get("GOODS_SALEDATE")!=null && listByShoes.get(i).get("GOODS_DCPRICE") != null){
+				Date dDay = (Date) listByShoes.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					listByShoes.get(i).remove("GOODS_SALEDATE");
+					listByShoes.get(i).remove("GOODS_DCPRICE");
+				}
+			}
+		}
 
 		mv.addObject("listByTop", listByTop);
 		mv.addObject("listByOut", listByOut);
