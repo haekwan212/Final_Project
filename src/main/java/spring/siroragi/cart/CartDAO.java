@@ -15,6 +15,11 @@ public class CartDAO extends AbstractDAO{
 	public List<Map<String, Object>> cartList(Map<String, Object> map) throws Exception{
 		return selectList("cart.selectMyCart",map);
 	}
+	//세션에서 장바구니 목록 정보 불러오기
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> sessionCartList(Map<String, Object> map) throws Exception{
+		return (Map<String, Object>) selectOne("cart.sessionCartList",map);
+	}
 	
 	//장바구니 등록
 	public void cartIn(Map<String,Object> map) throws Exception{
@@ -27,9 +32,14 @@ public class CartDAO extends AbstractDAO{
 		return (Map<String, Object>)selectOne("cart.confirmCart",map);
 	}
 	
-	//이미 장바구니에 들어있으면 수량 하나 증가
-	public void addCartAmount(Map<String,Object> map) throws Exception{
-		update("cart.addAmount",map);
+	//장바구니 옵션에서 해당 상품에 대한 정보 불러오기
+	@SuppressWarnings("unchecked")
+	public Map<String,Object> selectOption(Map<String, Object> map) throws Exception{
+		return (Map<String, Object>) selectOne("cart.selectOption",map);
+	}
+	@SuppressWarnings("unchecked")
+	public Map<String,Object> sessionOption(Map<String, Object> map) throws Exception{
+		return (Map<String, Object>) selectOne("cart.sessionOption",map);
 	}
 	
 	//장바구니 해제(삭제)

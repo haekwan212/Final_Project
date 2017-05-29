@@ -20,6 +20,10 @@ public class CartServiceImpl implements CartService {
 		return cartDAO.cartList(map);
 	}
 
+	public Map<String, Object> sessionCartList(Map<String, Object> map) throws Exception {
+		return cartDAO.sessionCartList(map);
+	}
+
 	// 장바구니 등록
 	public void cartIn(Map<String, Object> map) throws Exception {
 
@@ -36,7 +40,7 @@ public class CartServiceImpl implements CartService {
 				cart.put("GOODS_KINDS_NUMBER", a[i]);
 
 				if (cartDAO.confirmCart(cart) != null)
-					cartDAO.addCartAmount(cartDAO.confirmCart(cart));
+					return;
 				else
 					cartDAO.cartIn(cart);
 			}
@@ -65,9 +69,17 @@ public class CartServiceImpl implements CartService {
 			cartDAO.cartIn(map);
 	}
 
+	// 장바구니 옵션에서 해당 상품에 대한 정보 불러오기
+	public Map<String, Object> selectOption(Map<String, Object> map) throws Exception {
+		return cartDAO.selectOption(map);
+	}
+	public Map<String,Object> sessionOption(Map<String, Object> map) throws Exception{
+		return cartDAO.sessionOption(map);
+	}
+
 	// 장바구니 삭제
 	public void deleteMyCart(Map<String, Object> map) throws Exception {
-		cartDAO.deleteCarts(map);
+		cartDAO.deleteMyCart(map);
 	}
 
 	// 3일이상된 장바구니 목록 삭제

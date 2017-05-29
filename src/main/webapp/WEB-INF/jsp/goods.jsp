@@ -29,7 +29,7 @@
 
 	<form name="fmOrder">
 		<input type="hidden" name="mode"> <input type="hidden"
-			name="goodsno" value="1491899644">
+			name="goodsno" value="${goodsBasic.GOODS_NUMBER }">
 
 		<div class="product-view-main-sub row">
 			<div class="col-lg-24">
@@ -39,7 +39,8 @@
 							<div class="thumbnail">
 								<img
 									img_layer="/SIRORAGI/file/goodsFile/${goodsBasic.GOODS_THUMBNAIL}"
-									goodsno="${goodsBasic.GOODS_NUMBER }" src="/SIRORAGI/file/goodsFile/${goodsBasic.GOODS_THUMBNAIL}"
+									goodsno="${goodsBasic.GOODS_NUMBER }"
+									src="/SIRORAGI/file/goodsFile/${goodsBasic.GOODS_THUMBNAIL}"
 									width="500" class="img-responsive">
 							</div>
 							<!-- thumbnail//end -->
@@ -175,14 +176,16 @@
 													</div>
 													<select id="option" onchange="setOption(this)">
 														<option value="">옵션 선택</option>
-														<c:forEach var="goodsDetail" items="${goodsDetail}"	varStatus="stat">
+														<c:forEach var="goodsDetail" items="${goodsDetail}"
+															varStatus="stat">
 															<c:if test="${goodsDetail.GOODS_AMOUNT ne 0}">
 																<c:if test="${goodsBasic.GOODS_DCPRICE ne null }">
 																	<option
 																		value="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																		optnm="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																		stock="${goodsDetail.GOODS_AMOUNT }"
-																		price="${goodsBasic.GOODS_DCPRICE }">
+																		price="${goodsBasic.GOODS_DCPRICE }"
+																		kinds="${goodsDetail.GOODS_KINDS_NUMBER }">
 																		${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE }
 																		(${goodsDetail.GOODS_AMOUNT }개)</option>
 																</c:if>
@@ -191,7 +194,8 @@
 																		value="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																		optnm="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																		stock="${goodsDetail.GOODS_AMOUNT }"
-																		price="${goodsBasic.GOODS_PRICE }">
+																		price="${goodsBasic.GOODS_PRICE }"
+																		kinds="${goodsDetail.GOODS_KINDS_NUMBER }">
 																		${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE }
 																		(${goodsDetail.GOODS_AMOUNT }개)</option>
 																</c:if>
@@ -200,7 +204,8 @@
 																<option
 																	value="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
 																	optnm="${goodsDetail.GOODS_COLOR }-${goodsDetail.GOODS_SIZE }"
-																	stock="0" price="0" disabled="">
+																	stock="0" price="0" disabled=""
+																	kinds="${goodsDetail.GOODS_KINDS_NUMBER }">
 																	${goodsDetail.GOODS_COLOR } - ${goodsDetail.GOODS_SIZE }
 																	(품절)</option>
 															</c:if>
@@ -229,13 +234,22 @@
 														$("#option").get(0).selectedIndex = 0;
 														return;
 													}
-													var optno = $("#option option:selected").val();
-													if (!optno || in_array(optno,r_optno)) return;
-													var li = "<li><b>" + $("#option option:selected").attr("optnm") + "</b><input type='hidden' name='optno[]' value='" + optno + "'><input type='hidden' class='mstock' value='" + $("option:selected",$(obj)).attr("stock") + "'><input type='text' name='ea[]' value='1' class='input_ea' size='2' maxlength='3'> <span class='ea'><a class='btn-ea-up'><img src='/SIRORAGI/theme/pshp/img/btn_num_up.gif' alt='' /></a><a class='btn-ea-dn'><img src='/SIRORAGI/theme/pshp/img/btn_num_down.gif' alt='' /></a></span><span class='price'>" + comma($("option:selected",$(obj)).attr("price")) + "원</span><a href='#' optno='" + optno + "' class='btn-remove'><img src='/SIRORAGI/theme/pshp/img/btn_close.gif' alt='' /></a></li>";
+													var optno = $(
+															"#option option:selected")
+															.val();
+													if (!optno
+															|| in_array(optno,
+																	r_optno))
+														return;
+													var li = "<li><b>" + $("#option option:selected").attr("optnm") + "</b><input type='hidden' name='optno[]' value='" + optno + "'><input type='hidden' name='kinds[]' value='" + $("option:selected",$(obj)).attr("kinds") + "'><input type='hidden' class='mstock' value='" + $("option:selected",$(obj)).attr("stock") + "'><input type='text' name='ea[]' value='1' class='input_ea' size='2' maxlength='3'> <span class='ea'><a class='btn-ea-up'><img src='/SIRORAGI/theme/pshp/img/btn_num_up.gif' alt='' /></a><a class='btn-ea-dn'><img src='/SIRORAGI/theme/pshp/img/btn_num_down.gif' alt='' /></a></span><span class='price'>" + comma($("option:selected",$(obj)).attr("price")) + "원</span><a href='#' optno='" + optno + "' class='btn-remove'><img src='/SIRORAGI/theme/pshp/img/btn_close.gif' alt='' /></a></li>";
 													$("#optionbox").append(li);
 													r_optno.push(optno);
-													totprice += parseInt($("option:selected",$(obj)).attr("price"));
-													$("#totprice").html(comma(totprice));
+													totprice += parseInt($(
+															"option:selected",
+															$(obj)).attr(
+															"price"));
+													$("#totprice").html(
+															comma(totprice));
 												}
 												function chkSoldout(obj) {
 													if (obj.options[obj.selectedIndex].stock == "0") {
@@ -645,7 +659,7 @@
 				var fm = document.fmOrder;
 				fm.mode.value = mode;
 				fm.target = "_self";
-				fm.action = "../order/cart";
+				fm.action = "/SIRORAGI/cart/cartIn";
 				//if (mode=="wishlist") fm.action = "../mypage/wishlist";
 				fm.submit();
 

@@ -21,8 +21,6 @@ function gg(){
 		type : "get",
 		data: {"QNA_NUMBER":qna_num},
 		success:function(data){
-			$("#account-contentsWrap").html(data);
-			alert(data);
 		}
 	});}
 };
@@ -174,7 +172,7 @@ function tab(num){
 						</a>
 					</li>
 					<li class=" col-sm-3">
-						<a href="#qna" onclick="javascript:tab(5)">상품 문의 <em class="badge">0</em></a>
+						<a href="#qna" onclick="javascript:tab(5)">상품 문의 <em class="badge">${newAlarm }</em></a>
 					</li>
 					<li class=" col-sm-3">
 						<a href="/SIRORAGI/mycs">1:1 문의 <em class="badge">0</em></a>

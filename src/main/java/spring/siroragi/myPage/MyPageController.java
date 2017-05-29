@@ -28,9 +28,13 @@ public class MyPageController {
 	private QnaService qnaService;
 
 	@RequestMapping(value="/mypage")
-	public ModelAndView mypageForm(){
+	public ModelAndView mypageForm(CommandMap commandMap, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		String m_num = session.getAttribute("MEMBER_NUMBER").toString();
+		commandMap.getMap().put("MEMBER_NUMBER", m_num);
+		int newAlarm = qnaService.qnaNewAlarm(commandMap.getMap());
 		mv.setViewName("mypage");
+		mv.addObject("newAlarm", newAlarm);
 		return mv;
 	}
 	@RequestMapping(value="/qna/updateRepState")
@@ -43,7 +47,7 @@ public class MyPageController {
 		List<Map<String, Object>> qnalist = qnaService.qnalistById(m_num);
 		List<Map<String, Object>> qnalist2 = qnaService.qnalistById2(m_num);
 		System.out.println("목록2"+qnalist2.toString());
-		ModelAndView mv = new ModelAndView("first");
+		ModelAndView mv = new ModelAndView("qnalist");
 		mv.addObject("qnalist", qnalist);
 		mv.addObject("qnalist2", qnalist2);
 		return mv;
