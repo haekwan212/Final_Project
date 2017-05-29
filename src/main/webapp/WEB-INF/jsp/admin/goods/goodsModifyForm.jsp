@@ -193,7 +193,250 @@ function GOODS_CATEGORY1Change() {
 							<c:forEach var="goodDetail"  items="${goodDetail}" varStatus="stat">
 								<input type="hidden" name="ORIGINAL_GOODS_KINDS_NUMBER" value="${goodDetail.GOODS_KINDS_NUMBER}">
 								<p>
-									<input type="text" placeholder='색상' id="text" name="ORG_GOODS_COLOR" value="${goodDetail.GOODS_COLOR}">
+									<select size=1 name="ORG_GOODS_COLOR">
+									<c:choose>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'BLACK'}">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK' selected>BLACK</OPTION>
+										<OPTION value='GRAY' >GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>	
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'GRAY' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY' selected>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'BROWN' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN' selected>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'BURGUNDY' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY' selected>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'PINK' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK' selected>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'PURPLE'}">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE' selected>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'WHITE' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE' selected>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'NAVY'}">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY' selected>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'BLUE' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE' selected>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'GREEN' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN' selected>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'YELLOW' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW' selected>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'RED'}">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED' selected>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'SKYBLUE' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE' selected>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+									</c:when>
+									<c:when test="${goodDetail.GOODS_COLOR eq 'GRADIENT-GOLD' }">
+										<OPTION value=''>색상</OPTION>
+										<OPTION value='BLACK'>BLACK</OPTION>
+										<OPTION value='GRAY'>GRAY</OPTION>
+										<OPTION value='BROWN'>BROWN</OPTION>
+										<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+										<OPTION value='PINK'>PINK</OPTION>
+										<OPTION value='PURPLE'>PURPLE</OPTION>
+										<OPTION value='WHITE'>WHITE</OPTION>
+										<OPTION value='NAVY'>NAVY</OPTION>
+										<OPTION value='BLUE'>BLUE</OPTION>
+										<OPTION value='GREEN'>GREEN</OPTION>
+										<OPTION value='YELLOW'>YELLOW</OPTION>
+										<OPTION value='RED'>RED</OPTION>
+										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+										<OPTION value='GRADIENT-GOLD' selected>GRADIENT-GOLD</OPTION>
+									</c:when>
+									
+									</c:choose>
+									</select>	
+									
 									<input type="text" placeholder='사이즈' id="text" name="ORG_GOODS_SIZE" value="${goodDetail.GOODS_SIZE}"> 
 									&nbsp;재고 : ${goodDetail.GOODS_AMOUNT}&nbsp;
 									<input type="hidden" value="1">

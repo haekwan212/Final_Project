@@ -154,7 +154,25 @@ function GOODS_CATEGORY2Change() {
 					<a href="#this" class="btn" id="addKind">컬러/사이즈/재고 추가</a><br/>
 						<div id="kindDiv">
 							<p>
-							<input type="text" placeholder='색상' id="text" name="GOODS_COLOR">
+							<select name="GOODS_COLOR" size=1>
+								<OPTION value=''>색상</OPTION>
+								<OPTION value='BLACK'>BLACK</OPTION>
+								<OPTION value='GRAY'>GRAY</OPTION>
+								<OPTION value='BROWN'>BROWN</OPTION>
+								<OPTION value='BURGUNDY'>BURGUNDY</OPTION>
+								<OPTION value='PINK'>PINK</OPTION>
+								<OPTION value='PURPLE'>PURPLE</OPTION>
+								<OPTION value='WHITE'>WHITE</OPTION>
+								<OPTION value='NAVY'>NAVY</OPTION>
+								<OPTION value='BLUE'>BLUE</OPTION>
+								<OPTION value='GREEN'>GREEN</OPTION>
+								<OPTION value='YELLOW'>YELLOW</OPTION>
+								<OPTION value='RED'>RED</OPTION>
+								<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
+								<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+							</select>
+							
+							<!-- <input type="text" placeholder='색상' id="text" name="GOODS_COLOR"> -->
 							<input type="text" placeholder='사이즈' id="text" name="GOODS_SIZE"> 
 							<input type="text" placeholder='수량' id="text" name="GOODS_AMOUNT">
 							<a href="#this" class="btn" id="delete" name="delete">삭제</a>
@@ -229,7 +247,7 @@ function GOODS_CATEGORY2Change() {
 		}
 		
 		function fn_addKind(){
-			var str = "<p><input type='text' placeholder='색상' name='GOODS_COLOR'>	<input type='text' placeholder='사이즈' name='GOODS_SIZE'> <input type='text' placeholder='수량' name='GOODS_AMOUNT'> <a href='#this' class='btn' name='delete'>삭제</a></p>";
+			var str = "<p><select name='GOODS_COLOR' size=1><OPTION value=''>색상</OPTION><OPTION value='BLACK'>BLACK</OPTION><OPTION value='GRAY'>GRAY</OPTION><OPTION value='BROWN'>BROWN</OPTION><OPTION value='BURGUNDY'>BURGUNDY</OPTION><OPTION value='PINK'>PINK</OPTION><OPTION value='PURPLE'>PURPLE</OPTION><OPTION value='WHITE'>WHITE</OPTION><OPTION value='NAVY'>NAVY</OPTION><OPTION value='BLUE'>BLUE</OPTION><OPTION value='GREEN'>GREEN</OPTION><OPTION value='YELLOW'>YELLOW</OPTION><OPTION value='RED'>RED</OPTION><OPTION value='SKYBLUE'>SKYBLUE</OPTION><OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION> </select><input type='text' placeholder='사이즈' name='GOODS_SIZE'> <input type='text' placeholder='수량' name='GOODS_AMOUNT'> <a href='#this' class='btn' name='delete'>삭제</a></p>";
 			$("#kindDiv").append(str);
 			$("a[name='delete']").on("click", function(e){ //삭제 버튼
 				e.preventDefault();
