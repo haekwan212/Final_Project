@@ -27,7 +27,7 @@ public class CommonController {
 	@RequestMapping(value = "/main")
 	public ModelAndView list(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		commonService.goodsSale(commandMap.getMap());
+		//commonService.goodsSale(commandMap.getMap());
 		// Top
 		List<Map<String, Object>> listByTop = commonService.listByTop(commandMap.getMap());
 		// Outer
