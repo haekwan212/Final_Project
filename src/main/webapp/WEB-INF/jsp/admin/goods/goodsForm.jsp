@@ -124,7 +124,7 @@ function GOODS_CATEGORY2Change() {
 				<tr>
 					<th scope="row">카테고리</th>
 					<td>
-						<select name="GOODS_CATEGORY1" onchange="GOODS_CATEGORY1Change();" size=1>
+						<select id="GOODS_CATEGORY1" name="GOODS_CATEGORY1" onchange="GOODS_CATEGORY1Change();" size=1>
 						<OPTION value=''>대분류</OPTION>
 						<OPTION value='OUTER'>OUTER</OPTION>
 						<OPTION value='TOP'>TOP</OPTION>
@@ -133,20 +133,20 @@ function GOODS_CATEGORY2Change() {
 						<OPTION value='ACC'>ACC</OPTION>
 						 
 						</select>
-						<SELECT name="GOODS_CATEGORY2" size=1>
+						<SELECT id="GOODS_CATEGORY2" name="GOODS_CATEGORY2" size=1>
 						 <OPTION value=''>대분류를 먼저 선택하세요</OPTION>
 						</SELECT>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">썸네일 이미지</th>
-					<td><input type="file" id="file" name="GOODS_THUMBNAIL"></td>
+					<td><input type="file" id="GOODS_THUMBNAIL" name="GOODS_THUMBNAIL"></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="view_text">
-						<textarea rows="5" cols="100" title="내용" id="CONTENTS" name="GOODS_SIMPLE" placeholder="기본 설명"></textarea>
+						<textarea rows="5" cols="100" title="내용" id="GOODS_SIMPLE" name="GOODS_SIMPLE" placeholder="기본 설명"></textarea>
 						<br/><br/>
-						<textarea rows="10" cols="100" title="내용" id="CONTENTS" name="GOODS_DETAIL" placeholder="상세 설명"></textarea>
+						<textarea rows="10" cols="100" title="내용" id="GOODS_DETAIL" name="GOODS_DETAIL" placeholder="상세 설명"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -154,7 +154,7 @@ function GOODS_CATEGORY2Change() {
 					<a href="#this" class="btn" id="addKind">컬러/사이즈/재고 추가</a><br/>
 						<div id="kindDiv">
 							<p>
-							<select name="GOODS_COLOR" size=1>
+							<select id="GOODS_COLOR" name="GOODS_COLOR" size=1>
 								<OPTION value=''>색상</OPTION>
 								<OPTION value='BLACK'>BLACK</OPTION>
 								<OPTION value='GRAY'>GRAY</OPTION>
@@ -173,8 +173,8 @@ function GOODS_CATEGORY2Change() {
 							</select>
 							
 							<!-- <input type="text" placeholder='색상' id="text" name="GOODS_COLOR"> -->
-							<input type="text" placeholder='사이즈' id="text" name="GOODS_SIZE"> 
-							<input type="text" placeholder='수량' id="text" name="GOODS_AMOUNT">
+							<input type="text" placeholder='사이즈' id="GOODS_SIZE" name="GOODS_SIZE"> 
+							<input type="text" placeholder='수량' id="GOODS_AMOUNT" name="GOODS_AMOUNT">
 							<a href="#this" class="btn" id="delete" name="delete">삭제</a>
 							</p>
 						</div>
@@ -186,7 +186,7 @@ function GOODS_CATEGORY2Change() {
 					<a href="#this" class="btn" id="addFile">이미지 추가</a>
 						<div id="fileDiv">
 							<p>
-							<input type="file" id="file" name="IMAGE">
+							<input type="file" id="IMAGE" name="IMAGE">
 							<a href="#this" class="btn" id="delete" name="delete">삭제</a>
 							</p>
 						</div>
@@ -215,7 +215,43 @@ function GOODS_CATEGORY2Change() {
 			
 			$("#write").on("click", function(e){ //작성하기 버튼
 				e.preventDefault();
+				 if($('#GOODS_NAME').val()==""){
+					alert("상품명을 입력해 주세요.");
+					return false;
+				 } else if($('#GOODS_PRICE').val()==""){
+					 alert("상품가격을 입력해 주세요.");
+						return false;
+				 } else if($('#GOODS_CATEGORY1').val()==''){
+					 alert("상품 대분류를 선택해 주세요.");
+						return false;
+				 } else if($('#GOODS_CATEGORY2').val()==''){
+					 alert("상품 소분류를 선택해 주세요.");
+						return false;
+				 } else if($('#GOODS_THUMBNAIL').val()==""){
+					 alert("썸네일이미지를 등록해 주세요.");
+						return false;
+				 } else if($('#GOODS_SIMPLE').val()==""){
+					 alert("상품 간략설명을 입력해 주세요.");
+						return false;
+				 } else if($('#GOODS_DETAIL').val()==""){
+					 alert("상품 상세설명을 입력해 주세요.");
+						return false;
+				 } else if($('#GOODS_COLOR').val()==''){
+					 alert("상품 색상을 선택해 주세요.");
+						return false;
+				 } else if($('#GOODS_SIZE').val()==""){
+					 alert("상품 사이즈를 입력해 주세요.");
+						return false;
+				 } else if($('#GOODS_AMOUNT').val()==""){
+					 alert("상품 수량을 입력해 주세요.");
+						return false;
+				 } else if($('#IMAGE').val()==""){
+					 alert("상품이미지를 등록해 주세요.");
+						return false;
+				 }
+				 else{
 				fn_insertGood();
+				}
 			});
 			
 			$("#addFile").on("click", function(e){ //파일 추가 버튼
@@ -247,7 +283,7 @@ function GOODS_CATEGORY2Change() {
 		}
 		
 		function fn_addKind(){
-			var str = "<p><select name='GOODS_COLOR' size=1><OPTION value=''>색상</OPTION><OPTION value='BLACK'>BLACK</OPTION><OPTION value='GRAY'>GRAY</OPTION><OPTION value='BROWN'>BROWN</OPTION><OPTION value='BURGUNDY'>BURGUNDY</OPTION><OPTION value='PINK'>PINK</OPTION><OPTION value='PURPLE'>PURPLE</OPTION><OPTION value='WHITE'>WHITE</OPTION><OPTION value='NAVY'>NAVY</OPTION><OPTION value='BLUE'>BLUE</OPTION><OPTION value='GREEN'>GREEN</OPTION><OPTION value='YELLOW'>YELLOW</OPTION><OPTION value='RED'>RED</OPTION><OPTION value='SKYBLUE'>SKYBLUE</OPTION><OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION> </select><input type='text' placeholder='사이즈' name='GOODS_SIZE'> <input type='text' placeholder='수량' name='GOODS_AMOUNT'> <a href='#this' class='btn' name='delete'>삭제</a></p>";
+			var str = "<p><select name='GOODS_COLOR' id='GOODS_COLOR' size=1><OPTION value=''>색상</OPTION><OPTION value='BLACK'>BLACK</OPTION><OPTION value='GRAY'>GRAY</OPTION><OPTION value='BROWN'>BROWN</OPTION><OPTION value='BURGUNDY'>BURGUNDY</OPTION><OPTION value='PINK'>PINK</OPTION><OPTION value='PURPLE'>PURPLE</OPTION><OPTION value='WHITE'>WHITE</OPTION><OPTION value='NAVY'>NAVY</OPTION><OPTION value='BLUE'>BLUE</OPTION><OPTION value='GREEN'>GREEN</OPTION><OPTION value='YELLOW'>YELLOW</OPTION><OPTION value='RED'>RED</OPTION><OPTION value='SKYBLUE'>SKYBLUE</OPTION><OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION> </select> <input type='text' placeholder='사이즈' name='GOODS_SIZE' id='GOODS_SIZE'> <input type='text' placeholder='수량' name='GOODS_AMOUNT' id='GOODS_AMOUNT'> <a href='#this' class='btn' name='delete'>삭제</a></p>";
 			$("#kindDiv").append(str);
 			$("a[name='delete']").on("click", function(e){ //삭제 버튼
 				e.preventDefault();
