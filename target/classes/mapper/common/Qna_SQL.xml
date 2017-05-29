@@ -9,13 +9,11 @@
 		GROUP BY A.QNA_NUMBER, A.GOODS_NUMBER, A.GOODS_NAME, A.GOODS_THUMBNAIL, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_REGDATE, A.QNA_REPSTATE, A.QNA_REPCONTENT, A.QNA_REPDATE ORDER BY QNA_REGDATE DESC
 	]]>
 	</select>
-	
 	<select id="qnaNewAlarm" parameterType="hashmap" resultType="int">
 	<![CDATA[
 	select COUNT(*)from qna where member_number = #{MEMBER_NUMBER} and QNA_REPSTATE = '답변완료'
 	]]>
 	</select>
-	
 	<select id="qnalistById" parameterType="String" resultType="hashmap">
     <![CDATA[
       SELECT * FROM QNA WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
