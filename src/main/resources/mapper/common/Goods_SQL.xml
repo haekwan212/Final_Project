@@ -37,10 +37,31 @@
 		]]>
 	</select>
 	
-	<select id="goodsCategory" parameterType="String" resultType="hashmap">
-		<![CDATA[
-			select * from goods where goods_CATEGORY1=#{isCategory}  and goods_onoff ='0' order by GOODS_NUMBER DESC 
-		]]>
+	<select id="goodsCategory" parameterType="hashmap" resultType="hashmap">
+	<choose>
+		<when test="sort == 1"><!-- 인기순 -->
+			SELECT sum(b.goods_sellcount) as sellcount, a.* from(select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by sellcount desc
+		</when>
+		<when test="sort == 2"><!-- 신상품 -->
+			select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_NUMBER DESC
+		</when>
+		<when test="sort == 3"><!-- 낮은가격 -->
+			select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_PRICE ASC 
+		</when>
+		<when test="sort == 4"><!-- 높은가격 -->
+			select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_PRICE DESC 
+		</when>
+		<when test="sort == 5"><!-- 할인율 -->
+			select GOODS_NUMBER,GOODS_NAME,GOODS_PRICE,GOODS_DCPRICE,GOODS_SIMPLE,GOODS_DETAIL,GOODS_THUMBNAIL,GOODS_DATE,GOODS_CATEGORY1,GOODS_CATEGORY2,GOODS_SALEDATE,GOODS_ONOFF,GOODS_COUNT,GOODS_RELATED,
+			NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT
+			from goods where goods_CATEGORY1=#{category} and goods_onoff ='0' order by DCPERSENT DESC, GOODS_NUMBER DESC
+		</when>
+		<otherwise>
+			select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_NUMBER DESC
+		</otherwise>
+	</choose>
+
+		
 	</select>
 
 	<select id="goodsRank" parameterType="String" resultType="hashmap">
@@ -52,7 +73,7 @@
 	
 	<select id="goodsCategorySearch" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
-		select A.goods_number,A.goods_name,A.goods_price,A.goods_dcprice,A.goods_simple,A.goods_category1,A.GOODS_THUMBNAIL
+		select A.goods_number,A.goods_name,A.goods_price,A.goods_dcprice,A.goods_simple,A.goods_category1,A.GOODS_THUMBNAIL,SUM(A.GOODS_SELLCOUNT) as SELLCOUNT,NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT
 		from 
 		(select * from goods natural join goods_kinds) A where goods_PRICE >= ${priceSearchRange1} and goods_price <= ${priceSearchRange2} and goods_category1= #{category} and	goods_onoff ='0'   
 		]]>
@@ -84,7 +105,36 @@
 		</if>
 		
 
-		group by A.GOODS_THUMBNAIL,A.goods_category1,A.goods_simple,A.goods_dcprice,A.goods_price,A.goods_number, A.goods_name order by GOODS_PRICE ASC
+		group by A.GOODS_THUMBNAIL,A.goods_category1,A.goods_simple,A.goods_dcprice,A.goods_price,A.goods_number, A.goods_name  
+		
+		
+		<choose>
+		
+			<when test="sortCheck == 1"><!-- 인기순 -->
+				order by SELLCOUNT DESC
+			</when>
+		
+			<when test="sortCheck == 2"><!-- 신상품순 -->
+				order by GOODS_NUMBER ASC
+			</when>
+		
+			<when test="sortCheck == 3"><!-- 낮은가격순 -->
+				order by GOODS_PRICE ASC
+			</when>
+		
+			<when test="sortCheck == 4"><!-- 높은가격순 -->
+				order by GOODS_PRICE DESC
+			</when>
+		
+			<when test="sortCheck == 5"><!-- 할인률순 -->
+				order by DCPERSENT DESC, GOODS_NUMBER DESC
+			</when>
+		
+			<otherwise>
+				order by GOODS_NUMBER ASC
+			</otherwise>
+		</choose>
+		
 		
 		 	
 	</select>
