@@ -38,4 +38,9 @@ public class OrderServiceImpl implements OrderService {
 
 	}
 
+	@Override
+	public void orderGoodsSell(Map<String, Object> map) throws Exception {
+		orderDAO.orderGoodsSell(map);
+	}
+
 }
