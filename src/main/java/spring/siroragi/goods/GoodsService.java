@@ -6,7 +6,7 @@ import java.util.Map;
 public interface GoodsService {
 
 	// 카테고리별 상품 정렬
-	public List<Map<String, Object>> goodsCategory(String isCategory) throws Exception;
+	public List<Map<String, Object>> goodsCategory(Map<String, Object> map) throws Exception;
 	// 검색 결과에 대한 리스트 호출
 	public List<Map<String, Object>> goodsSearch(String isSearch) throws Exception;
 	// 카테고리별 인기별(판매량순)순
