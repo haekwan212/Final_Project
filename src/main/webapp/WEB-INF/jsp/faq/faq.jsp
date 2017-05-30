@@ -230,7 +230,8 @@ text-align:center;
 								</div>
 								<div class="detail">
 									<div class="answer">
-									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
+									
+									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }
 									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>

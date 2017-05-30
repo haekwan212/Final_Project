@@ -115,8 +115,8 @@
 									<a href="/goods/1495095716"><img img_layer="http://pic.styleindex.co.kr/g/s/149/1495095716" goodsno="1495095716" src="http://pic.styleindex.co.kr/g/s/149/1495095716" class="img-responsive"></a>
 								</td>
 								<td class="info-caption">
-									<strong class="brand">팬콧</strong>
-									<em class="name">[팬콧샵] POPDOGGY TRIPLE STANDARD T-SHIRT (MIDNIGHT BLACK)_PPOEURS92PC6</em>
+									<strong class="brand">SIRORAGI</strong>
+									<em class="name">[SIRORAGI] POPDOGGY TRIPLE STANDARD T-SHIRT (MIDNIGHT BLACK)_PPOEURS92PC6</em>
 								</td>
 								<td class="category" >
 									${qna.QNA_TITLE}

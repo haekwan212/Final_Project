@@ -51,8 +51,8 @@
 						&amp;<br>
 						ITS STORY INTO THE BRAND</strong>
 					<p>친근한 자체 캐릭터 라인과 유니크한 컬러감이 특징인<br>
-						팬콧은 ‘EQUIPMENT FOR LIFESTYLE’을 모토로<br>
-						팬콧에서만 경험할 수 있는 특화된 핵심 아이템과 문화를 창출하며,<br>
+						SIRORAGI는 ‘EQUIPMENT FOR LIFESTYLE’을 모토로<br>
+						SIRORAGI는에서만 경험할 수 있는 특화된 핵심 아이템과 문화를 창출하며,<br>
 						신세대 라이프스타일과 트렌드에 맞춘 브랜딩을 통해 소비자들의 생활속에서 필수 제품으로 자리잡고자 합니다.</p>
 				</div>
 			</div>

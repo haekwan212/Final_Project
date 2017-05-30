@@ -5,20 +5,20 @@
 	<div class="selectboxWrap">
 		<div class="selectbox">
 			<div class="selectbox-data">
-				<strong class="text">마이팬콧 </strong>
+				<strong class="text">마이페이지 </strong>
 				<span class="icon icon-dropdown-white"></span>
 			</div>
 			<select name="category[]" id="cate02">
-				<option value="">마이팬콧</option>
+				<option value="">마이페이지</option>
 			</select>
 		</div>
 		<div class="selectbox">
 			<div class="selectbox-data">
-				<strong class="text">마이팬콧 홈 </strong>
+				<strong class="text">마이페이지 </strong>
 				<span class="icon icon-dropdown-white"></span>
 			</div>
 			<select name="category[]" id="cate02">
-				<option value="">마이팬콧 홈</option>
+				<option value="">마이페이지</option>
 			</select>
 		</div>
 		<!--
@@ -31,7 +31,7 @@
 </section>
 <section class="page-title section container">
 	<h2>
-		<strong>my pancoat</strong>
+		<strong>my SIRORAGI</strong>
 	</h2>
 </section>
 <div class="personal-account-info container">

@@ -60,34 +60,28 @@
 								aria-describedby="dataTables-example_info">
 								<thead>
 									<tr role="row">
-										<th style="width: 8%; text-align: center;">번호</th>
-										<th style="width: 12%; text-align: center;">카테고리</th>
-										<th style="width: 40%; text-align: center;">제목</th>
-										<th style="width: 8%; text-align: center;">작성자</th> 
-										<th style="width: 12%; text-align: center;">등록일자</th>
-										<th style="width: 8%; text-align: center;">조회수</th>
+										<th style="width: 7%; text-align: center;">번호</th>
+										<th style="width: 7%; text-align: center;">이미지</th>
+										<th style="width: 25%; text-align: center;">제목</th>
+										<th style="width: 35%; text-align: center;">내용</th>										<th style="width: 12%; text-align: center;">등록일자</th>
 										<th style="width: 12%; text-align: center;">관리</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="faqList" items="${list}" varStatus="stat">
-										<c:url var="viewURL" value="faqAdminModifyForm">
-											<c:param name="FAQ_NUMBER" value="${faqList.FAQ_NUMBER }" />
-										</c:url>
+									<c:forEach var="reviewList" items="${list}" varStatus="stat">
+										
 										<tr class="gradeA even" role="row">
-											<td style="text-align: center; vertical-align: middle;">${faqList.FAQ_NUMBER}</td>
-											<td style="text-align: center; vertical-align: middle;">${faqList.FAQ_CATEGORY}</td>
-											<td style="text-align: center; vertical-align: middle;">Q.${faqList.FAQ_TITLE}</td>
-											<td style="text-align: center; vertical-align: middle;">Admin</td>
-											<td style="text-align: center; vertical-align: middle;"><fmt:formatDate value="${faqList.FAQ_REGDATE}" pattern="YY.MM.dd HH:mm" /></td>
-											<td style="text-align: center; vertical-align: middle;">${faqList.FAQ_HITCOUNT}</td>
+											<td style="text-align: center; vertical-align: middle;">${reviewList.REVIEW_NUMBER}</td>
+											<td style="text-align: center; vertical-align: middle;"><img src="/SIRORAGI/file/reviewFile/${reviewList.REVIEW_IMAGE}" width="100" height="100" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /></td>
+											<td style="text-align: center; vertical-align: middle;">${reviewList.REVIEW_TITLE}</td>
+											<td style="text-align: center; vertical-align: middle;">${reviewList.REVIEW_CONTENT}</td>
+											<td style="text-align: center; vertical-align: middle;"><fmt:formatDate value="${reviewList.REVIEW_REGDATE}" pattern="YY.MM.dd HH:mm" /></td>
 											<td style="text-align: center; vertical-align: middle;">
-												<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-												
-												<c:url var="viewURL2" value="/admin/faqAdminDelete">
-													<c:param name="FAQ_NUMBER" value="${faqList.FAQ_NUMBER }" />
+												<c:url var="viewURL" value="/admin/reviewAdminDelete">
+													<c:param name="REVIEW_NUMBER" value="${reviewList.REVIEW_NUMBER }" />
+													<c:param name="image" value="${reviewList.REVIEW_IMAGE }" />
 												</c:url>
-												 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a> 
+												 <a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a> 
 										
 											</td>
 										</tr>
@@ -107,7 +101,7 @@
 						${pagingHtml}
 					</div> 
 
-					<div class="row">
+					<!-- <div class="row">
 						<div style="text-align: center;">
 							<div id="dataTables-example_filter" class="dataTables_filter">
 								<form action="">
@@ -122,7 +116,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="/SIRORAGI/admin/faqAdminForm"><button type="button" class="btn btn-outline btn-default">등록</button></a>	
+					<a href="/SIRORAGI/admin/faqAdminForm"><button type="button" class="btn btn-outline btn-default">등록</button></a>	 -->
 				</div>
 			</div>
 			<!-- /.table-responsive -->

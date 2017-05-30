@@ -547,9 +547,9 @@
 		</div>
 	</div>
 	<div class="caption">
-		<p class="brand">PANCOAT</p>
+		<p class="brand">SIRORAGI</p>
 		<p class="name">
-			<a href="../goods/1456896416">[ÆÒÄà¼¥] NOSWEAT 0952 WINDBREAK JUMPER (SP)_PPOSPWB01UC5</a>
+			<a href="../goods/1456896416">[SIRORAGI] NOSWEAT 0952 WINDBREAK JUMPER (SP)_PPOSPWB01UC5</a>
 		</p>
 		<p class="price">
 			<span class="was"><span class="label sr-only">ÆÇ¸Å°¡°Ý:</span>129,000<span class="currency">¿ø</span></span>
@@ -613,7 +613,7 @@
 		</div>
 	</div>
 	<div class="caption">
-		<p class="brand">PANCOAT</p>
+		<p class="brand">SIRORAGI</p>
 		<p class="name">
 			<a href="${viewURL}">${goodsRank.GOODS_NAME}</a>
 		</p>
@@ -753,9 +753,9 @@
 		</div>
 	</div>
 	<div class="caption">
-		<p class="brand">PANCOAT</p>
+		<p class="brand">SIRORAGI</p>
 		<p class="name">
-			<a href="../goods/1487554074">[ÆÒÄà¼¥] MULTI CHARACTER FLOWER LETTERING TRACKTOP (STRAWBERRY MILK PINK)_PPOEPTT01VP9</a>
+			<a href="../goods/1487554074">[SIRORAGI] MULTI CHARACTER FLOWER LETTERING TRACKTOP (STRAWBERRY MILK PINK)_PPOEPTT01VP9</a>
 		</p>
 		<p class="price">
 			<span class="was"><span class="label sr-only">ÆÇ¸Å°¡°Ý:</span>99,000<span class="currency">¿ø</span></span>
@@ -825,7 +825,7 @@
 		</div>
 	</div>
 	<div class="caption">
-		<p class="brand">PANCOAT</p>
+		<p class="brand">SIRORAGI</p>
 		<p class="name">
 			<a href="${viewURL}">${goodsList.GOODS_NAME}</a>
 		</p>

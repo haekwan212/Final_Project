@@ -41,11 +41,11 @@
 
 	<!-- 리스트 전체 불러오기(AdminPage) -->
 	<select id="reviewList" parameterType="hashmap" resultType="hashmap">
-	<![CDATA[ 
-	SELECT 
+	<![CDATA[
+		SELECT 
 		* 
-	FROM REVIEW 
-	ORDER BY REVIEW_NUMBER DESC
+		FROM REVIEW
+		ORDER BY REVIEW_NUMBER DESC		
 	]]>
 	</select>
 

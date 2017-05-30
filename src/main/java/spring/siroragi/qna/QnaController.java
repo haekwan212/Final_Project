@@ -58,10 +58,6 @@ public class QnaController {
 	}
 	
 
-	
-	@RequestMapping(value="/qna/qnaWrite")
-	public ModelAndView qnaModify(CommandMap commandMap, HttpServletRequest request) throws Exception {
-	
 
 	// Q&A 전체 글 목록 불러오기
 	@RequestMapping(value = "/qna/qnaList")

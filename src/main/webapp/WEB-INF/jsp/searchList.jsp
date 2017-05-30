@@ -57,14 +57,14 @@
 		<div class="related">
 			<strong>추천 검색어</strong>
 			<ul>
-				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88">팬콧키즈</a></li>
+				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88">SIRORAGI키즈</a></li>
 				<li><a href="?stxt=%EC%9B%90%ED%94%BC%EC%8A%A4">원피스</a></li>
 				<li><a href="?stxt=%EB%B0%98%ED%8C%94%ED%8B%B0">반팔티</a></li>
 				<li><a href="?stxt=sesame">sesame</a></li>
 				<li><a href="?stxt=PKOEURS">PKOEURS</a></li>
-				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7+">팬콧 </a></li>
+				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7+">SIRORAGI </a></li>
 				<li><a href="?stxt=%EB%AA%A8%EC%9E%90">모자</a></li>
-				<li><a href="?stxt=PANCOAT+KIDS">PANCOAT KIDS</a></li>
+				<li><a href="?stxt=PANCOAT+KIDS">SIRORAGI KIDS</a></li>
 			</ul>
 		</div>
 	</section>
@@ -196,9 +196,9 @@
 		</div>
 	</div>
 	<div class="caption">
-		<p class="brand">PANCOAT</p>
+		<p class="brand">SIRORAGI</p>
 		<p class="name">
-			<a href="../goods/1495095716">[팬콧샵] POPDOGGY TRIPLE STANDARD T-SHIRT (MIDNIGHT BLACK)_PPOEURS92PC6</a>
+			<a href="../goods/1495095716">[SIRORAGI] POPDOGGY TRIPLE STANDARD T-SHIRT (MIDNIGHT BLACK)_PPOEURS92PC6</a>
 		</p>
 		<p class="price">
 			<span class="was"><span class="label sr-only">판매가격:</span>29,000<span class="currency">원</span></span>
@@ -257,7 +257,7 @@
 		</div>
 	</div>
 	<div class="caption">
-		<p class="brand">PANCOAT</p>
+		<p class="brand">SIRORAGI</p>
 		<p class="name">
 			<a href="${viewURL}">${goodsList.GOODS_NAME}</a>
 		</p>
