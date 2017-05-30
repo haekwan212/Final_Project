@@ -3,5 +3,11 @@
 
 <mapper namespace="point">
 	
+	<insert id="joinPoint" parameterType="hashMap" >
+	<![CDATA[
+		INSERT INTO POINT (MEMBER_NUMBER, POINT_CONTENT, POINT_POINT, POINT_DATE, POINT_NUMBER)
+		VALUES ( #{MEMBER_NUMBER}, '회원가입 적립금', 2000, SYSDATE, POINT_NUMBER_SEQ.NEXTVAL)		
+	]]>
+	</insert>
 
 </mapper>

@@ -256,7 +256,12 @@
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->
@@ -331,7 +336,12 @@
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->
@@ -405,7 +415,12 @@
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->
@@ -479,7 +494,12 @@
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->
@@ -520,7 +540,11 @@
 			<c:forEach items="${listByShoes}" var="top">
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
 				<div class="thumbnail">				
+<<<<<<< HEAD
+					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
+=======
 					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${top.GOODS_NUMBER}">
+>>>>>>> b1e78421341529418591d2337ecc741be7458baf
 						<img data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
 						<div data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
@@ -553,7 +577,12 @@
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->

@@ -49,24 +49,38 @@ public class GoodsController {
 		private Paging qnaPage;
 	
 
-	//페이지이동
+	//페이지이동 및 검색
 	@RequestMapping(value="/goods/goodsCategory")
 	public ModelAndView goodsCategory(HttpServletResponse response, HttpServletRequest request,CommandMap Map) throws Exception{
 		
-		ModelAndView mv = new ModelAndView("goodsCategory");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("goodsCategory");
 		
 		String isCategory=(String)Map.getMap().get("category");
 		System.out.println("카테고리 는 "+isCategory);
 
 		String searchCheck=(String)Map.getMap().get("searchCheck");
 		Map.getMap().put("colorCheck",null);
-		/*String[] array = priceRange1.split(",");*/
-	
-		/*"priceRange"*/
-	/*	String pr1=(String)Map.getMap().get("priceRange1");
-		String pr2=(String)Map.getMap().get("priceRange2");
-		*/
 		
+		//정렬
+		
+		String sort=(String)Map.getMap().get("sort");
+		if(sort!=null){
+			System.out.println("솔트값은? " + sort);
+			mv.setViewName("goodsSort");
+			//List<Map<String,Object>> goodsList1=goodsService.goodsRank("OUTER");
+			//System.out.println("사이즈 : " + goodsList.size());
+			//mv.addObject("goodsList",goodsList1);
+			mv.addObject("sort",sort);
+		}
+		else{
+			sort ="2"; //기본 신상품에 오게
+			mv.addObject("sort",sort);
+		}
+		Map.getMap().put("sort",sort);
+		
+		
+		//Map.getMap().put("isCategory", isCategory);
 		
 		List<String> goodsClass = new ArrayList<>();
 		List<Map<String,Object>> goodsRank = null;
@@ -83,7 +97,7 @@ public class GoodsController {
 				goodsList=goodsService.goodsCategory(isCategory);
 			}*/
 			
-			goodsList=goodsService.goodsCategory(isCategory);
+			goodsList=goodsService.goodsCategory(Map.getMap());
 			goodsRank=goodsService.goodsRank(isCategory);
 			
 
@@ -94,7 +108,7 @@ public class GoodsController {
 			goodsClass.add("니트&스웨터");
 			goodsClass.add("조끼");
 			
-			goodsList=goodsService.goodsCategory(isCategory);
+			goodsList=goodsService.goodsCategory(Map.getMap());
 			goodsRank=goodsService.goodsRank(isCategory);
 		}
 		else if(isCategory.equals("PANTS")){
@@ -103,14 +117,14 @@ public class GoodsController {
 			goodsClass.add("슬랙스");
 			goodsClass.add("반바지");
 			
-			goodsList=goodsService.goodsCategory(isCategory);
+			goodsList=goodsService.goodsCategory(Map.getMap());
 			goodsRank=goodsService.goodsRank(isCategory);
 		}
 		else if(isCategory.equals("SHOES")){
 			goodsClass.add("구두");
 			goodsClass.add("스니커즈");
 			
-			goodsList=goodsService.goodsCategory(isCategory);
+			goodsList=goodsService.goodsCategory(Map.getMap());
 			goodsRank=goodsService.goodsRank(isCategory);
 		}
 		else if(isCategory.equals("ACC")){
@@ -118,7 +132,7 @@ public class GoodsController {
 			goodsClass.add("벨트");
 			goodsClass.add("ETC");
 			
-			goodsList=goodsService.goodsCategory(isCategory);
+			goodsList=goodsService.goodsCategory(Map.getMap());
 			goodsRank=goodsService.goodsRank(isCategory);
 		}
 		
@@ -132,12 +146,39 @@ public class GoodsController {
 		mv.addObject("goodsClass",goodsClass);
 		
 
-		if(searchCheck!=null){
+		if(searchCheck!=null){  //★검색했을때만 들어온다 or 검색후 정렬할때
+		System.out.println("검색조건사용");
+		
 			//컬러검색
-			try {
-				String[] color=(String[])Map.getMap().get("color[]");
-				
+		try {
+			String[] color=(String[])Map.getMap().get("myColor");
+			
+			if(color!=null)
+			{
+				for(int i =0;i<color.length;i++){
+				System.out.println("다중컬러 선택" + color[i]);
+				}
+				Map.getMap().put("colorCheck","ON2");
+				Map.getMap().put("color",color);
+			}
+		}catch (Exception e) {
+			String color=(String)Map.getMap().get("myColor");
+			
+			if(color!=null)
+			{
+				System.out.println("원컬러 선택" + color);	
+				Map.getMap().put("colorCheck","ON1");
+				Map.getMap().put("color",color);
+			}
+			
+		}
 
+			/* 구 컬러검색
+			 * try {
+				String[] color=(String[])Map.getMap().get("color[]");
+				int st=123;
+				mv.addObject("BLACK",st);
+				System.out.println(color[0]);
 				if(color!=null){
 					for(int i=0;i<color.length;i++){
 						Map.getMap().put("colorCheck","ON2");
@@ -147,46 +188,51 @@ public class GoodsController {
 				}
 			} catch (Exception e) {
 				String color=(String)Map.getMap().get("color[]");
-				
+				mv.addObject("color",color);
 
 				if(color!=null){
 					System.out.println("호우1:" +color);
 					Map.getMap().put("colorCheck","ON1");
 					Map.getMap().put("color",color);
 				}
-			}
+			}*/
 			
 			//가격 검색
-			String[] priceRange=(String[])Map.getMap().get("priceRange[]");
-			String pr1=priceRange[0];
-			String pr2=priceRange[1];
-			
-			pr1=pr1.replaceAll(",","");
-			pr2=pr2.replaceAll(",","");//중간 문자열빼기
-			
-			Map.getMap().put("priceSearchRange1", pr1);
-			Map.getMap().put("priceSearchRange2", pr2);
-			
-			System.out.println("pr1 pr2 : " + pr1 +" "+ pr2);
-			
+			String[] priceRange=(String[])Map.getMap().get("priceRange");
+		//	if(priceRange!=null)
+		//	{
+				String pr1=priceRange[0];
+				String pr2=priceRange[1];
+				
+				pr1=pr1.replaceAll(",","");
+				pr2=pr2.replaceAll(",","");//중간 문자열빼기
+				
+				Map.getMap().put("priceSearchRange1", pr1);
+				Map.getMap().put("priceSearchRange2", pr2);
+				
+				System.out.println("pr1 pr2 : " + pr1 +" "+ pr2);
+				
+		//	}
+
 			
 			//소분류 검색
 			try {
-				String[] sub_category=(String[])Map.getMap().get("sub_category[]");
+				String[] sub_category=(String[])Map.getMap().get("sub_category");
 				if(sub_category!=null){
 					for(int i=0;i<sub_category.length;i++){
 					System.out.println("서브 카테고리 :" +sub_category[i]);
+					}
 					Map.getMap().put("sub_categoryCheck","ON2");
 					Map.getMap().put("sub_category",sub_category);
-					}
 				}
 			}catch (Exception e) {
-				String sub_category=(String)Map.getMap().get("sub_category[]");
+				String sub_category=(String)Map.getMap().get("sub_category");
 				if(sub_category!=null){
 					System.out.println("서브 카테고리 :" +sub_category);
 					Map.getMap().put("sub_categoryCheck","ON1");
 					Map.getMap().put("sub_category",sub_category);
 				}
+				
 			}
 			
 			//세일상품만 검색
@@ -200,28 +246,57 @@ public class GoodsController {
 					
 			}
 			
+			//정렬 구분 시작
+			String sortCheck=(String)Map.getMap().get("sortCheck");
+			if(sortCheck!=null){
+				Map.getMap().put("sortCheck",sortCheck);
+				mv.addObject("sort",sortCheck);
+				switch (sortCheck) {
+				case "1": //인기순
+					System.out.println("검색내 인기순");
+					break;
+				case "2": //신상품
+					System.out.println("검색내 신상순");
+					break;
+				case "3": //낮은가격
+					System.out.println("검색내 낮은가격순");
+					break;
+				case "4": //높은가격
+					System.out.println("검색내 높은가격순");
+					break;
+				case "5": //할인률
+					System.out.println("검색내 할인률순");
+					break;
+
+				default:
+					System.out.println("디폴트값");
+					break;
+				}
+			}
+			//정렬 구분 끝
+			
 			//품절상품 제외 
 			//구현안함 : 품절상태표시할것이 없음
 /*			String running=(String)Map.getMap().get("running");
 			
 			if(running==null){
 					Map.getMap().put("running","off");					
-			}*/
-			
-			
-		
+			}*/	
 			
 			//최종검색
-			List<Map<String,Object>> goodsSearchList = goodsService.goodsCategorySearch(Map.getMap());
-			mv.addObject("goodsList",goodsSearchList);
+			 List<Map<String,Object>> goodsSearchList = goodsService.goodsCategorySearch(Map.getMap());
+			 mv.addObject("goodsList",goodsSearchList);
 			//goodsList = goodsService.goodsPriceSearch(Map.getMap());
 			
-			System.out.println("굿즈 서치리스트 : " +goodsSearchList.size());
+			 System.out.println("굿즈 서치리스트 : " +goodsSearchList.size());
 			//System.out.println("ii1은뭐냐!"+priceRange[0]+"di"+priceRange[1]);
-		}
+			 mv.setViewName("goodsSort");
+		} //서치체크 죽임
 		
 
-
+		
+		
+		
 
 		return mv;
 	}

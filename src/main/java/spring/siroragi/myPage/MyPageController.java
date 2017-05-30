@@ -107,14 +107,16 @@ public class MyPageController {
 		myinfo.put("MEMBER_EMAIL1", m_email[0].toString());
 		myinfo.put("MEMBER_EMAIL2", m_email[1].toString());
 		//날짜 폼 변경
+		if(myinfo.get("MEMBER_BIRTHDAY") !=null){
 		String date = myinfo.get("MEMBER_BIRTHDAY").toString();
+		
 		SimpleDateFormat original_format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		SimpleDateFormat new_format = new SimpleDateFormat("yyyyMMdd");
 		
 		Date orginal_date = original_format.parse(date);
 		String new_date = new_format.format(orginal_date);
 		myinfo.put("MEMBER_BIRTHDAY", new_date);
-		
+		}
 		mv.addObject("myinfo", myinfo);
 		mv.setViewName("myinfo");
 		return mv;

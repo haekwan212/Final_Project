@@ -21,8 +21,8 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public List<Map<String, Object>> goodsCategory(String isCategory) throws Exception {
-		return goodsDAO.goodsCategory(isCategory);
+	public List<Map<String, Object>> goodsCategory(Map<String, Object> map) throws Exception {
+		return goodsDAO.goodsCategory(map);
 	}
 
 	@Override

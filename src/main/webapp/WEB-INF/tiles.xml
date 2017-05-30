@@ -92,6 +92,16 @@
 			value="/WEB-INF/jsp/admin/goods/goodsModifyForm.jsp" />
 	</definition>
 	
+	
+	<definition name="noticeAdminList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeAdminList.jsp"/>
+	</definition>
+	<definition name="noticeModifyForm" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeModifyForm.jsp"/>
+	</definition>
+	<definition name="noticeForm" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeForm.jsp"/>
+	</definition>
 	<!-- admin -->
 	
 	
@@ -166,6 +176,12 @@
       <put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp"/>
 	</definition>
 	
+	<definition name="noticeList" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeList.jsp"/>
+	</definition>
+	<definition name="noticeDetail" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeDetail.jsp"/>
+	</definition>
 
 </tiles-definitions>
 	

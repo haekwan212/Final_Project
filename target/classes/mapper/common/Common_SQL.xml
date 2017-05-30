@@ -5,31 +5,37 @@
 	<!-- top 불러오기 -->
 	<select id="listByTop" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'TOP' AND GOODS_ONOFF = '0') WHERE ROWNUM < 7
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'TOP' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
 	]]>
 	</select>
 		<!-- outer 불러오기 -->
 	<select id="listByOut" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'OUTER' AND GOODS_ONOFF = '0') WHERE ROWNUM < 7
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'OUTER' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
 	]]>
 	</select>
 		<!-- PANTS 불러오기 -->
 	<select id="listByPan" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'PANTS' AND GOODS_ONOFF = '0') WHERE ROWNUM < 7
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'PANTS' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
 	]]>
 	</select>
 		<!-- ACC 불러오기 -->
 	<select id="listByAcc" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'ACC' AND GOODS_ONOFF = '0') WHERE ROWNUM < 7
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'ACC' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
 	]]>
 	</select>
 		<!-- SHOES 불러오기 -->
 	<select id="listByShoes" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'SHOES' AND GOODS_ONOFF = '0') WHERE ROWNUM < 7
+		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'SHOES' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
 	]]>
 	</select>
+	
+	<update id="goodsSale" parameterType="hashmap">
+		<![CDATA[
+			UPDATE GOODS SET GOODS_DCPRICE = NULL, GOODS_SALEDATE=NULL WHERE GOODS_SALEDATE<SYSDATE
+		]]>
+	</update>
 </mapper>

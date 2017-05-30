@@ -102,7 +102,7 @@
                             <a href="#"style="background: #e7e7e7;"><i class="fa fa-bar-chart-o fa-fw"></i>게시판관리<span class="fa arrow">▼</span></a>
 							 <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/SIRORAGI/notice/notice">- 공지사항</a>
+                                    <a href="/SIRORAGI/notice/noticeAdminList">- 공지사항</a>
                                 </li>
                                 <li>
                                     <a href="/SIRORAGI/ad/adList">- 광고</a>
