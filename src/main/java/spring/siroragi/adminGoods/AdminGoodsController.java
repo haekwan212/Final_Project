@@ -151,8 +151,6 @@ public class AdminGoodsController {
 		List<Map<String, Object>> goodDetail = adminGoodsService.goodsModifyForm(adminGoodsMap.getMap());
 		mv.addObject("goodDetail", goodDetail);
 		Map<String, Object> goodBasic = goodDetail.get(0);
-		System.out.println("goodsNum : "+goodBasic.get("GOODS_NUMBER"));
-		System.out.println("goodDetail"+goodDetail.get(1).get("GOODS_NUMBER"));
 		
 		mv.addObject("goodBasic", goodBasic);
 

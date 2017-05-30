@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 @Service("qnaService")
 public class QnaServiceImpl implements QnaService {
 
+	
 	@Resource(name = "qnaDAO")
 	private QnaDAO qnaDAO;
 
@@ -18,7 +19,21 @@ public class QnaServiceImpl implements QnaService {
 	public List<Map<String, Object>> qnaList(Map<String, Object> map) throws Exception {
 		return qnaDAO.qnaList(map);
 	}
-
+	
+	@Override
+	public List<Map<String, Object>> qnalistById(String id) throws Exception {
+		return qnaDAO.qnalistById(id);
+	}
+	
+	@Override
+	public List<Map<String, Object>> qnalistById2(String id) throws Exception {
+		return qnaDAO.qnalistById2(id);
+	}
+	// 회원 개인의 Q&A 목록 불러오기
+	@Override
+	public List<Map<String, Object>> qnaSearchMember(Map<String, Object> map) throws Exception {
+		return qnaDAO.qnaSearchMemberList(map);
+	}
 	// Q&A 상세보기
 	@Override
 	public Map<String, Object> selectQnaDetail(Map<String, Object> map) throws Exception {
@@ -75,6 +90,12 @@ public class QnaServiceImpl implements QnaService {
 	public void insertModalQna(Map<String, Object> map) throws Exception {
 		qnaDAO.insertModalQna(map);
 	}
+	
+	@Override
+	public void updateRepState(Map<String, Object> map) throws Exception {
+		qnaDAO.updateRepState(map);
+		
+	}
 
 	// 제목&카테고리 검색
 	@Override
@@ -98,6 +119,17 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public List<Map<String, Object>> qnaSearchTitleList(Map<String, Object> map) throws Exception {
 		return qnaDAO.qnaSearchTitleList(map);
+	}
+	
+	@Override
+	public int qnaNewAlarm(Map<String, Object> map) throws Exception {
+		return qnaDAO.qnaNewAlarm(map);
+	}
+
+	@Override
+	public List<Map<String, Object>> qnaCategoryList(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	// Q&A 비밀번호 확인(비회원때문에 필요)

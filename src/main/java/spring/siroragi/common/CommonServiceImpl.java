@@ -33,4 +33,8 @@ public class CommonServiceImpl implements CommonService{
 	public List<Map<String, Object>> listByShoes(Map<String, Object> map) throws Exception {
 		return commonDAO.listByShoes(map);
 	}
+	//Sale기간 지난 물품 정리
+	public void goodsSale(Map<String, Object> map) throws Exception{
+		commonDAO.goodsSale(map);
+	}
 }

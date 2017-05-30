@@ -316,7 +316,6 @@
 					</c:otherwise>
 				</c:choose>
 				</li>
-
 				<li class="item">
 					<a href="/SIRORAGI/cartList">
 						<span class="icon icon-cart-black hidden-lg"></span>
@@ -325,10 +324,16 @@
 				</li>
 				<li class="item">
 				<c:choose>
-					<c:when test="${not empty sessionScope.MEMBER_ID}">
+					<c:when test="${not empty sessionScope.MEMBER_ID and sessionScope.MEMBER_ID ne 'admin'}">
 					<a href="/SIRORAGI/mypage">
 						<span class="icon icon-identity-black hidden-lg"></span>
 						<span class="hidden-md">my-pancoat</span>
+					</a>
+					</c:when>
+					<c:when test="${sessionScope.MEMBER_ID == 'admin'}">
+						<a href="/SIRORAGI/admin/adminPage">
+						<span class="icon icon-identity-black hidden-lg"></span>
+						<span class="hidden-md">admin-page</span>
 					</a>
 					</c:when>
 					<c:otherwise>

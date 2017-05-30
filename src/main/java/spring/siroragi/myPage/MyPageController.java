@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -27,17 +28,35 @@ public class MyPageController {
 	private QnaService qnaService;
 
 	@RequestMapping(value="/mypage")
-	public ModelAndView mypageForm(){
+	public ModelAndView mypageForm(CommandMap commandMap, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:orderlist");
+		String m_num = session.getAttribute("MEMBER_NUMBER").toString();
+		commandMap.getMap().put("MEMBER_NUMBER", m_num);
+		int newAlarm = qnaService.qnaNewAlarm(commandMap.getMap());
+		mv.setViewName("mypage");
+		mv.addObject("newAlarm", newAlarm);
+		return mv;
+	}
+	@RequestMapping(value="/qna/updateRepState")
+	@ResponseBody
+	public ModelAndView updateRepState(CommandMap commandMap, HttpSession session) throws Exception{
+		String QNA_NUMBER = commandMap.get("QNA_NUMBER").toString();
+		System.out.println("QNA번호="+QNA_NUMBER);
+		qnaService.updateRepState(commandMap.getMap());
+		String m_num = session.getAttribute("MEMBER_NUMBER").toString();
+		List<Map<String, Object>> qnalist = qnaService.qnalistById(m_num);
+		List<Map<String, Object>> qnalist2 = qnaService.qnalistById2(m_num);
+		System.out.println("목록2"+qnalist2.toString());
+		ModelAndView mv = new ModelAndView("qnalist");
+		mv.addObject("qnalist", qnalist);
+		mv.addObject("qnalist2", qnalist2);
 		return mv;
 	}
 	
 	@RequestMapping(value="/orderlist")
 	@ResponseBody
 	public ModelAndView orderlist(){
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("mypage");
+		ModelAndView mv = new ModelAndView("orderlist");
 		return mv;
 	}
 	
@@ -64,13 +83,16 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value="/qna")
+	@ResponseBody
 	public ModelAndView qnalist(HttpSession session) throws Exception{
 		String m_num = session.getAttribute("MEMBER_NUMBER").toString();
-		List<Map<String, Object>> qnalist = qnaService.qanlistById(m_num);
-		System.out.println("목록"+qnalist.toString());
-		ModelAndView mv = new ModelAndView();
+		System.out.println("멤넘 : "+m_num);
+		List<Map<String, Object>> qnalist = qnaService.qnalistById(m_num);
+		List<Map<String, Object>> qnalist2 = qnaService.qnalistById2(m_num);
+		System.out.println("목록2"+qnalist2.toString());
+		ModelAndView mv = new ModelAndView("qnalist");
 		mv.addObject("qnalist", qnalist);
-		mv.setViewName("qnalist");
+		mv.addObject("qnalist2", qnalist2);
 		return mv;
 	}
 	
@@ -85,14 +107,16 @@ public class MyPageController {
 		myinfo.put("MEMBER_EMAIL1", m_email[0].toString());
 		myinfo.put("MEMBER_EMAIL2", m_email[1].toString());
 		//날짜 폼 변경
+		if(myinfo.get("MEMBER_BIRTHDAY") !=null){
 		String date = myinfo.get("MEMBER_BIRTHDAY").toString();
+		
 		SimpleDateFormat original_format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		SimpleDateFormat new_format = new SimpleDateFormat("yyyyMMdd");
 		
 		Date orginal_date = original_format.parse(date);
 		String new_date = new_format.format(orginal_date);
 		myinfo.put("MEMBER_BIRTHDAY", new_date);
-		
+		}
 		mv.addObject("myinfo", myinfo);
 		mv.setViewName("myinfo");
 		return mv;

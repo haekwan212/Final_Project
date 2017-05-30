@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
-//import spring.kh.siroragi.Paging;
+import spring.kh.siroragi.Paging;
 
 import spring.siroragi.faq.FaqService;
 
@@ -22,7 +22,7 @@ public class FaqController {
 	private FaqService faqService;
 
 	// 검색, 페이징
-	/*private int searchNum;
+	private int searchNum;
 	private String isSearch;
 
 	private int currentPage = 1;
@@ -30,19 +30,19 @@ public class FaqController {
 	private int blockCount = 7;
 	private int blockPage = 5;
 	private String pagingHtml;
-	private Paging page;*/
+	private Paging page;
 
 
 	// 리스트불러오기(검색)
 	@RequestMapping(value = "/faq/faqList")
 	public ModelAndView faqList(CommandMap commandMap, HttpServletRequest request) throws Exception {
 
-		/*if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
 				|| request.getParameter("currentPage").equals("0")) {
 			currentPage = 1;
 		} else {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		}*/
+		}
 
 		ModelAndView mv = new ModelAndView();
 		
@@ -91,7 +91,7 @@ public class FaqController {
 		mv.addObject("list10", list10);
 		
 
-		/*isSearch = request.getParameter("isSearch");
+		isSearch = request.getParameter("isSearch");
 		if (isSearch != null) {
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
@@ -139,12 +139,12 @@ public class FaqController {
 			mv.addObject("totalCount", totalCount);
 			mv.addObject("pagingHtml", pagingHtml);
 			mv.addObject("currentPage", currentPage);
-*/
+
 			
 			mv.setViewName("/faq/faq");
 			
 			return mv;
-		//}
+		}
 	}
 
 	// 입력폼
@@ -163,7 +163,7 @@ public class FaqController {
 		ModelAndView mv = new ModelAndView("redirect:/faq/faqList");
 
 		faqService.faqWrite(commandMap.getMap(), request);
-		/* mv.setViewName(); */
+		 //mv.setViewName(); 
 
 		return mv;
 	}
