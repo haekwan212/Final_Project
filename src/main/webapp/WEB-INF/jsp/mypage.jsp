@@ -104,7 +104,7 @@ function tab(num){
 						<a href="../mypage/profile" target="modal" data-size="sm" class="button small" data-label="프로필 사진수정">
 							<span class="button-label">사진 수정</span>
 						</a>
-						<a href="../mypage/myinfo" class="button small button-dimmed">
+						<a href="/SIRORAGI/myinfo" class="button small button-dimmed">
 							<span class="button-label">내 정보 수정</span>
 						</a>
 					</div>
