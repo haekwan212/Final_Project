@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <div class="container">
 	<section class="page-category">
 		<div class="selectboxWrap">
@@ -31,8 +34,8 @@
 		<section class="complete-greeting section">
 			<div class="section-body greeting">
 				<em>thank you!</em>
-				<strong>주문번호 : 1496041079191<span class="border"></span></strong>
-				<p class="c02">권다영님의 주문이 정상적으로 완료되었습니다.<br>
+				<strong>주문번호 : ${ORDER_CODE }<span class="border"></span></strong>
+				<p class="c02">${orderMember.MEMBER_NAME }님의 주문이 정상적으로 완료되었습니다.<br>
 					아래 주문내역은 마이팬콧에서 항상 확인 하실 수 있습니다.</p>
 			</div>
 			<div class="section-foot">
@@ -40,7 +43,7 @@
 					<a href="../mypage/orderview?ordno=1496041079191" class="button large">
 						<span class="button-label">주문 확인</span>
 					</a>
-					<a href="/" class="button button-dimmed large">
+					<a href="/SIRORAGI/main" class="button button-dimmed large">
 						<span class="button-label">쇼핑 계속</span>
 					</a>
 				</div>
@@ -66,7 +69,7 @@
 					<strong>입금계좌</strong>
 				</div>
 				<div class="col-lg-21 col-md-20">
-					<em>우리은행 27490090518756 브랜드인덱스</em>
+					<em>기업은행 088-102835-01-011 실오라기</em>
 				</div>
 			</li>
 	
@@ -75,7 +78,7 @@
 						<strong>결제금액</strong>
 					</div>
 					<div class="text-bold col-lg-21 col-md-20">
-						<em>53,100원</em>
+						<em><fmt:formatNumber value="${TOTALPRICE }" type="number" />원</em>
 					</div>
 				</li>
 			</ul>
@@ -91,7 +94,7 @@
 						<strong>주문하시는분</strong>
 					</div>
 					<div class="col-lg-21 col-md-20">
-						<em>권다영</em>
+						<em>${orderMember.MEMBER_NAME }</em>
 					</div>
 				</li>
 				<li>
@@ -99,7 +102,7 @@
 						<strong>핸드폰</strong>
 					</div>
 					<div class="col-lg-21 col-md-20">
-						<em>010-8331-6353</em>
+						<em>${orderMember.MEMBER_PHONE }</em>
 					</div>
 				</li>
 				<li>
@@ -107,7 +110,7 @@
 						<strong>이메일</strong>
 					</div>
 					<div class="col-lg-21 col-md-20">
-						<em>mumu116@naver.com</em>
+						<em>${orderMember.MEMBER_EMAIL }</em>
 					</div>
 				</li>
 				<li>
@@ -130,7 +133,7 @@
 						<strong>받으시는 분</strong>
 					</div>
 					<div class="col-lg-21 col-md-20">
-						<em>권다영</em>
+						<em>${RECEIVER_NAME }</em>
 					</div>
 				</li>
 				<li>
@@ -138,7 +141,7 @@
 						<strong>주소</strong>
 					</div>
 					<div class="col-lg-21 col-md-20">
-						<em>서울 구로구 개봉로20길 158 현대홈타운 2차 210동 503호 </em>
+						<em>(${RECEIVER_ZIPCODE }) ${RECEIVER_ADDRESS1 } ${RECEIVER_ADDRESS2 }</em>
 					</div>
 				</li>
 				<li>
@@ -146,7 +149,7 @@
 						<strong>핸드폰</strong>
 					</div>
 					<div class="col-lg-21 col-md-20">
-						<em>010-8331-6353</em>
+						<em>${RECEIVER_PHONE }</em>
 					</div>
 				</li>
 				<li>
@@ -154,7 +157,7 @@
 						<strong>배송 메세지</strong>
 					</div>
 					<div class="col-lg-21 col-md-20">
-						<em></em>
+						<em>${DELIVERY_MESSAGE }</em>
 					</div>
 				</li>
 			</ul>

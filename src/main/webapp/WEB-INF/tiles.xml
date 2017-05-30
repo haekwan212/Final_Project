@@ -179,6 +179,19 @@
 	<definition name="noticeDetail" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeDetail.jsp"/>
 	</definition>
+	
+	<!-- 구매 -->
+	<definition name="orderForm" extends="common2">
+      <put-attribute name="body" value="/WEB-INF/jsp/order/orderForm.jsp"/>
+	</definition>
+	
+	<definition name="orderDetail" extends="common2">
+      <put-attribute name="body" value="/WEB-INF/jsp/order/orderDetail.jsp"/>
+	</definition>
+	
+	<definition name="orderEnd" extends="common2">
+      <put-attribute name="body" value="/WEB-INF/jsp/order/orderEnd.jsp"/>
+	</definition>
 
 </tiles-definitions>
 	
