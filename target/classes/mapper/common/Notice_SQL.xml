@@ -2,6 +2,133 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="notice">
+
+	<select id="noticeList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+			    NOTICE_NUMBER,
+			    NOTICE_TITLE,
+			    NOTICE_HITCOUNT,
+			    NOTICE_REGDATE
+			FROM
+			    NOTICE
+			ORDER BY NOTICE_REGDATE DESC
+		]]>
+	</select>
 	
+	<insert id="noticeWrite" parameterType="hashmap" useGeneratedKeys="true" keyProperty="NOTICE_NUMBER">
+		<selectKey keyProperty="NOTICE_NUMBER" resultType="string"	order="BEFORE">
+			SELECT NOTICE_NUMBER_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		<![CDATA[
+			INSERT INTO NOTICE
+			(
+				NOTICE_NUMBER,
+			    NOTICE_TITLE, 
+			    NOTICE_CONTENT, 
+			    NOTICE_HITCOUNT, 
+			    NOTICE_IMAGE1,
+			    NOTICE_REGDATE 
+			)
+			VALUES
+			(
+				#{NOTICE_NUMBER, jdbcType=INTEGER}, 
+			    #{NOTICE_TITLE, jdbcType=VARCHAR}, 
+			    #{NOTICE_CONTENT, jdbcType=VARCHAR}, 
+			    0, 
+			    #{NOTICE_IMAGE1, jdbcType=VARCHAR},
+			    SYSDATE
+			)
+		]]>
+	</insert>
+	
+	<update id="noticeUpdateHitCnt" parameterType="hashmap">
+		<![CDATA[
+			UPDATE NOTICE 
+			SET
+				NOTICE_HITCOUNT = NVL(NOTICE_HITCOUNT, 0) + 1
+			WHERE
+				NOTICE_NUMBER = #{NOTICE_NUMBER, jdbcType=INTEGER}	
+		]]>
+	</update>
+	
+	<select id="noticeDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				NOTICE_NUMBER,
+				NOTICE_HITCOUNT,
+				NOTICE_REGDATE,
+				NOTICE_TITLE,
+				NOTICE_CONTENT,
+				NOTICE_IMAGE1
+			FROM
+				NOTICE
+			WHERE
+				NOTICE_NUMBER = #{NOTICE_NUMBER, jdbcType=INTEGER}		
+		]]>
+	</select>
+	
+	<!-- 글제목 검색 -->
+	<!-- <select id="searchTitleList" resultType="hashmap" parameterType="hashmap">
+			<![CDATA[
+		SELECT 
+			NOTICE_NUMBER,
+			NOTICE_TITLE,
+			NOTICE_HITCOUNT,
+			NOTICE_REGDATE
+		FROM NOTICE
+		WHERE NOTICE_TITLE like '%' || #{isSearch} || '%'
+		ORDER BY NOTICE_NUMBER DESC
+	]]>
+	</select> -->
+
+
+	<!-- 글내용 검색 -->
+	<!-- <select id="searchContentList" resultType="hashmap"
+		parameterType="hashmap">
+			<![CDATA[
+		SELECT 
+			NOTICE_NUMBER,
+			NOTICE_TITLE,
+			NOTICE_CONTENT,
+			NOTICE_HITCOUNT,
+			NOTICE_REGDATE
+		FROM NOTICE
+		WHERE NOTICE_CONTENT like '%' || #{isSearch} || '%'
+		ORDER BY NOTICE_NUMBER DESC
+	]]>
+	</select> -->
+	
+	
+	
+	<update id="noticeModify" parameterType="hashmap">
+		<![CDATA[
+			UPDATE NOTICE 
+			SET
+				NOTICE_TITLE = #{NOTICE_TITLE, jdbcType=VARCHAR},
+				NOTICE_CONTENT = #{NOTICE_CONTENT, jdbcType=VARCHAR},
+				NOTICE_IMAGE1 = #{NOTICE_IMAGE1, jdbcType=VARCHAR}
+			WHERE
+				NOTICE_NUMBER = #{NOTICE_NUMBER, jdbcType=INTEGER}	
+		]]>
+	</update>
+	
+	<!-- 파일첨부 1 -->
+	<update id="noticeImage1" parameterType="hashmap">
+		<![CDATA[
+			UPDATE NOTICE 
+			SET 
+				NOTICE_IMAGE1 = #{NOTICE_IMAGE1} 
+			WHERE 
+				NOTICE_NUMBER = #{NOTICE_NUMBER}
+		]]>
+	</update>
+	
+	<delete id="noticeDelete" parameterType="hashmap">
+		<![CDATA[
+			DELETE FROM NOTICE 
+			WHERE NOTICE_NUMBER = #{NOTICE_NUMBER, jdbcType=INTEGER}
+		]]>
+	</delete>
 
 </mapper>
