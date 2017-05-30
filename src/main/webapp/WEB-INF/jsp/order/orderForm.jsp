@@ -7,10 +7,6 @@
 	<section class="page-category">
 		<div class="selectboxWrap">
 			<strong>주문</strong>
-			<!--<a href="#" class="comment">
-				<span class="icon icon-speaker-white"></span>
-				<span class="text">배송관련 공지사항 안내 드립니다.</span>
-			</a>-->
 		</div>
 	</section>
 
@@ -40,6 +36,50 @@
 	location.href="/SIRORAGI/order/updatePoint?MEMBER_NUMBER=" + MEMBER_NUMBER + "&POINT_POINT=-"+ POINT_POINT;
 }
 </script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = ''; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    fullAddr = data.roadAddress;
+
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    fullAddr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+                if(data.userSelectedType === 'R'){
+                    //법정동명이 있을 경우 추가한다.
+                    if(data.bname !== ''){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있을 경우 추가한다.
+                    if(data.buildingName !== ''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('sample6_address').value = fullAddr;
+
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById('sample6_address2').focus();
+            }
+        }).open();
+    }
+</script>
 
 	<form method="post" name="frmOrder" action="orderDetail" >
 	<c:forEach var="orderForm"  items="${goods}" varStatus="stat">
@@ -66,11 +106,6 @@
 						</div>
 						<div class="col-lg-21 col-md-20">
 							<input type="text" id="order-name" name="nameOrder" value="${orderMember.MEMBER_NAME }" class="xx-control" required="" alt="주문하시는 분 성명을 입력하세요.">
-							<input type="hidden" id="order_zip1" value="">
-							<input type="hidden" id="order_zip2" value="">
-
-							<input type="hidden" id="order_addr1" value="">
-							<input type="hidden" id="order_addr2" value="">
 						</div>
 					</li>
 					<li class="cell-phone">
@@ -95,44 +130,6 @@
 							<input type="email" id="input-mail" name="email" value="${orderMember.MEMBER_EMAIL }" class="xx-control" required="" alt="이메일을 입력하세요.">
 						</div>
 					</li>
-
-
-					<li class="mail">
-						<div class="item-label col-lg-3 col-md-4">
-							<label for="input-mail">
-								<strong>키,몸무게</strong>
-							</label>
-						</div>
-						<div class="col-lg-21 col-md-20">
-							키 : <input type="text" id="input-height" size="3" style="width: 65px;" name="height" value="" class="xx-control" > / 
-							몸무게 : <input type="text" id="input-weight" size="3" style="width: 65px;" name="weight" value="" class="xx-control" > 
-							<a class="btn-info" style="cursor:pointer;"><span style="border-radius: 2px; color:#fff; background:#ffc000; padding:5px;">키,몸무게입력후 적립금 1000원 받기</span></a>
-							<br>(최초 입력시 적립금 1000원 지급, 숫자만 입력)
-						</div>
-					</li>
-
-
-					<li class="refund checked-radio collapse">
-						<div class="item-label col-lg-3 col-md-4">
-							<strong>품절시 환불 방법</strong>
-						</div>
-						<div class="col-lg-21 col-md-20">
-							<div class="radio col-xs-auto">
-								<label>
-									<input type="radio" name="order-refund" checked="">
-									<span class="icon icon-radio"></span>
-									<span class="radio-label">주문시 결제방법으로 환불</span>
-								</label>
-							</div>
-							<div class="radio col-xs-auto selected">
-								<label>
-									<input type="radio" name="order-refund" value="" checked="">
-									<span class="icon icon-radio"></span>
-									<span class="radio-label">예치금으로 자동 환불</span>
-								</label>
-							</div>
-						</div>
-					</li>
 				</ul>
 			</section>
 			<!-- input-horizontal//end -->
@@ -142,34 +139,6 @@
 				</div>
 				<!-- heading-title//end -->
 				<ul class="section-body">
-					<li>
-						<div class="item-label col-lg-3 col-md-4">
-							<strong>배송 선택</strong>
-						</div>
-						<div class="box-group col-lg-21 col-md-20">
-							<div class="radio col-xs-auto selected">
-								<label>
-									<input type="radio" class="order-delivery" name="order-delivery" value="0" checked="">
-									<span class="icon icon-radio"></span>
-									<span class="radio-label">주문자 동일</span>
-								</label>
-							</div>
-							<!--<div class="radio col-xs-auto">-->
-							<!--<label>-->
-							<!--<input type="radio" name="order-delivery" value="">-->
-							<!--<span class="icon icon-radio"></span>-->
-							<!--<span class="radio-label">최근 배송지</span>-->
-							<!--</label>-->
-							<!--</div>-->
-							<div class="radio col-xs-auto">
-								<label>
-									<input type="radio" class="order-delivery" name="order-delivery" value="1">
-									<span class="icon icon-radio"></span>
-									<span class="radio-label">새로 입력</span>
-								</label>
-							</div>
-						</div>
-					</li>
 					<li>
 						<div class="item-label col-lg-3 col-md-4">
 							<label for="delivery-name">
@@ -186,11 +155,11 @@
 						</div>
 						<div class="col-lg-21 col-md-20">
 							<div class="input-box">
-								<input type="text" id="delivery-zip1" name="RECEIVER_ZIPCODE" value="${orderMember.MEMBER_ZIPCODE }" disabled="disabled" class="xx-control" required="" alt="우편번호를 입력하세요." maxlength="3">
+								<input type="text" id="sample6_postcode" name="RECEIVER_ZIPCODE" value="${orderMember.MEMBER_ZIPCODE }" disabled="disabled" class="xx-control" placeholder="우편번호" maxlength="3">
 								<span class="button button-dimmed" onclick="sample6_execDaumPostcode()" style="cursor:pointer">주소 검색</span>
 							</div>
-							<input type="text" id="delivery-address" name="RECEIVER_ADDRESS1" value="${orderMember.MEMBER_ADDRESS1 }" disabled="disabled" class="xx-control" required="" alt="주소를 입력하세요.">
-							<input type="text" id="delivery-address_sub" name="RECEIVER_ADDRESS2" value="${orderMember.MEMBER_ADDRESS2 }" class="xx-control" required="" alt="주소를 입력하세요.">
+							<input type="text" id="sample6_address" name="RECEIVER_ADDRESS1" value="${orderMember.MEMBER_ADDRESS1 }" disabled="disabled" class="xx-control" placeholder="주소">
+							<input type="text" id="sample6_address2" name="RECEIVER_ADDRESS2" value="${orderMember.MEMBER_ADDRESS2 }" class="xx-control" placeholder="상세주소">
 						</div>
 					</li>
 					<li class="cell-phone">
@@ -201,14 +170,7 @@
 						</div>
 						<div class="col-lg-21 col-md-20">
 							<div class="input-box">
-								<input type="text" id="delivery-cell-phone01" name="RECEIVER_PHONE" value="${orderMember.MEMBER_PHONE }" class="xx-control" required="" alt="휴대폰번호를 입력하세요." maxlength="4">
-							</div>
-							<div class="checkbox collapse selected">
-								<label>
-									<input type="checkbox" name="" value="" checked="">
-									<span class="icon icon-checkbox"></span>
-									<span class="checkbox-label">안심번호 사용</span>
-								</label>
+								<input type="text" id="delivery-cell-phone01" name="RECEIVER_PHONE" value="${orderMember.MEMBER_PHONE }" class="xx-control" alt="휴대폰번호를 입력하세요." maxlength="4">
 							</div>
 						</div>
 					</li>
@@ -397,16 +359,6 @@
 										<strong>-<span class="v_coupon">0</span>원</strong>
 									</div>
 								</div>
-								<!--
-								<div class="item">
-									<div class="item-label col-xs-8">
-										<strong>쿠폰할인예정액</strong>
-									</div>
-									<div class="col-xs-16">
-										<em>0원</em>
-									</div>
-								</div>
-								-->
 							</div>
 						</div>
 						<div class="total col-sm-8 col-lg-24">
@@ -440,25 +392,11 @@
 						<div class="payment-option col-xs-24">
 							<div class="radio c02">
 								<label>
-									<input type="radio" name="settlekind" value="v">
+									<input type="radio" name="settlekind"  checked value="v">
 									<span class="icon icon-radio"></span>
 									<span class="radio-label">무통장(가상계좌)</span>
 								</label>
 							</div>
-							<!--<div class="radio c05">
-								<label>
-									<input type="radio" name="settlekind" value="g" />
-									<span class="icon icon-radio"></span>
-									<span class="radio-label">문화 상품권</span>
-								</label>
-							</div>
-							<div class="radio c06">
-								<label>
-									<input type="radio" name="settlekind" value="t" />
-									<span class="icon icon-radio"></span>
-									<span class="radio-label">도서 상품권</span>
-								</label>
-							</div>-->
 						</div>
 						<!-- payment-option//end -->
 					</div>
@@ -475,7 +413,7 @@
 						</button>
 					</div>
 					<div class="col-xs-12 col-lg-24">
-						<a href="cart" class="button button-dimmed large">
+						<a href="goodsDetail?GOODS_NUMBER=${GOODS_NUMBER }" class="button button-dimmed large">
 							<span class="button-label">이전 단계</span>
 						</a>
 					</div>

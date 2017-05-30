@@ -173,12 +173,12 @@ public class OrderController {
 		String[] goods_kinds_number = request.getParameterValues("kinds[]");
 		String[] ea = request.getParameterValues("ea[]");
 		String[] goods_total = request.getParameterValues("goods_total[]");
-		
+
 		for (int i = 0; i < goods_kinds_number.length; i++) {
 
 			commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
 			commandMap.put("EA", ea[i]);
-			
+
 			Map<String, Object> orderGoods = orderService.orderGoods(commandMap.getMap());
 
 			orderGoods.put("EA", ea[i]);
@@ -225,15 +225,21 @@ public class OrderController {
 		commandMap.put("DELIVERY_MESSAGE", request.getParameter("DELIVERY_MESSAGE"));
 		commandMap.put("RECEIVER_NUMBER", request.getParameter("RECEIVER_PHONE"));
 
-	orderService.insertMemberDelivery(commandMap.getMap());
+		orderService.insertMemberDelivery(commandMap.getMap());
 
 		for (int i = 0; i < goods_kinds_number.length; i++) {
 
 			commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
 			commandMap.put("ORDER_AMOUNT", ea[i]);
 			commandMap.put("GOODS_TOTAL", goods_total[i]);
+
+			System.out.println("GOODS_NUMBER : " + commandMap.get("GOODS_NUMBER"));
+			System.out.println("GOODS_KINDS_NUMBER : " + commandMap.get("GOODS_KINDS_NUMBER"));
+			System.out.println("ORDER_AMOUNT : " + commandMap.get("ORDER_AMOUNT"));
 			
-		orderService.insertOrderList(commandMap.getMap());
+			orderService.insertOrderList(commandMap.getMap());
+			orderService.orderGoodsSell(commandMap.getMap());
+
 		}
 
 		mv.addObject("orderMember", orderMember);
