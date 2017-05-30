@@ -1,6 +1,18 @@
 package spring.siroragi.order;
 
+import java.util.Map;
+
 public interface OrderService {
+
+	Map<String, Object> orderMember(Map<String, Object> map) throws Exception;
+
+	Map<String, Object> orderGoods(Map<String, Object> map) throws Exception;
+
+	void insertMemberDelivery(Map<String, Object> map) throws Exception;
+
+	void insertOrderList(Map<String, Object> map) throws Exception;
+
+	void updatePoint(Map<String, Object> map) throws Exception;
 
 	// 주문하기 폼으로 이동(상세보기페이지에서 이동.한 상품만 결제)
 
