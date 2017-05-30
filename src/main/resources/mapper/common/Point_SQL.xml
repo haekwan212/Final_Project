@@ -3,5 +3,10 @@
 
 <mapper namespace="point">
 	
+	<insert id="joinPoint" parameterType="hashMap" >
+	<![CDATA[
+		
+	]]>
+	</insert>
 
 </mapper>
