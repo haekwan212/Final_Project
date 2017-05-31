@@ -102,6 +102,11 @@
 	<definition name="noticeForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeForm.jsp"/>
 	</definition>
+	
+	<definition name="adminOrderList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/order/order.jsp"/>
+	</definition>
+	
 	<!-- admin -->
 	
 	
@@ -194,6 +199,10 @@
 	
 	<definition name="orderEnd" extends="common2">
       <put-attribute name="body" value="/WEB-INF/jsp/order/orderEnd.jsp"/>
+	</definition>
+	
+		<definition name="orderLogin" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/order/orderLogin.jsp"/>
 	</definition>
 
 </tiles-definitions>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="order">
-	
+
 	<select id="orderMember" parameterType="hashmap" resultType="hashmap">
 	<![CDATA[
 	SELECT 
@@ -33,7 +33,7 @@
 			M.MEMBER_DELDATE
 	]]>
 	</select>
-	
+
 	<select id="orderGoods" parameterType="hashmap" resultType="hashmap">
 	<![CDATA[
 	select G.GOODS_NUMBER,
@@ -56,8 +56,8 @@
        AND K.GOODS_KINDS_NUMBER = ${GOODS_KINDS_NUMBER}
 	]]>
 	</select>
-	
-	<insert id="insertMemberDelivery" parameterType="hashmap" >
+
+	<insert id="insertMemberDelivery" parameterType="hashmap">
 	<![CDATA[
 	INSERT INTO DELIVERY 
 	(ORDER_CODE,
@@ -90,8 +90,8 @@
 	'${DELIVERY_MESSAGE}')
 	]]>
 	</insert>
-	
-	<insert id="insertNonMemberDelivery" parameterType="hashmap" >
+
+	<insert id="insertNonMemberDelivery" parameterType="hashmap">
 	<![CDATA[
 	INSERT INTO DELIVERY (
 	ORDER_CODE,
@@ -130,8 +130,8 @@
 	)
 	]]>
 	</insert>
-	
-	<insert id="insertOrderList" parameterType="hashmap" >
+
+	<insert id="insertOrderList" parameterType="hashmap">
 	<![CDATA[
 	INSERT INTO ORDERLIST (
 	ORDER_NUMBER,
@@ -151,20 +151,18 @@
 	'${ORDER_CODE}',
 	'${ORDER_AMOUNT}',
 	SYSDATE,
-	'결제 대기',
+	'결제대기',
 	'${GOODS_TOTAL}',
-	'결제 대기(무통장입금)',
+	'결제대기',
 	'${GOODS_KINDS_NUMBER}'
 	)
 	]]>
 	</insert>
-	
-	
-	<!-- 구매확정시 삼품 수량 삭제 만들어야 함 -->
-	
+
+
 	<!-- 세일 상품도 하기 -->
-	
-	<update parameterType="hashmap" id="updatePoint">
+
+	<insert parameterType="hashmap" id="updatePoint">
 		<![CDATA[
 		INSERT INTO POINT (
 			MEMBER_NUMBER,
@@ -179,6 +177,19 @@
 			 SYSDATE,
 			 POINT_NUMBER_SEQ.NEXTVAL)
 		]]>
+	</insert>
+	<!-- 구매확정시 삼품 수량 삭제 만들어야 함 -->
+	<update id="orderGoodsSell" parameterType="hashmap">
+	<![CDATA[
+	MERGE INTO GOODS_KINDS K
+USING GOODS G
+ON (K.GOODS_NUMBER = G.GOODS_NUMBER
+AND K.GOODS_NUMBER = '${GOODS_NUMBER}'
+AND K.GOODS_KINDS_NUMBER = '${GOODS_KINDS_NUMBER}')
+WHEN MATCHED THEN
+UPDATE SET K.GOODS_AMOUNT = K.GOODS_AMOUNT-'${ORDER_AMOUNT}',
+K.GOODS_SELLCOUNT = K.GOODS_SELLCOUNT+'${ORDER_AMOUNT}'
+	]]>
 	</update>
 
 </mapper>

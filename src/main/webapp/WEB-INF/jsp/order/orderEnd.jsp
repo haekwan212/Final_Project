@@ -93,25 +93,52 @@
 					<div class="item-label col-lg-3 col-md-4">
 						<strong>주문하시는분</strong>
 					</div>
+					<c:choose>
+					<c:when test="${orderMember ne null }">
 					<div class="col-lg-21 col-md-20">
-						<em>${orderMember.MEMBER_NAME }</em>
+					<em>${orderMember.MEMBER_NAME }</em>
 					</div>
+					</c:when>
+					<c:otherwise>
+					<div class="col-lg-21 col-md-20">
+						<em>${BUYER_NAME }</em>
+					</div>
+					</c:otherwise>
+					</c:choose>
 				</li>
 				<li>
 					<div class="item-label col-lg-3 col-md-4">
 						<strong>핸드폰</strong>
 					</div>
+					<c:choose>
+					<c:when test="${orderMember ne null }">
 					<div class="col-lg-21 col-md-20">
-						<em>${orderMember.MEMBER_PHONE }</em>
+					<em>${orderMember.MEMBER_PHONE }</em>
 					</div>
+					</c:when>
+					<c:otherwise>
+					<div class="col-lg-21 col-md-20">
+						<em>${BUYER_NUMBER }</em>
+					</div>
+					</c:otherwise>
+					</c:choose>
 				</li>
 				<li>
 					<div class="item-label col-lg-3 col-md-4">
 						<strong>이메일</strong>
 					</div>
+					<c:choose>
+					<c:when test="${orderMember ne null }">
 					<div class="col-lg-21 col-md-20">
-						<em>${orderMember.MEMBER_EMAIL }</em>
+					<em>${orderMember.MEMBER_EMAIL }</em>
 					</div>
+					</c:when>
+					<c:otherwise>
+					<div class="col-lg-21 col-md-20">
+						<em>${BUYER_EMAIL }</em>
+					</div>
+					</c:otherwise>
+					</c:choose>
 				</li>
 				<li>
 					<div class="item-label col-lg-3 col-md-4">

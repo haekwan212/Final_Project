@@ -17,10 +17,6 @@ function joinValidation(frm){
 		return false;
 	}
 
-	else if(frm.QNA_CONTENT.value==""){
-		alert("내용을 입력해 주세요.");
-		return false;
-	}
 	
 		alert("작성이 완료되었습니다.");
 }
@@ -174,10 +170,13 @@ function previewImage(targetObj, View_area) {
                             <label>비밀번호</label>
                             <input type="text" class="form-control" id="QNA_PASSWORD" name="QNA_PASSWORD" style="width:250px;"/>
                         </div> -->
-                        
-                         <div class="form-group">
+                        <div class="form-group">
                             <label>내용</label>
-                        <textarea class="form-control" id="QNA_CONTENT" name="QNA_CONTENT"  rows="10" cols="30" ></textarea>
+                        <textarea class="form-control" id="QNA_CONTENT" name="QNA_CONTENT"  rows="10" cols="30"  readonly ></textarea>
+                        </div>
+                         <div class="form-group">
+                            <label>답변</label>
+                        <textarea class="form-control" id="QNA_REPCONTENT" name="QNA_REPCONTENT"  rows="10" cols="30" ></textarea>
                         </div>
                          <div class="form-group">
 							<label>등록 이미지</label> 

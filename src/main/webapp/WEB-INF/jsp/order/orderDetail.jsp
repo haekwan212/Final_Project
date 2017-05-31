@@ -37,6 +37,11 @@
 		<input type="hidden" name="kinds[]" value="${orderForm.GOODS_KINDS_NUMBER }">
 		<input type="hidden" name="goods_total[]" value="${orderForm.TOTALPRICE }">
 	</c:forEach>
+	
+	<input type="hidden" name="guestPhone" value="${guestPhone }">
+	<input type="hidden" name="guestEmail" value="${guestEmail }">
+	<input type="hidden" name="guestName" value="${guestName }">
+	
 	<input type="hidden" name="MEMBER_NUMBER" value="${orderMember.MEMBER_NUMBER }">
 	<input type="hidden" name="RECEIVER_NAME" value="${RECEIVER_NAME }">
 	<input type="hidden" name="RECEIVER_ZIPCODE" value="${RECEIVER_ZIPCODE }">
@@ -64,9 +69,18 @@
 								<strong>주문하시는 분</strong>
 							</label>
 						</div>
+						<c:choose>
+						<c:when test="${guestName ne null }">
+						<div class="col-lg-21 col-md-20">
+							${guestName }
+						</div>
+						</c:when>
+						<c:otherwise>
 						<div class="col-lg-21 col-md-20">
 							${orderMember.MEMBER_NAME }
 						</div>
+						</c:otherwise>
+						</c:choose>
 					</li>
 					<li class="cell-phone">
 						<div class="item-label col-lg-3 col-md-4">
@@ -75,9 +89,18 @@
 							</label>
 						</div>
 						<div class="col-lg-21 col-md-20">
-							<div class="input-box">
-								${orderMember.MEMBER_PHONE }
-							</div>
+							<c:choose>
+						<c:when test="${guestPhone ne null }">
+						<div class="col-lg-21 col-md-20">
+							${guestPhone }
+						</div>
+						</c:when>
+						<c:otherwise>
+						<div class="col-lg-21 col-md-20">
+							${orderMember.MEMBER_PHONE }
+						</div>
+						</c:otherwise>
+						</c:choose>
 						</div>
 					</li>
 					<li class="mail">
@@ -86,9 +109,18 @@
 								<strong>이메일</strong>
 							</label>
 						</div>
+						<c:choose>
+						<c:when test="${guestEmail ne null }">
+						<div class="col-lg-21 col-md-20">
+							${guestEmail }
+						</div>
+						</c:when>
+						<c:otherwise>
 						<div class="col-lg-21 col-md-20">
 							${orderMember.MEMBER_EMAIL }
 						</div>
+						</c:otherwise>
+						</c:choose>
 					</li>
 				</ul>
 			</section>
