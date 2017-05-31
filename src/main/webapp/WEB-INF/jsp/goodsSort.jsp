@@ -159,10 +159,15 @@
 												</span>
 											</c:if>
 
-
-											<span class="cabal cabal-new"> <span
-												class="cabal-label">new</span>
-											</span> <span class="cabal cabal-hurryup"> <span
+												<c:if test="${nowDate < goodsList.GOODS_NEWDATE}">
+												<span class="cabal cabal-new"> 
+												<span class="cabal-label">
+												new
+												</span>
+												</span> 
+												</c:if>
+											
+											 <span class="cabal cabal-hurryup"> <span
 												class="cabal-label">HURRY UP</span>
 											</span>
 
@@ -172,7 +177,7 @@
 										<div class="button-group">
 											<button class="button col-xs-12" target="modal"
 												data-size="lg" data-label="»óÇ° PREVIEW"
-												href="/SIRORAGI/admin/goods/goods.jsp">
+												href="/SIRORAGI/main/goods?GOODS_NUMBER=${goodsList.GOODS_NUMBER}">
 												<span class="icon icon-expansion-white"></span>
 											</button>
 											<a href="${viewURL}" class="button button-dimmed col-xs-12"

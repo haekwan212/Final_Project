@@ -314,6 +314,19 @@
 											</span>
 											</label>
 										</div>
+										
+										<div class="checkbox col-xs-auto gradient-gold">
+											<label> <input type="checkbox" name="color[]" onclick="javascript:ajaxList();"
+												value="BEIGE" data-text="gradient-gold"> <span
+												class="icon icon-check-white"></span> <span
+												class="checkbox-label"> <img
+													src="../theme/pshp/img/filter-color-beige.png"
+													alt="gradient-gold">
+											</span>
+											</label>
+										</div>
+										
+										
 										<div class="checkbox col-xs-auto red">
 											<label> <input type="checkbox" name="color[]" onclick="javascript:ajaxList();"
 												value="RED" data-text="red"> <span
@@ -323,16 +336,7 @@
 											</span>
 											</label>
 										</div>
-										<div class="checkbox col-xs-auto gradient-gold">
-											<label> <input type="checkbox" name="color[]" onclick="javascript:ajaxList();"
-												value="GRADIENT-GOLD" data-text="gradient-gold"> <span
-												class="icon icon-check-white"></span> <span
-												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-gradient-gold.png"
-													alt="gradient-gold">
-											</span>
-											</label>
-										</div>
+
 									</div>
 								</div>
 							</div>
@@ -448,12 +452,10 @@
 													class="img-responsive" width="500" height="500">
 											</div>
 											<div class="cabal-group">
-												<!-- 여기다 조건주자  -->
+												<!-- 조건태그시작  -->
 												<c:if test="${goodsRank.GOODS_DCPRICE != null}">
 
-													<%-- <c:set value="${goodsList.GOODS_PRICE}" var="PRICE" type="number"/> --%>
-
-																									<span class="cabal cabal-sale"> 
+												<span class="cabal cabal-sale"> 
 												<span class="cabal-label">-
 												<fmt:formatNumber value="${(goodsRank.GOODS_PRICE - goodsRank.GOODS_DCPRICE)*100 / goodsRank.GOODS_PRICE}" type="number" />
 												%
@@ -462,24 +464,30 @@
 													
 												</c:if>
 
-
-												<span class="cabal cabal-new"> <span
-													class="cabal-label">new</span>
-												</span> <span class="cabal cabal-hurryup"> <span
+												<c:if test="${nowDate < goodsRank.GOODS_NEWDATE}">
+												<span class="cabal cabal-new"> 
+												<span class="cabal-label">
+												new
+												</span>
+												</span> 
+												</c:if>
+												
+												
+												<c:if test="${goodsRank.AMOUNT<50}">
+												<span class="cabal cabal-hurryup"> <span
 													class="cabal-label">HURRY UP</span>
 												</span>
+												</c:if>
+												<!-- 조건태그끝  -->
 
 											</div>
 										</a>
 										<div class="addon">
 											<div class="button-group">
-												<button class="button col-xs-12" target="modal"
-													data-size="lg" data-label="상품 PREVIEW"
-													href="/SIRORAGI/goods">
+												<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${goodsRank.GOODS_NUMBER}">
 													<span class="icon icon-expansion-white"></span>
 												</button>
-												<a href="${viewURL}" class="button button-dimmed col-xs-12"
-													target="modal" data-size="sm" data-label="SNS공유하기"> <span
+												<a href="${viewURL}" class="button button-dimmed col-xs-12"target="modal" data-size="sm" data-label="SNS공유하기"> <span
 													class="icon icon-share-white"></span>
 												</a>
 											</div>
@@ -687,7 +695,7 @@
 												class="img-responsive" width="500" height="500">
 										</div>
 										<div class="cabal-group">
-											<!-- 여기다 조건주자  -->
+											<!-- 조건태그 시작  -->
 											<c:if test="${goodsList.GOODS_DCPRICE != null}">
 
 												<%-- <c:set value="${goodsList.GOODS_PRICE}" var="PRICE" type="number"/> --%>
@@ -703,20 +711,25 @@
 												</span>
 											</c:if>
 
-
+											<c:if test="${nowDate < goodsList.GOODS_NEWDATE}">
 											<span class="cabal cabal-new"> <span
-												class="cabal-label">new</span>
-											</span> <span class="cabal cabal-hurryup"> <span
+												class="cabal-label">new
+												</span>
+											</span> 
+											</c:if>
+											
+											<c:if test="${goodsList.AMOUNT<50}">
+											<span class="cabal cabal-hurryup"> <span
 												class="cabal-label">HURRY UP</span>
 											</span>
-
+											</c:if>
 										</div>
 									</a>
 									<div class="addon">
 										<div class="button-group">
 											<button class="button col-xs-12" target="modal"
 												data-size="lg" data-label="상품 PREVIEW"
-												href="/SIRORAGI/admin/goods/goods.jsp">
+												href="/SIRORAGI/main/goods?GOODS_NUMBER=${goodsList.GOODS_NUMBER}">
 												<span class="icon icon-expansion-white"></span>
 											</button>
 											<a href="${viewURL}" class="button button-dimmed col-xs-12"
