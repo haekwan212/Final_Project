@@ -43,7 +43,7 @@
 			SELECT sum(b.goods_sellcount) as sellcount, a.* from(select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by sellcount desc
 		</when>
 		<when test="sort == 2"><!-- 신상품 -->
-			select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_NUMBER DESC
+			SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc
 		</when>
 		<when test="sort == 3"><!-- 낮은가격 -->
 			select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_PRICE ASC 
@@ -57,7 +57,8 @@
 			from goods where goods_CATEGORY1=#{category} and goods_onoff ='0' order by DCPERSENT DESC, GOODS_NUMBER DESC
 		</when>
 		<otherwise>
-			select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_NUMBER DESC
+			SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1='PANTS'  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc
+			<!-- select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_NUMBER DESC -->
 		</otherwise>
 	</choose>
 
@@ -66,14 +67,14 @@
 
 	<select id="goodsRank" parameterType="String" resultType="hashmap">
 		<![CDATA[
-			SELECT sum(b.goods_sellcount) as sellcount, a.* from(select * from goods where goods_CATEGORY1=#{isCategory}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by sellcount desc
+			SELECT sum(b.goods_amount) as amount, sum(b.goods_sellcount) as sellcount, a.* from(select * from goods where goods_CATEGORY1=#{isCategory}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by sellcount desc
 		]]>
 	</select>
 	
 	
 	<select id="goodsCategorySearch" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
-		select A.goods_number,A.goods_name,A.goods_price,A.goods_dcprice,A.goods_simple,A.goods_category1,A.GOODS_THUMBNAIL,SUM(A.GOODS_SELLCOUNT) as SELLCOUNT,NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT
+		select A.goods_number,A.goods_name,A.goods_price,A.goods_dcprice,A.goods_simple,A.goods_category1,A.GOODS_DATE,A.GOODS_THUMBNAIL,SUM(A.GOODS_SELLCOUNT) as SELLCOUNT,NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT
 		from 
 		(select * from goods natural join goods_kinds) A where goods_PRICE >= ${priceSearchRange1} and goods_price <= ${priceSearchRange2} and goods_category1= #{category} and	goods_onoff ='0'   
 		]]>
@@ -105,7 +106,7 @@
 		</if>
 		
 
-		group by A.GOODS_THUMBNAIL,A.goods_category1,A.goods_simple,A.goods_dcprice,A.goods_price,A.goods_number, A.goods_name  
+		group by A.GOODS_DATE,A.GOODS_THUMBNAIL,A.goods_category1,A.goods_simple,A.goods_dcprice,A.goods_price,A.goods_number, A.goods_name  
 		
 		
 		<choose>
@@ -115,7 +116,7 @@
 			</when>
 		
 			<when test="sortCheck == 2"><!-- 신상품순 -->
-				order by GOODS_NUMBER ASC
+				order by GOODS_NUMBER DESC
 			</when>
 		
 			<when test="sortCheck == 3"><!-- 낮은가격순 -->
@@ -131,7 +132,7 @@
 			</when>
 		
 			<otherwise>
-				order by GOODS_NUMBER ASC
+				order by GOODS_NUMBER DESC
 			</otherwise>
 		</choose>
 		
