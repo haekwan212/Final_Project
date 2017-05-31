@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
+import spring.siroragi.point.PointService;
 import spring.siroragi.qna.QnaService;
 
 @Controller
@@ -26,6 +26,9 @@ public class MyPageController {
 	
 	@Resource(name="qnaService")
 	private QnaService qnaService;
+	
+	@Resource(name="pointService")
+	private PointService pointService;
 
 	@RequestMapping(value="/mypage")
 	public ModelAndView mypageForm(CommandMap commandMap, HttpSession session) throws Exception{
@@ -34,6 +37,9 @@ public class MyPageController {
 		commandMap.getMap().put("MEMBER_NUMBER", m_num);
 		int newAlarm = qnaService.qnaNewAlarm(commandMap.getMap());
 		mv.setViewName("mypage");
+		Map<String, Object> sumPoint = pointService.sumPoint(commandMap.getMap());
+		
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
 		mv.addObject("newAlarm", newAlarm);
 		return mv;
 	}
