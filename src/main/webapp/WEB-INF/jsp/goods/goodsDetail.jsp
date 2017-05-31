@@ -663,7 +663,18 @@ function _exec(mode){
 
 		document.location.href="./restock";
 
-	}else if (mode!="wishlist"){
+	}
+	else if (mode=="buy"){
+		if (document.getElementsByName("optno[]").length==0){ alert("옵션을 선택해주세요"); return; }
+
+		var fm = document.fmOrder;
+		fm.mode.value = mode;
+		fm.target = "_self";
+		fm.action = "/SIRORAGI/order";
+		//if (mode=="order") fm.action = "../order";
+		fm.submit();
+	}
+	else if (mode!="wishlist"){
 		if (document.getElementsByName("optno[]").length==0){ alert("옵션을 선택해주세요"); return; }
 
 		var fm = document.fmOrder;
@@ -672,7 +683,6 @@ function _exec(mode){
 		fm.action = "/SIRORAGI/cart/cartIn";
 		//if (mode=="wishlist") fm.action = "../mypage/wishlist";
 		fm.submit();
-
 	}
 }
 </script>
