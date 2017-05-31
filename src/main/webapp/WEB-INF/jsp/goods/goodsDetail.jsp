@@ -428,12 +428,20 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 								</a>
 							</div>
 						</div>
-
+				
 						<div class="section-foot">
 							<div class="button-group">
-								<a href="javascript:_exec('buy');"
+							<%-- <c:if test="${MEMBER_ID eq null}">
+							<a href="javascript:_exec('buy');" onClick="alert('로그인을 해주세요.'); return false;"
 									class="button large col-xs-12"> <span class="button-label">바로구매</span>
-								</a> <a href="javascript:_exec('cart');"
+								</a>
+								</c:if>
+								<c:if test="${MEMBER_ID ne null}"> --%>
+							<a href="javascript:_exec('buy');"
+									class="button large col-xs-12"> <span class="button-label">바로구매</span>
+								</a>
+								<%-- </c:if> --%>
+								<a href="javascript:_exec('cart');"
 									class="button button-dimmed large col-xs-12"> <span
 									class="button-label">장바구니</span>
 								</a>
@@ -666,7 +674,7 @@ function _exec(mode){
 	}
 	else if (mode=="buy"){
 		if (document.getElementsByName("optno[]").length==0){ alert("옵션을 선택해주세요"); return; }
-
+		
 		var fm = document.fmOrder;
 		fm.mode.value = mode;
 		fm.target = "_self";
