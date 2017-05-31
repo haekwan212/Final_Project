@@ -210,7 +210,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>	
+										<OPTION value='BEIGE'>BEIGE</OPTION>	
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'GRAY' }">
 										<OPTION value=''>색상</OPTION>
@@ -227,7 +227,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'BROWN' }">
 										<OPTION value=''>색상</OPTION>
@@ -244,7 +244,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'BURGUNDY' }">
 										<OPTION value=''>색상</OPTION>
@@ -261,7 +261,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'PINK' }">
 										<OPTION value=''>색상</OPTION>
@@ -278,7 +278,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'PURPLE'}">
 										<OPTION value=''>색상</OPTION>
@@ -295,7 +295,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'WHITE' }">
 										<OPTION value=''>색상</OPTION>
@@ -312,7 +312,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'NAVY'}">
 										<OPTION value=''>색상</OPTION>
@@ -329,7 +329,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'BLUE' }">
 										<OPTION value=''>색상</OPTION>
@@ -346,7 +346,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'GREEN' }">
 										<OPTION value=''>색상</OPTION>
@@ -363,7 +363,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'YELLOW' }">
 										<OPTION value=''>색상</OPTION>
@@ -380,7 +380,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW' selected>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'RED'}">
 										<OPTION value=''>색상</OPTION>
@@ -397,7 +397,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED' selected>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
 									<c:when test="${goodDetail.GOODS_COLOR eq 'SKYBLUE' }">
 										<OPTION value=''>색상</OPTION>
@@ -414,9 +414,9 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE' selected>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE'>BEIGE</OPTION>
 									</c:when>
-									<c:when test="${goodDetail.GOODS_COLOR eq 'GRADIENT-GOLD' }">
+									<c:when test="${goodDetail.GOODS_COLOR eq 'BEIGE' }">
 										<OPTION value=''>색상</OPTION>
 										<OPTION value='BLACK'>BLACK</OPTION>
 										<OPTION value='GRAY'>GRAY</OPTION>
@@ -431,7 +431,7 @@ function GOODS_CATEGORY1Change() {
 										<OPTION value='YELLOW'>YELLOW</OPTION>
 										<OPTION value='RED'>RED</OPTION>
 										<OPTION value='SKYBLUE'>SKYBLUE</OPTION>
-										<OPTION value='GRADIENT-GOLD' selected>GRADIENT-GOLD</OPTION>
+										<OPTION value='BEIGE' selected>BEIGE</OPTION>
 									</c:when>
 									
 									</c:choose>
@@ -520,7 +520,7 @@ function GOODS_CATEGORY1Change() {
 		}
 		
 		function fn_addKind(){
-			var str = "<p><select name='GOODS_COLOR' size=1><OPTION value=''>색상</OPTION><OPTION value='BLACK'>BLACK</OPTION><OPTION value='GRAY'>GRAY</OPTION><OPTION value='BROWN'>BROWN</OPTION><OPTION value='BURGUNDY'>BURGUNDY</OPTION><OPTION value='PINK'>PINK</OPTION><OPTION value='PURPLE'>PURPLE</OPTION><OPTION value='WHITE'>WHITE</OPTION><OPTION value='NAVY'>NAVY</OPTION><OPTION value='BLUE'>BLUE</OPTION><OPTION value='GREEN'>GREEN</OPTION><OPTION value='YELLOW'>YELLOW</OPTION><OPTION value='RED'>RED</OPTION><OPTION value='SKYBLUE'>SKYBLUE</OPTION><OPTION value='GRADIENT-GOLD'>GRADIENT-GOLD</OPTION> </select> <input type='text' placeholder='사이즈' name='GOODS_SIZE'> <input type='text' placeholder='수량' name='GOODS_AMOUNT'> <a href='#this' class='btn' name='delete'>삭제</a></p>";
+			var str = "<p><select name='GOODS_COLOR' size=1><OPTION value=''>색상</OPTION><OPTION value='BLACK'>BLACK</OPTION><OPTION value='GRAY'>GRAY</OPTION><OPTION value='BROWN'>BROWN</OPTION><OPTION value='BURGUNDY'>BURGUNDY</OPTION><OPTION value='PINK'>PINK</OPTION><OPTION value='PURPLE'>PURPLE</OPTION><OPTION value='WHITE'>WHITE</OPTION><OPTION value='NAVY'>NAVY</OPTION><OPTION value='BLUE'>BLUE</OPTION><OPTION value='GREEN'>GREEN</OPTION><OPTION value='YELLOW'>YELLOW</OPTION><OPTION value='RED'>RED</OPTION><OPTION value='SKYBLUE'>SKYBLUE</OPTION><OPTION value='BEIGE'>BEIGE</OPTION> </select> <input type='text' placeholder='사이즈' name='GOODS_SIZE'> <input type='text' placeholder='수량' name='GOODS_AMOUNT'> <a href='#this' class='btn' name='delete'>삭제</a></p>";
 			$("#kindDiv").append(str);
 			$("a[name='delete']").on("click", function(e){ //삭제 버튼
 				e.preventDefault();

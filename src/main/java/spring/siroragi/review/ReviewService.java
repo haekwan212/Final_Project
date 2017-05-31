@@ -7,8 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface ReviewService {
 
-	// 전체 리뷰 불러오기
+	// 전체 리뷰 불러오기(Admin Page)
+	List<Map<String, Object>> reviewList(Map<String, Object> map) throws Exception;
 
+	// 리뷰 삭제(Admin Page)
+	void reviewDelete(Map<String, Object> map) throws Exception;
+	
 	// 회원 개인의 리뷰 불러오기
 
 	// 리뷰 코멘트 폼으로 이동
@@ -23,7 +27,7 @@ public interface ReviewService {
 
 	// 리뷰 등록
 	public void reviewWrite(Map<String, Object> map, HttpServletRequest request) throws Exception;
-	
+
 	// 상품에 대한 리뷰 정보 가져오기(글쓴이 이름도 가져와야함)
 	public List<Map<String, Object>> goodsReview(Map<String, Object> map) throws Exception;
 

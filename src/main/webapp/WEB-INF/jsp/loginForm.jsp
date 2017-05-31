@@ -39,7 +39,7 @@ if('${message}' != ""){
 					</div>
 					<div class="section-body">
 						<div class="guide col-xs-24">
-							<p>팬콧 아이디와 비밀번호를 입력하세요</p>
+							<p>SIRORAGI 아이디와 비밀번호를 입력하세요</p>
 						</div>
 						<!-- guide//end -->
 						<div class="item col-xs-24 col-sm-offset-6 col-sm-12 col-lg-offset-4 col-lg-16">
@@ -106,7 +106,7 @@ if('${message}' != ""){
 								<!-- button//end -->
 							</form>
 							<div class="action">
-								<p>팬콧 고객센터 : <a href="tel:1544-5991">1544-5991</a></p>
+								<p>SIRORAGI 고객센터 : <a href="tel:1544-5991">1544-1234</a></p>
 							</div>
 						</div>
 					</div>
@@ -116,7 +116,7 @@ if('${message}' != ""){
 		<section class="member-signup col-xs-24 section">
 			<div class="guide col-xs-24">
 				<span class="pancoat"></span>
-				<strong class="title">아직 팬콧 회원이 아니신가요?</strong>
+				<strong class="title">아직 SIRORAGI 회원이 아니신가요?</strong>
 				<p>지금 바로 사용가능한 적립금 3,000원 / 구매후기 작성시 최대 1,000원 / 제품 구매시 등급에 따라 최대 10% 할인</p>
 			</div>
 			<!-- guide//end -->
@@ -128,7 +128,7 @@ if('${message}' != ""){
 			<div class="tip col-xs-24">
 				<div class="rank_info">
 					<div class="section-head left">
-						<h3>팬콧 등급 안내</h3>
+						<h3>SIRORAGI 등급 안내</h3>
 					</div>
 					<div class="section-body">
 						<div class="table-responsive">
@@ -174,7 +174,7 @@ if('${message}' != ""){
 						<h3>생일축하 쿠폰</h3>
 					</div>
 					<div class="section-body">
-						<p class="point">팬콧샵 모든 회원님께 생일 월초 1개월간 사용가능한 10% 할인쿠폰을 발행해드립니다.</p>
+						<p class="point">SIRORAGI 모든 회원님께 생일 월초 1개월간 사용가능한 10% 할인쿠폰을 발행해드립니다.</p>
 						<p>- 단 3만원 이상 구매시 사용 가능하며, 일부 특가제품에 대하여 사용이 제한될 수 있습니다.</p>
 					</div>
 					<div class="section-head left">

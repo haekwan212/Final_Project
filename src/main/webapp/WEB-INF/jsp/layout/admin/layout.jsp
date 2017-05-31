@@ -94,7 +94,13 @@
                             <a href="#"style="background: #e7e7e7;"><i class="fa fa-bar-chart-o fa-fw"></i>주문관리<span class="fa arrow">▼</span></a>
 							 <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/pet/admin/adminOrderAllList.dog">- 주문목록</a>
+                                    <a href="/SIRORAGI/order/orderList">- 주문목록</a>
+                                </li>
+                                <li>
+                                    <a href="/SIRORAGI/cancel/cancelList">- 주문취소목록</a>
+                                </li>
+                                <li>
+                                    <a href="/SIRORAGI/cancel/exchangeList">- 교환/반품목록</a>
                                 </li>
                             </ul>
                         </li>
@@ -102,13 +108,13 @@
                             <a href="#"style="background: #e7e7e7;"><i class="fa fa-bar-chart-o fa-fw"></i>게시판관리<span class="fa arrow">▼</span></a>
 							 <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/SIRORAGI/notice/notice">- 공지사항</a>
+                                    <a href="/SIRORAGI/notice/noticeAdminList">- 공지사항</a>
                                 </li>
                                 <li>
                                     <a href="/SIRORAGI/ad/adList">- 광고</a>
                                 </li>
                                 <li>
-                                    <a href="/SIRORAGI/review/review">- 구매후기</a>
+                                    <a href="/SIRORAGI/admin/reviewAdmin">- 구매후기</a>
                                 </li>
                                  <li>
                                     <a href="/SIRORAGI/admin/faqAdmin">- FAQ</a>

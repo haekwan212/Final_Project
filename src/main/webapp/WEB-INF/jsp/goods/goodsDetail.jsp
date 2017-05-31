@@ -729,7 +729,7 @@ function _exec(mode){
 						<dd>손세탁 소재의 특성상 심한마찰(안전밸트,가방착용등)은 보푸라기의 원인이 됨</dd>
 						<br>
 						<dt>A/S안내</dt>
-						<dd>팬콧 고객만족센터 1566-1358</dd>
+						<dd>SIRORAGI 고객만족센터 1566-1234</dd>
 						<dt>품질보증서 제공</dt>
 						<dd>미제공</dd>
 						<dt>품질보증 기준</dt>
@@ -971,7 +971,7 @@ function _exec(mode){
 							</li>
 							<li>
 								<div class="brief">
-									<strong class="title">사이즈믄의</strong>
+									<strong class="title">사이즈문의</strong>
 									<div class="info">
 										<p class="author">이종욱</p>
 										<p class="date">/ 2017-04-11 12:37:25</p>
@@ -1038,7 +1038,7 @@ function _exec(mode){
 							<li>평일 : 오전 10시 ~ 오후 5시</li>
 							<li>점심시간 : 오후 12시 30분 ~ 오후 1시 30분</li>
 							<li>토, 일 공휴일 휴무</li>
-							<li><em>반품 주소 : 12814 경기도 광주시 도척면 도척로 376-68 MK물류</em></li>
+							<li><em>반품 주소 : 12814 서울특별시 강남구 역삼동 SIRORAGI</em></li>
 						</ul>
 					</div>
 					<!-- customer-center//end -->

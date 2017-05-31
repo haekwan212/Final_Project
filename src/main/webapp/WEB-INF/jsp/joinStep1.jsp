@@ -20,7 +20,7 @@
 			<section>
 				<div class="title">
 					<span class="pancoat"></span>
-					<strong>팬콧 회원가입을 위해 본인인증을 시작합니다.</strong>
+					<strong>SIRORAGI 회원가입을 위해 본인인증을 시작합니다.</strong>
 				</div>
 				<p>휴대폰 인증과 이메일 인증중에 원하는 방법을 선택하여 본인인증을 진행할 수 있습니다.<br>
 					본본인인증을 위해 입력하신 개인정보는 회원가입을 위해서 확인하는 것이며,<br>

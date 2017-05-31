@@ -56,6 +56,9 @@ public class QnaController {
 		mv.setViewName("redirect:/goodsDetail?GOODS_NUMBER=" + commandMap.get("GOODS_NUMBER").toString());
 		return mv;
 	}
+	
+
+
 	// Q&A 전체 글 목록 불러오기
 	@RequestMapping(value = "/qna/qnaList")
 	public ModelAndView qnaList(CommandMap commandMap, HttpServletRequest request) throws Exception {

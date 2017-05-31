@@ -72,8 +72,10 @@
 						style="width: 500px;" />
 				</div>
 				<div class="form-group">
-					<label>내용</label> <input type="text" class="form-control"
-						id="FAQ_CONTENT" name="FAQ_CONTENT" value="${map.FAQ_CONTENT}"					style="width: 500px;" /> 
+					<label>내용</label> 
+					<textarea class="form-control" cols="10" rows="7" id="FAQ_CONTENT" name="FAQ_CONTENT" placeholder="내용을 입력하세요">${map.FAQ_CONTENT}</textarea>
+					<%-- <input type="text" class="form-control"
+						id="FAQ_CONTENT" name="FAQ_CONTENT" value="${map.FAQ_CONTENT}"					style="width: 500px;" />  --%>
 						<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%>
 				</div>
 				<%--  <div class="form-group">

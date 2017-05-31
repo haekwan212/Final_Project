@@ -18,8 +18,8 @@
 	<section class="complete-greeting section">
 		<div class="section-body greeting">
 			<em>Welcome!</em>
-			<strong>팬콧의 회원이 되신 것을 환영합니다</strong>
-			<p>팬콧에서 감도 높은 쇼핑을 즐기세요!</p>
+			<strong>SIRORAGI의 회원이 되신 것을 환영합니다</strong>
+			<p>SIRORAGI에서 감도 높은 쇼핑을 즐기세요!</p>
 		</div>
 		<!--section-body//end-->
 		<div class="section-foot">

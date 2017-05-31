@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+   pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -9,108 +9,108 @@
 
 </head>
 <body>
-	<div class="viewport">
-		<div id="container">
-			<div id="page" class="page">
-				<section class="hashFilter section eshop container">
-				<form id="fmFilter" name="fmFilter" action="./goodsCategory"
-					method="post">
-					<!--필요업을것같다
- 	<input type="hidden" name="mode" value="items_category">
-	<input type="hidden" name="sort" value="goodsno desc">
-	<input type="hidden" name="brandno" value="">
-	<input type="hidden" name="no" value="102"> -->
+   <div class="viewport">
+      <div id="container">
+         <div id="page" class="page">
+            <section class="hashFilter section eshop container">
+            <form id="fmFilter" name="fmFilter" action="./goodsCategory"
+               method="post">
+               <!--필요업을것같다
+    <input type="hidden" name="mode" value="items_category">
+   <input type="hidden" name="sort" value="goodsno desc">
+   <input type="hidden" name="brandno" value="">
+   <input type="hidden" name="no" value="102"> -->
 
-					<div class="section-body">
+               <div class="section-body">
 
-						<!-- coordi 페이지 editor's pick 페이지에는 page-category 없어야됨 -->
-						<div class="page-category">
-							<div class="selectboxWrap">
+                  <!-- coordi 페이지 editor's pick 페이지에는 page-category 없어야됨 -->
+                  <div class="page-category">
+                     <div class="selectboxWrap">
 
-								<div class="selectbox">
-									<div class="selectbox-data">
-										<strong class="text"> </strong> <span
-											class="icon icon-dropdown-white"></span>
-									</div>
-									<select name="category[]" id="cate01">
-										<option value="101" data-catnm="TOP">TOP
-											<!--(0)-->
-										</option>
-										<option value="102" selected="" data-catnm="OUTER">
-											${isCategory}
-											<!--(0)-->
-										</option>
-										<option value="103" data-catnm="BOTTOM">BOTTOM
-											<!--(0)-->
-										</option>
-										<option value="104" data-catnm="ACC">ACC
-											<!--(0)-->
-										</option>
-										<option value="105" data-catnm="KIDS">KIDS
-											<!--(0)-->
-										</option>
-										<option value="106" data-catnm="LIFE STYLE">LIFE
-											STYLE
-											<!--(0)-->
-										</option>
-									</select>
-								</div>
-								<!--
-			<div class="selectbox">
-				<div class="selectbox-data">
-					<strong class="text"></strong>
-					<span class="icon icon-dropdown-white"></span>
-				</div>
-				<select name="category[]" id="cate02">
-				</select>
-			</div>
-			<div class="selectbox">
-				<div class="selectbox-data">
-					<strong class="text"></strong>
-					<span class="icon icon-dropdown-white"></span>
-				</div>
-				<select name="category[]" id="cate03">
-				</select>
-			</div>
-			-->
+                        <div class="selectbox">
+                           <div class="selectbox-data">
+                              <strong class="text"> </strong> <span
+                                 class="icon icon-dropdown-white"></span>
+                           </div>
+                           <select name="category[]" id="cate01">
+                              <option value="101" data-catnm="TOP">TOP
+                                 <!--(0)-->
+                              </option>
+                              <option value="102" selected="" data-catnm="OUTER">
+                                 ${isCategory}
+                                 <!--(0)-->
+                              </option>
+                              <option value="103" data-catnm="BOTTOM">BOTTOM
+                                 <!--(0)-->
+                              </option>
+                              <option value="104" data-catnm="ACC">ACC
+                                 <!--(0)-->
+                              </option>
+                              <option value="105" data-catnm="KIDS">KIDS
+                                 <!--(0)-->
+                              </option>
+                              <option value="106" data-catnm="LIFE STYLE">LIFE
+                                 STYLE
+                                 <!--(0)-->
+                              </option>
+                           </select>
+                        </div>
+                        <!--
+         <div class="selectbox">
+            <div class="selectbox-data">
+               <strong class="text"></strong>
+               <span class="icon icon-dropdown-white"></span>
+            </div>
+            <select name="category[]" id="cate02">
+            </select>
+         </div>
+         <div class="selectbox">
+            <div class="selectbox-data">
+               <strong class="text"></strong>
+               <span class="icon icon-dropdown-white"></span>
+            </div>
+            <select name="category[]" id="cate03">
+            </select>
+         </div>
+         -->
 
-								<!--
-			<a href="#" class="comment">
-				<span class="icon icon-speaker-white"></span>
-				<span class="text">배송관련 공지사항 안내 드립니다.</span>
-			</a>
-			-->
-							</div>
-						</div>
-						<!-- 각 카테고리별 타이틀-->
-						<div class="page-title section">
-							<h2>
-								<strong id="section_filter_h2_top"> ${isCategory} </strong>
-							</h2>
-						</div>
+                        <!--
+         <a href="#" class="comment">
+            <span class="icon icon-speaker-white"></span>
+            <span class="text">배송관련 공지사항 안내 드립니다.</span>
+         </a>
+         -->
+                     </div>
+                  </div>
+                  <!-- 각 카테고리별 타이틀-->
+                  <div class="page-title section">
+                     <h2>
+                        <strong id="section_filter_h2_top"> ${isCategory} </strong>
+                     </h2>
+                  </div>
 
-						<script>
-	$("#section_filter_h2_top").html($(".selectboxWrap select:first option:selected").text());
-	</script>
+                  <script>
+   $("#section_filter_h2_top").html($(".selectboxWrap select:first option:selected").text());
+   </script>
 
-						<!--세일페이지인 경우 HOT ISSUES-->
-
-
-					</div>
+                  <!--세일페이지인 경우 HOT ISSUES-->
 
 
-					<!--<div class="section-head">
-		<h3>filter</h3>
-		<span class="border"></span>
-		<button class="button" id="filterToggle">
-			<span class="icon icon-downArrow-black"></span>
-			<span class="sr-only">펼치기/닫기</span>
-		</button>
-	</div>-->
-					<div class="section-body box-shadow">
-						<div class="form row">
+               </div>
 
-							<!--
+
+               <!--<div class="section-head">
+      <h3>filter</h3>
+      <span class="border"></span>
+      <button class="button" id="filterToggle">
+         <span class="icon icon-downArrow-black"></span>
+         <span class="sr-only">펼치기/닫기</span>
+      </button>
+   </div>-->
+               <div class="section-body box-shadow">
+                  <div class="form row">
+
+                     <!--
 "ranking", "sale", "new"
 -->
 
@@ -162,7 +162,7 @@
 
 
 
-
+<<<<<<< HEAD
 							<div class="price form-item col-sm-24 col-lg-12">
 								<div>
 									<div class="form-item-title">
@@ -617,65 +617,65 @@
 					<!-- ### 상품 리스트 -->
 					<ul class="catalog ajax-list row">
 						<!--상품목록 ajax-->
+
 <!--원본 살려놓기
-						 <li class="catalog-item col-xs-12 col-sm-6 col-md-4 items_0 c1">
-							<div class="thumbnail">
-								<a href="../goods/1487554074"> <img
-									data-original="http://pic.styleindex.co.kr/g/s/148/1487554074"
-									class="for-ie8 img-responsive lazy" width="500" height="500">
-									<div
-										data-original="http://pic.styleindex.co.kr/g/s/148/1487554074"
-										style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/148/1487554074&quot;);"
-										class="lazy">
-										<img src="../theme/pshp/img/blank-square.png"
-											class="img-responsive" width="500" height="500">
-									</div>
-									<div class="cabal-group">
-										<span class="cabal cabal-sale"> <span
-											class="cabal-label">-22%</span>
-										</span>
+                   <li class="catalog-item col-xs-12 col-sm-6 col-md-4 items_0 c1">
+                     <div class="thumbnail">
+                        <a href="../goods/1487554074"> <img
+                           data-original="http://pic.styleindex.co.kr/g/s/148/1487554074"
+                           class="for-ie8 img-responsive lazy" width="500" height="500">
+                           <div
+                              data-original="http://pic.styleindex.co.kr/g/s/148/1487554074"
+                              style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/148/1487554074&quot;);"
+                              class="lazy">
+                              <img src="../theme/pshp/img/blank-square.png"
+                                 class="img-responsive" width="500" height="500">
+                           </div>
+                           <div class="cabal-group">
+                              <span class="cabal cabal-sale"> <span
+                                 class="cabal-label">-22%</span>
+                              </span>
 
-									</div>
-								</a>
-								<div class="addon">
-									<div class="button-group">
-										<button class="button col-xs-12" target="modal" data-size="lg"
-											data-label="상품 PREVIEW" href="/SIRORAGI/main/goods">
-											<span class="icon icon-expansion-white"></span>
-										</button>
-										<a href="../goods/sns?goodsno=1487554074"
-											class="button button-dimmed col-xs-12" target="modal"
-											data-size="sm" data-label="SNS공유하기"> <span
-											class="icon icon-share-white"></span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="caption">
-								<p class="brand">PANCOAT</p>
-								<p class="name">
-									<a href="../goods/1487554074">[팬콧샵] MULTI CHARACTER FLOWER
-										LETTERING TRACKTOP (STRAWBERRY MILK PINK)_PPOEPTT01VP9</a>
-								</p>
-								<p class="price">
-									<span class="was"><span class="label sr-only">판매가격:</span>99,000<span
-										class="currency">원</span></span> <span class="now"><span
-										class="label sr-only">할인가격:</span>77,520<span class="currency">원</span></span>
-								</p>
-							</div>
-						</li> -->
+                           </div>
+                        </a>
+                        <div class="addon">
+                           <div class="button-group">
+                              <button class="button col-xs-12" target="modal" data-size="lg"
+                                 data-label="상품 PREVIEW" href="/SIRORAGI/main/goods">
+                                 <span class="icon icon-expansion-white"></span>
+                              </button>
+                              <a href="../goods/sns?goodsno=1487554074"
+                                 class="button button-dimmed col-xs-12" target="modal"
+                                 data-size="sm" data-label="SNS공유하기"> <span
+                                 class="icon icon-share-white"></span>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="caption">
+                        <p class="brand">PANCOAT</p>
+                        <p class="name">
+                           <a href="../goods/1487554074">[팬콧샵] MULTI CHARACTER FLOWER
+                              LETTERING TRACKTOP (STRAWBERRY MILK PINK)_PPOEPTT01VP9</a>
+                        </p>
+                        <p class="price">
+                           <span class="was"><span class="label sr-only">판매가격:</span>99,000<span
+                              class="currency">원</span></span> <span class="now"><span
+                              class="label sr-only">할인가격:</span>77,520<span class="currency">원</span></span>
+                        </p>
+                     </div>
+                  </li> -->
 
-						<%-- <c:choose>
-	<c:when test="${goodsList == null}">
-		<c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
-	</c:when>
-	
-	<c:when test="${goodsList != null}">
-		<c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
-	</c:when>
+                  <%-- <c:choose>
+   <c:when test="${goodsList == null}">
+      <c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
+   </c:when>
+   
+   <c:when test="${goodsList != null}">
+      <c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
+   </c:when>
 </c:choose>
  --%>
-
 						<c:forEach var="goodsList" items="${goodsList}" varStatus="stat">
 
 							<c:url var="viewURL" value="/goodsDetail">
@@ -699,8 +699,6 @@
 											<c:if test="${goodsList.GOODS_DCPRICE != null}">
 
 												<%-- <c:set value="${goodsList.GOODS_PRICE}" var="PRICE" type="number"/> --%>
-
-
 
 
 												<span class="cabal cabal-sale"> <span
@@ -935,8 +933,6 @@
 		     }
 		   });
 
-
-	
 
 	
 

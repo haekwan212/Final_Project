@@ -66,6 +66,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp"/>
 	</definition>
 	
+	<definition name="reviewAdmin" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/reviewAdmin.jsp" />
+	</definition>
 	
 	<definition name="faqAdmin" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
@@ -87,6 +90,21 @@
 	<definition name="goodsModifyForm" extends="admin">
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/goods/goodsModifyForm.jsp" />
+	</definition>
+	
+	
+	<definition name="noticeAdminList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeAdminList.jsp"/>
+	</definition>
+	<definition name="noticeModifyForm" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeModifyForm.jsp"/>
+	</definition>
+	<definition name="noticeForm" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeForm.jsp"/>
+	</definition>
+	
+	<definition name="adminOrderList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/order/order.jsp"/>
 	</definition>
 	
 	<!-- admin -->
@@ -163,6 +181,25 @@
       <put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp"/>
 	</definition>
 	
+	<definition name="noticeList" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeList.jsp"/>
+	</definition>
+	<definition name="noticeDetail" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeDetail.jsp"/>
+	</definition>
+	
+	<!-- 구매 -->
+	<definition name="orderForm" extends="common2">
+      <put-attribute name="body" value="/WEB-INF/jsp/order/orderForm.jsp"/>
+	</definition>
+	
+	<definition name="orderDetail" extends="common2">
+      <put-attribute name="body" value="/WEB-INF/jsp/order/orderDetail.jsp"/>
+	</definition>
+	
+	<definition name="orderEnd" extends="common2">
+      <put-attribute name="body" value="/WEB-INF/jsp/order/orderEnd.jsp"/>
+	</definition>
 
 </tiles-definitions>
 	

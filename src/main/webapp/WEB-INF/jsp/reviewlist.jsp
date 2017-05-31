@@ -5,20 +5,20 @@
 	<div class="selectboxWrap">
 		<div class="selectbox">
 			<div class="selectbox-data">
-				<strong class="text">마이팬콧 </strong>
+				<strong class="text">마이페이지 </strong>
 				<span class="icon icon-dropdown-white"></span>
 			</div>
 			<select name="category[]" id="cate02">
-				<option value="">마이팬콧</option>
+				<option value="">마이페이지</option>
 			</select>
 		</div>
 		<div class="selectbox">
 			<div class="selectbox-data">
-				<strong class="text">마이팬콧 홈 </strong>
+				<strong class="text">마이페이지 </strong>
 				<span class="icon icon-dropdown-white"></span>
 			</div>
 			<select name="category[]" id="cate02">
-				<option value="">마이팬콧 홈</option>
+				<option value="">마이페이지</option>
 			</select>
 		</div>
 		<!--
@@ -31,7 +31,7 @@
 </section>
 <section class="page-title section container">
 	<h2>
-		<strong>my pancoat</strong>
+		<strong>my SIRORAGI</strong>
 	</h2>
 </section>
 <div class="personal-account-info container">
@@ -49,7 +49,7 @@
 						<a href="../mypage/profile" target="modal" data-size="sm" class="button small" data-label="프로필 사진수정">
 							<span class="button-label">사진 수정</span>
 						</a>
-						<a href="../mypage/myinfo" class="button small button-dimmed">
+						<a href="/SIRORAGI/myinfo" class="button small button-dimmed">
 							<span class="button-label">내 정보 수정</span>
 						</a>
 					</div>
@@ -57,7 +57,7 @@
 				<div class="item point col-xs-8 col-md-6">
 					<strong>적립금 : </strong>
 					<em>3,000원</em><br>
-					<button class="button small" target="modal" data-size="md" data-label="나의 적립금" href="/mypage/p_emoney">
+					<button class="button small" target="modal" data-size="md" data-label="나의 적립금" href="/SIRORAGI/member/point">
 						<span class="button-label">자세히 보기</span>
 					</button>
 					<div></div>

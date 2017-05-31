@@ -16,7 +16,7 @@
     <meta property="og:site_name" content="PANCOAT" />
     <meta property="og:locale" content="ko_KR" />
     <!-- facebook -->
-	<title>PANCOAT</title>
+	<title>SIRORAGI</title>
 
 	<!--
 	<link rel="stylesheet" href="/theme/pshp/css/vendor/jquery-ui.css">
@@ -88,7 +88,7 @@
 		<div class="tier1-group">
 			<div class="tier1-head">
 				<a href="/about/star">
-					<strong>pancoat + star</strong>
+					<strong>SIRORAGI + star</strong>
 				</a>
 			</div>
 		</div>
@@ -209,7 +209,7 @@
 				<img src="/SIRORAGI/theme/pshp/img/home_btn.png" width="20" height="20">
 				<span class="sr-only">E-shop</span>
 			</a>
-			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
+			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">SIRORAGI</span></a>
 		</div>
 	</div>
 	<div class="container">
@@ -230,7 +230,7 @@
 					</a>
 				</div>
 				<div class="nav-group">
-					<a href="../about/star" class="nav-head"><span class="label">pancoat + star<span class="border"></span></span></a>
+					<a href="../about/star" class="nav-head"><span class="label">SIRORAGI + star<span class="border"></span></span></a>
 				</div>
 				<div class="nav-group">
 					<a href="../about/news_download" class="nav-head"><span class="label">news & download<span class="border"></span></span></a>
@@ -329,13 +329,13 @@
 					<c:when test="${not empty sessionScope.MEMBER_ID}">
 					<a href="/SIRORAGI/mypage">
 						<span class="icon icon-identity-black hidden-lg"></span>
-						<span class="hidden-md">my-pancoat</span>
+						<span class="hidden-md">my-page</span>
 					</a>
 					</c:when>
 					<c:otherwise>
 					<a href="/SIRORAGI/loginForm">
 						<span class="icon icon-identity-black hidden-lg"></span>
-						<span class="hidden-md">my-pancoat</span>
+						<span class="hidden-md">my-page</span>
 					</a>
 					</c:otherwise>
 				</c:choose>
@@ -566,7 +566,7 @@ $(function(){
             <!--<a href="http://store.pancoat.com/community/company" class="col-xs-auto">회사소개</a>-->
             <a href="../service/agreement" class="col-xs-auto">이용약관 / 개인정보 처리방침</a>
             <a href="../service/coorperation" class="col-xs-auto" target="modal" data-size="md" data-label="제휴/광고 문의">파트너쉽 / 제휴문의</a>
-            <a href="http://www.gra-fik.com" target="_blank" class="siteby col-xs-auto">Site by GRAFIK</a>
+            <a href="http://www.gra-fik.com" target="_blank" class="siteby col-xs-auto">Site by SIRORAGI</a>
         </div>
     </div>
     <!-- globalFooter-menu//end -->
@@ -576,7 +576,7 @@ $(function(){
                 <div class="button-group">
                     <a  class="button button-ghost">
                     <span class="icon icon-headset-black"></span>
-                    <span class="button-label">070-4673-5497/070-4673-2235</span>
+                    <span class="button-label">070-1234-5678 / 070-1234-5678</span>
                     </a>
                     <a href="../mypage/mycs" class="button">
                         <span class="button-label">1:1 문의하기</span>
@@ -585,7 +585,7 @@ $(function(){
                         <span class="button-label">자주묻는질문 확인</span>
                     </a>
                 </div>
-                <p class="notice">반품 주소 :12814 경기도 광주시 도척면 도척로 376-68 MK물류</p>
+                <p class="notice">반품 주소 :12814 서울특별시 강남구 역삼동 SIRORAGI</p>
             </div>
             <div class="help">
                 <p>- 상품문의는 각 상품의 Q&A를 이용하시면 가장 빠릅니다.</p>
@@ -596,24 +596,24 @@ $(function(){
 	<div class="globalFooter-business container">
         <p class="legal">
             <span class="subject sr-only">회사명:</span>
-            <strong class="item">(주)브랜드 인덱스</strong>
+            <strong class="item">(주)SIRORAGI</strong>
             <span class="subject">대표:</span>
-            <span class="item">박상욱</span>
+            <span class="item">오용영</span>
             <span class="subject">사업자등록번호:</span>
-            <span class="item">215-87-33220</span>
+            <span class="item">215-87-111111</span>
             <span class="subject">통신판매업:</span>
-            <span class="item">제2013-서울강남-01307호</span>
+            <span class="item">제2013-서울강남-01111호</span>
             <span class="subject">대표전화:</span>
-            <span class="item"><a href="tel:1544-5991">1566-6312</a></span>
+            <span class="item"><a href="tel:1544-5991">1566-1234</a></span>
             <span class="subject">팩스:</span>
-            <span class="item">02-455-9868</span>
+            <span class="item">02-455-1234</span>
             <span class="subject">개인정보관리책임자:</span>
-            <span class="item">홍용택</span>
+            <span class="item">홍길동</span>
             <span class="subject">이메일:</span>
-            <span class="item"><a href="mailto:yongtaek_hong@styleindex.co.kr">yongtaek_hong@styleindex.co.kr</a></span>
+            <span class="item"><a href="mailto:siroragi@style.co.kr">siroragi@style.co.kr</a></span>
         </p>
         <address class="address">
-        서울특별시 강남구 학동로 30길 5 3~7층(논현동) (반품주소가 아닙니다)</address>
+        서울특별시 강남구 역삼동 SIRORAGI (반품주소가 아닙니다)</address>
         <div class="document">
             <div class="button-group">
 				
@@ -627,7 +627,7 @@ $(function(){
                 </a>
             </div>
         </div>
-        <p class="copyright">© 2015 Pancoat. All Rights Reserved.</p>
+        <p class="copyright">© 2015 Siroragi. All Rights Reserved.</p>
     </div>
 	<!--
     <div class="globalFooter-business container">
