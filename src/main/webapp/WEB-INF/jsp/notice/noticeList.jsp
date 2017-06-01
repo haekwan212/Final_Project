@@ -228,6 +228,7 @@ Total <b>3</b>, Page <b>1</b> / 1
 			${pagingHtml}
 		</div></div>
 <form class="form-inline notice-searchForm">
+
 <fieldset>
 	<input name="vid" type="hidden" value="notice">
 	<div class="col-xs-offset-2 col-sm-offset-6 col-md-offset-8 wrap">
