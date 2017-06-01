@@ -33,9 +33,14 @@ public class PointDAO extends AbstractDAO{
 	}
 	
 	//적립금 부여
+	public void upPoint(Map<String, Object> map) throws Exception{
+		update("point.upPoint", map);
+	}
 	
 	//적립금 차감
-	
+	public void downPoint(Map<String, Object> map) throws Exception{
+		update("point.downPoint", map);
+	}
 	//적립금 부여하기 폼으로 이동
 	
 	
