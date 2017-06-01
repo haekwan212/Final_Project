@@ -176,13 +176,13 @@ table {
 						<a href="/node/event">이벤트</a>
 					</li>
 					<li class="col-xs-8 col-sm-4 ">
-						<a href="/SIRORAGI//faq/faqList">FAQ</a>
+						<a href="/SIRORAGI/faq/faqList">FAQ</a>
 					</li>
 					<li class="col-xs-12 col-sm-4">
 						<a href="/service/member_benefit" target="modal" data-size="md" data-label="등급혜택 자세히 보기">회원혜택</a>
 					</li>
 					<li class="col-xs-12 col-sm-8">
-						<a href="/member/findid" target="modal" data-size="md" data-label="아이디/비밀번호 찾기">아이디/비밀번호 찾기</a>
+						<a href="/SIRORAGI/login/findForm" target="modal" data-size="md" data-label="아이디/비밀번호 찾기">아이디/비밀번호 찾기</a>
 					</li>
 				</ul>
 			</nav>
@@ -251,7 +251,7 @@ Total <b>3</b>, Page <b>1</b> / 1
 										class="btn btn-primary">쓰기</button>
 							</c:if>
 
-								<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
+								<!-- <button type="button" onclick="onList()" class="btn btn-primary">목록</button> -->
 							</div>
 		<div class="col-xs-10 col-sm-7 col-md-6">
 			<input name="sword" type="text" value="" class="xx-control">

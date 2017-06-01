@@ -32,8 +32,7 @@
 	</definition>
 
 	<definition name="openMemberDetail" extends="admin">
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/member/openMemberDetail.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/member/openMemberDetail.jsp" />
 	</definition>
 
 	<definition name="adList" extends="admin">
@@ -51,37 +50,40 @@
 	<definition name="qnaForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/qna/qnaForm.jsp" />
 	</definition>
-	
-		<definition name="qnaDetail" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/qna/qnaDetail.jsp" />
+
+	<definition name="qnaDetail" extends="admin">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/qna/qnaDetail.jsp" />
 	</definition>
 
 	<definition name="goodsForm" extends="admin">
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/goods/goodsForm.jsp" />
 	</definition>
-	
-	
+
+
 	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
-		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp" />
 	</definition>
-	
+
 	<definition name="reviewAdmin" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/reviewAdmin.jsp" />
 	</definition>
-	
+
 	<definition name="faqAdmin" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdmin.jsp" />
 	</definition>
-	
+
 	<definition name="faqAdminModify" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdminModify.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/faqAdminModify.jsp" />
 	</definition>
-	
+
 	<definition name="faqAdminForm" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/faqAdminForm.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/faqAdminForm.jsp" />
 	</definition>
-	
+
 
 	<definition name="goodsList" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/goods/goods.jsp" />
@@ -91,114 +93,120 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/goods/goodsModifyForm.jsp" />
 	</definition>
-	
-	
+
+
 	<definition name="noticeAdminList" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeAdminList.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/notice/noticeAdminList.jsp" />
 	</definition>
 	<definition name="noticeModifyForm" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeModifyForm.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/notice/noticeModifyForm.jsp" />
 	</definition>
 	<definition name="noticeForm" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeForm.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeForm.jsp" />
 	</definition>
-	
+
 	<definition name="adminOrderList" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/order/order.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/order/order.jsp" />
 	</definition>
-	
+
 	<!-- admin -->
-	
-	
-	
+
+
+	<!-- header/footer -->
 	<definition name="common" template="/WEB-INF/jsp/home_eshopHeader.jsp">
 		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp" />
 	</definition>
 	<definition name="common2" template="/WEB-INF/jsp/header.jsp">
 		<put-attribute name="body"></put-attribute>
 	</definition>
-	
-	
-		<!-- 카테고리별 -->
+	<!-- header/footer -->
+
+	<!-- 카테고리별 -->
 	<definition name="basic" template="/WEB-INF/jsp/layout/basic.jsp">
-		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/container.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/layout/admin/container.jsp" />
 	</definition>
-	
- 	<definition name="goodsCategory" extends="common">
-		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsCategory.jsp" />
+
+	<definition name="goodsCategory" extends="common">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/goods/goodsCategory.jsp" />
 	</definition>
 
 	<definition name="joinStep1" extends="common2">
-      <put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
 	</definition>
 	<definition name="joinStep2" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/joinStep2.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/joinStep2.jsp" />
 	</definition>
 	<definition name="joinComplete" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/joinComplete.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/joinComplete.jsp" />
 	</definition>
 	<definition name="loginForm" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/loginForm.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/loginForm.jsp" />
 	</definition>
 	<definition name="cartList" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/cartForm.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/cartForm.jsp" />
 	</definition>
 	<definition name="about" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp" />
 	</definition>
-	
-	
+	<!-- 카테고리별 -->
+
 	<!-- 마이페이지 -->
 	<definition name="mypage" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/mypage.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/mypage.jsp" />
 	</definition>
-	
+
 	<definition name="searchList" extends="common">
-		<put-attribute name="body" value="/WEB-INF/jsp/searchList.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/searchList.jsp" />
 	</definition>
-	
+
 	<definition name="exchangelist" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/exchangelist.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/exchangelist.jsp" />
 	</definition>
 	<definition name="returnlist" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/returnlist.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/returnlist.jsp" />
 	</definition>
 	<definition name="review" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/reviewlist.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/reviewlist.jsp" />
 	</definition>
 	<definition name="myinfo" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/myinfo.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/myinfo.jsp" />
 	</definition>
 	<!-- 마이페이지 -->
-	
-	
-	
+
+
+
 	<definition name="goodsDetail" extends="common">
-      <put-attribute name="body" value="/WEB-INF/jsp/goods/goodsDetail.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsDetail.jsp" />
 	</definition>
-	
+
 	<definition name="faqList" extends="common2">
-      <put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp" />
+	</definition>
+
+	<definition name="noticeList" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeList.jsp" />
 	</definition>
 	
-	<definition name="noticeList" extends="common">
-		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeList.jsp"/>
-	</definition>
 	<definition name="noticeDetail" extends="common">
-		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeDetail.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/notice/noticeDetail.jsp" />
 	</definition>
-	
+
 	<!-- 구매 -->
 	<definition name="orderForm" extends="common2">
-      <put-attribute name="body" value="/WEB-INF/jsp/order/orderForm.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/order/orderForm.jsp" />
 	</definition>
-	
+
 	<definition name="orderDetail" extends="common2">
-      <put-attribute name="body" value="/WEB-INF/jsp/order/orderDetail.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/order/orderDetail.jsp" />
 	</definition>
-	
+
 	<definition name="orderEnd" extends="common2">
-      <put-attribute name="body" value="/WEB-INF/jsp/order/orderEnd.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/order/orderEnd.jsp" />
 	</definition>
 
 </tiles-definitions>
