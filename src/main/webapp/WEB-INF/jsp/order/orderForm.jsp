@@ -105,7 +105,14 @@
 							</label>
 						</div>
 						<div class="col-lg-21 col-md-20">
-							<input type="text" id="order-name" name="nameOrder" value="${orderMember.MEMBER_NAME }" class="xx-control" required="" alt="주문하시는 분 성명을 입력하세요.">
+						<c:choose>
+						<c:when test="${guestEmail ne null }">
+						<input type="text" id="order-name" name="guestName" value="${guestName }" class="xx-control" required="" alt="주문하시는 분 성명을 입력하세요.">
+						</c:when>
+						<c:otherwise>
+							<input type="text" id="order-name" name="MEMBER_NAME" value="${orderMember.MEMBER_NAME }" class="xx-control" required="" alt="주문하시는 분 성명을 입력하세요.">
+						</c:otherwise>
+						</c:choose>
 						</div>
 					</li>
 					<li class="cell-phone">
@@ -116,7 +123,14 @@
 						</div>
 						<div class="col-lg-21 col-md-20">
 							<div class="input-box">
-								<input type="text" id="input-cell-phone01" name="mobileOrder[]" value="${orderMember.MEMBER_PHONE }" class="xx-control" required="" alt="휴대폰번호를 입력하세요." maxlength="14">
+							<c:choose>
+						<c:when test="${guestEmail ne null }">
+						<input type="text" id="order-name" name="guestPhone" value="${guestPhone }" class="xx-control" required="" alt="휴대폰번호를 입력하세요." >
+						</c:when>
+						<c:otherwise>
+								<input type="text" id="input-cell-phone01" name="MEMBER_PHONE" value="${orderMember.MEMBER_PHONE }" class="xx-control" required="" alt="휴대폰번호를 입력하세요." maxlength="14">
+						</c:otherwise>
+						</c:choose>
 							</div>
 						</div>
 					</li>
@@ -127,7 +141,14 @@
 							</label>
 						</div>
 						<div class="col-lg-21 col-md-20">
-							<input type="email" id="input-mail" name="email" value="${orderMember.MEMBER_EMAIL }" class="xx-control" required="" alt="이메일을 입력하세요.">
+						<c:choose>
+						<c:when test="${guestEmail ne null }">
+						<input type="email" id="input-mail" name="guestEmail" value="${guestEmail }" class="xx-control" required="" alt="이메일을 입력하세요.">
+						</c:when>
+						<c:otherwise>
+						<input type="email" id="input-mail" name="MEMBER_EMAIL" value="${orderMember.MEMBER_EMAIL }" class="xx-control" required="" alt="이메일을 입력하세요.">
+						</c:otherwise>
+						</c:choose>.
 						</div>
 					</li>
 				</ul>
@@ -170,7 +191,7 @@
 						</div>
 						<div class="col-lg-21 col-md-20">
 							<div class="input-box">
-								<input type="text" id="delivery-cell-phone01" name="RECEIVER_PHONE" value="${orderMember.MEMBER_PHONE }" class="xx-control" alt="휴대폰번호를 입력하세요." maxlength="4">
+								<input type="text" id="delivery-cell-phone01" name="RECEIVER_PHONE" value="${orderMember.MEMBER_PHONE }" class="xx-control" alt="휴대폰번호를 입력하세요." maxlength="14">
 							</div>
 						</div>
 					</li>

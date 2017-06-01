@@ -92,7 +92,7 @@ public class GoodsController {
 			goodsClass.add("코트");
 			goodsClass.add("블레이저");
 			
-			System.out.println("서치체크:"+searchCheck);
+			//System.out.println("서치체크:"+searchCheck);
 /*			if(searchCheck==null){
 				goodsList=goodsService.goodsCategory(isCategory);
 			}*/
@@ -136,6 +136,68 @@ public class GoodsController {
 			goodsRank=goodsService.goodsRank(isCategory);
 		}
 		
+		//sale&New 로직 시작
+		
+		Calendar today = Calendar.getInstance();
+		Date d = new Date(today.getTimeInMillis());
+		
+		//new태그위해 선언
+		 Calendar newCal = Calendar.getInstance();
+		 Date newDate =new Date();
+		    
+
+		for(int i=0; i<goodsList.size();i++){
+			if(goodsList.get(i).get("GOODS_SALEDATE")!=null && goodsList.get(i).get("GOODS_DCPRICE") != null){
+				//sale태그 조건
+				Date dDay = (Date) goodsList.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					goodsList.get(i).remove("GOODS_SALEDATE");
+					goodsList.get(i).remove("GOODS_DCPRICE");
+				}
+			}
+			
+			//New태그 조건
+			Date newDay = (Date) goodsList.get(i).get("GOODS_DATE");
+			newCal.setTime(newDay);//Data값 캘린더로 변경
+			newCal.add(Calendar.DATE, 10);// +2주
+			
+			newDate=new Date(newCal.getTimeInMillis());
+			goodsList.get(i).put("GOODS_NEWDATE", newDate);
+			
+			//hurry up 태그조건
+			//goodsList.get(i).put("AMOUNT", goodsList.get(i).get("AMOUNT"));
+			//hurryUp=(Integer)goodsList.get(i).get("AMOUNT");
+			
+			
+		}
+		for(int i=0; i<goodsRank.size();i++){
+			if(goodsRank.get(i).get("GOODS_SALEDATE")!=null && goodsRank.get(i).get("GOODS_DCPRICE") != null){
+				//sale태그 조건
+				Date dDay = (Date) goodsRank.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					goodsRank.get(i).remove("GOODS_SALEDATE");
+					goodsRank.get(i).remove("GOODS_DCPRICE");
+				}
+			}
+			
+			//New태그 조건
+			Date newDay = (Date) goodsRank.get(i).get("GOODS_DATE");
+			//System.out.println("newDay는 : "+newDay);
+			newCal.setTime(newDay);//Data값 캘린더로 변경
+			newCal.add(Calendar.DATE, 10);// +2주
+			
+			newDate=new Date(newCal.getTimeInMillis());
+			//System.out.println("2주후 newDate는 : "+newDate);
+			goodsRank.get(i).put("GOODS_NEWDATE", newDate);
+			
+			//hurry up 태그조건
+			//goodsRank.get(i).put("AMOUNT", goodsRank.get(i).get("AMOUNT"));
+		}
+		//today.add(Calendar.DATE, 10);
+		mv.addObject("nowDate",d); //현재시간 보내기
+		//sale&New 로직 끝
+
+		
 		System.out.println("굿즈 클래스 : " +goodsClass.size());
 		//System.out.println("굿즈 리스트 : " +goodsList.size());
 		System.out.println("굿즈 랭크 : " +goodsRank.size());
@@ -146,11 +208,12 @@ public class GoodsController {
 		mv.addObject("goodsClass",goodsClass);
 		
 
-		if(searchCheck!=null){  //★검색했을때만 들어온다 or 검색후 정렬할때
+		if(searchCheck!=null){  //★서치체크(살림)
+								//검색했을때만 들어온다 or 검색후 정렬할때
 		System.out.println("검색조건사용");
 		
 			//컬러검색
-		try {
+		try { //컬러를 하나만 체크하면 String값으로 받기때문에 try catch
 			String[] color=(String[])Map.getMap().get("myColor");
 			
 			if(color!=null)
@@ -172,6 +235,7 @@ public class GoodsController {
 			}
 			
 		}
+		//컬러검색끝
 
 			/* 구 컬러검색
 			 * try {
@@ -199,8 +263,7 @@ public class GoodsController {
 			
 			//가격 검색
 			String[] priceRange=(String[])Map.getMap().get("priceRange");
-		//	if(priceRange!=null)
-		//	{
+		//	if(priceRange!=null) 검색을하면 null일수가 없어서 뺐다
 				String pr1=priceRange[0];
 				String pr2=priceRange[1];
 				
@@ -210,10 +273,8 @@ public class GoodsController {
 				Map.getMap().put("priceSearchRange1", pr1);
 				Map.getMap().put("priceSearchRange2", pr2);
 				
-				System.out.println("pr1 pr2 : " + pr1 +" "+ pr2);
-				
-		//	}
-
+				System.out.println(" 가격1 : " +pr1+ " 가격2 : " + pr2);
+			//가격검색끝
 			
 			//소분류 검색
 			try {
@@ -234,6 +295,7 @@ public class GoodsController {
 				}
 				
 			}
+			//소분류검색끝
 			
 			//세일상품만 검색
 			String sale=(String)Map.getMap().get("sale");
@@ -245,12 +307,14 @@ public class GoodsController {
 				}
 					
 			}
+			//세일상품 끝
 			
 			//정렬 구분 시작
 			String sortCheck=(String)Map.getMap().get("sortCheck");
 			if(sortCheck!=null){
 				Map.getMap().put("sortCheck",sortCheck);
 				mv.addObject("sort",sortCheck);
+				//밑은 테스트용도 코드
 				switch (sortCheck) {
 				case "1": //인기순
 					System.out.println("검색내 인기순");
@@ -285,19 +349,37 @@ public class GoodsController {
 			
 			//최종검색
 			 List<Map<String,Object>> goodsSearchList = goodsService.goodsCategorySearch(Map.getMap());
-			 mv.addObject("goodsList",goodsSearchList);
+			 
+			//sale&New 로직 시작
+			for(int i=0; i<goodsSearchList.size();i++){
+				if(goodsSearchList.get(i).get("GOODS_SALEDATE")!=null && goodsSearchList.get(i).get("GOODS_DCPRICE") != null){
+					Date dDay = (Date) goodsSearchList.get(i).get("GOODS_SALEDATE");
+					if (dDay.getTime() < d.getTime()) {
+						goodsSearchList.get(i).remove("GOODS_SALEDATE");
+						goodsSearchList.get(i).remove("GOODS_DCPRICE");
+					}
+				}
+				//New태그 조건
+				Date newDay = (Date) goodsSearchList.get(i).get("GOODS_DATE");
+				newCal.setTime(newDay);//Data값 캘린더로 변경
+				newCal.add(Calendar.DATE, 10);// +2주
+				
+				newDate=new Date(newCal.getTimeInMillis());
+				goodsSearchList.get(i).put("GOODS_NEWDATE", newDate);
+				
+				//hurry up 태그조건
+				//goodsSearchList.get(i).put("AMOUNT", goodsSearchList.get(i).get("AMOUNT"));
+			}
+			
+			//sale&New 로직 끝
+			mv.addObject("nowDate",d); //현재시간 보내기
+			mv.addObject("goodsList",goodsSearchList);
 			//goodsList = goodsService.goodsPriceSearch(Map.getMap());
 			
 			 System.out.println("굿즈 서치리스트 : " +goodsSearchList.size());
-			//System.out.println("ii1은뭐냐!"+priceRange[0]+"di"+priceRange[1]);
 			 mv.setViewName("goodsSort");
-		} //서치체크 죽임
+		} //서치체크(살림) 끝
 		
-
-		
-		
-		
-
 		return mv;
 	}
 	
@@ -307,12 +389,46 @@ public class GoodsController {
 	public ModelAndView searchList(HttpSession session,HttpServletResponse response, HttpServletRequest request,CommandMap Map) throws Exception {
 		String stxt = (String) Map.getMap().get("stxt");
 		session.setAttribute("stxt",stxt);
-		String isSearch=stxt;
+		String isSearch=stxt;//안해줘도되는데 그냥보기좋으라고해준듯 그럼첨부터 isSearch로 선언해도되는데
 		
 		ModelAndView mv = new ModelAndView("searchList");
 				
 		List<Map<String,Object>> goodsList=goodsService.goodsSearch(isSearch);
-		System.out.println("거침"+goodsList.size());
+		
+		//sale&New 로직 시작
+		Calendar today = Calendar.getInstance();
+		Date d = new Date(today.getTimeInMillis());
+		
+		//new태그위해 선언
+		 Calendar newCal = Calendar.getInstance();
+		 Date newDate =new Date();
+		
+		for(int i=0; i<goodsList.size();i++){
+			if(goodsList.get(i).get("GOODS_SALEDATE")!=null && goodsList.get(i).get("GOODS_DCPRICE") != null){
+				Date dDay = (Date) goodsList.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					goodsList.get(i).remove("GOODS_SALEDATE");
+					goodsList.get(i).remove("GOODS_DCPRICE");
+				}
+			}
+			
+			//New태그 조건
+			Date newDay = (Date) goodsList.get(i).get("GOODS_DATE");
+			System.out.println("newDay는 : "+newDay);
+			newCal.setTime(newDay);//Data값 캘린더로 변경
+			newCal.add(Calendar.DATE, 10);// +2주
+			
+			newDate=new Date(newCal.getTimeInMillis());
+			System.out.println("2주후 newDate는 : "+newDate);
+			goodsList.get(i).put("GOODS_NEWDATE", newDate);
+			
+			//hurry up 태그조건
+			//goodsList.get(i).put("AMOUNT", goodsList.get(i).get("AMOUNT"));
+		}
+		mv.addObject("nowDate",d); //현재시간 보내기
+		//sale&New 로직 끝
+		
+		System.out.println("검색한 상품수 : "+goodsList.size());
 		mv.addObject("goodsList", goodsList);
 	
 		

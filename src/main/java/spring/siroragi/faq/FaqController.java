@@ -140,7 +140,7 @@ public class FaqController {
 			mv.addObject("pagingHtml", pagingHtml);
 			mv.addObject("currentPage", currentPage);
 
-			
+
 			mv.setViewName("faqList");
 			
 			return mv;

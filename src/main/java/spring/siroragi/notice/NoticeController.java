@@ -133,7 +133,6 @@ import spring.siroragi.notice.NoticeService;
 		
 			System.out.println(NOTICE_IMAGE.getOriginalFilename());
 			String IMAGEExtension = NOTICE_IMAGE.getOriginalFilename().substring(NOTICE_IMAGE.getOriginalFilename().lastIndexOf("."));
-			String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\noticeFile\\";
 			String fileName = commandMap.get("NOTICE_NUMBER").toString();
 
 			File file = new File(filePath + fileName+ IMAGEExtension);
@@ -157,8 +156,6 @@ import spring.siroragi.notice.NoticeService;
 
 			Map<String, Object> map = noticeService.noticeDetail(commandMap.getMap());
 
-			String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\noticeFile\\";
-
 			mv.addObject("filePath", filePath);
 			mv.addObject("map", map);
 			mv.setViewName("noticeDetail");
@@ -180,13 +177,52 @@ import spring.siroragi.notice.NoticeService;
 		
 		// 공지사항 수정
 		@RequestMapping(value = "/notice/noticeModify")
-		public ModelAndView noticeModify(CommandMap commandMap) throws Exception {
+		public ModelAndView noticeModify(CommandMap commandMap, HttpServletRequest request) throws Exception {
 			ModelAndView mv = new ModelAndView();
+			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
-			System.out.println(commandMap.getMap());
-			
+			if (multipartRequest.getFile("NOTICE_IMAGE1").isEmpty()) {
+
+				commandMap.put("NOTICE_IMAGE1", request.getParameter("NOTICE_IMAGE1"));
+
+				System.out.println("noticeModify : " + commandMap.getMap());
+				
+				noticeService.noticeModify(commandMap.getMap());
+				
+			} else {
+
+				MultipartFile NOTICE_IMAGE = multipartRequest.getFile("NOTICE_IMAGE1");
+
+				commandMap.put("NOTICE_IMAGE1", NOTICE_IMAGE.getOriginalFilename());
+
+				System.out.println("noticeModify : " + commandMap.getMap());
+				noticeService.noticeModify(commandMap.getMap());
+				
+				String IMAGEExtension = NOTICE_IMAGE.getOriginalFilename().substring(NOTICE_IMAGE.getOriginalFilename().lastIndexOf("."));
+				
+				String fileName = commandMap.get("NOTICE_NUMBER").toString();
+
+				File file = new File(filePath + fileName+ IMAGEExtension);
+				
+				String image = request.getParameter("AD_IMAGE2");
+
+				File imageFile = new File(filePath + image);
+
+				System.out.println(imageFile.isFile());
+
+				if (imageFile.isFile()) {
+					imageFile.delete();
+				}
+
+				if (file.exists() == false) {
+					file.mkdirs();
+				}
+
+				NOTICE_IMAGE.transferTo(file);
+			}
+
 			noticeService.noticeModify(commandMap.getMap());
-			
+			 
 			mv.addObject("NOTICE_NUMBER", commandMap.get("NOTICE_NUMBER"));
 			mv.setViewName("redirect:/notice/noticeAdminList");
 

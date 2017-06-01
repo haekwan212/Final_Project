@@ -2,11 +2,11 @@ package spring.siroragi.myPage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
+import spring.siroragi.point.PointService;
 import spring.siroragi.qna.QnaService;
 
 @Controller
@@ -26,6 +27,9 @@ public class MyPageController {
 	
 	@Resource(name="qnaService")
 	private QnaService qnaService;
+	
+	@Resource(name="pointService")
+	private PointService pointService;
 
 	@RequestMapping(value="/mypage")
 	public ModelAndView mypageForm(CommandMap commandMap, HttpSession session) throws Exception{
@@ -34,6 +38,9 @@ public class MyPageController {
 		commandMap.getMap().put("MEMBER_NUMBER", m_num);
 		int newAlarm = qnaService.qnaNewAlarm(commandMap.getMap());
 		mv.setViewName("mypage");
+		Map<String, Object> sumPoint = pointService.sumPoint(commandMap.getMap());
+		
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
 		mv.addObject("newAlarm", newAlarm);
 		return mv;
 	}
@@ -61,15 +68,27 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value="/exchangelist")
-	public ModelAndView exchangelist(){
+	public ModelAndView exchangelist(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		Map<String, Object> sumMap = new HashMap<String, Object>();
+		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+		Map<String, Object> sumPoint = pointService.sumPoint(sumMap);
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
+		
 		mv.setViewName("exchangelist");
 		return mv;
 	}
 	
 	@RequestMapping(value="/returnlist")
-	public ModelAndView returnlist(){
+	public ModelAndView returnlist(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		Map<String, Object> sumMap = new HashMap<String, Object>();
+		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+		Map<String, Object> sumPoint = pointService.sumPoint(sumMap);
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
+		
 		mv.setViewName("returnlist");
 		return mv;
 	}
@@ -78,6 +97,13 @@ public class MyPageController {
 	public ModelAndView review(HttpSession session) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
+		
+
+		Map<String, Object> sumMap = new HashMap<String, Object>();
+		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+		Map<String, Object> sumPoint = pointService.sumPoint(sumMap);
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
+		
 		mv.setViewName("review");
 		return mv;
 	}
@@ -117,6 +143,12 @@ public class MyPageController {
 		String new_date = new_format.format(orginal_date);
 		myinfo.put("MEMBER_BIRTHDAY", new_date);
 		}
+		
+		Map<String, Object> sumMap = new HashMap<String, Object>();
+		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+		Map<String, Object> sumPoint = pointService.sumPoint(sumMap);
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
+		
 		mv.addObject("myinfo", myinfo);
 		mv.setViewName("myinfo");
 		return mv;

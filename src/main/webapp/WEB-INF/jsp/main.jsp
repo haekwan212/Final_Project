@@ -544,7 +544,6 @@
 					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
 
 					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${top.GOODS_NUMBER}">
-
 						<img data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
 						<div data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
