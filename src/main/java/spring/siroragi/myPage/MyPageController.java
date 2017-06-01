@@ -2,6 +2,7 @@ package spring.siroragi.myPage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -67,15 +68,27 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value="/exchangelist")
-	public ModelAndView exchangelist(){
+	public ModelAndView exchangelist(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		Map<String, Object> sumMap = new HashMap<String, Object>();
+		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+		Map<String, Object> sumPoint = pointService.sumPoint(sumMap);
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
+		
 		mv.setViewName("exchangelist");
 		return mv;
 	}
 	
 	@RequestMapping(value="/returnlist")
-	public ModelAndView returnlist(){
+	public ModelAndView returnlist(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		Map<String, Object> sumMap = new HashMap<String, Object>();
+		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+		Map<String, Object> sumPoint = pointService.sumPoint(sumMap);
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
+		
 		mv.setViewName("returnlist");
 		return mv;
 	}
@@ -84,6 +97,13 @@ public class MyPageController {
 	public ModelAndView review(HttpSession session) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
+		
+
+		Map<String, Object> sumMap = new HashMap<String, Object>();
+		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+		Map<String, Object> sumPoint = pointService.sumPoint(sumMap);
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
+		
 		mv.setViewName("review");
 		return mv;
 	}
@@ -123,6 +143,12 @@ public class MyPageController {
 		String new_date = new_format.format(orginal_date);
 		myinfo.put("MEMBER_BIRTHDAY", new_date);
 		}
+		
+		Map<String, Object> sumMap = new HashMap<String, Object>();
+		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+		Map<String, Object> sumPoint = pointService.sumPoint(sumMap);
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
+		
 		mv.addObject("myinfo", myinfo);
 		mv.setViewName("myinfo");
 		return mv;

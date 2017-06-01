@@ -106,7 +106,7 @@ if('${message}' != ""){
 								<!-- button//end -->
 							</form>
 							<div class="action">
-								<p>SIRORAGI 고객센터 : <a href="tel:1544-5991">1544-1234</a></p>
+								<p>SIRORAGI 고객센터 : <a href="tel:1544-5600">1544-5600</a></p>
 							</div>
 						</div>
 					</div>

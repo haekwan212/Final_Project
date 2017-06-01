@@ -33,31 +33,36 @@
 
 	<select id="goodsSearch" parameterType="String" resultType="hashmap">
 		<![CDATA[
-			select * from GOODS where goods_onoff ='0' and ( GOODS_NAME like '%'||#{isSearch}||'%' or GOODS_SIMPLE like '%'||#{isSearch}||'%' ) order by GOODS_NUMBER DESC 
+			select sum(a.goods_amount) as amount,sum(a.goods_amount) as amount,a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count 
+			from (select * from goods natural join goods_kinds) A where goods_onoff ='0' and ( GOODS_NAME like '%'||#{isSearch}||'%' or GOODS_SIMPLE like '%'||#{isSearch}||'%' ) 
+			group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count
+			order by GOODS_NUMBER DESC
 		]]>
+		<!-- select * from GOODS where goods_onoff ='0' and ( GOODS_NAME like '%'||#{isSearch}||'%' or GOODS_SIMPLE like '%'||#{isSearch}||'%' ) order by GOODS_NUMBER DESC -->
 	</select>
 	
 	<select id="goodsCategory" parameterType="hashmap" resultType="hashmap">
 	<choose>
 		<when test="sort == 1"><!-- 인기순 -->
-			SELECT sum(b.goods_sellcount) as sellcount, a.* from(select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by sellcount desc
+			SELECT sum(b.goods_amount) as amount,sum(b.goods_amount) as amount,sum(b.goods_sellcount) as sellcount, a.* from(select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by sellcount desc,a.goods_number desc
 		</when>
 		<when test="sort == 2"><!-- 신상품 -->
 			SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc
 		</when>
 		<when test="sort == 3"><!-- 낮은가격 -->
-			select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_PRICE ASC 
+			select sum(a.goods_amount) as amount,a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count from(select * from goods natural join goods_kinds) a where a.goods_CATEGORY1=#{category} and goods_onoff ='0' group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count order by GOODS_PRICE ASC , goods_DCPRICE ASC 
 		</when>
 		<when test="sort == 4"><!-- 높은가격 -->
-			select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_PRICE DESC 
+			select sum(a.goods_amount) as amount,a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count from(select * from goods natural join goods_kinds) a where a.goods_CATEGORY1=#{category} and goods_onoff ='0' group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count order by GOODS_PRICE DESC , goods_DCPRICE DESC
 		</when>
 		<when test="sort == 5"><!-- 할인율 -->
-			select GOODS_NUMBER,GOODS_NAME,GOODS_PRICE,GOODS_DCPRICE,GOODS_SIMPLE,GOODS_DETAIL,GOODS_THUMBNAIL,GOODS_DATE,GOODS_CATEGORY1,GOODS_CATEGORY2,GOODS_SALEDATE,GOODS_ONOFF,GOODS_COUNT,GOODS_RELATED,
-			NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT
-			from goods where goods_CATEGORY1=#{category} and goods_onoff ='0' order by DCPERSENT DESC, GOODS_NUMBER DESC
+     		select	NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT,sum(a.goods_amount) as amount,GOODS_NUMBER,GOODS_NAME,GOODS_PRICE,GOODS_DCPRICE,GOODS_SIMPLE,GOODS_DETAIL,GOODS_THUMBNAIL,GOODS_DATE,GOODS_CATEGORY1,GOODS_CATEGORY2,GOODS_SALEDATE,GOODS_ONOFF,GOODS_COUNT,GOODS_RELATED 
+			from(select * from goods natural join goods_kinds) a where goods_CATEGORY1=#{category} and goods_onoff ='0' 
+      		group by GOODS_NUMBER,GOODS_NAME,GOODS_PRICE,GOODS_DCPRICE,GOODS_SIMPLE,GOODS_DETAIL,GOODS_THUMBNAIL,GOODS_DATE,GOODS_CATEGORY1,GOODS_CATEGORY2,GOODS_SALEDATE,GOODS_ONOFF,GOODS_COUNT,GOODS_RELATED
+      		order by DCPERSENT DESC, GOODS_NUMBER DESC
 		</when>
 		<otherwise>
-			SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1='PANTS'  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc
+			SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc
 			<!-- select * from goods where goods_CATEGORY1=#{category}  and goods_onoff ='0' order by GOODS_NUMBER DESC -->
 		</otherwise>
 	</choose>
@@ -67,14 +72,14 @@
 
 	<select id="goodsRank" parameterType="String" resultType="hashmap">
 		<![CDATA[
-			SELECT sum(b.goods_amount) as amount, sum(b.goods_sellcount) as sellcount, a.* from(select * from goods where goods_CATEGORY1=#{isCategory}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by sellcount desc
+			SELECT sum(b.goods_amount) as amount, sum(b.goods_sellcount) as sellcount, a.* from(select * from goods where goods_CATEGORY1=#{isCategory}  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by sellcount desc,a.goods_number desc
 		]]>
 	</select>
 	
 	
 	<select id="goodsCategorySearch" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[
-		select A.goods_number,A.goods_name,A.goods_price,A.goods_dcprice,A.goods_simple,A.goods_category1,A.GOODS_DATE,A.GOODS_THUMBNAIL,SUM(A.GOODS_SELLCOUNT) as SELLCOUNT,NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT
+		select A.goods_number,A.goods_name,A.goods_price,A.goods_dcprice,A.goods_simple,A.goods_category1,A.GOODS_DATE,A.GOODS_SALEDATE,A.GOODS_THUMBNAIL,SUM(A.GOODS_SELLCOUNT) as SELLCOUNT,NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT,sum(A.goods_amount) as AMOUNT
 		from 
 		(select * from goods natural join goods_kinds) A where goods_PRICE >= ${priceSearchRange1} and goods_price <= ${priceSearchRange2} and goods_category1= #{category} and	goods_onoff ='0'   
 		]]>
@@ -106,13 +111,13 @@
 		</if>
 		
 
-		group by A.GOODS_DATE,A.GOODS_THUMBNAIL,A.goods_category1,A.goods_simple,A.goods_dcprice,A.goods_price,A.goods_number, A.goods_name  
+		group by A.GOODS_SALEDATE,A.GOODS_DATE,A.GOODS_THUMBNAIL,A.goods_category1,A.goods_simple,A.goods_dcprice,A.goods_price,A.goods_number, A.goods_name  
 		
 		
 		<choose>
 		
 			<when test="sortCheck == 1"><!-- 인기순 -->
-				order by SELLCOUNT DESC
+				order by SELLCOUNT DESC,A.GOODS_NUMBER DESC
 			</when>
 		
 			<when test="sortCheck == 2"><!-- 신상품순 -->
@@ -138,6 +143,62 @@
 		
 		
 		 	
+	</select>
+	
+	<select id="goodsSale" parameterType="hashmap" resultType="hashmap">
+	<!--기본 인기순 셀렉 -->
+	select * from (select A.goods_number,A.goods_name,A.goods_price,A.goods_dcprice,A.goods_simple,A.goods_category1,A.GOODS_DATE,A.GOODS_SALEDATE,A.GOODS_THUMBNAIL,SUM(A.GOODS_SELLCOUNT) as SELLCOUNT,NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT,sum(A.goods_amount) as AMOUNT
+	from (select * from goods natural join goods_kinds) A where A.goods_DCPRICE is not null and A.goods_onoff='0' 
+
+	
+	group by A.GOODS_SALEDATE,A.GOODS_DATE,A.GOODS_THUMBNAIL,A.goods_category1,A.goods_simple,A.goods_dcprice,A.goods_price,A.goods_number, A.goods_name
+	<choose>
+		<when test="sort == 1"><!-- 인기순 -->
+		order by sellcount DESC ,A.GOODS_NUMBER DESC)
+		</when>
+		<when test="sort == 2"><!-- 신상품순 -->
+		order by A.GOODS_NUMBER DESC)
+		</when>
+		<when test="sort == 3"><!-- 낮은가격순 -->
+		order by A.GOODS_PRICE ASC,A.GOODS_NUMBER DESC)
+		</when>
+		<when test="sort == 4"><!-- 높은가격순 -->
+		order by A.GOODS_PRICE DESC, A.GOODS_NUMBER DESC)
+		</when>
+		<when test="sort == 5"><!-- 할인률순 -->
+		order by DCPERSENT DESC,A.GOODS_NUMBER DESC)
+		</when>
+		<otherwise><!-- 기본인기순 -->
+		order by sellcount DESC ,A.GOODS_NUMBER DESC) 
+		</otherwise>
+	</choose>
+	
+
+			<if test="sale == 1">
+				<![CDATA[ where  DCPERSENT <=30 ]]>
+			</if>
+			<if test="sale == 2">
+				<![CDATA[ where DCPERSENT >30 and DCPERSENT <=50]]>
+			</if>
+			<if test="sale == 3">
+				<![CDATA[ where DCPERSENT >50 and DCPERSENT <=80]]>
+			</if>
+			<if test="sale == 21">
+				<![CDATA[ where DCPERSENT <=50 ]]>
+			</if>
+			<if test="sale == 320">
+				<![CDATA[ where DCPERSENT <=80 ]]>
+			</if>
+			<if test="sale == 321">
+				<![CDATA[ where DCPERSENT <=80 ]]>
+			</if>
+			<if test="sale == 301">
+				<![CDATA[ where DCPERSENT<=30 or (DCPERSENT>50 and DCPERSENT<=80) ]]>
+			</if>
+
+
+		 
+		 
 	</select>
 	
 	<update id="goodsCountUp" parameterType="hashmap">

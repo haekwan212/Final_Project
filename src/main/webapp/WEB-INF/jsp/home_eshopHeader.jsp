@@ -72,29 +72,29 @@
 	<nav>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/SIRORAGI/about">
-					<strong>about</strong>
+				<a href="/SIRORAGI/main">
+					<strong>HOME</strong>
 				</a>
 			</div>
 		</div>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/about/collection">
-					<strong>collection</strong>
+				<a href="/SIRORAGI/notice/noticeList">
+					<strong>NOTICE</strong>
 				</a>
 			</div>
 		</div>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/about/star">
-					<strong>SIRORAGI + star</strong>
+				<a href="/SIRORAGI/faq/faqList">
+					<strong>FAQ</strong>
 				</a>
 			</div>
 		</div>
 		<div class="tier1-group">
 			<div class="tier1-head">
 				<a href="/about/news_download">
-					<strong>news & download</strong>
+					<strong>Q&A</strong>
 				</a>
 			</div>
 		</div>
@@ -124,7 +124,7 @@
 				</li>
 				<li class="tier2-group col-xs-12 sale">
 					<div class="tier2-head">
-						<a href="/store/sale">
+						<a href="/SIRORAGI/goods/goodsSaleCategory">
 							<strong>sale</strong>
 						</a>
 					</div>
@@ -164,7 +164,7 @@
 						</a>
 					</div>
 				</li>
-				<li class="tier2-group col-xs-12">
+				<!-- <li class="tier2-group col-xs-12">
 					<div class="tier2-head">
 						<a href="/store/../store/category?no=106">
 							<strong>life style</strong>
@@ -191,7 +191,7 @@
 							<strong>event</strong>
 						</a>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</nav>
@@ -219,20 +219,20 @@
 				<!-- 각페이지로 들어갓을 때 페이지에 해당되는 nav-group에 selected클래스를 추가 -->
 
 				<div class="nav-group">
-					<a href="/SIRORAGI/about" class="nav-head">
-						<span class="label">about<span class="border"></span></span>
+					<a href="/SIRORAGI/main" class="nav-head">
+						<span class="label">HOME<span class="border"></span></span>
 					</a>
 				</div>
 				<div class="nav-group">
-					<a href="../about/collection" class="nav-head">
-						<span class="label">collection<span class="border"></span></span>
+					<a href="/SIRORAGI/notice/noticeList" class="nav-head">
+						<span class="label">NOTICE<span class="border"></span></span>
 					</a>
 				</div>
 				<div class="nav-group">
-					<a href="../about/star" class="nav-head"><span class="label">SIRORAGI + star<span class="border"></span></span></a>
+					<a href="/SIRORAGI/faq/faqList" class="nav-head"><span class="label">FAQ<span class="border"></span></span></a>
 				</div>
 				<div class="nav-group">
-					<a href="../about/news_download" class="nav-head"><span class="label">news & download<span class="border"></span></span></a>
+					<a href="../about/news_download" class="nav-head"><span class="label">Q&A<span class="border"></span></span></a>
 				</div>
 				<div class="nav-group locator">
 					<a href="../about/store_locator" class="nav-head">
@@ -255,10 +255,10 @@
 						<div class="nav-group-depth2">
 							<ul class="container">
 								<li class="nav-head c01" style="text-align: center;">
-									<a href="/store/new"><span>new</span></a>
+									<a href="/SIRORAGI/goods/goodsNewCategory"><span>new</span></a>
 								</li>
 								<li class="nav-head c01">
-									<a href="/store/sale"><span>sale</span></a>
+									<a href="/SIRORAGI/goods/goodsSaleCategory"><span>sale</span></a>
 								</li>
 
 
@@ -278,7 +278,7 @@
 								<li class="nav-head c07">
 									<a href="/SIRORAGI/goods/goodsCategory?category=ACC"><span>accessory</span></a>
 								</li>
-								<li class="nav-head c08">
+								<!-- <li class="nav-head c08">
 									<a href="/store/category?no=106"><span>life style</span></a>
 								</li>
 								<li class="nav-head c09">
@@ -289,7 +289,7 @@
 								</li>
 								<li class="nav-head c11">
 									<a href="/store/event"><span>event</span></a>
-								</li>
+								</li> -->
 							</ul>
 						</div>
 					</div>
@@ -608,13 +608,13 @@ $(function(){
             <span class="subject">통신판매업:</span>
             <span class="item">제2013-서울강남-01111호</span>
             <span class="subject">대표전화:</span>
-            <span class="item"><a href="tel:1544-5991">1566-1234</a></span>
+            <span class="item"><a href="tel:1544-5991">1566-5600</a></span>
             <span class="subject">팩스:</span>
             <span class="item">02-455-1234</span>
             <span class="subject">개인정보관리책임자:</span>
             <span class="item">홍길동</span>
             <span class="subject">이메일:</span>
-            <span class="item"><a href="mailto:siroragi@style.co.kr">siroragi@style.co.kr</a></span>
+            <span class="item"><a href="mailto:siroragi@style.co.kr">siroragi3@gmail.com</a></span>
         </p>
         <address class="address">
         서울특별시 강남구 역삼동 SIRORAGI (반품주소가 아닙니다)</address>
@@ -631,7 +631,7 @@ $(function(){
                 </a>
             </div>
         </div>
-        <p class="copyright">© 2015 Siroragi. All Rights Reserved.</p>
+        <p class="copyright">© 2017 Siroragi. All Rights Reserved.</p>
     </div>
 	<!--
     <div class="globalFooter-business container">
