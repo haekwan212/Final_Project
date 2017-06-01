@@ -162,7 +162,7 @@
 
 
 
-<<<<<<< HEAD
+
 							<div class="price form-item col-sm-24 col-lg-12">
 								<div>
 									<div class="form-item-title">
