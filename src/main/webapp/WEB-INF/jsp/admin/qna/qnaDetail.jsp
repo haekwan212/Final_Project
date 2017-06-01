@@ -144,6 +144,10 @@ function previewImage(targetObj, View_area) {
                             <label>내용</label>
                         <textarea class="form-control" id="QNA_CONTENT" name="QNA_CONTENT"  rows="10" cols="30"  readonly >${qna.QNA_CONTENT}</textarea>
                         </div>
+                         <div class="form-group">
+                            <label>답변</label>
+                        <textarea class="form-control" id="QNA_REPCONTENT" name="QNA_REPCONTENT"  rows="10" cols="30"  readonly >${qna.QNA_REPCONTENT}</textarea>
+                        </div>
                         <div class="form-group">
 							<label>등록 이미지</label> 
                           </div >
@@ -174,9 +178,7 @@ function previewImage(targetObj, View_area) {
                         <input type="hidden" name="QNA_RE_LEVEL" id="QNA_RE_LEVEL" value="${qna.QNA_RE_LEVEL}" />
                         <input type="hidden" name="QNA_RE_STEP" id="QNA_RE_STEP" value="${qna.QNA_RE_STEP}" />
                         </div>
-                        <c:if test="${qna.QNA_RE_LEVEL < 1}">
 						<button type="submit" class="btn btn-success" onclick="button1_click();">답변달기</button>
-						</c:if>
 						 <c:if test="${qna.QNA_RE_LEVEL == '1'}">
 						<button type="submit" class="btn btn-success" onclick="button1_click();">수정하기</button>
 						</c:if>

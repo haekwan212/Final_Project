@@ -85,7 +85,7 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-							<a href="/SIRORAGI/goods/goodsList?searchNum=0&isSearch="><button type="button" class="btn btn-outline btn-default">전체</button></a>
+							<a href="/SIRORAGI/goods/goodsList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
 							<select class="form-control" name="select" onchange="window.open(value,'_self');">
 								<option value ="">--카테고리--</option>
 								<option value ="/SIRORAGI/goods/goodsList?searchNum=2&isSearch=OUTER">OUTER</option>

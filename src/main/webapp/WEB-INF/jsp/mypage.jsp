@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <script>
 $(function () {
     $(".tab_content").hide();
@@ -111,8 +112,8 @@ function tab(num){
 				</div>
 				<div class="item point col-xs-8 col-md-6">
 					<strong>적립금 : </strong>
-					<em>3,000원</em><br>
-					<button class="button small" target="modal" data-size="md" data-label="나의 적립금" href="/SIRORAGI/member/point">
+					<em><fmt:formatNumber value="${sumPoint}" type="number" />원</em><br>
+					<button class="button small" target="modal" data-size="md" data-label="나의 적립금" href="/SIRORAGI/member/myPoint">
 						<span class="button-label">자세히 보기</span>
 					</button>
 					<div></div>
