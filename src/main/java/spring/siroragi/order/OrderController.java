@@ -214,9 +214,7 @@ public class OrderController {
 
 		String[] goods_kinds_number = request.getParameterValues("kinds[]");
 		String[] ea = request.getParameterValues("ea[]");
-		/*
-		 * String[] goods_total = request.getParameterValues("goods_total[]");
-		 */
+		String[] goods_total = request.getParameterValues("goods_total[]");
 
 		for (int i = 0; i < goods_kinds_number.length; i++) {
 
@@ -292,7 +290,7 @@ public class OrderController {
 
 			commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
 			commandMap.put("ORDER_AMOUNT", ea[i]);
-			commandMap.put("GOODS_TOTAL", commandMap.get("TOTALPRICE"));
+			commandMap.put("GOODS_TOTAL", goods_total[i]);
 
 			System.out.println("GOODS_NUMBER : " + commandMap.get("GOODS_NUMBER"));
 			System.out.println("GOODS_KINDS_NUMBER : " + commandMap.get("GOODS_KINDS_NUMBER"));
