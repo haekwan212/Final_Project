@@ -119,7 +119,7 @@ public class FaqController {
 			mv.addObject("pagingHtml", pagingHtml);
 			mv.addObject("currentPage", currentPage);
 			mv.addObject("list", list);
-			mv.setViewName("/faq/faq");
+			mv.setViewName("faqList");
 			
 			return mv;
 
@@ -140,8 +140,8 @@ public class FaqController {
 			mv.addObject("pagingHtml", pagingHtml);
 			mv.addObject("currentPage", currentPage);
 
-			
-			mv.setViewName("/faq/faq");
+
+			mv.setViewName("faqList");
 			
 			return mv;
 		}
