@@ -3,8 +3,11 @@ package spring.siroragi.goods;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -47,6 +50,9 @@ public class GoodsController {
 		
 		private String qnaPagingHtml;
 		private Paging qnaPage;
+		
+		//new태그 날짜조정
+		public static final int DATE_DATE=10; 
 	
 
 	//페이지이동 및 검색
@@ -63,7 +69,6 @@ public class GoodsController {
 		Map.getMap().put("colorCheck",null);
 		
 		//정렬
-		
 		String sort=(String)Map.getMap().get("sort");
 		if(sort!=null){
 			System.out.println("솔트값은? " + sort);
@@ -159,7 +164,7 @@ public class GoodsController {
 			//New태그 조건
 			Date newDay = (Date) goodsList.get(i).get("GOODS_DATE");
 			newCal.setTime(newDay);//Data값 캘린더로 변경
-			newCal.add(Calendar.DATE, 10);// +2주
+			newCal.add(Calendar.DATE, DATE_DATE);// +2주
 			
 			newDate=new Date(newCal.getTimeInMillis());
 			goodsList.get(i).put("GOODS_NEWDATE", newDate);
@@ -184,7 +189,7 @@ public class GoodsController {
 			Date newDay = (Date) goodsRank.get(i).get("GOODS_DATE");
 			//System.out.println("newDay는 : "+newDay);
 			newCal.setTime(newDay);//Data값 캘린더로 변경
-			newCal.add(Calendar.DATE, 10);// +2주
+			newCal.add(Calendar.DATE, DATE_DATE);// +2주
 			
 			newDate=new Date(newCal.getTimeInMillis());
 			//System.out.println("2주후 newDate는 : "+newDate);
@@ -349,12 +354,14 @@ public class GoodsController {
 			
 			//최종검색
 			 List<Map<String,Object>> goodsSearchList = goodsService.goodsCategorySearch(Map.getMap());
-			 
 			//sale&New 로직 시작
-			for(int i=0; i<goodsSearchList.size();i++){
+			for(int i=0; i<goodsSearchList.size();i++){ 
 				if(goodsSearchList.get(i).get("GOODS_SALEDATE")!=null && goodsSearchList.get(i).get("GOODS_DCPRICE") != null){
+					//sale태그 조건
 					Date dDay = (Date) goodsSearchList.get(i).get("GOODS_SALEDATE");
+					System.out.println("goods_saledate 는?"+dDay);
 					if (dDay.getTime() < d.getTime()) {
+						System.out.println("goods_saledate 안으로 ");
 						goodsSearchList.get(i).remove("GOODS_SALEDATE");
 						goodsSearchList.get(i).remove("GOODS_DCPRICE");
 					}
@@ -362,7 +369,7 @@ public class GoodsController {
 				//New태그 조건
 				Date newDay = (Date) goodsSearchList.get(i).get("GOODS_DATE");
 				newCal.setTime(newDay);//Data값 캘린더로 변경
-				newCal.add(Calendar.DATE, 10);// +2주
+				newCal.add(Calendar.DATE, DATE_DATE);// +2주
 				
 				newDate=new Date(newCal.getTimeInMillis());
 				goodsSearchList.get(i).put("GOODS_NEWDATE", newDate);
@@ -405,6 +412,7 @@ public class GoodsController {
 		
 		for(int i=0; i<goodsList.size();i++){
 			if(goodsList.get(i).get("GOODS_SALEDATE")!=null && goodsList.get(i).get("GOODS_DCPRICE") != null){
+				//sale태그 조건
 				Date dDay = (Date) goodsList.get(i).get("GOODS_SALEDATE");
 				if (dDay.getTime() < d.getTime()) {
 					goodsList.get(i).remove("GOODS_SALEDATE");
@@ -416,7 +424,7 @@ public class GoodsController {
 			Date newDay = (Date) goodsList.get(i).get("GOODS_DATE");
 			System.out.println("newDay는 : "+newDay);
 			newCal.setTime(newDay);//Data값 캘린더로 변경
-			newCal.add(Calendar.DATE, 10);// +2주
+			newCal.add(Calendar.DATE, DATE_DATE);// +2주
 			
 			newDate=new Date(newCal.getTimeInMillis());
 			System.out.println("2주후 newDate는 : "+newDate);
@@ -432,6 +440,168 @@ public class GoodsController {
 		mv.addObject("goodsList", goodsList);
 	
 		
+		return mv;
+	}
+	
+	//세일 카테고리 
+	@RequestMapping(value="/goods/goodsSaleCategory")
+	public ModelAndView goodsSaleCategory(HttpServletResponse response, HttpServletRequest request,CommandMap Map) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("goodsSaleCategory");
+		
+		//서치체크
+		String searchCheck=(String)Map.getMap().get("searchCheck");
+
+				
+		
+	
+		//정렬 로직 시작
+		String sort=(String)Map.getMap().get("sort");		
+		if(sort!=null){
+			System.out.println("솔트값은? " + sort);
+			mv.setViewName("goodsSort");
+			mv.addObject("sort",sort);
+		}
+		else{
+			sort ="1"; //기본 인기순에 오게
+			mv.addObject("sort",sort);
+		}
+		Map.getMap().put("sort",sort);
+		//정렬 로직 끝
+		
+		
+		if(searchCheck!=null)
+		{
+
+		//세일 구분 로직 시작
+		try { //세일을 하나만 체크하면 String값으로 받기때문에 try catch
+			String[] sale=(String[])Map.getMap().get("sale");
+			
+			if(sale!=null)
+			{
+				//1이면 30%이하
+				//2이면 31%~50%
+				//3이면 51~80%
+				int saleNum=0;
+				for(int i =0;i<sale.length;i++){
+				System.out.println("다중세일 선택" + sale[i]);
+				if(sale[i].equals("1"))
+				{
+					saleNum=saleNum+1;
+				}
+				if(sale[i].equals("2"))
+				{
+					saleNum=saleNum+20;
+				}
+				if(sale[i].equals("3"))
+				{
+					saleNum=saleNum+300;
+				}
+				}
+				System.out.println("세일넘버"+saleNum);
+				//12일땐 21
+				//23일땐 320
+				//13일땐 301
+				Map.getMap().put("saleCheck","ON2");
+				Map.getMap().put("sale",saleNum);
+			}
+		}catch (Exception e) {
+			String sale=(String)Map.getMap().get("sale");
+			
+			if(sale!=null)
+			{
+				System.out.println("원세일 선택" + sale);	
+				mv.setViewName("goodsSort");
+				Map.getMap().put("saleCheck","ON1");
+				Map.getMap().put("sale",sale);
+				System.out.println("sale값"+sale);
+			}
+		}//세일 구분 로직 끝
+		
+		
+		mv.setViewName("goodsSort");
+	}//서치체크 끝
+		
+		//정렬 구분 시작
+		String sortCheck=(String)Map.getMap().get("sortCheck");
+		if(sortCheck!=null){
+			Map.getMap().put("sort",sortCheck);
+			mv.addObject("sort",sortCheck);
+			//밑은 테스트용도 코드
+			switch (sortCheck) {
+			case "1": //인기순
+				System.out.println("검색내 인기순");
+				break;
+			case "2": //신상품
+				System.out.println("검색내 신상순");
+				break;
+			case "3": //낮은가격
+				System.out.println("검색내 낮은가격순");
+				break;
+			case "4": //높은가격
+				System.out.println("검색내 높은가격순");
+				break;
+			case "5": //할인률
+				System.out.println("검색내 할인률순");
+				break;
+
+			default:
+				System.out.println("디폴트값");
+				break;
+			}
+		}
+		//정렬 구분 끝
+		
+		List<Map<String,Object>> goodsList=goodsService.goodsSale(Map.getMap());
+		//<!--기본 인기순 셀렉트 --> A.goods_DCPRICE is not null
+		List<Map<String,Object>> goodsSaleList=new ArrayList<Map<String,Object>>();
+		//걸러 담을 리스트 선언
+		
+		//sale&New 로직 시작
+		Calendar today = Calendar.getInstance();
+		Date d = new Date(today.getTimeInMillis());
+				
+		//new태그위해 선언
+		Calendar newCal = Calendar.getInstance();
+		Date newDate =new Date();
+				
+		for(int i=0; i<goodsList.size();i++){
+			
+			//New태그 조건
+			Date newDay = (Date) goodsList.get(i).get("GOODS_DATE");
+			//System.out.println("newDay는 : "+newDay);
+			newCal.setTime(newDay);//Data값 캘린더로 변경
+			newCal.add(Calendar.DATE, DATE_DATE);// +2주
+					
+			newDate=new Date(newCal.getTimeInMillis());
+			//System.out.println("2주후 newDate는 : "+newDate);
+			goodsList.get(i).put("GOODS_NEWDATE", newDate); //얘때매 위로올림
+			
+			
+			if(goodsList.get(i).get("GOODS_SALEDATE")!=null && goodsList.get(i).get("GOODS_DCPRICE") != null){
+				//sale태그 조건
+				Date dDay = (Date) goodsList.get(i).get("GOODS_SALEDATE");
+				if (!(dDay.getTime() < d.getTime())) {
+					//반대
+					//여기 리스트 복사부터 하기
+					goodsSaleList.add(goodsList.get(i));
+					//goodsList.get(i).remove("GOODS_SALEDATE");
+					//goodsList.get(i).remove("GOODS_DCPRICE");
+				}
+			}
+			
+			//hurry up 태그조건
+			//goodsList.get(i).put("AMOUNT", goodsList.get(i).get("AMOUNT"));
+		}
+		mv.addObject("nowDate",d); //현재시간 보내기
+		//sale&New 로직 끝				
+		
+		
+		System.out.println("언구형");
+		//mv.addObject("goodsList",goodsList);
+		mv.addObject("goodsList",goodsSaleList);
+		
+		//mv.setViewName("goodsSaleCategory");
 		return mv;
 	}
 	
