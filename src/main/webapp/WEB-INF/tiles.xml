@@ -51,7 +51,6 @@
 	<definition name="qnaForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/qna/qnaForm.jsp" />
 	</definition>
-	
 	<definition name="qnaDetail" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/qna/qnaDetail.jsp" />
 	</definition>
@@ -137,6 +136,16 @@
  	<definition name="goodsCategory" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsCategory.jsp" />
 	</definition>
+	<!-- 뉴&세일카테고리추가 -->
+ 	<definition name="goodsSaleCategory" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsSaleCategory.jsp" />
+	</definition>
+	
+	<definition name="goodsNewCategory" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsNewCategory.jsp" />
+	</definition>
+	<!-- 뉴&세일카테고리추가 끝-->	
+
 
 	<definition name="joinStep1" extends="common2">
       <put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
@@ -166,23 +175,7 @@
 	<definition name="searchList" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/searchList.jsp"/>
 	</definition>
-	
-	<definition name="exchangelist" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/exchangelist.jsp"/>
-	</definition>
-	<definition name="returnlist" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/returnlist.jsp"/>
-	</definition>
-	<definition name="review" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/reviewlist.jsp"/>
-	</definition>
-	<definition name="myinfo" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/myinfo.jsp"/>
-	</definition>
 	<!-- 마이페이지 -->
-	
-	
-	
 	<definition name="goodsDetail" extends="common">
       <put-attribute name="body" value="/WEB-INF/jsp/goods/goodsDetail.jsp"/>
 	</definition>

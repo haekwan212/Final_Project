@@ -2,6 +2,7 @@ package spring.siroragi.review;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,10 +26,10 @@ public class ReviewController {
 	
 	//리뷰 등록
 	@RequestMapping(value="/reviewWrite")
-	public ModelAndView reviewWrite(CommandMap commandMap, HttpServletRequest request) throws Exception{
+	public ModelAndView reviewWrite(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception{
 		
 		ModelAndView mv=new ModelAndView("redirect:goodsDetail?GOODS_NUMBER="+commandMap.get("GOODS_NUMBER"));
-		
+		commandMap.getMap().put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER").toString());
 		reviewService.reviewWrite(commandMap.getMap(),request);
 		
 		return mv;

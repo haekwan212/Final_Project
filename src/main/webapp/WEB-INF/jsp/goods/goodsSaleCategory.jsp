@@ -361,14 +361,14 @@
 			</div>
 			-->
 
-
+<!-- 
 			<div class="reset form-item col-xs-24">
 				<div class="form-item-wrap col-xs-24">
 					<button class="button" id="filterClear">
 						<span class="button-label">« ≈Õ √ ±‚»≠</span>
 					</button>
 				</div>
-			</div>
+			</div> -->
 
 		</div>
 		<div class="section-foot more">
@@ -477,7 +477,7 @@
 		</div>
 	</div>
 	<div class="caption">
-		<p class="brand">PANCOAT</p>
+		<p class="brand">SIRORAGI</p>
 		<p class="name">
 			<a href="../goods/1408942139">[∆“ƒ‡º•] COOLING LIGHT HOODI TOP (G-1/FP) (ULTRA NAVY)_PROFPSZ01UN9</a>
 		</p>
@@ -529,6 +529,7 @@
 													class="cabal-label">HURRY UP</span>
 												</span>
 											</c:if>
+											<!-- ¡∂∞« ≈¬±◊ ≥° -->
 										</div>
 									</a>
 									<div class="addon">
@@ -546,7 +547,7 @@
 									</div>
 								</div>
 								<div class="caption">
-									<p class="brand">PANCOAT</p>
+									<p class="brand">SIRORAGI</p>
 									<p class="name">
 										<a href="${viewURL}">${goodsList.GOODS_NAME}</a>
 									</p>

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,11 +47,8 @@ public class QnaController {
 	}
 
 	@RequestMapping(value = "/qna/modalqnaWrite")
-	public ModelAndView modal_qnaWrite(CommandMap commandMap) throws Exception {
-		String content = commandMap.get("QNA_CONTENT").toString();
-		System.out.println(commandMap.getMap());
-		System.out.println("상품번호" + commandMap.get("GOODS_NUMBER").toString());
-		System.out.println("내용은 : " + content);
+	public ModelAndView modal_qnaWrite(CommandMap commandMap, HttpSession session) throws Exception {
+		commandMap.getMap().put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER").toString());
 		qnaService.insertModalQna(commandMap.getMap());
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/goodsDetail?GOODS_NUMBER=" + commandMap.get("GOODS_NUMBER").toString());

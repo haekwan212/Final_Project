@@ -217,7 +217,7 @@ public class GoodsController {
 								//검색했을때만 들어온다 or 검색후 정렬할때
 		System.out.println("검색조건사용");
 		
-			//컬러검색
+		//컬러검색 시작
 		try { //컬러를 하나만 체크하면 String값으로 받기때문에 try catch
 			String[] color=(String[])Map.getMap().get("myColor");
 			
@@ -359,9 +359,9 @@ public class GoodsController {
 				if(goodsSearchList.get(i).get("GOODS_SALEDATE")!=null && goodsSearchList.get(i).get("GOODS_DCPRICE") != null){
 					//sale태그 조건
 					Date dDay = (Date) goodsSearchList.get(i).get("GOODS_SALEDATE");
-					System.out.println("goods_saledate 는?"+dDay);
+					//System.out.println("goods_saledate 는?"+dDay);
 					if (dDay.getTime() < d.getTime()) {
-						System.out.println("goods_saledate 안으로 ");
+						//System.out.println("goods_saledate 안으로 ");
 						goodsSearchList.get(i).remove("GOODS_SALEDATE");
 						goodsSearchList.get(i).remove("GOODS_DCPRICE");
 					}
@@ -399,6 +399,29 @@ public class GoodsController {
 		String isSearch=stxt;//안해줘도되는데 그냥보기좋으라고해준듯 그럼첨부터 isSearch로 선언해도되는데
 		
 		ModelAndView mv = new ModelAndView("searchList");
+		
+		int intpagingNum;//페이징을 위한 변수하나선언
+		String pagingNum=(String)Map.getMap().get("pagingNum");
+		if(pagingNum != null)
+		{
+			System.out.println("pagingNum는?"+pagingNum);
+			intpagingNum = Integer.parseInt(pagingNum);
+			//intpagingNum = intpagingNum +12;
+			System.out.println("intpagingNum는?"+intpagingNum);
+			mv.setViewName("searchListPlus");
+		}
+		else
+		{
+			pagingNum="12";
+			intpagingNum =Integer.parseInt(pagingNum);
+			
+		}
+		mv.addObject("pagingNum",intpagingNum);
+		String searchCheck=(String)Map.getMap().get("searchCheck");
+		if(searchCheck!=null) //더보기를 눌렀는지 확인할것
+		{
+			mv.setViewName("searchListPlus");
+		}
 				
 		List<Map<String,Object>> goodsList=goodsService.goodsSearch(isSearch);
 		
@@ -422,12 +445,12 @@ public class GoodsController {
 			
 			//New태그 조건
 			Date newDay = (Date) goodsList.get(i).get("GOODS_DATE");
-			System.out.println("newDay는 : "+newDay);
+			//System.out.println("newDay는 : "+newDay);
 			newCal.setTime(newDay);//Data값 캘린더로 변경
 			newCal.add(Calendar.DATE, DATE_DATE);// +2주
 			
 			newDate=new Date(newCal.getTimeInMillis());
-			System.out.println("2주후 newDate는 : "+newDate);
+			//System.out.println("2주후 newDate는 : "+newDate);
 			goodsList.get(i).put("GOODS_NEWDATE", newDate);
 			
 			//hurry up 태그조건
@@ -502,6 +525,7 @@ public class GoodsController {
 				//12일땐 21
 				//23일땐 320
 				//13일땐 301
+				//123일떈 321
 				Map.getMap().put("saleCheck","ON2");
 				Map.getMap().put("sale",saleNum);
 			}
@@ -604,6 +628,114 @@ public class GoodsController {
 		//mv.setViewName("goodsSaleCategory");
 		return mv;
 	}
+	
+		//New 카테고리 
+		@RequestMapping(value="/goods/goodsNewCategory")
+		public ModelAndView goodsNewCategory(HttpServletResponse response, HttpServletRequest request,CommandMap Map) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("goodsNewCategory");
+			
+			//Map.getMap().put("date",DATE_DATE); //뉴태그 
+			
+			
+			String searchCheck=(String)Map.getMap().get("searchCheck");//서치됬는지 확인
+			Map.getMap().put("priceSearchRange1", 7000);
+			Map.getMap().put("priceSearchRange2", 298000);
+			Map.getMap().put("date",30);
+			//가격 기본값 포함해서 검색해야하기떄문에 넣어줘야한다.
+			if(searchCheck!=null){
+				System.out.println("검색조건사용");
+				//가격 검색
+				String[] priceRange=(String[])Map.getMap().get("priceRange");
+			//	if(priceRange!=null) 검색을하면 null일수가 없어서 뺐다
+					String pr1=priceRange[0];
+					String pr2=priceRange[1];
+					
+					pr1=pr1.replaceAll(",","");
+					pr2=pr2.replaceAll(",","");//중간 문자열빼기
+					
+					Map.getMap().put("priceSearchRange1", pr1);
+					Map.getMap().put("priceSearchRange2", pr2);
+					
+					System.out.println(" 가격1 : " +pr1+ " 가격2 : " + pr2);
+				//가격검색끝
+
+			
+			//컬러검색 시작
+			try { //컬러를 하나만 체크하면 String값으로 받기때문에 try catch
+				String[] color=(String[])Map.getMap().get("myColor");
+				
+				if(color!=null)
+				{
+					for(int i =0;i<color.length;i++){
+					System.out.println("다중컬러 선택" + color[i]);
+					}
+					Map.getMap().put("colorCheck","ON2");
+					Map.getMap().put("color",color);
+				}
+			}catch (Exception e) {
+				String color=(String)Map.getMap().get("myColor");
+				
+				if(color!=null)
+				{
+					System.out.println("원컬러 선택" + color);	
+					Map.getMap().put("colorCheck","ON1");
+					Map.getMap().put("color",color);
+				}
+				
+			}
+			//컬러검색끝
+			
+			//기간 검색 시작
+			String period=(String)Map.getMap().get("period");
+			System.out.println("period 값"+period);
+			Map.getMap().put("date", period);
+			//기간 검색 끝
+				
+			mv.setViewName("goods/goodsNewSort");
+			}//서치체크끝
+			
+			List<Map<String,Object>> goodsList=goodsService.goodsNew(Map.getMap());
+
+			//sale&New 로직 시작
+			
+			Calendar today = Calendar.getInstance();
+			Date d = new Date(today.getTimeInMillis());
+			
+			//new태그위해 선언
+			 Calendar newCal = Calendar.getInstance();
+			 Date newDate =new Date();
+			    
+
+			for(int i=0; i<goodsList.size();i++){
+				if(goodsList.get(i).get("GOODS_SALEDATE")!=null && goodsList.get(i).get("GOODS_DCPRICE") != null){
+					//sale태그 조건
+					Date dDay = (Date) goodsList.get(i).get("GOODS_SALEDATE");
+					if (dDay.getTime() < d.getTime()) {
+						goodsList.get(i).remove("GOODS_SALEDATE");
+						goodsList.get(i).remove("GOODS_DCPRICE");
+					}
+				}
+				
+				//New태그 조건
+				Date newDay = (Date) goodsList.get(i).get("GOODS_DATE");
+				newCal.setTime(newDay);//Data값 캘린더로 변경
+				newCal.add(Calendar.DATE, DATE_DATE);// +10
+				
+				newDate=new Date(newCal.getTimeInMillis());
+				goodsList.get(i).put("GOODS_NEWDATE", newDate);
+				
+				//hurry up 태그조건
+				
+			}
+			mv.addObject("nowDate",d); //현재시간 보내기
+			mv.addObject("goodsList",goodsList);
+			//new&sale로직끝
+			
+			
+			return mv;
+		}
+
 	
 	@RequestMapping(value = "goodsDetail")
 	public ModelAndView goodsDetail(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {

@@ -11,7 +11,7 @@
 	</select>
 	<select id="qnaNewAlarm" parameterType="hashmap" resultType="int">
 	<![CDATA[
-	select COUNT(*)from qna where member_number = #{MEMBER_NUMBER} and QNA_REPSTATE = '답변완료'
+	select COUNT(*)from qna where QNA_CATEGORY= '상품문의' and member_number = #{MEMBER_NUMBER} and (QNA_REPSTATE = '답변완료' or QNA_REPSTATE = '답변대기')
 	]]>
 	</select>
 	<select id="qnalistById" parameterType="String" resultType="hashmap">
@@ -70,7 +70,12 @@
       (QNA_NUMBER_SEQ.NEXTVAL, #{QNA_CATEGORY}, #{GOODS_NUMBER}, #{MEMBER_NUMBER}, #{QNA_PASSWORD}, #{QNA_CONTENT}, SYSDATE, #{QNA_TITLE}, 0, 0, QNA_NUMBER_SEQ.CURRVAL)
    ]]>
 	</insert>
-
+	<insert id="insertOneToOne" parameterType="hashmap">
+ <![CDATA[
+    	INSERT INTO QNA (QNA_NUMBER, QNA_CATEGORY, MEMBER_NUMBER, QNA_CONTENT, QNA_IMAGE1, QNA_REGDATE, QNA_TITLE, QNA_REF) VALUES 
+    	(QNA_NUMBER_SEQ.NEXTVAL, #{QNA_CATEGORY}, #{MEMBER_NUMBER}, #{QNA_CONTENT}, #{QNA_IMAGE1}, SYSDATE, #{QNA_TITLE}, QNA_NUMBER_SEQ.CURRVAL)
+   ]]>
+	</insert>
 
 <!-- Q&A 전체 글 목록 불러오기 -->
 	<select id="qnaList" parameterType="hashmap" resultType="hashmap">

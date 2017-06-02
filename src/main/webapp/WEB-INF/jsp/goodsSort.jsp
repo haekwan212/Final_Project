@@ -222,12 +222,12 @@
 
 
 						</c:forEach>
-	<!--  등록된 상품이 없을때 -->
+	<!--  등록된 상품이 없을때
 <c:if test="${fn:length(goodsList) le 0}">
 	
 	<font size="20" >&nbsp;&nbsp;등록된 상품이 없습니다</font>
 
-</c:if>
+</c:if> -->
 
 
 
