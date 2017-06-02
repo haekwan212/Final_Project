@@ -16,15 +16,126 @@
 			modal.close();
 			return false;
 		}
-		
-		/* if(value == "" || value == null || value == undefined || ( value != null && typeof value == "object" && !Object.keys(value).length)){
-			alert("로그인을 해주세요.");
-			modal.close();
-			return false;
+
+	}
+	$(documnet).ready(function(){
+		fn_selectBoardList(1);
+	});
+	function fn_selectBoardList(pageNo){
+		var comAjax = new ComAjax();
+		comAjax.setUrl("<c:url value='/goodsDetail'/>");
+		comAjax.setCallback("fn_selectBoardListCallback");
+		comAjax.addParam("PAGE_INDEX", pageNo);
+		comAjax.addParam("PAGE_ROW", 5);
+		comAjax.ajax();
+	}
+	var gfv_pageIndex = null;
+	var gfv_evnetName = null;
+	function gfn_renderPaging(params){
+		var divId = params.divId;//페이징이 그려질 div
+		gfv_pageIndex = params.pageIndex;//현재 위치가 저장될 input 태그
+		var totalCount = params.totalCount;//전체 조회 건수
+		var currentIndex = $("#"+params.pageIndx).val();//현재 위치
+		if($("#"+params.pageIndex).length == 0 || gfn_isNull(currentIndex) == true){
+			currentIndex = 1;
 		}
-		alert(value+"222"); 
-		modal.close();
-		return false; */
+		var recordCount = params.recordCount;
+		if(gfn_isNull(recordCount) == true){
+			recordCount = 5;
+		}
+		var totalIndexCount = Math.ceil(totalCount / recordCount);//전체 인덱스 수
+		gfv_eventName = params.eventName;
+		
+		$("#"+divId).empty();
+		var preStr= "";
+		var postStr="";
+		var str="";
+		
+		var first = (parseInt((currentIndex-1) / 10) * 10) + 1;
+		var last = (parseInt(totalIndexCount/10) == parseInt(currentIndex/10)) ? totalIndexCount%10 : 10;
+		var prev = (parseInt((currentIndex-1)/10)*10) - 9 > 0 ? (parseInt((currentIndex-1)/10)+1)*10+1 : totalIndexCount;
+		var next = (parseInt((currentIndex-1)/10)+1) * 10 + 1 < totalIndexCount ? (parseInt((currentIndex-1)/10)+1) * 10 + 1 : totalIndexCount;
+		
+		if(totalIndexCount > 5){ //전체 인덱스가 5를 넘을 경우, 매앞, 앞 태그 작성
+			preStr += "<a href='#this' class='prev col-xs-6 btn-page-prev' onclick='_movePage("+prev+")'>prev</a>";
+			
+		}
+		else if(totalIndexCount <= 5 && totalIndexCount > 1){//전체 인덱스가 5 보다 작을경우}
+			preStr += "<a href='#this' class='prev col-xs-6 btn-page-prev' onclick='_movePage("+next+")'>prev</a>";
+		}
+		if(totalIndexCount>5){
+			postStr += "<a href='#this' class='next col-xs-6 btn-page-next' onclick='_movePage("+totalIndexCount+")'>next</a>";
+		}
+		else if(totalIndexCount <= 5 && totalIndexCount > 1){
+			postStr += "<a href='#this' class='next col-xs-6 btn-page-next' onclick='_movePage("+totalIndexCount+")'>next</a>";
+		}
+		
+		for(var i=first; i<(first+last); i++){
+			if(i != currentIndex){
+				str += "<div class='page-number col-xs-12'><a href='#this' style='font:9pt tahoma;' onclick='_movePage("+i+")'>"+i+"</a>";
+			}
+			else{
+				str += "<div class='page_number col-xs-12'><a href='#this' class='active' onclick='_movePage("+i+")'>"+i+"</a>";
+			}
+		}
+		$("#"+divId).append(preStr+str+postStr);
+	}
+
+	function _movePage(value){
+		$("#"+gfv_pageIndex).val(value);
+		if(typeof(gfv_eventName) == "function"){
+			gfv_eventName(value);	
+		}
+		else{
+			eval(gfv_eventName + "(value);");
+		}
+	}
+	
+	var gfv_ajaxCallback = "";
+	function ComAjax(){
+		this.url = "";
+		this.formId = gfn_isNull(opt_formId) == true ? "commonForm" : opt_formId;
+		this.param = "";
+		
+		if(this.formId == "commonForm"){
+			var frm = $("#commonForm");
+			if(frm.length > 0){
+				frm.remove();
+			}
+			var str = "<form id='commonForm' name='commonForm'></form>";
+			$('body').append(str);
+		}
+		
+		this.setUrl = function setUrl(url){
+			this.url = url;
+		};
+		
+		this.setCallback = function setCallback(callback){
+			fv_ajaxCallback = callback;
+		};
+		this.addParam = function addParam(key,value){
+			this.param = this.param+"&"+key+"="+value;
+		};
+		
+		this.ajax = function ajax(){
+			if(this.formId != "commonForm"){
+				this.param += "&"+$("#"+this.formId).serialize();
+			}
+			$.ajax({
+				url : this.url,
+				type : "POST",
+				data : this.param,
+				async : false,
+				success : function(data, status){
+					if(typeof(fv_ajaxCallback) == "function"){
+						fv_ajaxCallback(data);
+					}
+					else{
+						eval)fv_ajaxCallback + "(data);");
+					}
+				}
+			});
+		};
 	}
 </script>
 <div class="hashFilter eshop">

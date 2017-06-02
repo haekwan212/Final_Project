@@ -76,7 +76,7 @@ function GOODS_CATEGORY1Change() {
 				<col width="13%">
 				<col width="*"/>
 			</colgroup>
-			<caption>상품 등록</caption>
+			<caption>상품 수정</caption>
 			<tbody>
 				<tr>
 					<th scope="row">상품번호</th>

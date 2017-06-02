@@ -100,4 +100,8 @@ public class QnaDAO extends AbstractDAO {
 	public int qnaNewAlarm(Map<String, Object> map) throws Exception{
 		return (int)selectOne("qna.qnaNewAlarm", map);
 	}
+	
+	public void insertOneToOne(Map<String, Object> map) throws Exception{
+		insert("qna.insertOneToOne", map);
+	}
 }

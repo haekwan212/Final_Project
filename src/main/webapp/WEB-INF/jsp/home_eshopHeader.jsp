@@ -117,14 +117,14 @@
 			<ul class="tier1">
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/new">
+						<a href="/SIRORAGI/goods/goodsNewCategory">
 							<strong>new</strong>
 						</a>
 					</div>
 				</li>
 				<li class="tier2-group col-xs-12 sale">
 					<div class="tier2-head">
-						<a href="/store/sale">
+						<a href="/SIRORAGI/goods/goodsSaleCategory">
 							<strong>sale</strong>
 						</a>
 					</div>
@@ -255,10 +255,10 @@
 						<div class="nav-group-depth2">
 							<ul class="container">
 								<li class="nav-head c01" style="text-align: center;">
-									<a href="/store/new"><span>new</span></a>
+									<a href="/SIRORAGI/goods/goodsNewCategory"><span>new</span></a>
 								</li>
 								<li class="nav-head c01">
-									<a href="/store/sale"><span>sale</span></a>
+									<a href="/SIRORAGI/goods/goodsSaleCategory"><span>sale</span></a>
 								</li>
 
 

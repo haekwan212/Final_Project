@@ -20,5 +20,20 @@ public interface AdminOrderService {
 
 	// 배송상태 변경
 	public void updateDeliveryState(Map<String, Object> map) throws Exception;
+
+	// 카테고리 검색
+	public List<Map<String, Object>> adminOrderSearch0(Map<String, Object> map) throws Exception;
+	public List<Map<String, Object>> adminOrderSearch1(Map<String, Object> map) throws Exception;
+	public List<Map<String, Object>> adminOrderSearch2(Map<String, Object> map) throws Exception;
+	public List<Map<String, Object>> adminOrderSearch4(Map<String, Object> map) throws Exception;
+	public List<Map<String, Object>> adminOrderSearch5(Map<String, Object> map) throws Exception;
+	public List<Map<String, Object>> adminOrderSearch6(Map<String, Object> map) throws Exception;
+
+	
+	// 주문내역 수정폼(상세보기)
+	public List<Map<String, Object>> orderDetail(Map<String, Object> map) throws Exception;
+	
+	//주문 삭제
+	public void orderDelete(Map<String, Object> map) throws Exception;
 	
 }

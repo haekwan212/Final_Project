@@ -1,5 +1,6 @@
 package spring.siroragi.adminOrder;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +46,50 @@ public class AdminOrderController {
 
 		List<Map<String, Object>> orderList = adminOrderService.allOrderList(commandMap.getMap());
 
+		String s = request.getParameter("isSearch");
+		Map<String,Object> isSearchMap;
+		
+		if (request.getParameterMap().get("isSearch") != null && request.getParameterMap().get("isSearch") !="") {
+			isSearch= new String(s.getBytes("iso-8859-1"),"utf-8");
+			isSearchMap=new HashMap<String, Object>();
+			searchNum = Integer.parseInt(request.getParameter("searchNum"));
+			isSearchMap.put("isSearch", isSearch);
+			
+			if (searchNum == 1)// 결제상태 검색
+				orderList = adminOrderService.adminOrderSearch0(isSearchMap);
+			else if (searchNum == 2)// 상품주문상태 검색
+				orderList = adminOrderService.adminOrderSearch1(isSearchMap);
+			else if (searchNum == 3)// 배송상태
+				orderList = adminOrderService.adminOrderSearch2(isSearchMap);
+			else if (searchNum == 4)// 주문코드
+				orderList = adminOrderService.adminOrderSearch4(isSearchMap);
+			else if (searchNum == 5)// 상품명
+				orderList = adminOrderService.adminOrderSearch5(isSearchMap);
+			else if (searchNum == 6)// 회원
+				orderList = adminOrderService.adminOrderSearch6(isSearchMap);
+
+			totalCount = orderList.size();
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "orderList", searchNum, isSearch);
+			pagingHtml = page.getPagingHtml().toString();
+
+			int lastCount = totalCount;
+
+			if (page.getEndCount() < totalCount)
+				lastCount = page.getEndCount() + 1;
+
+			orderList = orderList.subList(page.getStartCount(), lastCount);
+
+			mv.addObject("isSearch", isSearch);
+			mv.addObject("searchNum", searchNum);
+			mv.addObject("totalCount", totalCount);
+			mv.addObject("pagingHtml", pagingHtml);
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("orderList", orderList);
+			mv.setViewName("adminOrderList");
+			return mv;
+		}
+		
+		
 		totalCount = orderList.size();
 		page = new Paging(currentPage, totalCount, blockCount, blockPage, "orderList", searchNum, isSearch);
 		pagingHtml = page.getPagingHtml().toString();
@@ -53,7 +98,7 @@ public class AdminOrderController {
 
 		if (page.getEndCount() < totalCount)
 			lastCount = page.getEndCount() + 1;
-
+		
 		orderList = orderList.subList(page.getStartCount(), lastCount);
 
 		mv.addObject("totalCount", totalCount);
@@ -79,12 +124,26 @@ public class AdminOrderController {
 		Map<String, Object> stateMap=new HashMap<String, Object>();
 		
 		String path;
+		//System.out.println("커맨 : "+commandMap.getMap());
 		
 		if(commandMap.get("currentPage")==null){
-			path="orderList?currentPage=1"+commandMap.get("currentPage")+"&isSearch="+commandMap.get("isSearch")+"&searchNum="+commandMap.get("searchNum");
+			if(commandMap.get("isSearch")!=null && !commandMap.get("isSearch").equals("null") && commandMap.get("isSearch")!=""){
+				//System.out.println("1"+commandMap.get("isSearch").toString().length());
+				path="orderList?currentPage=1&isSearch="+commandMap.get("isSearch")+"&searchNum="+commandMap.get("searchNum");
+			} else{
+				//System.out.println("2"+commandMap.get("isSearch").toString().length());
+				path="orderList?currentPage=1";
+			}
 		} else{
-			path="orderList?currentPage="+currentPage+"&isSearch="+commandMap.get("isSearch")+"&searchNum="+commandMap.get("searchNum");
+			if(commandMap.get("isSearch")!=null && !commandMap.get("isSearch").equals("null") && commandMap.get("isSearch")!=""){
+				//System.out.println("3"+commandMap.get("isSearch").toString().length());
+				path="orderList?currentPage="+currentPage+"&isSearch="+commandMap.get("isSearch").toString()+"&searchNum="+commandMap.get("searchNum").toString();
+			} else{
+				//System.out.println("4"+commandMap.get("isSearch").toString().length());
+				path="orderList?currentPage="+currentPage;
+			}
 		}
+		//System.out.println("path : "+path);
 		if(commandMap.get("GOODS_PAY_STATE") !=null){
 		
 		String a=(String)commandMap.get("ORDER_CODE");
@@ -113,6 +172,34 @@ public class AdminOrderController {
 			}
 		
 		mv.setViewName("redirect:"+path);
+		return mv;
+	}
+	
+	//주문 상세보기
+	@RequestMapping(value = "order/adminOrderDetail")
+	public ModelAndView orderDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		
+		ModelAndView mv = new ModelAndView();
+		List<Map<String, Object>> orderDetail=new ArrayList<Map<String, Object>>();
+		
+		orderDetail=adminOrderService.orderDetail(commandMap.getMap());
+		mv.addObject("orderDetail",orderDetail);
+		mv.addObject("size",orderDetail.size());
+		mv.addObject("orderBasic",orderDetail.get(0));
+		
+		mv.setViewName("adminOrderDetail");
+		return mv;
+		
+	}
+	
+	//주문 삭제
+	@RequestMapping(value="order/adminOrderDelete")
+	public ModelAndView adminOrderDelete(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mv = new ModelAndView("redirect:orderList");
+		
+		adminOrderService.orderDelete(commandMap.getMap());
+		
 		return mv;
 	}
 

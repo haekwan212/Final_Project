@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
-<c:set var="TOTALPOINT" value="${sumPoint+firstLine.POINT_POINT}" />
+<c:set var="TOTALPOINT" value="${sumPoint}" />
+<c:set var="PREPOINT" value="0" />
+
 <div class="modal-body">
 <div class="modal-status-possessions modal-possessions modal-status-milage">
    <section class="status box-shadow">
@@ -52,8 +54,9 @@
                   <td class="date">${point.POINT_DATE}</td>
                   <td class="subject">${point.POINT_CONTENT}</td>
                   <td class="give"><fmt:formatNumber value="${point.POINT_POINT}" type="number" /></td>
-                  <td><c:set var="TOTALPOINT" value="${TOTALPOINT-point.POINT_POINT}" /><fmt:formatNumber value="${TOTALPOINT }" type="number" /><td>
+                  <td><c:set var="TOTALPOINT" value="${TOTALPOINT-PREPOINT}" /><fmt:formatNumber value="${TOTALPOINT }" type="number" /><td>
                </tr>
+               <c:set var="PREPOINT" value="${point.POINT_POINT}" />
                </tbody>
                   </c:forEach>
                   </c:otherwise>

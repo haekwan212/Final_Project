@@ -5,31 +5,32 @@
 	<!-- top 불러오기 -->
 	<select id="listByTop" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'TOP' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
+		SELECT * FROM (SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1='TOP'  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc) WHERE ROWNUM < 7
 	]]>
+	<!-- SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'TOP' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7 -->
 	</select>
 		<!-- outer 불러오기 -->
 	<select id="listByOut" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'OUTER' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
+		SELECT * FROM (SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1='OUTER'  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc) WHERE ROWNUM < 7
 	]]>
 	</select>
 		<!-- PANTS 불러오기 -->
 	<select id="listByPan" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'PANTS' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
+		SELECT * FROM (SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1='PANTS'  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc) WHERE ROWNUM < 7
 	]]>
 	</select>
 		<!-- ACC 불러오기 -->
 	<select id="listByAcc" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'ACC' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
+		SELECT * FROM (SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1='ACC'  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc) WHERE ROWNUM < 7
 	]]>
 	</select>
 		<!-- SHOES 불러오기 -->
 	<select id="listByShoes" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
-		SELECT * FROM (SELECT * FROM GOODS WHERE GOODS_CATEGORY1 = 'SHOES' AND GOODS_ONOFF = '0' ORDER BY GOODS_DATE DESC) WHERE ROWNUM < 7
+		SELECT * FROM (SELECT sum(b.goods_amount) as amount, a.* from(select * from goods where goods_CATEGORY1='SHOES'  and goods_onoff ='0' ) a inner join goods_kinds b on a.goods_number = b.goods_number group by a.goods_number, a.goods_name, a.goods_price,a.goods_dcprice,a.goods_simple,a.goods_detail,a.goods_thumbnail,a.goods_date,a.goods_category1,a.goods_category2,a.goods_saledate,a.goods_onoff,a.goods_count,a.goods_related order by A.goods_number desc) WHERE ROWNUM < 7
 	]]>
 	</select>
 	

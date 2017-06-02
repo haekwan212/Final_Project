@@ -84,4 +84,16 @@ public class GoodsServiceImpl implements GoodsService{
 			return goodsDAO.goodsAvgGrade(map);
 		}
 
+		//세일 상품 가져오기
+		@Override
+		public List<Map<String, Object>> goodsSale(Map<String, Object> map) throws Exception {
+			return goodsDAO.goodsSale(map);
+		}
+
+		//뉴 상품 가져오기
+		@Override
+		public List<Map<String, Object>> goodsNew(Map<String, Object> map) throws Exception {
+			return goodsDAO.goodsNew(map);
+		}
+
 }

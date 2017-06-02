@@ -32,6 +32,12 @@
 		]]>
 	</select>
 
+		<select id="selectGoodsReviewByMemNum" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT * FROM REVIEW WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
+				]]>
+	</select>
+
 	<select id="selectGoodsEvgGrade" parameterType="hashmap"
 		resultType="Integer">
 		<![CDATA[

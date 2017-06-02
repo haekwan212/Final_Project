@@ -3,6 +3,7 @@ package spring.siroragi.myPage;
 import java.util.List;
 import java.util.Map;
 
+import org.aspectj.org.eclipse.jdt.internal.codeassist.select.SelectionOnExplicitConstructorCall;
 import org.springframework.stereotype.Repository;
 
 import spring.kh.siroragi.AbstractDAO;
@@ -30,5 +31,28 @@ public class MyPageDAO extends AbstractDAO {
 	 @SuppressWarnings("unchecked")
 	 Map<String, Object> myinfoDetail(String id) throws Exception{
 		 return (Map<String, Object>)selectOne("mypage.myinfoDetail", id);
+	 }
+	 
+	 @SuppressWarnings("unchecked")
+	 List<Map<String, Object>> selectOtoList(String mem_num) throws Exception{
+		 return (List<Map<String, Object>>)selectList("mypage.selectOtoList", mem_num);
+	 }
+	 
+	 int selectOtoCount(String mem_num) throws Exception{
+		 return (int)selectOne("mypage.selectOtoCount", mem_num);
+	 }
+	 
+	 @SuppressWarnings("unchecked")
+	 List<Map<String, Object>> selectOtoComplete(String mem_num) throws Exception{
+		 return (List<Map<String, Object>>)selectList("mypage.selectOtoComplete", mem_num);
+	 }
+	 @SuppressWarnings("unchecked")
+	 List<Map<String, Object>> selectReviewList(String mem_num) throws Exception{
+		 return (List<Map<String, Object>>)selectList("mypage.selectReviewList", mem_num);
+	 }
+	 
+	 @SuppressWarnings("unchecked")
+	 List<Map<String, Object>> selectOrderlist(String mem_num) throws Exception{
+		 return (List<Map<String, Object>>)selectList("mypage.selectOrderList", mem_num);
 	 }
 }

@@ -8,68 +8,48 @@
 <script type="text/javascript">
 
 	//주문번호 같은 열 합치는 Jquery
-	$(document).ready(function() {
-		$('#dataTables-example').rowspan(0);
-		$('#dataTables-example').rowspan(3);
-		$('#dataTables-example').rowspan(4);
-		$('#dataTables-example').rowspan(5);
-		$('#dataTables-example').rowspan(6);
-		$('#dataTables-example').rowspan(7);
-		$('#dataTables-example').rowspan(8);
+	$( document ).ready(function() {
+	$('#dataTables-example').rowspan(0);
+	$('#dataTables-example').rowspan(3);
+	$('#dataTables-example').rowspan(4);
+	$('#dataTables-example').rowspan(5);
+	$('#dataTables-example').rowspan(6);
+	$('#dataTables-example').rowspan(7);
+	$('#dataTables-example').rowspan(8);
+});
 
-	});
+$.fn.rowspan = function(colIdx, isStats) {       
+	return this.each(function(){      
+		var that;     
+		$('tr', this).each(function(row) {      
+			$('td:eq('+colIdx+')', this).filter(':visible').each(function(col) {
+				
+				if ($(this).html() == $(that).html()
+					&& (!isStats 
+							|| isStats && $(this).prev().html() == $(that).prev().html()
+							)
+					) {            
+					rowspan = $(that).attr("rowspan") || 1;
+					rowspan = Number(rowspan)+1;
 
-	$.fn.rowspan = function(colIdx, isStats) {
-		return this
-				.each(function() {
-					var that;
-					$('tr', this)
-							.each(
-									function(row) {
-										$('td:eq(' + colIdx + ')', this)
-												.filter(':visible')
-												.each(
-														function(col) {
-
-															if ($(this).html() == $(
-																	that)
-																	.html()
-																	&& (!isStats || isStats
-																			&& $(
-																					this)
-																					.prev()
-																					.html() == $(
-																					that)
-																					.prev()
-																					.html())) {
-																rowspan = $(
-																		that)
-																		.attr(
-																				"rowspan") || 1;
-																rowspan = Number(rowspan) + 1;
-
-																$(that)
-																		.attr(
-																				"rowspan",
-																				rowspan);
-
-																// do your action for the colspan cell here            
-																$(this).hide();
-
-																//$(this).remove(); 
-																// do your action for the old cell here
-
-															} else {
-																that = this;
-															}
-
-															// set the that if not already set
-															that = (that == null) ? this
-																	: that;
-														});
-									});
-				});
-	};
+					$(that).attr("rowspan",rowspan);
+					
+					// do your action for the colspan cell here            
+					$(this).hide();
+					
+					//$(this).remove(); 
+					// do your action for the old cell here
+					
+				} else {            
+					that = this;         
+				}          
+				
+				// set the that if not already set
+				that = (that == null) ? this : that;      
+			});     
+		});    
+	});  
+}; 
 	function delchk() {
 		return confirm("삭제하시겠습니까?");
 
@@ -167,30 +147,30 @@
 								onchange="window.open(value,'_self');">
 								<option value="">-----주문상태-----</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=0&isSearch=무통장입금">결제대기</option>
+									value="/SIRORAGI/order/orderList?searchNum=1&isSearch=결제대기">결제대기</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=0&isSearch=카드결제">결제완료</option>
+									value="/SIRORAGI/order/orderList?searchNum=1&isSearch=결제완료">결제완료</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=1&isSearch=카드결제">구매확정</option>
+									value="/SIRORAGI/order/orderList?searchNum=2&isSearch=구매확정">구매확정</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=1&isSearch=카드결제">주문취소</option>
+									value="/SIRORAGI/order/orderList?searchNum=2&isSearch=주문취소">주문취소</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=1&isSearch=카드결제">교환/반품신청</option>
+									value="/SIRORAGI/order/orderList?searchNum=2&isSearch=교환/반품신청">교환/반품신청</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=1&isSearch=카드결제">취소/교환/반품처리완료</option>	
+									value="/SIRORAGI/order/orderList?searchNum=2&isSearch=처리완료">취소/교환/반품처리완료</option>	
 							</select>  <select class="form-control" name="select"
 								onchange="window.open(value,'_self');">
 								<option value="">--배송상태--</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=상품준비">배송준비중</option>
+									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=배송준비중">배송준비중</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=입금대기">배송중</option>
+									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=배송중">배송중</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=배송중">배송완료</option>
+									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=배송완료">배송완료</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=배송완료">배송취소</option>
+									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=배송취소">배송취소</option>
 								<option
-									value="/pet/admin/adminOrderAllList.dog?searchNum=2&isSearch=구매완료">구매완료</option>
+									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=구매완료">구매완료</option>
 
 							</select>
 						</div>
@@ -217,7 +197,7 @@
 										<th
 											style="width: 7%; text-align: center; vertical-align: middle;">회원ID</th>
 										<th
-											style="width: 8%; text-align: center; vertical-align: middle;">총주문금액</th>
+											style="width: 8%; text-align: center; vertical-align: middle;">주문금액</th>
 										<th
 											style="width: 8%; text-align: center; vertical-align: middle;">주문상태</th>
 										<th
@@ -231,8 +211,8 @@
 								<tbody>
 									<c:forEach var="orderList" items="${orderList}"
 										varStatus="stat">
-										<c:url var="viewURL" value="orderModifyForm">
-											<c:param name="order_code" value="${orderList.ORDER_CODE }" />
+										<c:url var="viewURL" value="adminOrderDetail">
+											<c:param name="ORDER_CODE" value="${orderList.ORDER_CODE }" />
 										</c:url>
 										<tr class="gradeA even" role="row">
 											<td style="text-align: center; vertical-align: middle;">${orderList.ORDER_CODE}</td>
@@ -272,6 +252,7 @@
 
 													<div style='display: none;'>${orderList.ORDER_CODE}</div>
 												</c:if> <c:if test="${orderList.GOODS_STATE ne null}">
+												
 												${orderList.GOODS_STATE}
 												<div style='display: none;'>${orderList.ORDER_CODE}</div>
 												</c:if>
@@ -318,9 +299,9 @@
 													value="${orderList.ORDER_DATE}" pattern="YY.MM.dd HH:mm" /></td>
 											<td style="text-align: center; vertical-align: middle;">
 												<a href="${viewURL}"><input type="image"
-													src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-												<c:url var="viewURL2" value="orderadmindelete.dog">
-													<c:param name="order_code" value="${orderList.ORDER_CODE }" />
+													src="/SIRORAGI/theme/file-alt-48.png" width="28"></a>&nbsp;&nbsp;
+												<c:url var="viewURL2" value="adminOrderDelete">
+													<c:param name="ORDER_CODE" value="${orderList.ORDER_CODE }" />
 												</c:url> <a href="${viewURL2}"><input type="image"
 													src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"
 													onclick="return delchk()"></a>
@@ -343,7 +324,9 @@
 							<div id="dataTables-example_filter" class="dataTables_filter">
 								<form action="">
 									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="0">전체</option>
+										<option value="4">주문코드</option>
+										<option value="5">상품명</option>
+										<option value="6">회원ID</option>
 									</select> <input class="form-control" type="text" name="isSearch"
 										id="isSearch" /> <span>
 										<button type="submit" class="btn btn-default">검색</button>

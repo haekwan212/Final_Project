@@ -190,7 +190,7 @@ table {
 	</div>
 
 <div class="recode">
-Total <b>3</b>, Page <b>1</b> / 1
+Total <b>${totalCount}</b>
 </div>
 
 <table class="table table-list">
