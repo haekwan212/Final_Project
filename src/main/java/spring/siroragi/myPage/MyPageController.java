@@ -124,7 +124,7 @@ public class MyPageController {
 	@RequestMapping(value="/exchangelist")
 	@ResponseBody
 	public ModelAndView exchangelist(HttpSession session) throws Exception{
-		ModelAndView mv = new ModelAndView("exchanglist");
+		ModelAndView mv = new ModelAndView("exchangelist");
 		return mv;
 	}
 	
