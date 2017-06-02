@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
@@ -35,6 +36,8 @@ public class OrderController {
 			return mv;
 
 		}
+		
+		System.out.println(commandMap.getMap());
 
 		ModelAndView mv = new ModelAndView("orderForm");
 
@@ -164,17 +167,20 @@ public class OrderController {
 	}
 
 	@RequestMapping(value = "/order/updatePoint")
-	public ModelAndView updatePoint(CommandMap commandMap, HttpServletRequest request) throws Exception {
-
-		ModelAndView mv = new ModelAndView();
+	@ResponseBody
+	public Map<String, Object> updatePoint(CommandMap commandMap, HttpServletRequest request) throws Exception {
 
 		System.out.println("updatePoint : " + commandMap.getMap());
 
 		orderService.updatePoint(commandMap.getMap());
 
-		mv.setViewName("redirect:/order");
-
-		return mv;
+		Map<String, Object> orderMember = orderService.orderMember(commandMap.getMap());
+		
+		orderMember.put("POINT_POINT", commandMap.get("POINT_POINT"));
+		
+		System.out.println("orderMember : " + orderMember);
+		
+		return orderMember;
 	}
 
 	@RequestMapping(value = "orderEnd")

@@ -28,8 +28,37 @@
 	</section>
 	<!-- step-panels//end -->
 <script>
+
+function ajaxExample(){
+    // 사용자 ID를 갖고 온다.
+    var POINT_POINT = -$("#POINT_POINT").val();
+    var MEMBER_NUMBER = "${orderMember.MEMBER_NUMBER}";
+     
+    // 사용자 ID(문자열)와 체크박스 값들(배열)을 name/value 형태로 담는다.
+    var allData = { "POINT_POINT": POINT_POINT, "MEMBER_NUMBER": MEMBER_NUMBER };
+     
+    $.ajax({
+        url:"./order/updatePoint",
+        type:'GET',
+        data: allData,
+        async: false,
+        success:function(data){
+            alert("완료!");
+            window.opener.location.reload();
+            self.close();
+        },
+        error:function(jqXHR, textStatus, errorThrown){
+            alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
+            self.close();
+        }
+    });
+}
+
 	function button1_click() {
 	alert("사용되었습니다.");
+	
+	var frm = document.forms.frmOrder;
+	
 	MEMBER_NUMBER="${orderMember.MEMBER_NUMBER}";
 	// 스크립트에 value값 가지고 오기
 	POINT_POINT=document.getElementById("POINT_POINT").value
@@ -310,7 +339,7 @@
 						</div>
 						<div class="col-lg-21 col-md-20">
 							<input type="text" id="POINT_POINT" name="POINT_POINT"  class="xx-control"  maxlength="3">
-								<span class="button button-dimmed" onclick="button1_click();" style="cursor:pointer">사용하기</span>
+								<span class="button button-dimmed" onclick="ajaxExample();" style="cursor:pointer">사용하기</span>
 						</div>
 					</li>
 				</ul>
