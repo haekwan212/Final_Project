@@ -57,14 +57,14 @@
 		<div class="related">
 			<strong>추천 검색어</strong>
 			<ul>
-				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88">팬콧키즈</a></li>
+				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88">SIRORAGI키즈</a></li>
 				<li><a href="?stxt=%EC%9B%90%ED%94%BC%EC%8A%A4">원피스</a></li>
 				<li><a href="?stxt=%EB%B0%98%ED%8C%94%ED%8B%B0">반팔티</a></li>
 				<li><a href="?stxt=sesame">sesame</a></li>
 				<li><a href="?stxt=PKOEURS">PKOEURS</a></li>
-				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7+">팬콧 </a></li>
+				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7+">SIRORAGI </a></li>
 				<li><a href="?stxt=%EB%AA%A8%EC%9E%90">모자</a></li>
-				<li><a href="?stxt=PANCOAT+KIDS">PANCOAT KIDS</a></li>
+				<li><a href="?stxt=PANCOAT+KIDS">SIRORAGI KIDS</a></li>
 			</ul>
 		</div>
 	</section>
@@ -167,49 +167,10 @@
 			</div>
 			<ul class="catalog ajax-list-search row"><!--상품목록 ajax-->
 
-<li class="catalog-item col-xs-12 col-sm-6 col-md-4 items_0 c1">
-	<div class="thumbnail">
-		<a href="../goods/1495095716">
-			<img data-original="http://pic.styleindex.co.kr/g/s/149/1495095716" class="for-ie8 img-responsive lazy" width="500" height="500">
-			<div data-original="http://pic.styleindex.co.kr/g/s/149/1495095716" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/149/1495095716&quot;);" class="lazy">
-				<img src="theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-			</div>
-			<div class="cabal-group">
-				<span class="cabal cabal-sale">
-					<span class="cabal-label">-10%</span>
-				</span>
-
-				<span class="cabal cabal-new">
-					<span class="cabal-label">new</span>
-				</span>
-			</div>
-		</a>
-		<div class="addon">
-			<div class="button-group">
-				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="../goods/modalview?goodsno=1495095716">
-					<span class="icon icon-expansion-white"></span>
-				</button>
-				<a href="../goods/sns?goodsno=1495095716" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-					<span class="icon icon-share-white"></span>
-				</a>
-			</div>
-		</div>
-	</div>
-	<div class="caption">
-		<p class="brand">PANCOAT</p>
-		<p class="name">
-			<a href="../goods/1495095716">[팬콧샵] POPDOGGY TRIPLE STANDARD T-SHIRT (MIDNIGHT BLACK)_PPOEURS92PC6</a>
-		</p>
-		<p class="price">
-			<span class="was"><span class="label sr-only">판매가격:</span>29,000<span class="currency">원</span></span>
-			<span class="now"><span class="label sr-only">할인가격:</span>26,100<span class="currency">원</span></span>
-		</p>
-	</div>
-</li>
 
 <c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
 
-<c:url var="viewURL" value="/SIRORAGI/goodsDetail" >
+<c:url var="viewURL" value="/goodsDetail" >
 	<c:param name="GOODS_NUMBER" value="${goodsList.GOODS_NUMBER }" />							
 </c:url>	
 
@@ -235,19 +196,26 @@
 			</c:if>
 				
 
-				<span class="cabal cabal-new">
-					<span class="cabal-label">new</span>
+				<c:if test="${nowDate < goodsList.GOODS_NEWDATE}">
+				<span class="cabal cabal-new"> 
+				<span class="cabal-label">
+												new
 				</span>
-				
+				</span> 
+				</c:if>
+			
+				<c:if test="${goodsList.AMOUNT < 50}">
 				<span class="cabal cabal-hurryup">
-					<span class="cabal-label">HURRY UP</span>
+				<span class="cabal-label">
+				HURRY UP
 				</span>
-				
+				</span>
+				</c:if>
 			</div>
 		</a>
 		<div class="addon">
 			<div class="button-group">
-				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="${viewURL}">
+				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${goodsList.GOODS_NUMBER}">
 					<span class="icon icon-expansion-white"></span>
 				</button>
 				<a href="${viewURL}" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
@@ -257,7 +225,7 @@
 		</div>
 	</div>
 	<div class="caption">
-		<p class="brand">PANCOAT</p>
+		<p class="brand">SIRORAGI</p>
 		<p class="name">
 			<a href="${viewURL}">${goodsList.GOODS_NAME}</a>
 		</p>

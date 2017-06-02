@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<div class="account-privacy">
+	<div class="account-privacy">
 		<form method="post" action="/SIRORAGI/myinfo">
 		<input type="hidden" name="mode" value="myinfo">
 		<input type="hidden" name="MEMBER_ID" value="${myinfo.MEMBER_ID }"/>
@@ -242,7 +242,7 @@ $(".auto_mail").change(function() {
 				<div>
 					<strong>회원을 탈퇴(계정 영구 삭제)하고 싶어요</strong>
 					<ul>
-						<li>팬콧은 회원님의 의지에 따라 언제든 탈퇴가 가능합니다. 아래 내용을 반드시 숙지 후 탈퇴를 진행해 주시기 바랍니다.</li>
+						<li>SIRORAGI은 회원님의 의지에 따라 언제든 탈퇴가 가능합니다. 아래 내용을 반드시 숙지 후 탈퇴를 진행해 주시기 바랍니다.</li>
 						<li>관리자의 승인 후 탈퇴처리가 완료됩니다.</li>
 						<li>회원 탈퇴시 적립금 및 쿠폰, 회원 등급은 모두 삭제되며, 캐시가 남아있는 경우 탈퇴가 승인되지 않을 수 있습니다.</li>
 						<li>회원탈퇴 후 일주일간 재가입이 제한되며, 재가입시 사용하던 아이디로는 가입이 불가능합니다.</li>

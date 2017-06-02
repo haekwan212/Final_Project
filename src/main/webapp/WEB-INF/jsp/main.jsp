@@ -63,7 +63,7 @@
 						<div class="caption">
 							<!--<div class="wrap-for-table">
 								<div class="wrap-for-cell">-->
-									<strong class="title">PANCOAT KIDS LOOKBOOK
+									<strong class="title">SIRORAGI KIDS LOOKBOOK
 </strong>
 									<span class="border"></span>
 									<p class="description">view more
@@ -92,7 +92,7 @@
 						<div class="caption">
 							<div class="wrap-for-table">
 								<div class="wrap-for-cell">
-									<strong class="title">PANCOAT STAR</strong>
+									<strong class="title">SIRORAGI STAR</strong>
 									<!--{<span class="border"></span>}-->
 									<p class="description"></p>
 								</div>
@@ -132,10 +132,10 @@
 						<div class="caption">
 							<div class="wrap-for-table">
 								<div class="wrap-for-cell">
-									<strong class="title">PANCOAT EVENT
+									<strong class="title">SIRORAGI EVENT
 </strong>
 									<!--{<span class="border"></span>}-->
-									<p class="description">인스타그램 pancoat_official 바로가기</p>
+									<p class="description">인스타그램 siroragi_official 바로가기</p>
 								</div>
 							</div>
 						</div>
@@ -153,7 +153,7 @@
 						<div class="caption">
 							<div class="wrap-for-table">
 								<div class="wrap-for-cell">
-									<strong class="title">PANCOAT NEW ITEM
+									<strong class="title">SIRORAGI NEW ITEM
 </strong>
 									<!--{<span class="border"></span>}-->
 									<p class="description">SHOP NOW
@@ -173,7 +173,7 @@
 <section class="store-locator-search section">
 	<div class="section-body container">
 		<div class="store-search-form col-lg-18">
-			<p>가까운 팬콧 매장을 빠르게 찾아보세요</p>
+			<p>가까운 SIRORAGI 매장을 빠르게 찾아보세요</p>
 			<form action="/about/store_locator">
 				<div class="x-group col-xs-24 col-md-auto">
 					<div class="x-group-addon">
@@ -251,12 +251,17 @@
 				</div>
 				<!--thumbnail//end-->
 				<div class="caption">
-					<p class="brand">PANCOAT</p>
+					<p class="brand">SIRORAGI</p>
 					<p class="name">
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->
@@ -326,12 +331,17 @@
 				</div>
 				<!--thumbnail//end-->
 				<div class="caption">
-					<p class="brand">PANCOAT</p>
+					<p class="brand">SIRORAGI</p>
 					<p class="name">
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->
@@ -400,12 +410,17 @@
 				</div>
 				<!--thumbnail//end-->
 				<div class="caption">
-					<p class="brand">PANCOAT</p>
+					<p class="brand">SIRORAGI</p>
 					<p class="name">
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->
@@ -474,12 +489,17 @@
 				</div>
 				<!--thumbnail//end-->
 				<div class="caption">
-					<p class="brand">PANCOAT</p>
+					<p class="brand">SIRORAGI</p>
 					<p class="name">
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->
@@ -520,6 +540,9 @@
 			<c:forEach items="${listByShoes}" var="top">
 			<li class="catalog-item col-xs-8 col-sm-6 col-md-4 c1">
 				<div class="thumbnail">				
+
+					<a href="/SIRORAGI/goods/goodsDetail?goods_num=${top.GOODS_NUMBER}">
+
 					<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${top.GOODS_NUMBER}">
 						<img data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" class="for-ie8 img-responsive lazy" width="100%" height="100%">
 						<div data-original="/SIRORAGI/file/goodsFile/${top.GOODS_THUMBNAIL }" style="background-image: url('../theme/pshp/img/blank-square.png');" class="lazy bgimg">
@@ -548,12 +571,17 @@
 				</div>
 				<!--thumbnail//end-->
 				<div class="caption">
-					<p class="brand">PANCOAT</p>
+					<p class="brand">SIRORAGI</p>
 					<p class="name">
 						<a href="/SIRORAGI/main/goods" title="${top.GOODS_NAME }">${top.GOODS_NAME }</a>
 					</p>
 					<p class="price">
-						<span class="now"><span class="label sr-only">할인가격:</span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						<c:if test="${top.GOODS_DCPRICE eq null}">
+						<span class="now"><span class="label sr-only"></span>${top.GOODS_PRICE }<span class="currency">원</span></span>
+						</c:if>
+						<c:if test="${top.GOODS_DCPRICE ne null }">
+						<span class="now"><span class="label sr-only"></span><del><font color="gray">${top.GOODS_PRICE }<span class="currency">원</font></del><br/>${top.GOODS_DCPRICE }<span class="currency">원</span></span>
+						</c:if>
 					</p>
 				</div>
 				<!--caption//end-->

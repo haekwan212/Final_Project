@@ -21,8 +21,8 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public List<Map<String, Object>> goodsCategory(String isCategory) throws Exception {
-		return goodsDAO.goodsCategory(isCategory);
+	public List<Map<String, Object>> goodsCategory(Map<String, Object> map) throws Exception {
+		return goodsDAO.goodsCategory(map);
 	}
 
 	@Override
@@ -82,6 +82,12 @@ public class GoodsServiceImpl implements GoodsService{
 		// 상품 평점 가져오기
 		public int goodsAvgGrade(Map<String, Object> map) throws Exception {
 			return goodsDAO.goodsAvgGrade(map);
+		}
+
+		//세일 상품 가져오기
+		@Override
+		public List<Map<String, Object>> goodsSale(Map<String, Object> map) throws Exception {
+			return goodsDAO.goodsSale(map);
 		}
 
 }

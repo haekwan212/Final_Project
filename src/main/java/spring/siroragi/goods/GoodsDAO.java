@@ -17,8 +17,8 @@ public class GoodsDAO extends AbstractDAO{
 	private SqlSessionTemplate sqlSession;
 
 	// 카테고리별 상품 정렬
-	public List<Map<String, Object>> goodsCategory(String isCategory) throws Exception{
-		return sqlSession.selectList("goods.goodsCategory",isCategory);
+	public List<Map<String, Object>> goodsCategory(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("goods.goodsCategory",map);
 	}
 	
 	//검색 결과에 대한 리스트 호출
@@ -34,6 +34,12 @@ public class GoodsDAO extends AbstractDAO{
 	public List<Map<String, Object>> goodsCategorySearch(Map<String, Object> map) throws Exception {
 		return sqlSession.selectList("goods.goodsCategorySearch",map);
 	}
+	
+	// 세일상품 가져오기
+	public List<Map<String, Object>> goodsSale(Map<String, Object> map) throws Exception {
+		return sqlSession.selectList("goods.goodsSale",map);
+	}
+	
 	
 	
 	//낮은가격/높은가격/상품명/리뷰수/평점순/인기순/신상순 정렬

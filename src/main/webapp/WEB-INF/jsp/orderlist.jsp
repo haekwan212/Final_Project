@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ 	<script>
+$(fucntion(){
+	 $("#pay_state").click(function(){
+		 alert('하하');
+	 })
+})
+ 	</script>
 <div class="account-order-list">
 			<section class="order-list section box-shadow">
 				<div class="section-head left border">
@@ -57,7 +64,7 @@
 									<c:choose>
 									<c:when test="${order.DELIVERY_STATE eq '결제대기' or order.DELIVERY_STATE eq '배송준비중' }">
 									<td class="action">
-									<input type="submit" class="btn btn-danger" value="주문취소">
+									<input type="submit" class="btn btn-danger" id="pay_state"  value="주문취소">
 									</td>
 									</c:when>
 									<c:when test="${order.GOODS_STATE eq '구매확정' or order.GOODS_STATE eq '반품신청' or order.GOODS_STATE eq '교환신청'}">
@@ -66,7 +73,7 @@
 									</c:when>
 									<c:when test="${order.DELIVERY_STATE eq '배송완료' and order.GOODS_PAY_STATE eq '결제완료'}">
 									<td class="action">
-									<input type="submit" class="btn btn-success" value="구매확정">
+									<input type="submit" class="btn btn-success" id="pay_state"  value="구매확정">
 									</td>
 									</c:when>
 									</c:choose>

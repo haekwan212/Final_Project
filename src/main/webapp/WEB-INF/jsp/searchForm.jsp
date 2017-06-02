@@ -36,7 +36,7 @@
 							   <tbody>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">1</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">SIRORAGI키즈</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%EB%B0%98%ED%8C%94%ED%8B%B0'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">2</p></td>
@@ -53,7 +53,7 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">5</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">SIRORAGI</p></td>
 
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=I.O.I'">
@@ -66,7 +66,7 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88+pants'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">8</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈 pants</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">SIRORAGI키즈 pants</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%EB%A7%A8%ED%88%AC%EB%A7%A8'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">9</p></td>
@@ -94,7 +94,7 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">3</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">SIRORAGI키즈</p></td>
 
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=Sesame'">
@@ -103,7 +103,7 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88+PANTS'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">5</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈 PANTS</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">SIRORAGI키즈 PANTS</p></td>
 
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=I.O.I'">
@@ -116,15 +116,15 @@
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7+'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">8</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧 </p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">SIRORAGI </p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7+SHORT+T-SHIRTS'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">9</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧 SHORT T-SHIRTS</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">SIRORAGI SHORT T-SHIRTS</p></td>
 								  </tr>
 								  <tr class="hand" onclick="location.href='/store/search?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88+SHORT+T-SHIRTS'">
 									 <td class="col-md-2 col-xs-2"><p class="text-left">10</p></td>
-									 <td class="col-md-22 col-xs-22"><p class="text-left">팬콧키즈 SHORT T-SHIRTS</p></td>
+									 <td class="col-md-22 col-xs-22"><p class="text-left">SIRORAGI키즈 SHORT T-SHIRTS</p></td>
 
 								  </tr>
 							   </tbody>

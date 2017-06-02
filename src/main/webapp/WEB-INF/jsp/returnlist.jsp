@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="account-order-list">
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+	<div class="account-order-list">
 			<section class="order-list section box-shadow">
 				<div class="section-head left border">
 					<h3>주문 내역</h3>
@@ -56,7 +57,7 @@
 					<div class="guide-arlet">
 						<strong>[반품이용안내]</strong>
 						<ul>
-							<li><b class="red">1. 마이지트리트▶ 반품신청/조회▶ 상품 선택 후 [반품신청]</b> click (동일업체 상품별 신청 가능)</li>
+							<li><b class="red">1. 마이페이지▶ 반품신청/조회▶ 상품 선택 후 [반품신청]</b> click (동일업체 상품별 신청 가능)</li>
 							<li>2. 반품 정보 입력 후 <b class="red">배송비 결제</b> 진행</li>
 							<li>3. 회수된 상품을 확인 후 환불 진행 (수거 서비스 신청 시 택배기사 2~3일 이내 방문)</li>
 						</ul>

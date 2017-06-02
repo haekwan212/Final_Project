@@ -1,6 +1,8 @@
 package spring.siroragi.join;
 
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.annotation.Resource;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
+import spring.siroragi.point.PointService;
 
 @Controller
 public class JoinController {
@@ -31,6 +34,9 @@ public class JoinController {
 
 	@Resource(name="joinService")
 	private JoinService joinService;
+	
+	@Resource(name="pointService")
+	private PointService pointService;
 		
 	@RequestMapping(value="/joinStep1")
 	public ModelAndView joinStep1(){
@@ -180,8 +186,11 @@ public class JoinController {
 	public ModelAndView joinComplete(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		String MEMBER_EMAIL = request.getParameter("MEMBER_EMAIL1")+"@"+request.getParameter("MEMBER_EMAIL2");
+		Map<String, Object> memberMap=new HashMap<String, Object>();
 		commandMap.getMap().put("MEMBER_EMAIL", MEMBER_EMAIL);
-		joinService.insertMember(commandMap.getMap(), request);
+		memberMap=commandMap.getMap();
+		joinService.insertMember(memberMap, request);
+		pointService.joinPoint(memberMap);
 		mv.setViewName("joinComplete");
 		return mv;
 		

@@ -3,6 +3,7 @@ package spring.siroragi.myPage;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
+import spring.siroragi.point.PointService;
 import spring.siroragi.qna.QnaService;
 
 @Controller
@@ -30,6 +32,9 @@ public class MyPageController {
 	
 	@Resource(name="qnaService")
 	private QnaService qnaService;
+	
+	@Resource(name="pointService")
+	private PointService pointService;
 
 	@RequestMapping(value="/mypage")
 	public ModelAndView mypageForm(CommandMap commandMap, HttpSession session) throws Exception{
@@ -39,6 +44,8 @@ public class MyPageController {
 		int newAlarm = qnaService.qnaNewAlarm(commandMap.getMap());
 		int selectOtoCount = mypageService.selectOtoCount(m_num);
 		mv.setViewName("mypage");
+		Map<String, Object> sumPoint = pointService.sumPoint(commandMap.getMap());
+		mv.addObject("sumPoint", sumPoint.get("SUM"));
 		mv.addObject("newAlarm", newAlarm);
 		mv.addObject("selectOtoCount", selectOtoCount);
 		return mv;
@@ -64,8 +71,7 @@ public class MyPageController {
 	
 	@RequestMapping(value="/oneToOne/write", method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView oneToOneWrite(CommandMap commandMap, HttpServletRequest request) throws Exception{
-		
+	public ModelAndView oneToOneWrite(CommandMap commandMap, HttpServletRequest request) throws Exception{	
 		ModelAndView mv = new ModelAndView();
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		if(multipartHttpServletRequest.getFile("QNA_IMAGE1") != null){
@@ -117,15 +123,17 @@ public class MyPageController {
 	
 	@RequestMapping(value="/exchangelist")
 	@ResponseBody
-	public ModelAndView exchangelist(){
-		ModelAndView mv = new ModelAndView("exchangelist");
+	public ModelAndView exchangelist(HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView("exchanglist");
 		return mv;
 	}
 	
 	@RequestMapping(value="/returnlist")
 	@ResponseBody
-	public ModelAndView returnlist(){
-		ModelAndView mv = new ModelAndView("returnlist");
+	public ModelAndView returnlist(HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		Map<String, Object> sumMap = new HashMap<String, Object>();
+		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
 		return mv;
 	}
 	
@@ -136,7 +144,6 @@ public class MyPageController {
 		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
 		List<Map<String, Object>> list = mypageService.selectReviewList(mem_num);
 		mv.addObject("list", list);
-		
 		return mv;
 	}
 	
@@ -158,22 +165,25 @@ public class MyPageController {
 	public ModelAndView myinfo(HttpSession session) throws Exception{
 		String id = session.getAttribute("MEMBER_ID").toString();
 		Map<String, Object> myinfo = mypageService.myinfoDetail(id);
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("myinfo");
 		//이메일 폼 변경
 		String email = myinfo.get("MEMBER_EMAIL").toString();
+		System.out.println("이메일="+email);
 		String[] m_email = email.split("@");
 		myinfo.put("MEMBER_EMAIL1", m_email[0].toString());
 		myinfo.put("MEMBER_EMAIL2", m_email[1].toString());
 		//날짜 폼 변경
+		if(myinfo.get("MEMBER_BIRTHDAY") !=null){
 		String date = myinfo.get("MEMBER_BIRTHDAY").toString();
+		
 		SimpleDateFormat original_format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		SimpleDateFormat new_format = new SimpleDateFormat("yyyyMMdd");
 	
 		Date orginal_date = original_format.parse(date);
 		String new_date = new_format.format(orginal_date);
 		myinfo.put("MEMBER_BIRTHDAY", new_date);
+		}
 		mv.addObject("myinfo", myinfo);
-		mv.setViewName("myinfo");
 		return mv;
 	}
 	
@@ -189,7 +199,7 @@ public class MyPageController {
 		mypageService.changeMypassword(commandMap.getMap());
 		}
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:myinfo");
+		mv.setViewName("redirect:mypage#myinfo");
 		return mv;
 	}
 }

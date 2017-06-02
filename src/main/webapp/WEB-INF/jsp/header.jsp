@@ -16,7 +16,7 @@
     <meta property="og:site_name" content="PANCOAT" />
     <meta property="og:locale" content="ko_KR" />
     <!-- facebook -->
-	<title>PANCOAT</title>
+	<title>SIRORAGI</title>
 
 	<!--
 	<link rel="stylesheet" href="/theme/pshp/css/vendor/jquery-ui.css">
@@ -73,29 +73,29 @@
 	<nav>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/SIRORAGI/about">
-					<strong>about</strong>
+				<a href="/SIRORAGI/main">
+					<strong>HOME</strong>
 				</a>
 			</div>
 		</div>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/about/collection">
-					<strong>collection</strong>
+				<a href="/SIRORAGI/notice/noticeList">
+					<strong>NOTICE</strong>
 				</a>
 			</div>
 		</div>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/about/star">
-					<strong>pancoat + star</strong>
+				<a href="/SIRORAGI/faq/faqList">
+					<strong>FAQ</strong>
 				</a>
 			</div>
 		</div>
 		<div class="tier1-group">
 			<div class="tier1-head">
 				<a href="/about/news_download">
-					<strong>news & download</strong>
+					<strong>Q&A</strong>
 				</a>
 			</div>
 		</div>
@@ -165,7 +165,7 @@
 						</a>
 					</div>
 				</li>
-				<li class="tier2-group col-xs-12">
+				<!-- <li class="tier2-group col-xs-12">
 					<div class="tier2-head">
 						<a href="/store/../store/category?no=106">
 							<strong>life style</strong>
@@ -192,7 +192,7 @@
 							<strong>event</strong>
 						</a>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</nav>
@@ -209,7 +209,7 @@
 				<img src="/SIRORAGI/theme/pshp/img/home_btn.png" width="20" height="20">
 				<span class="sr-only">E-shop</span>
 			</a>
-			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">pancoat</span></a>
+			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">SIRORAGI</span></a>
 		</div>
 	</div>
 	<div class="container">
@@ -220,20 +220,20 @@
 				<!-- 각페이지로 들어갓을 때 페이지에 해당되는 nav-group에 selected클래스를 추가 -->
 
 				<div class="nav-group">
-					<a href="/SIRORAGI/about" class="nav-head">
-						<span class="label">about<span class="border"></span></span>
+					<a href="/SIRORAGI/main" class="nav-head">
+						<span class="label">HOME<span class="border"></span></span>
 					</a>
 				</div>
 				<div class="nav-group">
-					<a href="../about/collection" class="nav-head">
-						<span class="label">collection<span class="border"></span></span>
+					<a href="/SIRORAGI/notice/noticeList" class="nav-head">
+						<span class="label">NOTICE<span class="border"></span></span>
 					</a>
 				</div>
 				<div class="nav-group">
-					<a href="../about/star" class="nav-head"><span class="label">pancoat + star<span class="border"></span></span></a>
+					<a href="/SIRORAGI/faq/faqList" class="nav-head"><span class="label">FAQ<span class="border"></span></span></a>
 				</div>
 				<div class="nav-group">
-					<a href="../about/news_download" class="nav-head"><span class="label">news & download<span class="border"></span></span></a>
+					<a href="../about/news_download" class="nav-head"><span class="label">Q&A<span class="border"></span></span></a>
 				</div>
 				<div class="nav-group locator">
 					<a href="../about/store_locator" class="nav-head">
@@ -276,7 +276,7 @@
 								<li class="nav-head c06">
 									<a href="/store/category?no=104"><span>accessory</span></a>
 								</li>
-								<li class="nav-head c07">
+								<!-- <li class="nav-head c07">
 									<a href="/store/category?no=105"><span>kids</span></a>
 								</li>
 								<li class="nav-head c08">
@@ -290,7 +290,7 @@
 								</li>
 								<li class="nav-head c11">
 									<a href="/store/event"><span>event</span></a>
-								</li>
+								</li> -->
 							</ul>
 						</div>
 					</div>
@@ -329,13 +329,13 @@
 					<c:when test="${not empty sessionScope.MEMBER_ID}">
 					<a href="/SIRORAGI/mypage">
 						<span class="icon icon-identity-black hidden-lg"></span>
-						<span class="hidden-md">my-pancoat</span>
+						<span class="hidden-md">my-page</span>
 					</a>
 					</c:when>
 					<c:otherwise>
 					<a href="/SIRORAGI/loginForm">
 						<span class="icon icon-identity-black hidden-lg"></span>
-						<span class="hidden-md">my-pancoat</span>
+						<span class="hidden-md">my-page</span>
 					</a>
 					</c:otherwise>
 				</c:choose>
@@ -562,11 +562,11 @@ $(function(){
 <footer class="globalFooter">
     <div class="globalFooter-menu container">
         <div>
-            <a href="../node/notice" class="col-xs-auto">공지사항</a>
+            <!-- <a href="../node/notice" class="col-xs-auto">공지사항</a> -->
             <!--<a href="http://store.pancoat.com/community/company" class="col-xs-auto">회사소개</a>-->
             <a href="../service/agreement" class="col-xs-auto">이용약관 / 개인정보 처리방침</a>
             <a href="../service/coorperation" class="col-xs-auto" target="modal" data-size="md" data-label="제휴/광고 문의">파트너쉽 / 제휴문의</a>
-            <a href="http://www.gra-fik.com" target="_blank" class="siteby col-xs-auto">Site by GRAFIK</a>
+            <a href="http://www.gra-fik.com" target="_blank" class="siteby col-xs-auto">Site by SIRORAGI</a>
         </div>
     </div>
     <!-- globalFooter-menu//end -->
@@ -576,7 +576,7 @@ $(function(){
                 <div class="button-group">
                     <a  class="button button-ghost">
                     <span class="icon icon-headset-black"></span>
-                    <span class="button-label">070-4673-5497/070-4673-2235</span>
+                    <span class="button-label">070-1234-5678 / 070-1234-5678</span>
                     </a>
                     <a href="../mypage/mycs" class="button">
                         <span class="button-label">1:1 문의하기</span>
@@ -585,7 +585,7 @@ $(function(){
                         <span class="button-label">자주묻는질문 확인</span>
                     </a>
                 </div>
-                <p class="notice">반품 주소 :12814 경기도 광주시 도척면 도척로 376-68 MK물류</p>
+                <p class="notice">반품 주소 :12814 서울특별시 강남구 역삼동 SIRORAGI</p>
             </div>
             <div class="help">
                 <p>- 상품문의는 각 상품의 Q&A를 이용하시면 가장 빠릅니다.</p>
@@ -596,24 +596,24 @@ $(function(){
 	<div class="globalFooter-business container">
         <p class="legal">
             <span class="subject sr-only">회사명:</span>
-            <strong class="item">(주)브랜드 인덱스</strong>
+            <strong class="item">(주)SIRORAGI</strong>
             <span class="subject">대표:</span>
-            <span class="item">박상욱</span>
+            <span class="item">오용영</span>
             <span class="subject">사업자등록번호:</span>
-            <span class="item">215-87-33220</span>
+            <span class="item">215-87-111111</span>
             <span class="subject">통신판매업:</span>
-            <span class="item">제2013-서울강남-01307호</span>
+            <span class="item">제2013-서울강남-01111호</span>
             <span class="subject">대표전화:</span>
-            <span class="item"><a href="tel:1544-5991">1566-6312</a></span>
+            <span class="item"><a href="tel:1544-5991">1566-5600</a></span>
             <span class="subject">팩스:</span>
-            <span class="item">02-455-9868</span>
+            <span class="item">02-455-1234</span>
             <span class="subject">개인정보관리책임자:</span>
-            <span class="item">홍용택</span>
+            <span class="item">홍길동</span>
             <span class="subject">이메일:</span>
-            <span class="item"><a href="mailto:yongtaek_hong@styleindex.co.kr">yongtaek_hong@styleindex.co.kr</a></span>
+            <span class="item"><a href="mailto:siroragi@style.co.kr">siroragi3@gmail.com</a></span>
         </p>
         <address class="address">
-        서울특별시 강남구 학동로 30길 5 3~7층(논현동) (반품주소가 아닙니다)</address>
+        서울특별시 강남구 역삼동 SIRORAGI (반품주소가 아닙니다)</address>
         <div class="document">
             <div class="button-group">
 				
@@ -627,7 +627,7 @@ $(function(){
                 </a>
             </div>
         </div>
-        <p class="copyright">© 2015 Pancoat. All Rights Reserved.</p>
+        <p class="copyright">© 2017 Siroragi. All Rights Reserved.</p>
     </div>
 	<!--
     <div class="globalFooter-business container">

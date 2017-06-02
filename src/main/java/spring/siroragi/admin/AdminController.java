@@ -14,12 +14,16 @@ import spring.kh.siroragi.CommandMap;
 import spring.kh.siroragi.Paging;
 
 import spring.siroragi.faq.FaqService;
+import spring.siroragi.review.ReviewService;
 
 @Controller
 public class AdminController {
 
 	@Resource(name = "faqService")
 	private FaqService faqService;
+
+	@Resource(name = "reviewService")
+	private ReviewService reviewService;
 
 	// 검색, 페이징
 	private int searchNum;
@@ -116,7 +120,6 @@ public class AdminController {
 		return "faqAdminForm";
 	}
 
-
 	// FAQ 등록
 	@RequestMapping(value = "/admin/faqWrite")
 	public ModelAndView faqWrite(CommandMap commandMap, HttpServletRequest request) throws Exception {
@@ -166,5 +169,91 @@ public class AdminController {
 	}
 
 	////// <!--------- FAQ end -------->//////
+	
+
+	////// <!--------- review start -------->//////
+
+	// 리뷰 관리자페이지 이동
+	@RequestMapping(value = "/admin/reviewAdmin")
+	public ModelAndView reviewList(CommandMap commandMap, HttpServletRequest request) throws Exception {
+
+		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+				|| request.getParameter("currentPage").equals("0")) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+
+		ModelAndView mv = new ModelAndView();
+		List<Map<String, Object>> list = reviewService.reviewList(commandMap.getMap());
+
+		isSearch = request.getParameter("isSearch");
+		if (isSearch != null) {
+			searchNum = Integer.parseInt(request.getParameter("searchNum"));
+
+			if (searchNum == 0) { // 글제목
+				list = faqService.searchTitleList(commandMap.getMap(), isSearch);
+			}
+			if (searchNum == 1) { // 글내용
+				list = faqService.searchContentList(commandMap.getMap(), isSearch);
+			}
+
+			totalCount = list.size();
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "reviewAdmin", searchNum, isSearch);
+			pagingHtml = page.getPagingHtml().toString();
+
+			int lastCount = totalCount;
+
+			if (page.getEndCount() < totalCount)
+				lastCount = page.getEndCount() + 1;
+
+			list = list.subList(page.getStartCount(), lastCount);
+
+			mv.addObject("isSearch", isSearch);
+			mv.addObject("searchNum", searchNum);
+			mv.addObject("totalCount", totalCount);
+			mv.addObject("pagingHtml", pagingHtml);
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("list", list);
+			mv.setViewName("reviewAdmin");
+
+			return mv;
+
+		} else {
+			totalCount = list.size();
+
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "reviewAdmin");
+			pagingHtml = page.getPagingHtml().toString();
+
+			int lastCount = totalCount;
+
+			if (page.getEndCount() < totalCount)
+				lastCount = page.getEndCount() + 1;
+
+			list = list.subList(page.getStartCount(), lastCount);
+
+			mv.addObject("totalCount", totalCount);
+			mv.addObject("pagingHtml", pagingHtml);
+			mv.addObject("currentPage", currentPage);
+
+			mv.addObject("list", list);
+			mv.setViewName("reviewAdmin");
+
+			return mv;
+		}
+	}
+
+	// review 삭제하기
+	@RequestMapping(value = "/admin/reviewAdminDelete")
+	public ModelAndView reviewDelete(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView();
+
+		reviewService.reviewDelete(commandMap.getMap());
+		mv.setViewName("redirect:/admin/reviewAdmin");
+
+		return mv;
+	}
+
+	////// <!--------- review end -------->//////
 
 }

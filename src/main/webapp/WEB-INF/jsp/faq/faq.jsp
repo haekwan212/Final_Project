@@ -171,14 +171,14 @@ text-align:center;
 						<a href="/service/member_benefit" target="modal" data-size="md" data-label="등급혜택 자세히 보기">회원혜택</a>
 					</li>
 					<li class="col-xs-12 col-sm-8">
-						<a href="/member/findid" target="modal" data-size="md" data-label="아이디/비밀번호 찾기">아이디/비밀번호 찾기</a>
+						<a href="/SIRORAGI/login/findForm" target="modal" data-size="md" data-label="아이디/비밀번호 찾기">아이디/비밀번호 찾기</a>
 					</li>
 				</ul>
 			</nav>
 		</section>
 	</div>
 	
-	<br/><br/><br/><br/>
+	<br/>
 	
 	<div class="account-home accountCatalog">
 	<section class="section box-line">
@@ -230,7 +230,8 @@ text-align:center;
 								</div>
 								<div class="detail">
 									<div class="answer">
-									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }<br/>
+									
+									<p><strong>A. <br></strong> ${map.FAQ_CONTENT }
 									<%-- <img src="/SIRORAGI/file/faqFile/${map.FAQ_IMAGE1 }" /> --%></p>
 									</div>
 								</div>
