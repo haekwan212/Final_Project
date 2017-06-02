@@ -157,9 +157,9 @@
 
 
 									<span class="cabal cabal-sale"> <span
-										class="cabal-label">- <fmt:formatNumber
+										class="cabal-label">-<fmt:formatNumber
 												value="${(goodsList.GOODS_PRICE - goodsList.GOODS_DCPRICE)*100 / goodsList.GOODS_PRICE}"
-												type="number" /> %
+												type="number" />%
 									</span>
 									</span>
 								</c:if>
