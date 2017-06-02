@@ -35,6 +35,12 @@ public class GoodsDAO extends AbstractDAO{
 		return sqlSession.selectList("goods.goodsCategorySearch",map);
 	}
 	
+	// 세일상품 가져오기
+	public List<Map<String, Object>> goodsSale(Map<String, Object> map) throws Exception {
+		return sqlSession.selectList("goods.goodsSale",map);
+	}
+	
+	
 	
 	//낮은가격/높은가격/상품명/리뷰수/평점순/인기순/신상순 정렬
 	

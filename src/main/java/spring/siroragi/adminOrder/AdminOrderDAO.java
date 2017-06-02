@@ -29,4 +29,35 @@ public class AdminOrderDAO {
 	public void updateDeliveryState(Map<String, Object> map) throws Exception{
 		sqlSession.update("adminOrder.updateDeliveryState",map);
 	}
+	
+	//검색
+	public List<Map<String,Object>> adminOrderSearch0(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("adminOrder.adminOrderSearch0",map);
+	}
+	public List<Map<String,Object>> adminOrderSearch1(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("adminOrder.adminOrderSearch1",map);
+	}
+	public List<Map<String,Object>> adminOrderSearch2(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("adminOrder.adminOrderSearch2",map);
+	}
+	public List<Map<String,Object>> adminOrderSearch4(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("adminOrder.adminOrderSearch4",map);
+	}
+	public List<Map<String,Object>> adminOrderSearch5(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("adminOrder.adminOrderSearch5",map);
+	}
+	public List<Map<String,Object>> adminOrderSearch6(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("adminOrder.adminOrderSearch6",map);
+	}
+	
+	//주문내역 상세보기
+	public List<Map<String, Object>> orderDetail(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("adminOrder.orderDetail",map);
+	}
+	
+	//주문 삭제
+	public void orderDelete(Map<String, Object> map) throws Exception{
+		sqlSession.delete("adminOrder.orderDelete",map);
+	}
+	
 }

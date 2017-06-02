@@ -33,9 +33,11 @@
                                  class="icon icon-dropdown-white"></span>
                            </div>
                            <select name="category[]" id="cate01">
-                              <option value="101" data-catnm="TOP">TOP
+                              <option value="101" data-catnm="TOP" onclick="">
+                               TOP
                                  <!--(0)-->
                               </option>
+                              
                               <option value="102" selected="" data-catnm="OUTER">
                                  ${isCategory}
                                  <!--(0)-->
@@ -162,6 +164,10 @@
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 87df90845b63da27769efa5162a63c95ae707953
 							<div class="price form-item col-sm-24 col-lg-12">
 								<div>
 									<div class="form-item-title">
@@ -171,7 +177,7 @@
 										<div id="price-range" class="col-xs-12">
 											<div class="col-xs-12">
 												<input class="xx-control" type="text" name="priceRange[]"
-													value="14800" size="22">
+													value="7000" size="22">
 											</div>
 											<div class="col-xs-12">
 												<input class="xx-control" type="text" name="priceRange[]"
