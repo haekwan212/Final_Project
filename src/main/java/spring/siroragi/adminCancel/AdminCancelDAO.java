@@ -13,6 +13,11 @@ public class AdminCancelDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	//해당 주문에 대한 캔슬있나 확인
+	public Map<String, Object> confirmCancel(Map<String, Object> map) throws Exception{
+		return sqlSession.selectOne("adminCancel.confirmCancel",map);
+	}
+	
 	//주문취소 목록
 	public List<Map<String,Object>> allCancelList(Map<String, Object> map) throws Exception{
 		return sqlSession.selectList("adminCancel.allCancelList",map);
