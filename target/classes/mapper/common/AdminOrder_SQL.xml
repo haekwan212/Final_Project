@@ -31,18 +31,6 @@
 		]]>
 	</select>
 	
-	<select id="allCancelList" resultType="hashmap">
-		<![CDATA[
-			
-		]]>
-	</select>
-	
-	<select id="allExchangeList" resultType="hashmap">
-		<![CDATA[
-			
-		]]>
-	</select>
-	
 	<update id="updateGoodsPayState" parameterType="hashmap">
 		<![CDATA[
 			UPDATE ORDERLIST SET GOODS_PAY_STATE=#{GOODS_PAY_STATE} WHERE ORDER_CODE=#{ORDER_CODE}
