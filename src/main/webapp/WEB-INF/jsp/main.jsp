@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div style="position:relative;margin-bottom:10px;">
 	<div class="main-banner img-full main-owl BE-box" data-code="main_slider">
 <div data-code='main_banner_top' data-size='0' class='_edit_box owl'><a href='http://blog.naver.com/pancoat/220929088519' target='_blank'><img src='theme/pshp/_conf/banner/main_banner_top/3.jpg' class='img-responsive' style='margin:0 0 0 0'></a><a href='http://shop.pancoat.com/store/event?no=135' target='_self'><img src='theme/pshp/_conf/banner/main_banner_top/1.jpg' class='img-responsive' style='margin:0 0 0 0'></a></div>	</div>
@@ -229,6 +231,28 @@
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
+						<!-- 조건태그 시작 -->
+									<c:if test="${top.GOODS_DCPRICE != null}">
+												<%-- <c:set value="${goodsList.GOODS_PRICE}" var="PRICE" type="number"/> --%>
+										<span class="cabal cabal-sale"> <span
+											class="cabal-label">-<fmt:formatNumber
+													value="${(top.GOODS_PRICE - top.GOODS_DCPRICE)*100 / top.GOODS_PRICE}" type="number" />%
+										</span>
+										</span>
+									</c:if>
+
+									<c:if test="${nowDate < top.GOODS_NEWDATE}">
+										<span class="cabal cabal-new"> <span
+											class="cabal-label">new </span>
+										</span>
+									</c:if>
+
+									<c:if test="${top.AMOUNT<50}">
+										<span class="cabal cabal-hurryup"> <span
+											class="cabal-label">HURRY UP</span>
+										</span>
+									</c:if>
+									<!-- 조건 태그 끝 -->
 <!-- 						<span class="cabal cabal-sale">
 							<span class="cabal-label">-10%</span>
 						</span>
@@ -309,12 +333,28 @@
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
-<!-- 						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span> -->
+<!-- 조건태그 시작 -->
+									<c:if test="${top.GOODS_DCPRICE != null}">
+												<%-- <c:set value="${goodsList.GOODS_PRICE}" var="PRICE" type="number"/> --%>
+										<span class="cabal cabal-sale"> <span
+											class="cabal-label">-<fmt:formatNumber
+													value="${(top.GOODS_PRICE - top.GOODS_DCPRICE)*100 / top.GOODS_PRICE}" type="number" />%
+										</span>
+										</span>
+									</c:if>
+
+									<c:if test="${nowDate < top.GOODS_NEWDATE}">
+										<span class="cabal cabal-new"> <span
+											class="cabal-label">new </span>
+										</span>
+									</c:if>
+
+									<c:if test="${top.AMOUNT<50}">
+										<span class="cabal cabal-hurryup"> <span
+											class="cabal-label">HURRY UP</span>
+										</span>
+									</c:if>
+									<!-- 조건 태그 끝 -->
 						</div>
 					</a>
 					<div class="addon">
@@ -388,12 +428,28 @@
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
+						<!-- 조건태그 시작 -->
+									<c:if test="${top.GOODS_DCPRICE != null}">
+												<%-- <c:set value="${goodsList.GOODS_PRICE}" var="PRICE" type="number"/> --%>
+										<span class="cabal cabal-sale"> <span
+											class="cabal-label">-<fmt:formatNumber
+													value="${(top.GOODS_PRICE - top.GOODS_DCPRICE)*100 / top.GOODS_PRICE}" type="number" />%
+										</span>
+										</span>
+									</c:if>
+
+									<c:if test="${nowDate < top.GOODS_NEWDATE}">
+										<span class="cabal cabal-new"> <span
+											class="cabal-label">new </span>
+										</span>
+									</c:if>
+
+									<c:if test="${top.AMOUNT<50}">
+										<span class="cabal cabal-hurryup"> <span
+											class="cabal-label">HURRY UP</span>
+										</span>
+									</c:if>
+									<!-- 조건 태그 끝 -->
 						</div>
 					</a>
 					<div class="addon">
@@ -467,12 +523,29 @@
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
+									<!-- 조건태그 시작  수정다..필요함-->
+									<c:if test="${top.GOODS_DCPRICE != null}">
+												<%-- <c:set value="${goodsList.GOODS_PRICE}" var="PRICE" type="number"/> --%>
+										<span class="cabal cabal-sale"> <span
+											class="cabal-label">-<fmt:formatNumber
+													value="${(top.GOODS_PRICE - top.GOODS_DCPRICE)*100 / top.GOODS_PRICE}"
+													type="number" />%
+										</span>
+										</span>
+									</c:if>
+
+									<c:if test="${nowDate < top.GOODS_NEWDATE}">
+										<span class="cabal cabal-new"> <span
+											class="cabal-label">new </span>
+										</span>
+									</c:if>
+
+									<c:if test="${top.AMOUNT<50}">
+										<span class="cabal cabal-hurryup"> <span
+											class="cabal-label">HURRY UP</span>
+										</span>
+									</c:if>
+									<!-- 조건 태그 끝 -->
 						</div>
 					</a>
 					<div class="addon">
@@ -549,12 +622,29 @@
 							<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="100%" height="100%">
 						</div>
 						<div class="cabal-group">
-						<span class="cabal cabal-sale">
-							<span class="cabal-label">-10%</span>
-						</span>
-						<span class="cabal cabal-new">
-							<span class="cabal-label">new</span>
-						</span>
+						<!-- 조건태그 시작  -->
+									<c:if test="${top.GOODS_DCPRICE != null}">
+												<%-- <c:set value="${goodsList.GOODS_PRICE}" var="PRICE" type="number"/> --%>
+										<span class="cabal cabal-sale"> <span
+											class="cabal-label">-<fmt:formatNumber
+													value="${(top.GOODS_PRICE - top.GOODS_DCPRICE)*100 / top.GOODS_PRICE}"
+													type="number" />%
+										</span>
+										</span>
+									</c:if>
+
+									<c:if test="${nowDate < top.GOODS_NEWDATE}">
+										<span class="cabal cabal-new"> <span
+											class="cabal-label">new </span>
+										</span>
+									</c:if>
+
+									<c:if test="${top.AMOUNT<50}">
+										<span class="cabal cabal-hurryup"> <span
+											class="cabal-label">HURRY UP</span>
+										</span>
+									</c:if>
+									<!-- 조건 태그 끝 -->
 						</div>
 					</a>
 					<div class="addon">

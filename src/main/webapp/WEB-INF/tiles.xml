@@ -140,7 +140,12 @@
 	<!-- 뉴&세일카테고리추가 -->
  	<definition name="goodsSaleCategory" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsSaleCategory.jsp" />
-	</definition>	
+	</definition>
+	
+	<definition name="goodsNewCategory" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsNewCategory.jsp" />
+	</definition>
+	<!-- 뉴&세일카테고리추가 끝-->	
 
 	<definition name="joinStep1" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>

@@ -117,7 +117,7 @@
 			<ul class="tier1">
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
-						<a href="/store/new">
+						<a href="/SIRORAGI/goods/goodsNewCategory">
 							<strong>new</strong>
 						</a>
 					</div>
