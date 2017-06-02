@@ -110,6 +110,12 @@
 	<definition name="adminOrderDetail" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/order/adminOrderModifyForm.jsp" />
 	</definition>
+	<definition name="adminCancelList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/cancel/adminCancelList.jsp" />
+	</definition>
+	<definition name="adminExchangeList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/cancel/adminExchangeList.jsp" />
+	</definition>
 	
 	<!-- admin -->
 	
