@@ -131,6 +131,11 @@ public class QnaServiceImpl implements QnaService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@Override
+	public void insertOneToOne(Map<String, Object> map) throws Exception {
+		qnaDAO.insertOneToOne(map);
+		
+	}
 	// Q&A 비밀번호 확인(비회원때문에 필요)
 }

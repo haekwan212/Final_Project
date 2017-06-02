@@ -1,5 +1,6 @@
 package spring.siroragi.myPage;
 
+import java.util.List;
 import java.util.Map;
 
 public interface MyPageService {
@@ -12,4 +13,14 @@ public interface MyPageService {
 	void changeMypassword(Map<String, Object> map) throws Exception;
 	// 내정보 불러오기
 	Map<String, Object> myinfoDetail(String id) throws Exception;
+	
+	List<Map<String, Object>> selectOtoList(String mem_num) throws Exception;
+	
+	int selectOtoCount(String mem_num) throws Exception;
+	
+	List<Map<String, Object>>selectOtoComplete(String mem_num) throws Exception;
+	
+	List<Map<String, Object>>selectReviewList(String mem_num) throws Exception;
+	
+	List<Map<String, Object>>selectOrderList(String mem_num) throws Exception;
 }

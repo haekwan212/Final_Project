@@ -164,7 +164,10 @@
 
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 87df90845b63da27769efa5162a63c95ae707953
 							<div class="price form-item col-sm-24 col-lg-12">
 								<div>
 									<div class="form-item-title">
