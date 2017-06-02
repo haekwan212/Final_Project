@@ -133,7 +133,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 		<div class="panel-heading">
 
 
-			주문목록페이지 검색, 수정, 삭제 기능하는 페이지입니다.<a href="orderListModify"></a>
+			주문취소목록페이지 검색, 수정, 삭제 기능하는 페이지입니다.<a href="orderListModify"></a>
 		</div>
 		<div class="panel-body">
 			<div class="dataTable_wrapper">
@@ -191,7 +191,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 										<th
 											style="width: 10%; text-align: center; vertical-align: middle;">주문코드</th>
 										<th
-											style="width: 6%; text-align: center; vertical-align: middle;">주문번호</th>
+											style="width: 6%; text-align: center; vertical-align: middle;">번호</th>
 										<th
 											style="width: 33%; text-align: center; vertical-align: middle;">주문상품</th>
 										<th
@@ -203,7 +203,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 										<th
 											style="width: 8%; text-align: center; vertical-align: middle;">배송상태</th>
 										<th
-											style="width: 10%; text-align: center; vertical-align: middle;">주문일자</th>
+											style="width: 10%; text-align: center; vertical-align: middle;">취소일자</th>
 										<th
 											style="width: 10%; text-align: center; vertical-align: middle;">관리</th>
 									</tr>

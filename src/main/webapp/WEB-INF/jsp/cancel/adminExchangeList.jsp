@@ -133,7 +133,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 		<div class="panel-heading">
 
 
-			주문목록페이지 검색, 수정, 삭제 기능하는 페이지입니다.<a href="orderListModify"></a>
+			교환/반품목록페이지 검색, 수정, 삭제 기능하는 페이지입니다.<a href="orderListModify"></a>
 		</div>
 		<div class="panel-body">
 			<div class="dataTable_wrapper">
