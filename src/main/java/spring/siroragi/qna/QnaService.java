@@ -57,5 +57,7 @@ public interface QnaService {
 	List<Map<String, Object>> qnaSearchMember(Map<String, Object> map) throws Exception;
 
 	int qnaNewAlarm(Map<String, Object> map) throws Exception;
+	
+	void insertOneToOne(Map<String, Object> map) throws Exception;
 
 }

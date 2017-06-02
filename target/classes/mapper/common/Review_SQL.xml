@@ -29,8 +29,45 @@
 			ORDER BY REVIEW_NUMBER DESC
 		]]>
 	</select>
-	
-	<select id="selectGoodsEvgGrade" parameterType="hashmap" resultType="Integer">
+		<select id="selectGoodsReviewByMemNum" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT * FROM REVIEW WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				]]>
+	</select>	<select id="selectGoodsEvgGrade" parameterType="hashmap" resultType="Integer">
 		<![CDATA[
 			SELECT AVG(REVIEW_GRADE)*20 FROM REVIEW WHERE GOODS_NUMBER=#{GOODS_NUMBER}
 		]]>

@@ -8,7 +8,7 @@ $(function () {
 
     $(".account-nav li").click(function () {
         $(".account-nav li").removeClass("selected");
-        //$(this).addClass("active").css({"color": "darkred","font-weight": "bolder"});
+
         $(this).addClass("selected");
     });
 });
@@ -41,8 +41,36 @@ function tab(num){
  				type : "get",
  				success:function(data){
  					$("#account-contentsWrap").html(data);
+ 					
  				}
  			});
+		}
+		if(num == 2){
+ 			$.ajax({
+			url: "/SIRORAGI/exchangelist",
+			type : "get",
+			success:function(data){
+				$("#account-contentsWrap").html(data);
+			}
+		});
+		}
+		if(num == 3){
+ 			$.ajax({
+			url: "/SIRORAGI/returnlist",
+			type : "get",
+			success:function(data){
+				$("#account-contentsWrap").html(data);
+			}
+		});
+		}
+		if(num == 4){
+ 			$.ajax({
+			url: "/SIRORAGI/review",
+			type : "get",
+			success:function(data){
+				$("#account-contentsWrap").html(data);
+			}
+		});
 		}
 		if(num == 5){
  			$.ajax({
@@ -53,6 +81,25 @@ function tab(num){
 			}
 		});
 		}
+		if(num == 6){
+ 			$.ajax({
+			url: "/SIRORAGI/oneToOne",
+			type : "get",
+			success:function(data){
+				$("#account-contentsWrap").html(data);
+			}
+		});
+		}
+		if(num == 7){
+ 			$.ajax({
+			url: "/SIRORAGI/myinfo",
+			type : "get",
+			success:function(data){
+				$("#account-contentsWrap").html(data);
+			}
+		});
+		}
+		return false;
 };
 </script>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
@@ -94,19 +141,9 @@ function tab(num){
 		<section class="col-xs-24 my-info">
 			<div class="section-body">
 				<div class="item profile col-xs-24 col-md-6">
-					<div class="photo" style="background-image: url('/data/profile/shake0824.jpg')">
-						<img src="/theme/pshp/img/blank-square.png" class="img-responsive">
-					</div>
-					<div class="info">
-						<strong>
-						<span class="level">${sessionScope.MEMBER_ID}</span>(${sessionScope.MEMBER_NAME }님)
+					<div class="info">						<strong>
+						<span class="level" style="text-align:center;">${sessionScope.MEMBER_ID}</span>(${sessionScope.MEMBER_NAME }님)
 						</strong>
-						<a href="../mypage/profile" target="modal" data-size="sm" class="button small" data-label="프로필 사진수정">
-							<span class="button-label">사진 수정</span>
-						</a>
-						<a href="../mypage/myinfo" class="button small button-dimmed">
-							<span class="button-label">내 정보 수정</span>
-						</a>
 					</div>
 				</div>
 				<div class="item point col-xs-8 col-md-6">
@@ -116,20 +153,6 @@ function tab(num){
 						<span class="button-label">자세히 보기</span>
 					</button>
 					<div></div>
-				</div>
-				<div class="item cash col-xs-8 col-md-6">
-					<strong>캐시 : </strong>
-					<em>0원</em><br>
-					<button class="button small" target="modal" data-size="md" data-label="팬콧 캐시" href="/mypage/p_icash">
-						<span class="button-label">자세히 보기</span>
-					</button>
-				</div>
-				<div class="item coupon col-xs-8 col-md-6">
-					<strong>쿠폰 : </strong>
-					<em>0장</em><br>
-					<button class="button small" target="modal" data-size="md" data-label="내 쿠폰" href="/mypage/p_coupon">
-						<span class="button-label">자세히 보기</span>
-					</button>
 				</div>
 			</div>
 		</section>
@@ -159,14 +182,14 @@ function tab(num){
 					</li>
 
 					<li class="col-sm-3 xx">
-						<a href="/SIRORAGI/exchangelist">교환신청/조회<span></span></a>
+						<a href="#exchangelist" onclick="javascript:tab(2)">교환신청/조회<span></span></a>
 					</li>
 					<li class="col-sm-3 xx m-1">
-						<a href="/SIRORAGI/returnlist">반품신청/조회<span></span></a>
+						<a href="#returnlist" onclick="javascript:tab(3)">반품신청/조회<span></span></a>
 					</li>
 
 					<li class=" col-sm-3">
-						<a href="/SIRORAGI/review">구매 후기
+						<a href="#review" onclick="javascript:tab(4)">구매 후기
 							<!-- 글이 있을 경우 exist라는 클래스명 붙임 -->
 							<em class="badge badge-point">0</em>
 						</a>
@@ -175,10 +198,10 @@ function tab(num){
 						<a href="#qna" onclick="javascript:tab(5)">상품 문의 <em class="badge">${newAlarm }</em></a>
 					</li>
 					<li class=" col-sm-3">
-						<a href="/SIRORAGI/mycs">1:1 문의 <em class="badge">0</em></a>
+						<a href="#oneToOne" onclick="javascript:tab(6)"	>1:1 문의 <em class="badge">${selectOtoCount}</em></a>
 					</li>
 					<li class=" col-sm-3">
-						<a href="/SIRORAGI/myinfo">내 정보 수정</a>
+						<a href="#myinfo" onclick="javascript:tab(7)">내 정보 수정</a>
 					</li>
 					<!--<li class="">
 						<a href="../mypage/myinfo">내 정보</a>

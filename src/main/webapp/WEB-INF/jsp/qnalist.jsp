@@ -28,7 +28,11 @@
 						<c:otherwise>
 						<c:forEach items="${qnalist}" var="qna">
 						<tbody>
-							<tr class="brief" id="brief" onclick="javascript:gg()"><!-- 문의가 종료되었을때, end클래스명 붙여줌 -->
+							<tr class="brief" id="brief" onclick="javascript:gg()">
+							
+							
+							
+							<!-- 문의가 종료되었을때, end클래스명 붙여줌 -->
 								<td class="info-img">
 									<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${qna.GOODS_NUMBER }">
 									<img img_layer="/SIRORAGI/file/goodsfile/${qna.GOODS_THUMBNAIL}" goodsno="${qna.GOODS_NUMBER }" src="/SIRORAGI/file/goodsfile/${qna.GOODS_THUMBNAIL}" class="img-responsive"></a>
@@ -52,7 +56,6 @@
 									${qna.QNA_REPSTATE}
 								</td>
 							</tr>
-							<c:if test="${null ne qna.QNA_REPDATE }">
 						<tr class="detail end">
 								<td colspan="7">
 									<div class="contents">
@@ -60,15 +63,8 @@
 											<p>${qna.QNA_CONTENT }</p>
 										</div>
 									</div>
-									<div class="answer">
-									${qna.QNA_REPCONTENT}
-									<div class="info">
-											<p class="date">2017-05-23 10:14:37</p>
-										</div>
-									</div>
 								</td>
 							</tr>
-							</c:if>
 						</tbody>
 						</c:forEach>
 						</c:otherwise>
@@ -142,7 +138,7 @@
 										<p>고객님 안녕하세요!<br>
 										${qna.QNA_REPCONTENT}
 										<div class="info">
-										<p class="date">2017-05-23 10:14:37</p>
+										<p class="date">${qna.QNA_REPDATE}</p>
 										</div>
 									</div>
 								</td>
