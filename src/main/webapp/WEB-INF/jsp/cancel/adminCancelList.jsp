@@ -55,31 +55,36 @@ $.fn.rowspan = function(colIdx, isStats) {
 
 	}
 
-	function qGOODS_PAY_STATE_CHANGE(number) {
-	
+	function GOODS_PAY_STATE_CHANGE(number) {
+		
 		var a= number;		
 		var x = $('#'+a+'>option:selected').val();
 		var currentPage =<%=request.getParameter("currentPage")%>;
 		var isSearch =<%=request.getParameter("isSearch")%>;
 		var searchNum =<%=request.getParameter("searchNum")%>;
-		window.location.href = 'orderStateModify?GOODS_PAY_STATE=' + x
+		window.location.href = '/SIRORAGI/order/orderStateModify?GOODS_PAY_STATE=' + x
 				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
 				+ '&searchNum=' + searchNum + '&ORDER_CODE='+a;
 	}
+	function GOODS_STATE_CHANGE(number) {
+		
+		var a= number;		
+		var x = $('#'+a+'>option:selected').val();
+		var currentPage =<%=request.getParameter("currentPage")%>;
+		var isSearch =<%=request.getParameter("isSearch")%>;
+		var searchNum =<%=request.getParameter("searchNum")%>;
+		window.location.href = '/SIRORAGI/order/orderStateModify?GOODS_STATE=' + x
+				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
+				+ '&searchNum=' + searchNum + '&ORDER_CODE='+a+"&cancel=1";
+	}
 
-	function qDELIVERY_CHANGE(number) {
+	function DELIVERY_CHANGE(number) {
 		var a= number;	
 		var y = $('.'+a+'>option:selected').val();
-		var currentPage =
-<%=request.getParameter("currentPage")%>
-	;
-		var isSearch =
-<%=request.getParameter("isSearch")%>
-	;
-		var searchNum =
-<%=request.getParameter("searchNum")%>
-	;
-		window.location.href = 'orderStateModify?DELIVERY_STATE=' + y
+		var currentPage =<%=request.getParameter("currentPage")%>;
+		var isSearch =<%=request.getParameter("isSearch")%>;
+		var searchNum =<%=request.getParameter("searchNum")%>;
+		window.location.href = '/SIRORAGI/order/orderStateModify?DELIVERY_STATE=' + y
 				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
 				+ "&searchNum=" + searchNum+'&ORDER_CODE='+a;
 	}
@@ -147,17 +152,10 @@ $.fn.rowspan = function(colIdx, isStats) {
 								onchange="window.open(value,'_self');">
 								<option value="">--주문상태--</option>
 								<option
-									value="/SIRORAGI/cancel/cancelList?searchNum=1&isSearch=결제대기">주문취소</option>
+									value="/SIRORAGI/cancel/cancelList?searchNum=1&isSearch=주문취소">주문취소</option>
 								<option
-									value="/SIRORAGI/cancel/cancelList?searchNum=1&isSearch=결제완료">취소완료</option>
-								</select>  <select class="form-control" name="select"
-								onchange="window.open(value,'_self');">
-								<option value="">--배송상태--</option>
-								<option
-									value="/SIRORAGI/cancel/cancelList?searchNum=3&isSearch=배송준비중">배송준비중</option>
-								<option
-									value="/SIRORAGI/cancel/cancelList?searchNum=3&isSearch=배송중">배송중</option>
-								</select>
+									value="/SIRORAGI/cancel/cancelList?searchNum=1&isSearch=취소완료">취소완료</option>
+								</select>  
 						</div>
 						<div class="col-sm-6" style="text-align: right;">
 							<div class="dataTables_info" id="dataTables-example_info"
@@ -176,19 +174,19 @@ $.fn.rowspan = function(colIdx, isStats) {
 										<th
 											style="width: 10%; text-align: center; vertical-align: middle;">주문코드</th>
 										<th
-											style="width: 6%; text-align: center; vertical-align: middle;">번호</th>
+											style="width: 4%; text-align: center; vertical-align: middle;">번호</th>
 										<th
-											style="width: 33%; text-align: center; vertical-align: middle;">주문상품</th>
+											style="width: 28%; text-align: center; vertical-align: middle;">주문상품</th>
 										<th
 											style="width: 7%; text-align: center; vertical-align: middle;">회원ID</th>
 										<th
-											style="width: 8%; text-align: center; vertical-align: middle;">주문금액</th>
+											style="width: 19%; text-align: center; vertical-align: middle;">취소사유</th>
 										<th
 											style="width: 8%; text-align: center; vertical-align: middle;">주문상태</th>
 										<th
-											style="width: 8%; text-align: center; vertical-align: middle;">배송상태</th>
+											style="width: 6%; text-align: center; vertical-align: middle;">배송상태</th>
 										<th
-											style="width: 10%; text-align: center; vertical-align: middle;">취소일자</th>
+											style="width: 8%; text-align: center; vertical-align: middle;">취소일자</th>
 										<th
 											style="width: 10%; text-align: center; vertical-align: middle;">관리</th>
 									</tr>
@@ -198,6 +196,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 										varStatus="stat">
 										<c:url var="viewURL" value="/order/adminOrderDetail">
 											<c:param name="ORDER_CODE" value="${cancelList.ORDER_CODE }" />
+											<c:param name="CANCEL" value="1"/>
 										</c:url>
 										<tr class="gradeA even" role="row">
 											<td style="text-align: center; vertical-align: middle;">${cancelList.ORDER_CODE}</td>
@@ -216,8 +215,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 											</c:if>
 											<div
 													style='display: none;'>${cancelList.ORDER_CODE}</div></td>
-											<td style="text-align: center; vertical-align: middle;"><fmt:formatNumber
-													value="${cancelList.GOODS_TOTAL}" type="number" />원
+											<td style="text-align: center; vertical-align: middle;">${cancelList.CANCEL_CONTENT }
 												<div style='display: none;'>${cancelList.ORDER_CODE}</div></td>
 											<td style="text-align: center; vertical-align: middle;">
 												<c:if test="${cancelList.GOODS_STATE eq '취소완료'}">
@@ -226,8 +224,8 @@ $.fn.rowspan = function(colIdx, isStats) {
 												<div style='display: none;'>${cancelList.ORDER_CODE}</div>
 												</c:if>
 												<c:if test="${cancelList.GOODS_STATE ne '취소완료'}">
-												<select class="${cancelList.ORDER_CODE }" name="DELIVERY_STATE"
-												onchange="DELIVERY_CHANGE('${cancelList.ORDER_CODE }')">
+												<select id="${cancelList.ORDER_CODE }" name="GOODS_STATE"
+												onchange="GOODS_STATE_CHANGE('${cancelList.ORDER_CODE }')">
 													<option value="주문취소" selected>주문취소</option>
 													<option value="취소완료">취소완료</option>
 												</select>
@@ -268,9 +266,9 @@ $.fn.rowspan = function(colIdx, isStats) {
 							<div id="dataTables-example_filter" class="dataTables_filter">
 								<form action="">
 									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="4">주문코드</option>
-										<option value="5">상품명</option>
-										<option value="6">회원ID</option>
+										<option value="2">주문코드</option>
+										<option value="3">상품명</option>
+										<option value="4">회원ID</option>
 									</select> <input class="form-control" type="text" name="isSearch"
 										id="isSearch" /> <span>
 										<button type="submit" class="btn btn-default">검색</button>

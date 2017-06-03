@@ -54,21 +54,19 @@ public class AdminCancelController {
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 			isSearchMap.put("isSearch", isSearch);
 			
-			/*if (searchNum == 1)// 결제상태 검색
-				calcelList = adminOrderService.adminOrderSearch0(isSearchMap);
+			System.out.println("isSearch : "+isSearchMap);
+			if (searchNum == 1)// 결제상태 검색
+				cancelList = adminCancelService.allCancelSearch1(isSearchMap);
 			else if (searchNum == 2)// 상품주문상태 검색
-				calcelList = adminOrderService.adminOrderSearch1(isSearchMap);
+				cancelList = adminCancelService.allCancelSearch2(isSearchMap);
 			else if (searchNum == 3)// 배송상태
-				orderList = adminOrderService.adminOrderSearch2(isSearchMap);
+				cancelList = adminCancelService.allCancelSearch3(isSearchMap);
 			else if (searchNum == 4)// 주문코드
-				orderList = adminOrderService.adminOrderSearch4(isSearchMap);
-			else if (searchNum == 5)// 상품명
-				orderList = adminOrderService.adminOrderSearch5(isSearchMap);
-			else if (searchNum == 6)// 회원
-				orderList = adminOrderService.adminOrderSearch6(isSearchMap);*/
+				cancelList = adminCancelService.allCancelSearch4(isSearchMap);
+			
 
 			totalCount = cancelList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "orderList", searchNum, isSearch);
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "cancelList", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 
 			int lastCount = totalCount;
@@ -132,18 +130,16 @@ public class AdminCancelController {
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 			isSearchMap.put("isSearch", isSearch);
 			
-			/*if (searchNum == 1)// 결제상태 검색
-				calcelList = adminOrderService.adminOrderSearch0(isSearchMap);
+			if (searchNum == 1)// 결제상태 검색
+				exchangeList = adminCancelService.allExchangeSearch1(isSearchMap);
 			else if (searchNum == 2)// 상품주문상태 검색
-				calcelList = adminOrderService.adminOrderSearch1(isSearchMap);
+				exchangeList = adminCancelService.allExchangeSearch2(isSearchMap);
 			else if (searchNum == 3)// 배송상태
-				orderList = adminOrderService.adminOrderSearch2(isSearchMap);
+				exchangeList = adminCancelService.allExchangeSearch3(isSearchMap);
 			else if (searchNum == 4)// 주문코드
-				orderList = adminOrderService.adminOrderSearch4(isSearchMap);
+				exchangeList = adminCancelService.allExchangeSearch4(isSearchMap);
 			else if (searchNum == 5)// 상품명
-				orderList = adminOrderService.adminOrderSearch5(isSearchMap);
-			else if (searchNum == 6)// 회원
-				orderList = adminOrderService.adminOrderSearch6(isSearchMap);*/
+				exchangeList = adminCancelService.allExchangeSearch5(isSearchMap);
 
 			totalCount = exchangeList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "exchangeList", searchNum, isSearch);

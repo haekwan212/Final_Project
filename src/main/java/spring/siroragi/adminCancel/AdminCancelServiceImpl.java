@@ -33,5 +33,36 @@ public class AdminCancelServiceImpl implements AdminCancelService {
 	public List<Map<String, Object>> allExchangeList(Map<String, Object> map) throws Exception{
 		return adminCancelDAO.allExchangeList(map);
 	}
+	
+	// 주문취소 검색
+	public List<Map<String, Object>> allCancelSearch1(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.allCancelSearch1(map);
+	}
+	public List<Map<String, Object>> allCancelSearch2(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.allCancelSearch2(map);
+	}
+	public List<Map<String, Object>> allCancelSearch3(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.allCancelSearch3(map);
+	}
+	public List<Map<String, Object>> allCancelSearch4(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.allCancelSearch4(map);
+	}
+			
+	// 교환/반품 검색
+	public List<Map<String, Object>> allExchangeSearch1(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.allExchangeSearch1(map);
+	}
+	public List<Map<String, Object>> allExchangeSearch2(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.allExchangeSearch2(map);
+	}
+	public List<Map<String, Object>> allExchangeSearch3(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.allExchangeSearch3(map);
+	}
+	public List<Map<String, Object>> allExchangeSearch4(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.allExchangeSearch4(map);
+	}
+	public List<Map<String, Object>> allExchangeSearch5(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.allExchangeSearch5(map);
+	}
 
 }

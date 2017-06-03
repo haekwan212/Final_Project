@@ -14,8 +14,7 @@
 	$('#dataTables-example').rowspan(4);
 	$('#dataTables-example').rowspan(5);
 	$('#dataTables-example').rowspan(6);
-	$('#dataTables-example').rowspan(7);
-	$('#dataTables-example').rowspan(8);
+	
 });
 
 $.fn.rowspan = function(colIdx, isStats) {       
@@ -81,15 +80,9 @@ $.fn.rowspan = function(colIdx, isStats) {
 	function DELIVERY_CHANGE(number) {
 		var a= number;	
 		var y = $('.'+a+'>option:selected').val();
-		var currentPage =
-<%=request.getParameter("currentPage")%>
-	;
-		var isSearch =
-<%=request.getParameter("isSearch")%>
-	;
-		var searchNum =
-<%=request.getParameter("searchNum")%>
-	;
+		var currentPage =<%=request.getParameter("currentPage")%>;
+		var isSearch =<%=request.getParameter("isSearch")%>;
+		var searchNum =<%=request.getParameter("searchNum")%>;
 		window.location.href = 'orderStateModify?DELIVERY_STATE=' + y
 				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
 				+ "&searchNum=" + searchNum+'&ORDER_CODE='+a;
