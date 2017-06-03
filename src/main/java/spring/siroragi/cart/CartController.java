@@ -68,7 +68,6 @@ public class CartController {
 		}
 
 		mv.addObject("cartList", cartList);
-		System.out.println("포인트 : "+cartList.get(0));
 		mv.setViewName("cartList");
 		return mv;
 	}
