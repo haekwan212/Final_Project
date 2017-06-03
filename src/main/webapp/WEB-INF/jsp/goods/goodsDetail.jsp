@@ -137,6 +137,7 @@
 			});
 		};
 	}
+
 </script>
 <div class="hashFilter eshop">
 	<section class="page-category container">
@@ -1065,8 +1066,8 @@ function _exec(mode){
 				</c:if>
 			</div>
 			</section>
-			<!-- product-view-reviews-list//end -->
-			<section class="product-view-qna-list section box-shadow">
+			<!-- 상품 QNA시작 -->
+			<section class="product-view-qna-list section box-shadow" id="changeList">
 			<div class="section-head left">
 				<h3>상품문의</h3>
 			</div>
@@ -1075,29 +1076,7 @@ function _exec(mode){
 				<div id="ajax_qna_list">
 					<div class="section-body">
 						<ul class="list-dropdown">
-							<li>
-								<div class="brief">
-									<strong class="title">사이즈요</strong>
-									<div class="info">
-										<p class="author">작성자</p>
-										<p class="date">/ 2017-04-18 13:41:01</p>
-									</div>
-								</div>
-								<div class="detail">
-									<div class="contents">
-										<div class="description">
-											<p>가슴둘레 100인사람 s사이즈 주문하면될까요?</p>
-										</div>
-									</div>
-									<div class="answer">
-										<p></p>
-										<div class="info">
-											<p class="author"></p>
-											<p class="date">/</p>
-										</div>
-									</div>
-								</div>
-							</li>
+						<!-- 베이스 
 							<li>
 								<div class="brief">
 									<strong class="title">사이즈문의</strong>
@@ -1123,17 +1102,78 @@ function _exec(mode){
 									</div>
 								</div>
 							</li>
+							베이스끝 -->
+							<!-- 반복시작 -->
+							<c:forEach var="goodsQnaUser" items="${goodsQnaUser}" varStatus="stat">
+							<c:if test="${pagingNum >= stat.count}">
+							<li>
+								<div class="brief">
+								<!-- 질문자 제목 -->
+									<strong class="title">${goodsQnaUser.QNA_TITLE}</strong>
+									<div class="info">
+										<p class="author">${goodsQnaUser.MEMBER_NAME}</p>
+										<p class="date">/ ${goodsQnaUser.QNA_REGDATE}</p>
+									</div>
+								</div>
+								<div class="detail">
+								<!-- 질문자내용 -->
+									<div class="contents">
+										<div class="description">
+											<p>${goodsQnaUser.QNA_CONTENT}</p>
+											<c:if test="${goodsQnaUser.IMAGE1 ne null }">
+												<div class="picture">
+													<img
+														src="/SIRORAGI/file/qnaFile/${goodsQnaUser.IMAGE1}">
+												</div>
+											</c:if>
+											<c:if test="${goodsQnaUser.IMAGE2 ne null }">
+												<div class="picture">
+													<img
+														src="/SIRORAGI/file/qnaFile/${goodsQnaUser.IMAGE2}">
+												</div>
+											</c:if>
+										</div>
+									</div>
+								<!-- 답변내용 -->
+								<c:forEach var="goodsQnaAdmin" items="${goodsQnaAdmin}" varStatus="stat2">
+								<c:if test="${goodsQnaAdmin.QNA_REF ==  goodsQnaUser.QNA_REF}">
+									<div class="answer">
+										<p>${goodsQnaAdmin.QNA_CONTENT}</p>
+										<c:if test="${goodsQnaAdmin.IMAGE1 ne null }">
+												<div class="picture">
+													<img
+														src="/SIRORAGI/file/qnaFile/${goodsQnaAdmin.IMAGE1}">
+												</div>
+											</c:if>
+											<c:if test="${goodsQnaUser.IMAGE2 ne null }">
+												<div class="picture">
+													<img
+														src="/SIRORAGI/file/qnaFile/${goodsQnaAdmin.IMAGE2}">
+												</div>
+											</c:if>
+										<div class="info">
+											<p class="author">${goodsQnaAdmin.MEMBER_ID}</p>
+											<p class="date">/ ${goodsQnaAdmin.QNA_REGDATE}</p>
+										</div>
+									</div> 
+								</c:if>
+								</c:forEach>
+								</div>
+							</li>
+							</c:if>
+							</c:forEach> 
+							<!-- 반복끝 -->
 						</ul>
 
 						<div class="page-navigator">
 							<div class="page-navigator-horizon">
-								<a href="javascript:ajaxGo('qna',0)"
-									class="prev col-xs-6 btn-page-prev">prev</a>
+								<a href="javascript:ajaxPaging(1,${pagingNum},${pagingNum1},${nowPage});" class="prev col-xs-6 btn-page-prev">prev</a>
+									
 								<div class="page-number col-xs-12">
-									<a class="active">1</a>
+									<a class="active">${nowPage}</a>
+									
 								</div>
-								<a href="javascript:alert('마지막페이지입니다')"
-									class="next col-xs-6 btn-page-next">next</a>
+								<a href="javascript:ajaxPaging(2,${pagingNum},${pagingNum1},${nowPage});" class="next col-xs-6 btn-page-next">next</a>
 							</div>
 						</div>
 					</div>
@@ -1146,7 +1186,7 @@ function _exec(mode){
 				</a>
 			</div>
 			</section>
-			<!-- product-view-qna-list//end -->
+			<!-- 상품QNA끝-->
 			<section class="product-view-facebook-comment collapse">
 			<div class="heading-title">
 				<h3>페이스북 댓글</h3>
@@ -1202,4 +1242,24 @@ function _exec(mode){
 		<!-- //end -->
 	</div>
 </div>
+<script>
+
+function ajaxPaging(i,pagingNum,pagingNum1,nowPage) {
+	var pagingOnOff="ON";
+	var GOODS_NUMBER=${GOODS_NUMBER};
+	
+	console.log("야호changeList"+i);
+	
+	 
+	 $.ajax({
+	      url: "/SIRORAGI/goodsDetail",
+	      type : "post",
+	      data: {"nowPage":nowPage,"pagingNum1":pagingNum1,"pagingNum":pagingNum,"pagingOnOff":pagingOnOff,"i":i,"GOODS_NUMBER":GOODS_NUMBER},
+	      success:function(data){
+	    	  $("#changeList").html(data);
+	      }
+	   });     
+	  
+}
+</script>
 

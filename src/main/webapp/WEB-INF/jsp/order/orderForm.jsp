@@ -413,7 +413,7 @@ function ajaxExample(){
 						</div>
 						<div class="total col-sm-8 col-lg-24">
 							<div class="sum">
-								<em>최종 결제 금액</em>
+								<em>최종 결제 금액</em> <!-- 로직 다시 손봐야댐 -->
 								<c:choose>
 									<c:when test="${sum >= 30000}">
 								<strong><fmt:formatNumber value="${sum }" type="number" />원</strong>

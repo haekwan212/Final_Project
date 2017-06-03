@@ -36,5 +36,8 @@ public interface GoodsService {
 
 	// 상품 평점 가져오기
 	public int goodsAvgGrade(Map<String, Object> map) throws Exception;
+	
+	// 상품 QNA 가져오기
+	public List<Map<String, Object>> goodsQna(Map<String, Object> map) throws Exception;
 		
 }

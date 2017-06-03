@@ -3,11 +3,8 @@ package spring.siroragi.goods;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -53,6 +50,8 @@ public class GoodsController {
 		
 		//new태그 날짜조정
 		public static final int DATE_DATE=10; 
+		//페이징 숫자
+		public static final int pagingSet=2; 
 	
 
 	//페이지이동 및 검색
@@ -738,7 +737,7 @@ public class GoodsController {
 
 	
 	@RequestMapping(value = "goodsDetail")
-	public ModelAndView goodsDetail(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
+	public ModelAndView goodsDetail(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception {
 
 		ModelAndView mv = new ModelAndView("goodsDetail");
 
@@ -780,7 +779,92 @@ public class GoodsController {
 		
 		// 구매후기 가져오기
 
+		
 		// 상품qna 가져오기
+		System.out.println("goods_number은?"+goodsDetail.get(0).get("GOODS_NUMBER"));
+		commandMap.put("GOODS_NUMBER", commandMap.getMap().get("GOODS_NUMBER"));
+		//String goods_number=String.valueOf(commandMap.getMap().get("GOODS_NUMBER"));
+		//System.out.println("넘버값은?"+number);
+		List<Map<String, Object>> goodsQna=goodsService.goodsQna(commandMap.getMap());
+		
+		System.out.println("goodsQna.size() ="+goodsQna.size());
+		List<Map<String,Object>> goodsQnaUser=new ArrayList<Map<String,Object>>();
+		List<Map<String,Object>> goodsQnaAdmin=new ArrayList<Map<String,Object>>();
+		//나눠남는다 유저랑 어드민 비교해서
+		for(int i=0;i<goodsQna.size();i++)
+		{
+			//System.out.println("몰로변환해야됨 ㅡㅡ?"+goodsQna.get(i).get("MEMBER_NUMBER"));
+			//String j = String.valueOf(goodsQna.get(i).get("MEMBER_NUMBER"));
+			
+			//String j =(String)(goodsQna.get(i).get("MEMBER_NUMBER"));
+			if((goodsQna.get(i).get("MEMBER_ID")).equals("admin"))
+			{
+				System.out.println("여기어드민있다");
+				goodsQnaAdmin.add(goodsQna.get(i));
+				
+			}
+			else{
+				goodsQnaUser.add(goodsQna.get(i));
+			}
+				
+		}
+		System.out.println("QNA admin 사이즈 : "+goodsQnaAdmin.size()+"\nQNA USER사이즈 : "+ goodsQnaUser.size());
+		mv.addObject("goodsQna",goodsQna);
+		mv.addObject("goodsQnaUser",goodsQnaUser);
+		mv.addObject("goodsQnaAdmin",goodsQnaAdmin);
+		
+		//Qna페이징 하기
+		int pagingNum=pagingSet;
+		int pagingNum1=0;
+		int nowPage=1;
+		
+		String paingOnOff=(String)commandMap.getMap().get("pagingOnOff");
+		if(paingOnOff!=null)
+		{
+			String i=(String)commandMap.getMap().get("i");
+			pagingNum=Integer.parseInt((String)commandMap.getMap().get("pagingNum"));
+			//String pagingNum1Check=((String)commandMap.getMap().get("pagingNum1"));
+			//if(pagingNum1Check!=null)
+			//{
+			pagingNum1=Integer.parseInt((String)commandMap.getMap().get("pagingNum1"));
+			//}
+			//System.out.println("페이징 넘1 :" + pagingNum1);
+			//System.out.println("페이징 넘 :" + pagingNum);
+			nowPage=Integer.parseInt((String)commandMap.getMap().get("nowPage"));
+			if(i.equals("1"))//prev 클릭
+			{
+				if(pagingNum==pagingSet)
+				{
+					System.out.println("첫페이지");
+				}
+				else{
+					pagingNum1=pagingNum1-pagingSet;
+					pagingNum=pagingNum-pagingSet; 
+					nowPage = nowPage-1;
+					System.out.println("전페이지이동");
+				}
+			}
+			else if(i.equals("2")) //next 클릭
+			{
+				if(pagingNum<goodsQnaUser.size())
+				{
+					pagingNum1=pagingNum1+pagingSet;
+					pagingNum=pagingNum+pagingSet;
+					nowPage= nowPage+1;
+					System.out.println("다음페이지이동");
+				}
+				else
+				{
+					System.out.println("마지막페이지");
+				}
+				
+			}
+			System.out.println("페이징 넘연산결과 " + pagingNum);
+			mv.setViewName("goods/goodsDetail_Qna");
+		}
+		mv.addObject("pagingNum",pagingNum);
+		mv.addObject("pagingNum1",pagingNum1);
+		mv.addObject("nowPage",nowPage);
 		
 		//상품 리뷰 가져오기
 		List<Map<String, Object>> goodsReview=reviewService.goodsReview(commandMap.getMap());

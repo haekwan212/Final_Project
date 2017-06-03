@@ -83,5 +83,9 @@ public class GoodsDAO extends AbstractDAO{
 		
 		return 0;
 	}
+	//상품 QNA 가져오기
+	public List<Map<String, Object>> goodsQna(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("goods.goodsQna",map);
+	} 
 
 }
