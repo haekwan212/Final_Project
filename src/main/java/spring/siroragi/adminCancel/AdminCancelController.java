@@ -1,9 +1,5 @@
 package spring.siroragi.adminCancel;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +26,7 @@ public class AdminCancelController {
 
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount = 20;
+	private int blockCount = 10;
 	private int blockPage = 10;
 	private String pagingHtml;
 	private Paging page;
@@ -87,7 +83,7 @@ public class AdminCancelController {
 			mv.addObject("totalCount", totalCount);
 			mv.addObject("pagingHtml", pagingHtml);
 			mv.addObject("currentPage", currentPage);
-			mv.addObject("orderList", cancelList);
+			mv.addObject("cancelList", cancelList);
 			mv.setViewName("adminCancelList");
 			return mv;
 		}

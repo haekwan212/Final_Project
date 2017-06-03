@@ -18,6 +18,11 @@ public class AdminCancelServiceImpl implements AdminCancelService {
 
 	@Resource(name = "adminCancelDAO")
 	private AdminCancelDAO adminCancelDAO;
+	
+	//해당 주문에 대한 캔슬있나 확인
+	public Map<String, Object> confirmCancel(Map<String, Object> map) throws Exception{
+		return adminCancelDAO.confirmCancel(map);
+	}
 
 	// 주문취소 목록
 	public List<Map<String, Object>> allCancelList(Map<String, Object> map) throws Exception{

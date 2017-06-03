@@ -93,6 +93,18 @@
 					<td colspan="3"><b><fmt:formatNumber value="${TOTALPRICE+orderBasic.POINT_POINT}" type="number"/>원</b></td>
 				</tr>
 				
+				<c:if test="${orderCancel ne null }">
+					<th scope="row">
+					<c:if test="${ orderBasic.GOODS_STATE eq '주문취소' || orderBasic.GOODS_STATE eq '취소완료'}">취소사유</c:if>
+					<c:if test="${ orderBasic.GOODS_STATE eq '교환신청' || orderBasic.GOODS_STATE eq '교환완료'}">교환사유</c:if>
+					<c:if test="${ orderBasic.GOODS_STATE eq '반품신청' || orderBasic.GOODS_STATE eq '반품완료'}">반품사유</c:if>
+					</th>
+					<td colspan="1">${orderCancel.CANCEL_CONTENT}</td>
+				
+					<th scope="row">신청날짜</th>
+					<td colspan="1"><fmt:formatDate	value="${orderCancel.CANCEL_REGDATE}" pattern="YY.MM.dd" /></td>
+				</c:if>
+				
 			</tbody>
 		</table>
 		

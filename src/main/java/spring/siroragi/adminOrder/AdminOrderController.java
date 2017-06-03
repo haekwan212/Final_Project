@@ -14,12 +14,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
 import spring.kh.siroragi.Paging;
+import spring.siroragi.adminCancel.AdminCancelService;
 
 @Controller
 public class AdminOrderController {
 
 	@Resource(name = "adminOrderService")
 	private AdminOrderService adminOrderService;
+	
+	@Resource(name = "adminCancelService")
+	private AdminCancelService adminCancelService;
 
 	// 페이징 변수
 	private int searchNum;
@@ -155,7 +159,7 @@ public class AdminOrderController {
 		adminOrderService.updateGoodsPayState(stateMap);	
 		if(stateMap.get("GOODS_PAY_STATE").equals("결제대기")){
 			stateMap.put("DELIVERY_STATE", "결제대기");
-		} else{
+		} else {
 			stateMap.put("DELIVERY_STATE", "배송준비중");
 		}
 		adminOrderService.updateDeliveryState(stateMap);
@@ -169,7 +173,16 @@ public class AdminOrderController {
 			stateMap.put("DELIVERY_STATE", b);
 			stateMap.put("ORDER_CODE", a);
 			adminOrderService.updateDeliveryState(stateMap);		
-			}
+			} else if(commandMap.get("GOODS_STATE") !=null){
+				
+				String a=(String)commandMap.get("ORDER_CODE");
+				String b=(String) commandMap.getMap().get("GOODS_STATE");
+				b= new String(b.getBytes("iso-8859-1"),"utf-8");
+				
+				stateMap.put("GOODS_STATE", b);
+				stateMap.put("ORDER_CODE", a);
+				adminOrderService.updateDeliveryState(stateMap);		
+				}
 		
 		mv.setViewName("redirect:"+path);
 		return mv;
@@ -186,6 +199,12 @@ public class AdminOrderController {
 		mv.addObject("orderDetail",orderDetail);
 		mv.addObject("size",orderDetail.size());
 		mv.addObject("orderBasic",orderDetail.get(0));
+		
+		Map<String,Object> confirmCancel=new HashMap<String, Object>();
+		confirmCancel=adminCancelService.confirmCancel(commandMap.getMap());
+		if(confirmCancel!=null){
+			mv.addObject("orderCancel",confirmCancel);
+		}		
 		
 		mv.setViewName("adminOrderDetail");
 		return mv;
