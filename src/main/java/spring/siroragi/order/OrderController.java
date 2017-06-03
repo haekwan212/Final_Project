@@ -36,7 +36,30 @@ public class OrderController {
 			return mv;
 
 		}
-		
+
+		if (commandMap.get("mode").equals("cart")) {
+
+			System.out.println("장바구니 구매");
+
+			List<Map<String, Object>> cartList = new ArrayList<Map<String, Object>>();
+
+			commandMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+			commandMap.put("GOODS_KINDS_NUMBER", commandMap.get("GOODS_KINDS_NUMBER"));
+			
+			System.out.println("GOODS_KINDS_NUMBER : " + commandMap.get("GOODS_KINDS_NUMBER"));
+
+			cartList = orderService.selectCartOrder(commandMap.getMap());
+
+			System.out.println("commandMap : " + commandMap.getMap());
+			
+			System.out.println("result : " + cartList);
+			
+			ModelAndView mv = new ModelAndView();
+			
+			return mv;
+
+		}
+
 		System.out.println(commandMap.getMap());
 
 		ModelAndView mv = new ModelAndView("orderForm");
@@ -175,11 +198,11 @@ public class OrderController {
 		orderService.updatePoint(commandMap.getMap());
 
 		Map<String, Object> orderMember = orderService.orderMember(commandMap.getMap());
-		
+
 		orderMember.put("POINT_POINT", commandMap.get("POINT_POINT"));
-		
+
 		System.out.println("orderMember : " + orderMember);
-		
+
 		return orderMember;
 	}
 

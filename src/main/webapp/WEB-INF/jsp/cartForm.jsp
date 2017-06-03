@@ -85,9 +85,11 @@
 											<td>
 											<c:if test="${!empty sessionScope.MEMBER_ID}">
 											<input type="checkbox" name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
+											<input type="checkbox" name="CART_NUMBER" value="${cartList.CART_NUMBER}" style="display:none" >
 											</c:if>
 											<c:if test="${empty sessionScope.MEMBER_ID}">
 											<input type="checkbox" name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
+											<input type="checkbox" name="CART_NUMBER" value="${cartList.CART_NUMBER}" style="display:none" >
 											</c:if>
 											</td>
 											<td class="info-img"><a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${cartList.GOODS_NUMBER }"><img
@@ -333,7 +335,7 @@
 				</div>
 				<div class="button-group">
 					<div class="col-xs-12 col-lg-24">
-						<a href="order" class="button large"> <span
+						<a href="#" onclick="cartBuy();" class="button large"> <span
 							class="button-label">다음 단계</span>
 						</a>
 					</div>
@@ -375,6 +377,17 @@
 	</div>
 </div>
 
+		<script>
+function cartBuy(){
+		
+		var fm = document.fmCart;
+		fm.mode.value = "cart";
+		fm.target = "_self";
+		fm.action = "/SIRORAGI/order";
+		//if (mode=="order") fm.action = "../order";
+		fm.submit();
+	}
+</script>
 <script>
 $(".btn-checked-all").click(function(){
 	$(".order-shoppingBag input[name='GOODS_KINDS_NUMBER']").not(":checked").trigger("click");
