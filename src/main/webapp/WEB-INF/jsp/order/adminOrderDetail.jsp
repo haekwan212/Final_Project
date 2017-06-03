@@ -109,7 +109,17 @@
 		</table>
 		
 		<br/><br/>
+		<c:choose>
+		<c:when test="${param.CANCEL ne null}">
+		<a href="#this" class="btn" id="cancel">목록으로</a>
+		</c:when>
+		<c:when test="${param.EXCHANGE ne null}">
+		<a href="#this" class="btn" id="exchange">목록으로</a>
+		</c:when>
+		<c:otherwise>
 		<a href="#this" class="btn" id="list">목록으로</a>
+		</c:otherwise>
+		</c:choose>
 	</form>
 	<br/>
 	<br/>
@@ -123,6 +133,14 @@
 			$("#list").on("click", function(e){ //목록으로 버튼
 				e.preventDefault();
 				fn_openOrderList();
+			});
+			$("#cancel").on("click", function(e){ //목록으로 버튼
+				e.preventDefault();
+				fn_openCancelList();
+			});
+			$("#exchange").on("click", function(e){ //목록으로 버튼
+				e.preventDefault();
+				fn_openExchangeList();
 			});
 			
 			$("#write").on("click", function(e){ //작성하기 버튼
@@ -149,6 +167,16 @@
 		function fn_openOrderList(){
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/order/orderList' />");
+			comSubmit.submit();
+		}
+		function fn_openCancelList(){
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("<c:url value='/cancel/cancelList' />");
+			comSubmit.submit();
+		}
+		function fn_openExchangeList(){
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("<c:url value='/cancel/exchangeList' />");
 			comSubmit.submit();
 		}
 		
