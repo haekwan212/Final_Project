@@ -309,7 +309,7 @@
 			FAQ_HITCOUNT,
 			FAQ_REGDATE
 		FROM FAQ
-		WHERE FAQ_TITLE like '%' || #{isSearch} || '%'
+		WHERE FAQ_TITLE like '%'||#{isSearch}||'%'
 		ORDER BY FAQ_NUMBER DESC
 	]]>
 	</select>
@@ -326,7 +326,7 @@
 			FAQ_HITCOUNT,
 			FAQ_REGDATE
 		FROM FAQ
-		WHERE FAQ_CONTENT like '%' || #{isSearch} || '%'
+		WHERE FAQ_CONTENT like '%'||#{isSearch}||'%'
 		ORDER BY FAQ_NUMBER DESC
 	]]>
 	</select>
