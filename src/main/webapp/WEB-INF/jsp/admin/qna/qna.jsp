@@ -32,7 +32,7 @@ function delchk(){
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         Q&A 내역을 불러오는 페이지입니다.
+                         Q&A 검색, 수정, 삭제 기능하는 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
