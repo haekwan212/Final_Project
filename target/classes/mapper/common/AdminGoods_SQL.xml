@@ -115,6 +115,13 @@
 		]]>
 	</update>
 	
+	<update id="addAmount" parameterType="hashmap">
+		<![CDATA[
+			UPDATE GOODS_KINDS SET GOODS_AMOUNT=GOODS_AMOUNT+#{ORDER_AMOUNT},GOODS_SELLCOUNT=GOODS_SELLCOUNT-#{ORDER_AMOUNT}
+			WHERE GOODS_KINDS_NUMBER=#{GOODS_KINDS_NUMBER}
+		]]>
+	</update>
+	
 	<update id="modifyGoodsKinds" parameterType="hashmap">
 		<![CDATA[
 			UPDATE GOODS_KINDS SET GOODS_COLOR=#{MD_GOODS_COLOR}, GOODS_SIZE=#{MD_GOODS_SIZE},

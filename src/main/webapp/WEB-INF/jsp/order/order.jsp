@@ -14,6 +14,8 @@
 	$('#dataTables-example').rowspan(4);
 	$('#dataTables-example').rowspan(5);
 	$('#dataTables-example').rowspan(6);
+	$('#dataTables-example').rowspan(7);
+	$('#dataTables-example').rowspan(8);
 	
 });
 

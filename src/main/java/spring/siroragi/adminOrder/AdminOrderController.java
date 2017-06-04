@@ -15,9 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 import spring.kh.siroragi.CommandMap;
 import spring.kh.siroragi.Paging;
 import spring.siroragi.adminCancel.AdminCancelService;
+import spring.siroragi.adminGoods.AdminGoodsService;
 
 @Controller
 public class AdminOrderController {
+	
+	@Resource(name = "adminGoodsService")
+	private AdminGoodsService adminGoodsService;
 
 	@Resource(name = "adminOrderService")
 	private AdminOrderService adminOrderService;
@@ -38,8 +42,6 @@ public class AdminOrderController {
 
 	@RequestMapping(value = "order/orderList")
 	public ModelAndView orderList(CommandMap commandMap, HttpServletRequest request) throws Exception {
-
-		System.out.println("map : " + commandMap.getMap());
 
 		ModelAndView mv = new ModelAndView("adminOrderList");
 
@@ -125,63 +127,51 @@ public class AdminOrderController {
 
 	@RequestMapping(value = "order/orderStateModify")
 	public ModelAndView orderListModify(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		System.out.println("commandMap : "+commandMap.getMap());
 
 		ModelAndView mv = new ModelAndView();
 
 		Map<String, Object> stateMap = new HashMap<String, Object>();
 
 		String path;
-		System.out.println("커맨 : "+commandMap.getMap());
 
 		if (commandMap.get("currentPage") == null) {
 			if (commandMap.get("isSearch") != null && !commandMap.get("isSearch").equals("null")
 					&& commandMap.get("isSearch") != "") {
 				if(commandMap.get("cancel") !=null){
-					System.out.println("1");
 					path = "/cancel/cancelList?currentPage=1&isSearch=" + commandMap.get("isSearch") + "&searchNum="
 							+ commandMap.get("searchNum");
 				} else if(commandMap.get("exchange")!=null){
-					System.out.println("2");
 					path = "/cancel/exchangeList?currentPage=1&isSearch=" + commandMap.get("isSearch") + "&searchNum="
 							+ commandMap.get("searchNum");
 				} else{
-					System.out.println("3");
-				// System.out.println("1"+commandMap.get("isSearch").toString().length());
 				path = "orderList?currentPage=1&isSearch=" + commandMap.get("isSearch") + "&searchNum="
 						+ commandMap.get("searchNum");}
 			} else {
-				// System.out.println("2"+commandMap.get("isSearch").toString().length());
 				path = "orderList?currentPage=1";
 			}
 		} else {
 			if (commandMap.get("isSearch") != null && !commandMap.get("isSearch").equals("null")
 					&& commandMap.get("isSearch") != "") {
 				if(commandMap.get("cancel") !=null){
-					System.out.println("4");
 					path = "/cancel/cancelList?currentPage=" + commandMap.get("currentPage") + "&isSearch=" + commandMap.get("isSearch").toString()
 						+ "&searchNum=" + commandMap.get("searchNum").toString();
 				} else if(commandMap.get("exchange")!=null){
-					System.out.println("5");
 					path = "/cancel/exchangeList?currentPage=" +commandMap.get("currentPage") + "&isSearch=" + commandMap.get("isSearch").toString()
 						+ "&searchNum=" + commandMap.get("searchNum").toString();
 				} else{
-					System.out.println("6");
-				// System.out.println("1"+commandMap.get("isSearch").toString().length());
 				path = "orderList?currentPage=" + commandMap.get("currentPage") + "&isSearch=" + commandMap.get("isSearch").toString()
 						+ "&searchNum=" + commandMap.get("searchNum").toString();}			
 			} else {
 				if(commandMap.get("cancel") !=null){
-					System.out.println("7");
 					path = "/cancel/cancelList?currentPage=" + commandMap.get("currentPage");
 				} else if(commandMap.get("exchange")!=null){
-					System.out.println("8");
 					path = "/cancel/exchangeList?currentPage=" + commandMap.get("currentPage");
 				} else{
-				// System.out.println("4"+commandMap.get("isSearch").toString().length());
 				path = "orderList?currentPage=" + commandMap.get("currentPage");}
 			}
 		}
-		// System.out.println("path : "+path);
+
 		if (commandMap.get("GOODS_PAY_STATE") != null) {
 
 			String a = (String) commandMap.get("ORDER_CODE");
@@ -211,9 +201,18 @@ public class AdminOrderController {
 			String a = (String) commandMap.get("ORDER_CODE");
 			String b = (String) commandMap.getMap().get("GOODS_STATE");
 			b = new String(b.getBytes("iso-8859-1"), "utf-8");
-
 			stateMap.put("GOODS_STATE", b);
 			stateMap.put("ORDER_CODE", a);
+			
+			if(b.equals("취소완료")){
+				List<Map<String,Object>> cancelComplete=new ArrayList<Map<String,Object>>();
+				cancelComplete=adminOrderService.orderDetail(stateMap);
+				
+				for(int i=0;i<cancelComplete.size(); i++){
+					adminGoodsService.addAmount(cancelComplete.get(i));
+				}
+			}
+
 			adminOrderService.updateGoodsState(stateMap);
 		}
 
