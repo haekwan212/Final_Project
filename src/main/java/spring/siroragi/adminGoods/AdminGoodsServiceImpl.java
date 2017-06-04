@@ -321,5 +321,9 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 		List<Map<String, Object>> goodsList = adminGoodsDAO.adminGoodsSearch6(isSearch);
 		return goodsList;
 	}
+	//주문취소시 상품 수량 복귀
+	public void addAmount(Map<String, Object> map) throws Exception{
+		adminGoodsDAO.addAmount(map);
+	}
 
 }

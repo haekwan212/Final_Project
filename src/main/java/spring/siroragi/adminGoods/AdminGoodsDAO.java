@@ -124,5 +124,10 @@ public class AdminGoodsDAO {
 	public List<Map<String, Object>> adminGoodsSearch6(String isSearch) throws Exception {
 		return sqlSession.selectList("adminGoods.adminGoodsSearch6",isSearch);
 	}
+	
+	//주문취소시 상품 수량 복귀
+	public void addAmount(Map<String, Object> map) throws Exception{
+		sqlSession.update("adminGoods.addAmount",map);
+	}
 
 }
