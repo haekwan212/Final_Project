@@ -20,8 +20,8 @@
 						<ul class="list-dropdown">
 							<!-- 반복시작 -->
 							<c:forEach var="goodsQnaUser" items="${goodsQnaUser}" varStatus="stat">
-							<c:if test="${pagingNum >= stat.count}">
-							<c:if test="${pagingNum1 < stat.count}">
+							<c:if test="${qnaEndPagingNum >= stat.count}">
+							<c:if test="${qnaStartPagingNum < stat.count}">
 							
 							<li>
 								<div class="brief">
@@ -86,13 +86,13 @@
 
 						<div class="page-navigator">
 							<div class="page-navigator-horizon">
-								<a href="javascript:ajaxPaging(1,${pagingNum},${pagingNum1 },${nowPage});" class="prev col-xs-6 btn-page-prev">prev</a>
+								<a href="javascript:ajaxQnaPaging(1,${qnaEndPagingNum},${qnaStartPagingNum },${qnaNowPage});" class="prev col-xs-6 btn-page-prev">prev</a>
 									
 								<div class="page-number col-xs-12">
-									<a class="active">${nowPage}</a>
+									<a class="active">${qnaNowPage}</a>
 									
 								</div>
-								<a href="javascript:ajaxPaging(2,${pagingNum},${pagingNum1},${nowPage});" class="next col-xs-6 btn-page-next">next</a>
+								<a href="javascript:ajaxQnaPaging(2,${qnaEndPagingNum},${qnaStartPagingNum},${qnaNowPage});" class="next col-xs-6 btn-page-next">next</a>
 							</div>
 						</div>
 					</div>
