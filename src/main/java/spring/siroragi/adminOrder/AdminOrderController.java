@@ -203,15 +203,14 @@ public class AdminOrderController {
 			b = new String(b.getBytes("iso-8859-1"), "utf-8");
 			stateMap.put("GOODS_STATE", b);
 			stateMap.put("ORDER_CODE", a);
+
+			List<Map<String,Object>> cancelComplete=new ArrayList<Map<String,Object>>();
+			cancelComplete=adminOrderService.orderDetail(stateMap);
 			
-			if(b.equals("취소완료")){
-				List<Map<String,Object>> cancelComplete=new ArrayList<Map<String,Object>>();
-				cancelComplete=adminOrderService.orderDetail(stateMap);
-				
-				for(int i=0;i<cancelComplete.size(); i++){
-					adminGoodsService.addAmount(cancelComplete.get(i));
-				}
+			for(int i=0;i<cancelComplete.size(); i++){
+				adminGoodsService.addAmount(cancelComplete.get(i));
 			}
+			
 
 			adminOrderService.updateGoodsState(stateMap);
 		}
