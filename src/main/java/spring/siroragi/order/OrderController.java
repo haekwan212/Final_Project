@@ -156,7 +156,7 @@ public class OrderController {
 		List<Map<String, Object>> goods1 = new ArrayList<Map<String, Object>>();
 		List<Map<String, Object>> goods = new ArrayList<Map<String, Object>>();
 
-		if (cart_kinds_number.length != 0) {
+		if (cart_kinds_number != null) {
 			System.out.println("cart_kinds_number : " + cart_kinds_number);
 			System.out.println("commandMap : " + commandMap.getMap());
 			for (int i = 0; i < cart_kinds_number.length; i++) {
