@@ -43,4 +43,9 @@ public class OrderServiceImpl implements OrderService {
 		orderDAO.orderGoodsSell(map);
 	}
 
+	@Override
+	public Map<String, Object> selectCartOrder(Map<String, Object> map) throws Exception {
+		return orderDAO.selectCartOrder(map);
+	}
+
 }

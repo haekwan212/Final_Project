@@ -49,6 +49,12 @@ function delchk(){
 								<option value ="/SIRORAGI/qna/qnaList?categoryNum=4&searchNum=0&isSearch=">교환&반품문의</option>
 								<option value ="/SIRORAGI/qna/qnaList?categoryNum=5&searchNum=0&isSearch=">기타문의</option>
 							</select>
+								<select class="form-control" name="select" onchange="window.open(value,'_self');">
+								<option value ="">--카테고리--</option>
+								<option value ="/SIRORAGI/qna/qnaList?categoryNum=6&searchNum=0&isSearch=답변대기">답변대기</option>
+								<option value ="/SIRORAGI/qna/qnaList?categoryNum=6&searchNum=0&isSearch=답변완료">답변완료</option>
+								<option value ="/SIRORAGI/qna/qnaList?categoryNum=6&searchNum=0&isSearch=문의종료">문의종료</option>
+							</select>
 							</div>
 						<div class="col-sm-6" style="text-align:right;">
 							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 Q&A수 : ${totalCount}</div>
@@ -62,13 +68,14 @@ function delchk(){
 								aria-describedby="dataTables-example_info">
 								<thead>
 									<tr role="row">
-										<th style="width: 8%; text-align:center;">카테고리</th>
-										<th style="width: 8%; text-align:center;">글번호</th>
-										<th style="width: 30%; text-align:center;">제목</th>									
-										<th style="width: 8%; text-align:center;">조회수</th>
-										<th style="width: 8%; text-align:center;">날짜</th>
+										<th style="width: 6%; text-align:center;">글번호</th>
+										<th style="width: 11%; text-align:center;">카테고리</th>
 										<th style="width: 8%; text-align:center;">아이디</th>
-										<th style="width: 8%; text-align:center;">관리</th>
+										<th style="width: 35%; text-align:center;">글제목</th>
+										<th style="width: 10%; text-align:center;">문의날짜</th>
+										<th style="width: 10%; text-align:center;">답변상태</th>
+										<th style="width: 10%; text-align:center;">답변날짜</th>
+										<th style="width: 10%; text-align:center;">관리</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -77,38 +84,27 @@ function delchk(){
 									<c:param name="QNA_NUMBER" value="${qnaList.QNA_NUMBER }" />
 								</c:url>									
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${qnaList.QNA_CATEGORY}</td>
 										<td style="text-align:center;vertical-align:middle;">${qnaList.QNA_NUMBER}</td>
-										<td style="vertical-align:middle;"><c:if test="${qnaList.QNA_RE_LEVEL != '0'}">
-						<c:forEach begin="1" end="${qnaList.QNA_RE_LEVEL}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</c:forEach>
-					</c:if>
-					<c:if test="${qnaList.QNA_RE_LEVEL != '0'}">
-						<c:forEach begin="1" end="${qnaList.QNA_RE_LEVEL}"><c:out value="[답변] " /></c:forEach>
-					</c:if><a href="${viewURL}">${qnaList.QNA_TITLE}</a></td>
-										<td style="text-align:center;vertical-align:middle;">${qnaList.QNA_HITCOUNT}</td>
-										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${qnaList.QNA_REGDATE}" pattern="YY.MM.dd" /></td>
-										<td style="text-align:center;vertical-align:middle;"><a href="/SIRORAGI/qna/qnaList?categoryNum=0&searchNum=0&isSearch=${qnaList.MEMBER_ID}">${qnaList.MEMBER_ID}</a></td>
+										<td style="text-align:center;vertical-align:middle;">${qnaList.QNA_CATEGORY}</td>
+										<td style="text-align:center;vertical-align:middle;"><%-- <a href="/SIRORAGI/qna/qnaList?categoryNum=0&searchNum=0&isSearch=${qnaList.MEMBER_ID}">${qnaList.MEMBER_ID }</a> --%>
+											${qnaList.MEMBER_ID}</td>
+										<td style="text-align:center;vertical-align:middle;">${qnaList.QNA_TITLE}</td>
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${qnaList.QNA_REGDATE}" pattern="YY.MM.dd HH:mm" /></td>
+										<td style="text-align:center;vertical-align:middle;">${qnaList.QNA_REPSTATE }</td>
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${qnaList.QNA_REPDATE}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">
+											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
 										<c:url var="viewURL2" value="qnaDelete" >
 											<c:param name="QNA_REF" value="${qnaList.QNA_REF }" />
 											<c:param name="categoryNum" value="${categoryNum}" />
 											<c:param name="QNA_IMAGE1" value="${qnaList.QNA_IMAGE1}" />
 											<c:param name="QNA_IMAGE2" value="${qnaList.QNA_IMAGE2}" />
+											<c:param name="QNA_NUMBER" value="${qnaList.QNA_NUMBER }" />
 										</c:url>
 										<c:url var="viewURL3" value="qnaReplyDelete" >
 											<c:param name="QNA_NUMBER" value="${qnaList.QNA_NUMBER }" />
-											<c:param name="categoryNum" value="${categoryNum}" />
-											<c:param name="QNA_IMAGE1" value="${qnaList.QNA_IMAGE1}" />
-											<c:param name="QNA_IMAGE2" value="${qnaList.QNA_IMAGE2}" />
 										</c:url>
-										<c:choose>
-										<c:when test="${qnaList.QNA_RE_LEVEL == 0 }">
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a>
-										 </c:when>
-										 <c:otherwise>
-										  <a href="${viewURL3}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a>
-										 </c:otherwise>
-										 </c:choose>
 										 </td>									
 									</tr>
 								</c:forEach>

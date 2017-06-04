@@ -36,7 +36,97 @@ public class OrderController {
 			return mv;
 
 		}
-		
+
+		if (commandMap.get("mode").equals("cart")) {
+
+			ModelAndView mv = new ModelAndView("orderForm");
+
+			System.out.println("장바구니 구매");
+
+			commandMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
+
+			Map<String, Object> orderMember = orderService.orderMember(commandMap.getMap());
+
+			mv.addObject("orderMember", orderMember);
+
+			String[] goods_kinds_number = request.getParameterValues("GOODS_KINDS_NUMBER");
+			String[] goods_number = request.getParameterValues("GOODS_NUMBER");
+
+			List<String> ea = new ArrayList<String>();
+
+			List<Map<String, Object>> goods1 = new ArrayList<Map<String, Object>>();
+			List<Map<String, Object>> goods = new ArrayList<Map<String, Object>>();
+
+			for (int i = 0; i < goods_kinds_number.length; i++) {
+
+				commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
+
+				System.out.println(goods_kinds_number[i]);
+
+				Map<String, Object> cartList = orderService.selectCartOrder(commandMap.getMap());
+
+				String e = cartList.get("CART_AMOUNT").toString();
+				cartList.put("EA", e);
+
+				ea.add(e);
+
+				System.out.println("e : " + e);
+				System.out.println("ea : " + ea);
+
+				goods1.add(cartList);
+
+				System.out.println("goods : " + goods1);
+
+				mv.addObject("GOODS_NUMBER", goods1.get(i).get("GOODS_NUMBER"));
+
+			}
+
+			String[] sArrays = ea.toArray(new String[ea.size()]);
+
+			for (String s : sArrays) {
+				System.out.println(s);
+			}
+
+			for (int i = 0; i < sArrays.length; i++) {
+
+				commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
+				commandMap.put("EA", sArrays[i]);
+				commandMap.put("GOODS_NUMBER", goods1.get(i).get("GOODS_NUMBER"));
+
+				Map<String, Object> orderGoods = orderService.orderGoods(commandMap.getMap());
+
+				orderGoods.put("EA", sArrays[i]);
+
+				goods.add(orderGoods);
+
+				System.out.println("goods : " + goods);
+				
+				mv.addObject("ea", sArrays[i]);
+
+			}
+
+			System.out.println("sArrays : " + sArrays);
+
+			System.out.println("commandMap : " + commandMap.getMap());
+
+			System.out.println("result : " + orderMember);
+
+			mv.addObject("guestEmail", commandMap.get("guestEmail"));
+
+			System.out.println("guestEmail : " + commandMap.get("guestEmail"));
+
+			mv.addObject("goods_kinds_number", goods_kinds_number);
+
+			/*
+			 * mv.addObject("GOODS_NUMBER",
+			 * session.getAttribute("GOODS_NUMBER"));
+			 */
+			mv.addObject("goods", goods);
+
+			return mv;
+
+		}
+
 		System.out.println(commandMap.getMap());
 
 		ModelAndView mv = new ModelAndView("orderForm");
@@ -57,10 +147,94 @@ public class OrderController {
 
 		}
 
+		String[] goods_kinds_number = request.getParameterValues("kinds[]");
+		String[] cart_kinds_number = request.getParameterValues("GOODS_KINDS_NUMBER");
+		String[] ea = request.getParameterValues("ea[]");
+
+		List<String> ea1 = new ArrayList<String>();
+
+		List<Map<String, Object>> goods1 = new ArrayList<Map<String, Object>>();
 		List<Map<String, Object>> goods = new ArrayList<Map<String, Object>>();
 
-		String[] goods_kinds_number = request.getParameterValues("kinds[]");
-		String[] ea = request.getParameterValues("ea[]");
+		if (cart_kinds_number.length != 0) {
+			System.out.println("cart_kinds_number : " + cart_kinds_number);
+			System.out.println("commandMap : " + commandMap.getMap());
+			for (int i = 0; i < cart_kinds_number.length; i++) {
+
+				commandMap.put("GOODS_KINDS_NUMBER", cart_kinds_number[i]);
+
+				System.out.println(cart_kinds_number[i]);
+
+				Map<String, Object> cartList = orderService.selectCartOrder(commandMap.getMap());
+
+				String e = cartList.get("CART_AMOUNT").toString();
+				cartList.put("EA", e);
+
+				ea1.add(e);
+
+				System.out.println("e : " + e);
+				System.out.println("ea : " + ea1);
+
+				goods1.add(cartList);
+
+				System.out.println("goods : " + goods1);
+
+				mv.addObject("GOODS_NUMBER", goods1.get(i).get("GOODS_NUMBER"));
+
+				/*
+				 * commandMap.put("GOODS_KINDS_NUMBER", cart_kinds_number[i]);
+				 * commandMap.put("EA", ea[i]);
+				 * 
+				 * Map<String, Object> orderGoods =
+				 * orderService.orderGoods(commandMap.getMap());
+				 * 
+				 * orderGoods.put("EA", ea[i]);
+				 * 
+				 * goods.add(orderGoods);
+				 * 
+				 * System.out.println("goods : " + goods);
+				 */
+
+			}
+
+			String[] sArrays = ea1.toArray(new String[ea1.size()]);
+
+			for (String s : sArrays) {
+				System.out.println(s);
+			}
+
+			for (int i = 0; i < sArrays.length; i++) {
+
+				commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
+				commandMap.put("EA", sArrays[i]);
+				commandMap.put("GOODS_NUMBER", goods1.get(i).get("GOODS_NUMBER"));
+
+				Map<String, Object> orderGoods = orderService.orderGoods(commandMap.getMap());
+
+				orderGoods.put("EA", sArrays[i]);
+
+				goods.add(orderGoods);
+
+				System.out.println("goods : " + goods);
+				
+				mv.addObject("ea", sArrays[i]);
+
+			}
+
+			System.out.println("sArrays : " + sArrays);
+
+			System.out.println("commandMap : " + commandMap.getMap());
+
+			mv.addObject("guestEmail", commandMap.get("guestEmail"));
+
+			System.out.println("guestEmail : " + commandMap.get("guestEmail"));
+
+			mv.addObject("goods_kinds_number", goods_kinds_number);
+			mv.addObject("goods", goods);
+
+			return mv;
+
+		}
 
 		for (int i = 0; i < goods_kinds_number.length; i++) {
 
@@ -126,11 +300,13 @@ public class OrderController {
 
 		String[] goods_kinds_number = request.getParameterValues("kinds[]");
 		String[] ea = request.getParameterValues("ea[]");
+		String[] goods_number = request.getParameterValues("GOODS_NUMBER");
 
 		for (int i = 0; i < goods_kinds_number.length; i++) {
 
 			commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
 			commandMap.put("EA", ea[i]);
+			commandMap.put("GOODS_NUMBER", goods_number[i]);
 
 			Map<String, Object> orderGoods = orderService.orderGoods(commandMap.getMap());
 
@@ -175,11 +351,11 @@ public class OrderController {
 		orderService.updatePoint(commandMap.getMap());
 
 		Map<String, Object> orderMember = orderService.orderMember(commandMap.getMap());
-		
+
 		orderMember.put("POINT_POINT", commandMap.get("POINT_POINT"));
-		
+
 		System.out.println("orderMember : " + orderMember);
-		
+
 		return orderMember;
 	}
 
@@ -221,11 +397,13 @@ public class OrderController {
 		String[] goods_kinds_number = request.getParameterValues("kinds[]");
 		String[] ea = request.getParameterValues("ea[]");
 		String[] goods_total = request.getParameterValues("goods_total[]");
+		String[] goods_number = request.getParameterValues("GOODS_NUMBER");
 
 		for (int i = 0; i < goods_kinds_number.length; i++) {
 
 			commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
 			commandMap.put("EA", ea[i]);
+			commandMap.put("GOODS_NUMBER", goods_number[i]);
 
 			Map<String, Object> orderGoods = orderService.orderGoods(commandMap.getMap());
 

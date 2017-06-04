@@ -114,9 +114,10 @@ function ajaxExample(){
 	<c:forEach var="orderForm"  items="${goods}" varStatus="stat">
 		<input type="hidden" name="ea[]" value="${orderForm.EA }">
 		<input type="hidden" name="kinds[]" value="${orderForm.GOODS_KINDS_NUMBER }">
+		<input type="hidden" name="GOODS_NUMBER" value="${orderForm.GOODS_NUMBER }">
 	</c:forEach>
 	<input type="hidden" name="MEMBER_ID" value="${orderMember.MEMBER_ID }">
-	<input type="hidden" name="GOODS_NUMBER" value="${GOODS_NUMBER }">
+	<%-- <input type="hidden" name="GOODS_NUMBER" value="${GOODS_NUMBER }"> --%>
 
 	
 	<div class="order-payment row">
