@@ -1,6 +1,5 @@
 package spring.siroragi.order;
 
-import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -38,8 +37,8 @@ public class OrderDAO {
 		sqlSession.update("order.orderGoodsSell", map);
 	}
 
-	public List<Map<String, Object>> selectCartOrder(Map<String, Object> map) throws Exception {
-		return sqlSession.selectList("order.selectCartOrder", map);
+	public Map<String, Object> selectCartOrder(Map<String, Object> map) throws Exception {
+		return sqlSession.selectOne("order.selectCartOrder", map);
 	}
 
 	// 주문하기 폼으로 이동(상세보기페이지에서 이동.한 상품만 결제)

@@ -85,11 +85,9 @@
 											<td>
 											<c:if test="${!empty sessionScope.MEMBER_ID}">
 											<input type="checkbox" name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
-											<input type="checkbox" name="CART_NUMBER" value="${cartList.CART_NUMBER}" style="display:none" >
 											</c:if>
 											<c:if test="${empty sessionScope.MEMBER_ID}">
 											<input type="checkbox" name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
-											<input type="checkbox" name="CART_NUMBER" value="${cartList.CART_NUMBER}" style="display:none" >
 											</c:if>
 											</td>
 											<td class="info-img"><a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${cartList.GOODS_NUMBER }"><img
@@ -266,14 +264,7 @@
 					</div>
 					</c:if>
 					</c:if>
-
-
-
-
 						</form>
-						
-		
-
 					</div>
 				</div>
 			</section>
