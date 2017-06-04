@@ -1153,7 +1153,7 @@ function _exec(mode){
 												</div>
 											</c:if> --%>
 										<div class="info">
-											<p class="author">${goodsQna.MEMBER_ID}</p>
+											<p class="author">admin</p>
 											<p class="date">/ ${goodsQna.QNA_REPDATE}</p>
 										</div>
 									</div> 
