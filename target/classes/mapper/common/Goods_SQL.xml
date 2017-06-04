@@ -224,9 +224,10 @@
 	</select>
 	
 	<select id="goodsQna" parameterType="hashmap" resultType="hashmap">
-		select * from (select * from qna natural join member) A where goods_number=#{GOODS_NUMBER} order by QNA_REF DESC,MEMBER_NUMBER DESC
+		select * from (select * from qna natural join member) A where goods_number=#{GOODS_NUMBER} order by MEMBER_NUMBER DESC
+		
 	</select>
-	
+	<!-- select * from (select * from qna natural join member) A where goods_number=#{GOODS_NUMBER} order by QNA_REF DESC,MEMBER_NUMBER DESC -->
 	<update id="goodsCountUp" parameterType="hashmap">
 		<![CDATA[
 			UPDATE GOODS SET GOODS_COUNT=GOODS_COUNT+1 WHERE GOODS_NUMBER=#{GOODS_NUMBER}

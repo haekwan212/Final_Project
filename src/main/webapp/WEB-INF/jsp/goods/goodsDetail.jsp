@@ -1106,42 +1106,41 @@ function _exec(mode){
 							</li>
 							베이스끝 -->
 							<!-- 반복시작 -->
-							<c:forEach var="goodsQnaUser" items="${goodsQnaUser}" varStatus="stat">
+							<c:forEach var="goodsQna" items="${goodsQna}" varStatus="stat">
 							<c:if test="${qnaEndPagingNum >= stat.count}">
 							<li>
 								<div class="brief">
 								<!-- 질문자 제목 -->
-									<strong class="title">${goodsQnaUser.QNA_TITLE}</strong>
+									<strong class="title">${goodsQna.QNA_TITLE}</strong>
 									<div class="info">
-										<p class="author">${goodsQnaUser.MEMBER_NAME}</p>
-										<p class="date">/ ${goodsQnaUser.QNA_REGDATE}</p>
+										<p class="author">${goodsQna.MEMBER_NAME}</p>
+										<p class="date">/ ${goodsQna.QNA_REGDATE}</p>
 									</div>
 								</div>
 								<div class="detail">
 								<!-- 질문자내용 -->
 									<div class="contents">
 										<div class="description">
-											<p>${goodsQnaUser.QNA_CONTENT}</p>
-											<c:if test="${goodsQnaUser.IMAGE1 ne null }">
+											<p>${goodsQna.QNA_CONTENT}</p>
+											<c:if test="${goodsQna.IMAGE1 ne null }">
 												<div class="picture">
 													<img
-														src="/SIRORAGI/file/qnaFile/${goodsQnaUser.IMAGE1}">
+														src="/SIRORAGI/file/qnaFile/${goodsQna.IMAGE1}">
 												</div>
 											</c:if>
-											<c:if test="${goodsQnaUser.IMAGE2 ne null }">
+											<c:if test="${goodsQna.IMAGE2 ne null }">
 												<div class="picture">
 													<img
-														src="/SIRORAGI/file/qnaFile/${goodsQnaUser.IMAGE2}">
+														src="/SIRORAGI/file/qnaFile/${goodsQna.IMAGE2}">
 												</div>
 											</c:if>
 										</div>
 									</div>
 								<!-- 답변내용 -->
-								<c:forEach var="goodsQnaAdmin" items="${goodsQnaAdmin}" varStatus="stat2">
-								<c:if test="${goodsQnaAdmin.QNA_REF ==  goodsQnaUser.QNA_REF}">
+								<c:if test="${goodsQna.QNA_REPCONTENT ne null}">
 									<div class="answer">
-										<p>${goodsQnaAdmin.QNA_CONTENT}</p>
-										<c:if test="${goodsQnaAdmin.IMAGE1 ne null }">
+										<p>${goodsQna.QNA_REPCONTENT}</p>
+										<%-- <c:if test="${goodsQna.IMAGE1 ne null }">
 												<div class="picture">
 													<img
 														src="/SIRORAGI/file/qnaFile/${goodsQnaAdmin.IMAGE1}">
@@ -1152,14 +1151,13 @@ function _exec(mode){
 													<img
 														src="/SIRORAGI/file/qnaFile/${goodsQnaAdmin.IMAGE2}">
 												</div>
-											</c:if>
+											</c:if> --%>
 										<div class="info">
-											<p class="author">${goodsQnaAdmin.MEMBER_ID}</p>
-											<p class="date">/ ${goodsQnaAdmin.QNA_REGDATE}</p>
+											<p class="author">${goodsQna.MEMBER_ID}</p>
+											<p class="date">/ ${goodsQna.QNA_REPDATE}</p>
 										</div>
 									</div> 
 								</c:if>
-								</c:forEach>
 								</div>
 							</li>
 							</c:if>

@@ -30,28 +30,11 @@ public class GoodsController {
 	@Resource(name = "goodsService")
 	private GoodsService goodsService;
 	
-	
-	// 페이징 변수(리뷰)
-		private int reviewCurrentPage = 1;
-		private int reviewTotalCount;
-		
-		private int blockCount = 5;
-		private int blockPage = 5;
-		
-		private String reviewPagingHtml;
-		private Paging reviewPage;
-		
-	// 페이징 변수(Qna)
-		private int qnaCurrentPage = 1;
-		private int qnaTotalCount;
-		
-		private String qnaPagingHtml;
-		private Paging qnaPage;
 		
 		//new태그 날짜조정
 		public static final int DATE_DATE=10; 
 		//페이징 숫자
-		public static final int pagingSet=2; 
+		public static final int pagingSet=3; 
 	
 
 	//페이지이동 및 검색
@@ -789,30 +772,30 @@ public class GoodsController {
 		List<Map<String, Object>> goodsQna=goodsService.goodsQna(commandMap.getMap());
 		
 		System.out.println("goodsQna.size() ="+goodsQna.size());
-		List<Map<String,Object>> goodsQnaUser=new ArrayList<Map<String,Object>>();
-		List<Map<String,Object>> goodsQnaAdmin=new ArrayList<Map<String,Object>>();
-		//나눠남는다 유저랑 어드민 비교해서
-		for(int i=0;i<goodsQna.size();i++)
-		{
-			//System.out.println("몰로변환해야됨 ㅡㅡ?"+goodsQna.get(i).get("MEMBER_NUMBER"));
-			//String j = String.valueOf(goodsQna.get(i).get("MEMBER_NUMBER"));
+		//List<Map<String,Object>> goodsQnaUser=new ArrayList<Map<String,Object>>();
+		//List<Map<String,Object>> goodsQnaAdmin=new ArrayList<Map<String,Object>>();
+		//나눠남는다 유저랑 어드민 비교해서(로직바껴서 필요없음)
+		//for(int i=0;i<goodsQna.size();i++)
+		//{
+			////System.out.println("몰로변환해야됨 ㅡㅡ?"+goodsQna.get(i).get("MEMBER_NUMBER"));
+			////String j = String.valueOf(goodsQna.get(i).get("MEMBER_NUMBER"));
 			
-			//String j =(String)(goodsQna.get(i).get("MEMBER_NUMBER"));
-			if((goodsQna.get(i).get("MEMBER_ID")).equals("admin"))
-			{
-				System.out.println("여기어드민있다");
-				goodsQnaAdmin.add(goodsQna.get(i));
+			////String j =(String)(goodsQna.get(i).get("MEMBER_NUMBER"));
+			//if((goodsQna.get(i).get("MEMBER_ID")).equals("admin"))
+			//{
+			//	System.out.println("여기어드민있다");
+			//	goodsQnaAdmin.add(goodsQna.get(i));
+			//	
+		//	}
+		//	else{
+		//		goodsQnaUser.add(goodsQna.get(i));
+		//	}
 				
-			}
-			else{
-				goodsQnaUser.add(goodsQna.get(i));
-			}
-				
-		}
-		System.out.println("QNA admin 사이즈 : "+goodsQnaAdmin.size()+"\nQNA USER사이즈 : "+ goodsQnaUser.size());
+		//}
+		//System.out.println("QNA admin 사이즈 : "+goodsQnaAdmin.size()+"\nQNA USER사이즈 : "+ goodsQnaUser.size());
+		//mv.addObject("goodsQnaUser",goodsQnaUser);
+		//mv.addObject("goodsQnaAdmin",goodsQnaAdmin);
 		mv.addObject("goodsQna",goodsQna);
-		mv.addObject("goodsQnaUser",goodsQnaUser);
-		mv.addObject("goodsQnaAdmin",goodsQnaAdmin);
 		
 		//Qna페이징 하기
 		int qnaEndPagingNum=pagingSet;
@@ -847,7 +830,7 @@ public class GoodsController {
 			}
 			else if(i.equals("2")) //next 클릭
 			{
-				if(qnaEndPagingNum<goodsQnaUser.size())
+				if(qnaEndPagingNum<goodsQna.size())
 				{
 					qnaStartPagingNum=qnaStartPagingNum+pagingSet;
 					qnaEndPagingNum=qnaEndPagingNum+pagingSet;
