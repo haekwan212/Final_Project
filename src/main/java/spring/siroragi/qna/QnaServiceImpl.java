@@ -121,6 +121,12 @@ public class QnaServiceImpl implements QnaService {
 		return qnaDAO.qnaSearchTitleList(map);
 	}
 	
+	// 답변상태 검색
+	public List<Map<String, Object>> qnaRepState(Map<String, Object> map) throws Exception{
+		return qnaDAO.qnaRepState(map);
+	}
+		
+	
 	@Override
 	public int qnaNewAlarm(Map<String, Object> map) throws Exception {
 		return qnaDAO.qnaNewAlarm(map);
