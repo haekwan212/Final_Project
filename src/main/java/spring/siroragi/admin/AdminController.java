@@ -1,5 +1,6 @@
 package spring.siroragi.admin;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,11 +28,11 @@ public class AdminController {
 
 	// 검색, 페이징
 	private int searchNum;
-	private String isSearch;
+	String isSearch;
 
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount = 7;
+	private int blockCount = 10;
 	private int blockPage = 5;
 	private String pagingHtml;
 	private Paging page;
@@ -57,16 +58,19 @@ public class AdminController {
 
 		ModelAndView mv = new ModelAndView();
 		List<Map<String, Object>> list = faqService.faqList(commandMap.getMap());
-
-		isSearch = request.getParameter("isSearch");
-		if (isSearch != null) {
+		
+		String s = request.getParameter("isSearch");
+		Map<String, Object> isSearchMap= new HashMap<String, Object>();
+		
+		if (request.getParameter("isSearch") != null) {
+			isSearch= new String(s.getBytes("iso-8859-1"), "utf-8");
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
-
+			isSearchMap.put("isSearch", isSearch);
 			if (searchNum == 0) { // 글제목
-				list = faqService.searchTitleList(commandMap.getMap(), isSearch);
+				list = faqService.searchTitleList(isSearchMap,isSearch);
 			}
 			if (searchNum == 1) { // 글내용
-				list = faqService.searchContentList(commandMap.getMap(), isSearch);
+				list = faqService.searchContentList(isSearchMap, isSearch);
 			}
 
 			totalCount = list.size();
@@ -187,15 +191,22 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		List<Map<String, Object>> list = reviewService.reviewList(commandMap.getMap());
 
-		isSearch = request.getParameter("isSearch");
-		if (isSearch != null) {
+		String s= request.getParameter("isSearch");
+		Map<String, Object> isSearchMap= new HashMap<String, Object>();
+		
+		if (request.getParameter("isSearch")!= null) {
+			isSearch = new String(s.getBytes("iso-8859-1"), "utf-8");
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
-
+			isSearchMap.put("isSearch", isSearch);
+			
 			if (searchNum == 0) { // 글제목
-				list = faqService.searchTitleList(commandMap.getMap(), isSearch);
+				list = reviewService.searchReviewList0(isSearchMap);
 			}
-			if (searchNum == 1) { // 글내용
-				list = faqService.searchContentList(commandMap.getMap(), isSearch);
+			else if (searchNum == 1) { // 글내용
+				list = reviewService.searchReviewList1(isSearchMap);
+			}
+			else if (searchNum == 2) { // 글내용
+				list = reviewService.searchReviewList2(isSearchMap);
 			}
 
 			totalCount = list.size();

@@ -90,13 +90,13 @@ public class FaqDAO extends AbstractDAO {
 	// 글제목 검색
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> searchTitleList(Map<String, Object> map, String isSearch) {
-		return (List<Map<String, Object>>) searchTitleList("faq.searchTitleList", map, "%" + isSearch + "%");
+		return (List<Map<String, Object>>) searchTitleList("faq.searchTitleList", map, isSearch);
 	}
 
 	// 글내용 검색
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> searchContentList(Map<String, Object> map, String isSearch) {
-		return (List<Map<String, Object>>) searchContentList("faq.searchContentList", map, "%" + isSearch + "%");
+		return (List<Map<String, Object>>) searchContentList("faq.searchContentList", map, isSearch);
 	}
 
 

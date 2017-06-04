@@ -140,13 +140,13 @@ public class FaqServiceImpl implements FaqService {
 	// 글제목 검색
 	@Override
 	public List<Map<String, Object>> searchTitleList(Map<String, Object> map, String isSearch) throws Exception {
-		return faqDAO.searchTitleList(map, "%" + isSearch + "%");
+		return faqDAO.searchTitleList(map, isSearch);
 	}
 
 	// 글내용 검색
 	@Override
 	public List<Map<String, Object>> searchContentList(Map<String, Object> map, String isSearch) throws Exception {
-		return faqDAO.searchContentList(map, "%" + isSearch + "%");
+		return faqDAO.searchContentList(map, isSearch);
 	}
 
 }
