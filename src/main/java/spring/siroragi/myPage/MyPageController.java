@@ -176,7 +176,7 @@ public class MyPageController {
 		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
 		List<Map<String, Object>> list = mypageService.selectReturnList(mem_num);
 		
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("returnlist");
 		Map<String, Object> sumMap = new HashMap<String, Object>();
 		mv.addObject("list", list);
 		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));

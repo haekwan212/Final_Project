@@ -37,4 +37,8 @@ public class CommonServiceImpl implements CommonService{
 	public void goodsSale(Map<String, Object> map) throws Exception{
 		commonDAO.goodsSale(map);
 	}
+	@Override
+	public List<Map<String, Object>> adImages(Map<String, Object> map) throws Exception {
+		return commonDAO.adImages(map);
+	}
 }

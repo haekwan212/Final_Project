@@ -44,6 +44,10 @@ public class MyPageServiceImpl implements MyPageService{
 		myPageDAO.updateExchange(map);
 	}
 	@Override
+	public void insertCancelList(Map<String, Object> map) throws Exception {
+		myPageDAO.insertCancelList(map);	
+	}
+	@Override
 	public Map<String, Object> myinfoDetail(String id) throws Exception {
 		return myPageDAO.myinfoDetail(id);
 	}

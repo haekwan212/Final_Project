@@ -37,7 +37,7 @@
 													/
 													<fmt:formatDate value="${goodsReview.REVIEW_REGDATE}"
 														pattern="YYYY-MM-dd HH:mm" />
-													/ 2017-04-18 10:15:06
+													
 												</p>
 											</div>
 											<div class="rating">
@@ -73,7 +73,7 @@
 								<a href="javascript:ajaxReviewPaging(1,${reviewEndPagingNum},${reviewStartPagingNum},${reviewNowPage});"
 									class="prev col-xs-6 btn-page-prev">prev</a>
 								<div class="page-number col-xs-12">
-									<a class="active">${qnaNowPage}</a>
+									<a class="active">${reviewNowPage}</a>
 								</div>
 								<a href="javascript:ajaxReviewPaging(2,${reviewEndPagingNum},${reviewStartPagingNum},${reviewNowPage});"
 									class="next col-xs-6 btn-page-next">next</a>
