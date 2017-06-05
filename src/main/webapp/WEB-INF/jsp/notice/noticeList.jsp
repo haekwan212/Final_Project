@@ -222,58 +222,30 @@ Total <b>${totalCount}</b>
 					</c:forEach>
 
 				</tbody></table>
-<div class="page-navigator-horizon">
-
-	<div class="paging">
+				<div class="row">
+			
+			</div>
+<div class="page-navigator-horizon"></div>
+		<div style="text-align: center;">
+		<div class="paging">
 			${pagingHtml}
-		</div></div>
+		</div>
+				<div id="dataTables-example_filter" class="dataTables_filter">
+					<form action="">
+						<select class="slcte" name="searchNum" id="searchNum">
+
+							<option value="0">제목</option>
+							<option value="1">내용</option>
+						</select> <input class="txte" type="text" name="isSearch" id="isSearch" />
+						<span class="btn btnC_03 btnP_04 mr10"> <input
+							type="submit" value="검색"
+							style="font-size: 11px; padding-bottom: 20; vertical-align: middle;" />
+						</span>
+					</form>
+				</div>
 <form class="form-inline notice-searchForm">
 
-<fieldset>
-	<input name="vid" type="hidden" value="notice">
-	<div class="col-xs-offset-2 col-sm-offset-6 col-md-offset-8 wrap">
-		<div class="col-xs-7 col-sm-4 col-md-3">
-			<div class="selectbox">
-				<div class="selectbox-data">
-					<strong class="text">제목 </strong>
-					<span class="icon icon-dropdown-gray-dark"></span>
-				</div>
-				<select name="stype[]" class="form-control">
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-					<option value="name">닉네임</option>
-					<option value="mid">아이디</option>
-				</select>
-			</div>
-		</div>
-		<div class="menu-wrap">
-								<c:if test="${session_member_name == 'admin' }">
-									<button type="button" onclick="onWrite()"
-										class="btn btn-primary">쓰기</button>
-							</c:if>
 
-								<!-- <button type="button" onclick="onList()" class="btn btn-primary">목록</button> -->
-							</div>
-		<div class="col-xs-10 col-sm-7 col-md-6">
-			<input name="sword" type="text" value="" class="xx-control">
-		</div>
-		
-		<div id="dataTables-example_filter" class="dataTables_filter">
-								<form action="">
-									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="0">제목</option>
-										<option value="1">내용</option>
-
-									</select> 
-									<input class="form-control" type="text" name="isSearch" id="isSearch" /> 
-									<span>
-										<button type="submit" class="button-label">검색</button>
-									</span>
-									</form>
-									
-							</div>
-	</div>
-</fieldset>
 </form>
 
 
