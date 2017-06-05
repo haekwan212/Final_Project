@@ -39,4 +39,14 @@
 			UPDATE GOODS SET GOODS_DCPRICE = NULL, GOODS_SALEDATE=NULL WHERE GOODS_SALEDATE<SYSDATE
 		]]>
 	</update>
+	
+		<select resultType="hashmap" parameterType="hashmap" id="adImages">
+	<![CDATA[ 
+	SELECT 
+		* 
+	FROM AD 
+	WHERE AD_POSTING = '1'
+	ORDER BY AD_NUMBER DESC
+	]]>
+	</select>
 </mapper>
