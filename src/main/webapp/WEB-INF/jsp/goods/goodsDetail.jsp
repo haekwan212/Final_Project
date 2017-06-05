@@ -957,7 +957,7 @@ function _exec(mode){
 													/
 													<fmt:formatDate value="${goodsReview.REVIEW_REGDATE}"
 														pattern="YYYY-MM-dd HH:mm" />
-													/ 2017-04-18 10:15:06
+													
 												</p>
 											</div>
 											<div class="rating">
