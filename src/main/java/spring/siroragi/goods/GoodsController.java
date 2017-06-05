@@ -34,7 +34,7 @@ public class GoodsController {
 		//new태그 날짜조정
 		public static final int DATE_DATE=10; 
 		//페이징 숫자
-		public static final int pagingSet=3; 
+		public static final int pagingSet=5; 
 	
 
 	//페이지이동 및 검색
