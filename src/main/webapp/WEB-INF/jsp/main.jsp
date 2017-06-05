@@ -176,25 +176,22 @@
 	<div class="section-body container">
 		<div class="store-search-form col-lg-18">
 			<p>가까운 SIRORAGI 매장을 빠르게 찾아보세요</p>
-			<form action="/about/store_locator">
+			<form action="/SIRORAGI/store_locator_view">
 				<div class="x-group col-xs-24 col-md-auto">
 					<div class="x-group-addon">
 						<span class="icon icon-pin-white"></span>
 					</div>
-					<input class="xx-control" type="text" id="global-search" placeholder="지역 또는 매장명을 입력 (명동, 부산 등)" size="40" value="" name="stxt">
+					<input class="xx-control" type="text" id="global-search" placeholder="지역 또는 매장명을 입력 (강남, 명동 등)" size="40" value="" name="STORE_NAME">
 
-					<ul class="search-layer" id="search-result"></ul>
-				
 				</div>
 			</form>
 			<ul class="related-list">
-				<li class="title"><strong>최근 오픈 매장</strong></li>
-				<li><a href="/about/store_locator_view?vid=311">롯데백화점 영등포</a></li>
-				<li><a href="/about/store_locator_view?vid=310">롯데청주아울렛</a></li>
-				<li><a href="/about/store_locator_view?vid=308">원주</a></li>
-				<li><a href="/about/store_locator_view?vid=307">구미 해마루</a></li>
-				<li><a href="/about/store_locator_view?vid=306">김천역</a></li>
-			</ul>
+							<li class="title"><strong>최근 오픈 매장</strong></li>
+							<li><a href="store_locator_view?STORE_NAME=광명점">광명점</a></li>
+							<li><a href="store_locator_view?STORE_NAME=관악점">관악점</a></li>
+							<li><a href="store_locator_view?STORE_NAME=명동점">명동점</a></li>
+							<li><a href="store_locator_view?STORE_NAME=강남점">강남점</a></li>
+						</ul>
 		</div>
 		<div class="eshop-now col-lg-6">
 			<em class="or"><span>or</span></em>

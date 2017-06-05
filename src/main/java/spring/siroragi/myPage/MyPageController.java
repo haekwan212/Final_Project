@@ -1,6 +1,7 @@
 package spring.siroragi.myPage;
 
 import java.io.File;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -48,6 +49,33 @@ public class MyPageController {
 		mv.addObject("sumPoint", sumPoint.get("SUM"));
 		mv.addObject("newAlarm", newAlarm);
 		mv.addObject("selectOtoCount", selectOtoCount);
+		return mv;
+	}
+	
+	@RequestMapping(value="/orderlist")
+	@ResponseBody
+	public ModelAndView orderlist(HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView("orderlist");
+		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
+		List<Map<String, Object>> list = mypageService.selectOrderList(mem_num);
+		System.out.println("목록:"+list.toString());
+		mv.addObject("list", list);
+		return mv;
+	}
+	@RequestMapping(value="/orderlist/payUpdate")
+	@ResponseBody
+	public ModelAndView orderlist_pay_update(CommandMap commandMap, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView("orderlist");
+		String flag = URLDecoder.decode(commandMap.get("flag").toString(), "utf-8");
+		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
+		if(flag.equals("구매취소")){
+			mypageService.cancel_order(commandMap.getMap());
+		}else{
+			mypageService.confirm_order(commandMap.getMap());
+		}
+		List<Map<String, Object>> list = mypageService.selectOrderList(mem_num);
+		System.out.println("목록:"+list.toString());
+		mv.addObject("list", list);
 		return mv;
 	}
 	
@@ -110,32 +138,70 @@ public class MyPageController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/orderlist")
-	@ResponseBody
-	public ModelAndView orderlist(HttpSession session) throws Exception{
-		ModelAndView mv = new ModelAndView("orderlist");
-		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
-		List<Map<String, Object>> list = mypageService.selectOrderList(mem_num);
-		System.out.println("목록:"+list.toString());
-		mv.addObject("list", list);
-		return mv;
-	}
+
 	
 	@RequestMapping(value="/exchangelist")
 	@ResponseBody
 	public ModelAndView exchangelist(HttpSession session) throws Exception{
+		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
+		List<Map<String, Object>> list = mypageService.selectExchangeList(mem_num);
 		ModelAndView mv = new ModelAndView("exchangelist");
+		mv.addObject("list", list);
+		return mv;
+	}
+	
+	@RequestMapping(value="/exchangelist/form")
+	@ResponseBody
+	public ModelAndView exchangelistForm(CommandMap commandMap) throws Exception{
+		ModelAndView mv = new ModelAndView("modal_exchangeForm");
+		String orderNumber = commandMap.get("ORDER_NUMBER").toString();
+		mv.addObject("ORDER_NUMBER", orderNumber);
+		return mv;
+	}
+	
+	@RequestMapping(value="/exchangelist/write", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView exchangelistWrite(CommandMap commandmap) throws Exception{
+		System.out.println(commandmap.getMap().toString());
+		ModelAndView mv = new ModelAndView();
+		mypageService.updateExchange(commandmap.getMap());
+		mv.setViewName("redirect:/mypage#exchangelist");
 		return mv;
 	}
 	
 	@RequestMapping(value="/returnlist")
 	@ResponseBody
 	public ModelAndView returnlist(HttpSession session) throws Exception{
+		
+		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
+		List<Map<String, Object>> list = mypageService.selectReturnList(mem_num);
+		
 		ModelAndView mv = new ModelAndView();
 		Map<String, Object> sumMap = new HashMap<String, Object>();
+		mv.addObject("list", list);
 		sumMap.put("MEMBER_NUMBER", session.getAttribute("MEMBER_NUMBER"));
 		return mv;
 	}
+	
+	@RequestMapping(value="/returnlist/form")
+	@ResponseBody
+	public ModelAndView returnlistForm(CommandMap commandMap) throws Exception{
+		ModelAndView mv = new ModelAndView("modal_returnForm");
+		String orderNumber = commandMap.get("ORDER_NUMBER").toString();
+		mv.addObject("ORDER_NUMBER", orderNumber);
+		return mv;
+	}
+	
+	@RequestMapping(value="/returnlist/write", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView returnlistWrite(CommandMap commandmap) throws Exception{
+		System.out.println(commandmap.getMap().toString());
+		ModelAndView mv = new ModelAndView();
+		mypageService.updateReturn(commandmap.getMap());
+		mv.setViewName("redirect:/mypage#returnlist");
+		return mv;
+	}
+	
 	
 	@RequestMapping(value="/review")
 	@ResponseBody

@@ -17,16 +17,69 @@
 								<tr>
 									<th></th>
 									<th class="info-img">상품 정보</th>
-									<th class="info-caption">&nbsp;</th>
 									<th class="date">주문 일자</th>
 									<th class="number">주문 번호</th>
 									<th class="payment">결제 금액/방법</th>
 									<th class="delivery">배송 정보</th>
 									<th class="situation">진행 현황</th>
+									<th class="situation">결제 상태</th>
+									<th class="situation">반품 신청</th>
 								</tr>
 							</thead>
 							<tbody>
-								<!--  -->
+							<c:choose>
+							<c:when test="${list eq null }">
+							<tbody>
+							</tbody>
+							</c:when>
+							<c:otherwise>
+							<tbody>
+							<c:forEach items="${list }" var="order">
+									<tr>
+									<td class="info-img"><a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${order.GOODS_NUMBER }">
+									<img img_layer="/SIRORAGI/file/goodsfile/${order.GOODS_THUMBNAIL}" goodsno="${order.GOODS_NUMBER }" src="/SIRORAGI/file/goodsfile/${order.GOODS_THUMBNAIL}" class="img-responsive"></a>
+									<input type="hidden" id="order" value="${order.ORDER_NUMBER}" name="order">
+									</td>
+									<td class="info-caption">
+									<strong class="brand">SIRORAGI</strong>
+									<em class="name">${order.GOODS_NAME}*${order.ORDER_AMOUNT}개</em>
+									</td>
+									<td class="date">${order.ORDER_DATE}</td>
+									<td class="number" id="order">${order.ORDER_CODE }</td>
+									<td class="payment">${order.GOODS_TOTAL }원/무통장입금</td>
+									<td class="delivery">${order.DELIVERY_STATE }</td>
+									<td class="situation">${order.GOODS_PAY_STATE }</td>
+									<c:choose>
+									<c:when test="${order.GOODS_STATE eq '주문취소'}">
+									<td class="situation"><font color='red'>${order.GOODS_STATE }</font></td>
+									</c:when>
+									<c:when test="${order.GOODS_STATE eq '반품신청' or order.GOODS_STATE eq '교환신청'}">
+									<td class="situation"><font color='orange'>${order.GOODS_STATE }</font></td>
+									</c:when>
+									<c:otherwise>
+									<td class="situation"><font color='green'>${order.GOODS_STATE }</font></td>
+									</c:otherwise>
+									</c:choose>
+									<c:choose>
+									<c:when test="${order.GOODS_STATE eq '구매확정' }">
+									<td>
+									<div class="section-foot">
+									<a class="button" target="modal" data-size="md" data-label="반품신청" href="/SIRORAGI/returnlist/form?ORDER_NUMBER=${order.ORDER_NUMBER }">
+									<span class="button-label">반품신청</span>
+									</a>
+									</div>
+									</td>
+									</c:when>
+									<c:otherwise>
+										<td>
+										</td>
+									</c:otherwise>
+									</c:choose>
+									</tr>
+							</c:forEach>	
+							</tbody>
+							</c:otherwise>
+							</c:choose>
 							</tbody>
 						</table>
 					</div>
@@ -40,11 +93,7 @@
 						
 					</div>
 				</div>
-				<div class="section-foot">
-					<a class="button" href="#" id="exBtn">
-						<span class="button-label">반품신청</span>
-					</a>
-				</div>
+
 				<!-- account-list-page-navigator//end -->
 			</section>
 			<!-- order-list//end -->
@@ -60,11 +109,7 @@
 							<li><b class="red">1. 마이페이지▶ 반품신청/조회▶ 상품 선택 후 [반품신청]</b> click (동일업체 상품별 신청 가능)</li>
 							<li>2. 반품 정보 입력 후 <b class="red">배송비 결제</b> 진행</li>
 							<li>3. 회수된 상품을 확인 후 환불 진행 (수거 서비스 신청 시 택배기사 2~3일 이내 방문)</li>
-						</ul>
-						<div class="row">
-							<div class="col-sm-12 col-md-11"><img src="http://pic.styleindex.co.kr/skin/nztr/img/returnlist_01.jpg" class="img-responsive"></div>
-							<div class="col-sm-12 col-md-11"><img src="http://pic.styleindex.co.kr/skin/nztr/img/returnlist_02.jpg" class="img-responsive"></div>
-						</div>
+						</ul>	
 					</div>
 					<div class="guide-situation">
 						<ul>
@@ -76,13 +121,5 @@
 						</ul>
 					</div>
 				</div>
-				<!-- guide-list//end -->
-				<div class="section-foot">
-					<a class="button col-xs-offset-6 col-xs-12 col-md-offset-9 col-md-6" href="/mypage/selfpay">
-						<span class="button-label">부분결제 바로가기</span>
-					</a>
-				</div>
-				<!-- action//end -->
-
 			</section>
 		</div>
