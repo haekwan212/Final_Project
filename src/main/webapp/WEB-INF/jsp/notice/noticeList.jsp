@@ -258,9 +258,20 @@ Total <b>${totalCount}</b>
 			<input name="sword" type="text" value="" class="xx-control">
 		</div>
 		
-		<button type="submit" class="button button-dimmed col-xs-4 col-sm-3 col-md-3">
-			<span class="button-label">검색</span>
-		</button>
+		<div id="dataTables-example_filter" class="dataTables_filter">
+								<form action="">
+									<select class="form-control" name="searchNum" id="searchNum">
+										<option value="0">제목</option>
+										<option value="1">내용</option>
+
+									</select> 
+									<input class="form-control" type="text" name="isSearch" id="isSearch" /> 
+									<span>
+										<button type="submit" class="button-label">검색</button>
+									</span>
+									</form>
+									
+							</div>
 	</div>
 </fieldset>
 </form>

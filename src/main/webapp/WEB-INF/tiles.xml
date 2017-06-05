@@ -51,15 +51,12 @@
 	<definition name="qnaForm" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/qna/qnaForm.jsp" />
 	</definition>
-<<<<<<< HEAD
 
 	<definition name="qnaDetail" extends="admin">
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/qna/qnaDetail.jsp" />
 	</definition>
-=======
->>>>>>> 87df90845b63da27769efa5162a63c95ae707953
-	
+
 	<definition name="qnaDetail" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/qna/qnaDetail.jsp" />
 	</definition>

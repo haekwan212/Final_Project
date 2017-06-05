@@ -69,7 +69,7 @@
 	</select>
 	
 	<!-- 글제목 검색 -->
-	<!-- <select id="searchTitleList" resultType="hashmap" parameterType="hashmap">
+	<select id="noticeSearchTitleList" resultType="hashmap" parameterType="hashmap">
 			<![CDATA[
 		SELECT 
 			NOTICE_NUMBER,
@@ -80,11 +80,11 @@
 		WHERE NOTICE_TITLE like '%' || #{isSearch} || '%'
 		ORDER BY NOTICE_NUMBER DESC
 	]]>
-	</select> -->
+	</select>
 
 
 	<!-- 글내용 검색 -->
-	<!-- <select id="searchContentList" resultType="hashmap"
+	<select id="noticeSearchContentList" resultType="hashmap"
 		parameterType="hashmap">
 			<![CDATA[
 		SELECT 
@@ -97,7 +97,7 @@
 		WHERE NOTICE_CONTENT like '%' || #{isSearch} || '%'
 		ORDER BY NOTICE_NUMBER DESC
 	]]>
-	</select> -->
+	</select>
 	
 	
 	

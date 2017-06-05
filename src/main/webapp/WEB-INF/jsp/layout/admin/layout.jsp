@@ -64,10 +64,10 @@
                     <ul class="nav" id="side-menu">
                         
                         <li>
-                            <a href="/SIRORAGI/admin/adminPage" style="background: #e7e7e7;border-bottom: 1px solid #F8F8F8;"><i class="fa fa-dashboard fa-fw"></i>관리자홈</a>
+                            <a href="/SIRORAGI/admin/adminPage" style="background: #e7e7e7;border-bottom: 1px solid #F8F8F8;"><i class="fa fa-dashboard fa-fw"></i>관리자홈</a>
                         </li>
 						<li>
-                            <a href="/SIRORAGI/main" style="background: #e7e7e7;border-bottom: 1px solid #F8F8F8;"><i class="fa fa-dashboard fa-fw"></i>쇼핑몰로 이동</a>
+                            <a href="/SIRORAGI/main" style="background: #e7e7e7;border-bottom: 1px solid #F8F8F8;"><i class="fa fa-dashboard fa-fw"></i>쇼핑몰로 이동</a>
                         </li>
 						<li class="active">
                             <a href="#"style="background: #e7e7e7;"><i class="fa fa-bar-chart-o fa-fw"></i>상품관리<span class="fa arrow">▼</span></a>
