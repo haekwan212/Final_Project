@@ -35,13 +35,15 @@
 	<c:forEach var="orderForm"  items="${goods}" varStatus="stat">
 		<input type="hidden" name="ea[]" value="${orderForm.EA }">
 		<input type="hidden" name="kinds[]" value="${orderForm.GOODS_KINDS_NUMBER }">
-		<input type="hidden" name="goods_total[]" value="${orderForm.TOTALPRICE }">
+		<input type="hidden" name="goods_total[]" value="${orderForm.TOTALPRICE - usePoint }">
+		
 		<input type="hidden" name="GOODS_NUMBER" value="${orderForm.GOODS_NUMBER }">
 	</c:forEach>
 	
 	<input type="hidden" name="guestPhone" value="${guestPhone }">
 	<input type="hidden" name="guestEmail" value="${guestEmail }">
 	<input type="hidden" name="guestName" value="${guestName }">
+	<input type="hidden" name="usePoint" value="${usePoint}">
 	
 	<input type="hidden" name="MEMBER_NUMBER" value="${orderMember.MEMBER_NUMBER }">
 	<input type="hidden" name="RECEIVER_NAME" value="${RECEIVER_NAME }">
@@ -53,6 +55,8 @@
 	<input type="hidden" name="GOODS_NUMBER" value="${GOODS_NUMBER }">
 	<c:forEach var="orderDetail"  items="${goods}" varStatus="stat">
 			<c:set var= "sum" value="${sum + orderDetail.TOTALPRICE}"/>
+			<%-- <c:set var= "goodsPrice" value="${orderDetail.GOODS_PRICE}"/>
+			<c:set var= "goodsDCPrice" value="${orderDetail.GOODS_DCPRICE}"/> --%>
 		</c:forEach>
 	<input type="hidden" name="TOTALPRICE" value="${sum }">
 	
@@ -190,21 +194,25 @@
 		<thead>
 			<tr>
 				<th></th>
+				
 				<th class="info-img">상품 정보</th>
 				<th class="info-caption">&nbsp;</th>
 				<th class="coupon">적립 포인트</th>
 				<th class="payment">상품 금액</th>
-				<th class="sale">할인 금액</th>
+				<th class="sale">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 				<th class="delivery">배송비</th>
 			</tr>
 		</thead>
 		<c:forEach var="orderDetail"  items="${goods}" varStatus="stat">
+		<c:url var="viewURL" value="/goodsDetail">
+				<c:param name="GOODS_NUMBER" value="${orderForm.GOODS_NUMBER }" />
+		</c:url>
 		<tbody>
 			<tr>
 				<td>
 				</td>
 				<td class="info-img">
-					<a href="../goods/1495762828"><img src="/SIRORAGI/file/goodsFile/${orderDetail.GOODS_THUMBNAIL}" width="100" height="100" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /></a>
+					<a href="${viewURL}"><img src="/SIRORAGI/file/goodsFile/${orderDetail.GOODS_THUMBNAIL}" width="100" height="100" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /></a>
 				</td>
 				<td class="info-caption">
 					<strong class="brand">SIRORAGI</strong>
@@ -259,7 +267,7 @@
 										<strong>상품 금액</strong>
 									</div>
 									<div>
-										<em><fmt:formatNumber value="${sum }" type="number" />원</em>
+										<em><fmt:formatNumber value="${goodsPrice }" type="number" />원</em>
 									</div>
 								</div>
 								<div class="item col-xs-12">
@@ -282,7 +290,7 @@
 						<div class="discount col-sm-8 col-lg-24">
 							<div class="sum">
 								<em>할인 금액 합계</em>
-								<strong>-<font id="dis_sum">0원</font></strong>
+								<strong>-<font id="dis_sum">${usePoint}원</font></strong>
 							</div>
 							<div class="detail">
 								<div class="item div-dcMemer col-xs-12">
@@ -299,7 +307,7 @@
 									</div>
 									<div>
 										<!--em>-0원</em-->
-										<strong>-<span class="v_coupon">0</span>원</strong>
+										<strong>-<span class="v_coupon">${usePoint}</span>원</strong>
 									</div>
 								</div>
 								<!--
@@ -319,15 +327,15 @@
 								<em>최종 결제 금액</em>
 								<c:choose>
 									<c:when test="${sum >= 30000}">
-								<strong><fmt:formatNumber value="${sum }" type="number" />원</strong>
+								<strong><fmt:formatNumber value="${sum - usePoint }" type="number" />원</strong>
 								</c:when>
 								<c:otherwise>
-								<strong><fmt:formatNumber value="${sum + 2500}" type="number" />원</strong>
+								<strong><fmt:formatNumber value="${sum - usePoint + 2500}" type="number" />원</strong>
 								</c:otherwise>
 								</c:choose>
 							</div>
 							<div class="detail">
-								<p>고객님은 총 <strong id="disPer" class="point">0%</strong> <strong class="point">할인</strong>,<br><strong id="disWon" class="point">0원</strong>을 할인 받았습니다.</p>
+								<p>고객님은 총 <strong id="disPer" class="point"><fmt:formatNumber value="${100-((sum - usePoint)*100 / sum)}" type="number" /> %</strong> <strong class="point">할인</strong>,<br><strong id="disWon" class="point">${usePoint}원</strong>을 할인 받았습니다.</p>
 							</div>
 						</div>
 					</div>
