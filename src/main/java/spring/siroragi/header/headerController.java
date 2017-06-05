@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,19 +51,27 @@ public class headerController {
 		System.out.println(request.getParameter("STORE_NAME"));
 
 		Map<String, Object> list = storeService.storeSelect(commandMap.getMap());
-		
+
 		mv.addObject("list", list);
-		
-		if(list == null) {
-			
+
+		if (list == null) {
+
 			mv = new ModelAndView("store_locator");
-			
+
 			List<Map<String, Object>> list1 = storeService.storeList(commandMap.getMap());
 
 			mv.addObject("list", list1);
-			
+
 			return mv;
 		}
+
+		return mv;
+	}
+
+	@RequestMapping(value = "agreement")
+	public ModelAndView agreement(CommandMap commandMap, HttpServletRequest request) throws Exception {
+
+		ModelAndView mv = new ModelAndView("agreement");
 
 		return mv;
 	}
