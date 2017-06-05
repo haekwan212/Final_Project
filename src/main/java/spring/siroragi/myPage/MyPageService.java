@@ -19,6 +19,8 @@ public interface MyPageService {
 	
 	void updateExchange(Map<String, Object> map) throws Exception;
 	
+	void insertCancelList(Map<String, Object> map) throws Exception;
+	
 	Map<String, Object> myinfoDetail(String id) throws Exception;
 	
 	List<Map<String, Object>> selectOtoList(String mem_num) throws Exception;

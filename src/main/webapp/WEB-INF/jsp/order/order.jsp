@@ -241,7 +241,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 													value="${orderList.GOODS_TOTAL}" type="number" />원
 												<div style='display: none;'>${orderList.ORDER_CODE}</div></td>
 											<td style="text-align: center; vertical-align: middle;">
-												<c:if test="${orderList.GOODS_STATE eq null}">
+												<c:if test="${orderList.GOODS_STATE eq '주문진행중'}">
 
 													
 													<select id="${orderList.ORDER_CODE }" name="GOODS_PAY_STATE"
@@ -257,7 +257,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 													</select>
 
 													<div style='display: none;'>${orderList.ORDER_CODE}</div>
-												</c:if> <c:if test="${orderList.GOODS_STATE ne null}">
+												</c:if> <c:if test="${orderList.GOODS_STATE ne '주문진행중'}">
 													<c:if test="${orderList.GOODS_STATE eq '구매확정' ||orderList.GOODS_STATE eq '취소완료' || orderList.GOODS_STATE eq '교환완료' || orderList.GOODS_STATE eq '반품완료'}">
 														${orderList.GOODS_STATE}
 													</c:if>

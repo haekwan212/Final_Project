@@ -465,7 +465,14 @@ public class OrderController {
 			orderGoods.put("EA", ea[i]);
 
 			goods.add(orderGoods);
+			
 			mv.addObject("usePoint",commandMap.getMap().get("POINT_POINT"));
+			if(commandMap.getMap().get("POINT_POINT") == "")
+			{
+				System.out.println("야호1"+commandMap.getMap().get("POINT_POINT"));
+				mv.addObject("usePoint",0);
+			}
+			
 
 			System.out.println("goods : " + goods);
 
@@ -505,6 +512,7 @@ public class OrderController {
 						}
 					}
 				//sale 끝
+					
 					
 		mv.addObject("goods_kinds_number", goods_kinds_number);
 		mv.addObject("ea", ea);

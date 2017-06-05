@@ -525,8 +525,9 @@ function ajaxChangePoint() {
 	
 	
 		
-	if(myPoint>usePoint)
-	{
+	if(myPoint>=usePoint)
+	{//
+
 		nowPoint=myPoint-usePoint;
 		document.getElementById("myPoint").value = myPoint-usePoint +"원";
 		//console.log("나우포인트"+nowPoint);
@@ -539,6 +540,7 @@ function ajaxChangePoint() {
 		    	  $("#changeOrderTable").html(data);
 		      }
 		   });   
+		
 	}
 	
 		else{
