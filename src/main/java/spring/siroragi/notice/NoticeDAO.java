@@ -49,15 +49,13 @@ public class NoticeDAO extends AbstractDAO{
 	public void noticeForm(Map<String, Object> map) throws Exception{
 		update("notice.noticeForm", map);
 	}
-	
-	//공지사항 검색
-	public List<Map<String, Object>> searchTitleList(Map<String, Object> map) {
-		return (List<Map<String, Object>>)selectList("notice.searchTitleList", map);
-	}
-	
-	//공지사항 검색
-		public List<Map<String, Object>> searchContentList(Map<String, Object> map) {
-			return (List<Map<String, Object>>)selectList("notice.searchContentList", map);
+	// 제목 검색
+	public List<Map<String, Object>> noticeSearchTitleList(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>)selectList("notice.noticeSearchTitleList", map);
+		}
+	//내용 검색
+	public List<Map<String, Object>> noticeSearchContentList(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>)selectList("notice.noticeSearchContentList", map);
 		}
 	// 파일첨부1
 	public void noticeImage1(Map<String,Object> map) throws Exception {

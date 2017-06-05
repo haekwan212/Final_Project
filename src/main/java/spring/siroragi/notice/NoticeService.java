@@ -23,8 +23,13 @@ public interface NoticeService {
 
 		// 공지사항 폼으로 이동
 		void noticeForm(Map<String, Object> map) throws Exception;
-	// 공지사항 검색
 		
+		// 공지사항 제목 검색
+		List<Map<String, Object>> noticeSearchTitleList(Map<String, Object> map) throws Exception;
+
+		// 공지사항 내용 검색
+		List<Map<String, Object>> noticeSearchContentList(Map<String, Object> map) throws Exception;
+
 		// 파일첨부1
 		public void noticeImage1(Map<String,Object> map) throws Exception;
 }

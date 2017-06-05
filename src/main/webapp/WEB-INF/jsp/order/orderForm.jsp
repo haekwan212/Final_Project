@@ -29,7 +29,7 @@
 	<!-- step-panels//end -->
 <script>
 
-function ajaxExample(){
+/* function ajaxExample(){
     // 사용자 ID를 갖고 온다.
     var POINT_POINT = -$("#POINT_POINT").val();
     var MEMBER_NUMBER = "${orderMember.MEMBER_NUMBER}";
@@ -63,7 +63,7 @@ function ajaxExample(){
 	// 스크립트에 value값 가지고 오기
 	POINT_POINT=document.getElementById("POINT_POINT").value
 	location.href="/SIRORAGI/order/updatePoint?MEMBER_NUMBER=" + MEMBER_NUMBER + "&POINT_POINT=-"+ POINT_POINT;
-}
+} */
 </script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
@@ -112,9 +112,11 @@ function ajaxExample(){
 
 	<form method="post" name="frmOrder" action="orderDetail" >
 	<c:forEach var="orderForm"  items="${goods}" varStatus="stat">
-		<input type="hidden" name="ea[]" value="${orderForm.EA }">
-		<input type="hidden" name="kinds[]" value="${orderForm.GOODS_KINDS_NUMBER }">
+		<input type="hidden" id="ea[]" name="ea[]" value="${orderForm.EA }">
+		<input type="hidden" id="kinds[]" name="kinds[]" value="${orderForm.GOODS_KINDS_NUMBER }">
 		<input type="hidden" name="GOODS_NUMBER" value="${orderForm.GOODS_NUMBER }">
+		
+		
 	</c:forEach>
 	<input type="hidden" name="MEMBER_ID" value="${orderMember.MEMBER_ID }">
 	<%-- <input type="hidden" name="GOODS_NUMBER" value="${GOODS_NUMBER }"> --%>
@@ -263,12 +265,15 @@ function ajaxExample(){
 			</tr>
 		</thead>
 		<c:forEach var="orderForm"  items="${goods}" varStatus="stat">
+		<c:url var="viewURL" value="/goodsDetail">
+				<c:param name="GOODS_NUMBER" value="${orderForm.GOODS_NUMBER }" />
+		</c:url>
 		<tbody>
 			<tr>
 				<td>
 				</td>
 				<td class="info-img">
-					<a href="../goods/1495762828"><img src="/SIRORAGI/file/goodsFile/${orderForm.GOODS_THUMBNAIL}" width="100" height="100" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /></a>
+					<a href="${viewURL }"><img src="/SIRORAGI/file/goodsFile/${orderForm.GOODS_THUMBNAIL}" width="100" height="100" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /></a>
 				</td>
 				<td class="info-caption">
 					<strong class="brand">SIRORAGI</strong>
@@ -328,7 +333,7 @@ function ajaxExample(){
 						</div>
 						<div class="col-lg-21 col-md-20">
 							<div class="input-box">
-								<input type="text" id="input-cell-phone01" name="mobileOrder[]" disabled="disabled"  value="<fmt:formatNumber value="${orderMember.MEMBER_POINT }" type="number" />원" class="xx-control" required="" alt="휴대폰번호를 입력하세요." maxlength="14">
+								<input type="text" id="myPoint" name="myPoint" disabled="disabled"  value="${orderMember.MEMBER_POINT }원" class="xx-control" required="" alt="휴대폰번호를 입력하세요." maxlength="14">
 							</div>
 						</div>
 					</li>
@@ -339,8 +344,8 @@ function ajaxExample(){
 							</label>
 						</div>
 						<div class="col-lg-21 col-md-20">
-							<input type="text" id="POINT_POINT" name="POINT_POINT"  class="xx-control"  maxlength="3">
-								<span class="button button-dimmed" onclick="ajaxExample();" style="cursor:pointer">사용하기</span>
+							<input type="text" id="POINT_POINT" name="POINT_POINT"  class="xx-control">
+								<span class="button button-dimmed" onclick="javascript:ajaxChangePoint();" style="cursor:pointer">사용하기</span>
 						</div>
 					</li>
 				</ul>
@@ -349,7 +354,7 @@ function ajaxExample(){
 </div>
 		<div class="col-lg-6">
 
-			<section class="sum-calculator section">
+			<section class="sum-calculator section" id="changeOrderTable">
 				<div class="box-shadow">
 					<div class="section-head left border">
 						<h3>주문 요약</h3>
@@ -414,7 +419,7 @@ function ajaxExample(){
 						</div>
 						<div class="total col-sm-8 col-lg-24">
 							<div class="sum">
-								<em>최종 결제 금액</em> <!-- 로직 다시 손봐야댐 -->
+								<em>최종 결제 금액</em> 
 								<c:choose>
 									<c:when test="${sum >= 30000}">
 								<strong><fmt:formatNumber value="${sum }" type="number" />원</strong>
@@ -481,3 +486,75 @@ function ajaxExample(){
 
 	<!-- page-action//end -->
 </div>
+<script>
+/* 
+$("POINT_POINT").change(function () {
+	 //var str = ""; 
+	/* $("select option:selected").each(function () {
+		str += $(this).text() + " "; });  
+	 $("myPoint").text(3000); }) .change();
+ */
+function ajaxChangePoint() {
+	var myPoint= ${orderMember.MEMBER_POINT};
+	var usePoint = document.getElementById("POINT_POINT").value;
+	var pointCheck ="ON";
+	var goods_kinds_number='${goods_kinds_number}'; //이상함
+	var goods_kinds_number_real= document.getElementById("kinds[]").value;
+	var GOODS_NUMBER='${GOODS_NUMBER}';//확인됨
+	var EA=document.getElementById("ea[]").value;
+	
+	var sum='${sum}';//확인됨
+	
+	console.log("goods_kinds_number :"+goods_kinds_number+"\n GOODS_NUMBER"+GOODS_NUMBER +"\n EA"+EA+"\n goods_kinds_number_real"+ goods_kinds_number_real);
+	
+	//var usePoint = document.getElementsByName('POINT_POINT').value;
+	
+	var nowPoint;
+	
+/* 	if(sum<usePoint){
+		document.getElementById("myPoint").value = myPoint+"원";
+		document.getElementById("POINT_POINT").value =null;
+		alert("상품금액을 넘었습니다.");
+	} */
+	
+/* 	if(document.getElementById("POINT_POINT").value>sum){
+		document.getElementById("myPoint").value = myPoint+"원";
+		document.getElementById("POINT_POINT").value =null;
+		alert("상품금액을 넘었습니다.");
+	} */
+	
+	
+		
+	if(myPoint>=usePoint)
+	{//
+
+		nowPoint=myPoint-usePoint;
+		document.getElementById("myPoint").value = myPoint-usePoint +"원";
+		//console.log("나우포인트"+nowPoint);
+		
+		  $.ajax({
+		      url: "/SIRORAGI/orderPoint",
+		      type : "post",
+		      data: {"myPoint":myPoint,"usePoint":usePoint,"pointCheck":pointCheck,"EA":EA,"GOODS_NUMBER":GOODS_NUMBER,"GOODS_KINDS_NUMBER":goods_kinds_number_real},
+		      success:function(data){
+		    	  $("#changeOrderTable").html(data);
+		      }
+		   });   
+		
+	}
+	
+		else{
+			document.getElementById("myPoint").value = myPoint+"원";
+			document.getElementById("POINT_POINT").value =null;
+			alert("포인트가 부족합니다.");
+		}
+	
+	
+	
+	
+
+	
+	console.log("내포인트 : "+myPoint+"사용할포인트"+usePoint);
+	
+}
+</script>

@@ -348,7 +348,7 @@
 							</div> -->
 
 						</div>
-						<div class="section-foot more">
+							 <div class="section-foot more">
 							<a class="button button hidden-md hidden-lg" id="filterMore">
 								<span class="button-label">MORE FILTER</span>
 							</a>

@@ -32,7 +32,7 @@
 		  box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
 }
 .paging a:first-child{margin-left:0;}
-.paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
+.paging strong{color:#fff;background:#ffc000;border:1px solid #ffc000;}
 .paging .page_arw{font-size:11px;line-height:30px;}
 </style>
 </head>

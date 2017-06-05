@@ -78,7 +78,7 @@
 						<strong>결제금액</strong>
 					</div>
 					<div class="text-bold col-lg-21 col-md-20">
-						<em><fmt:formatNumber value="${TOTALPRICE }" type="number" />원</em>
+						<em><fmt:formatNumber value="${TOTALPRICE}" type="number" />원</em>
 					</div>
 				</li>
 			</ul>
