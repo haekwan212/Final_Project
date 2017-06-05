@@ -36,6 +36,10 @@ public class MyPageDAO extends AbstractDAO {
 	 void updateExchange(Map<String, Object> map) throws Exception{
 		 update("mypage.updateExchange", map);
 	 }
+	 
+	 void insertCancelList(Map<String, Object> map) throws Exception{
+		 insert("mypage.insertCancelList", map);
+	 }
 	 //마이페이지 정보 불러오기
 	 @SuppressWarnings("unchecked")
 	 Map<String, Object> myinfoDetail(String id) throws Exception{

@@ -6,9 +6,28 @@
  	<script>
 function pay_update(order_code,flag){
 	var order_code = order_code;
-	var en_flag = encodeURIComponent(flag);
+	var en_flag = flag;
 	var mem_num = ${sessionScope.MEMBER_NUMBER};
+	alert(en_flag);
 if(confirm("정말 주문취소 하시겠습니까?") == true){
+	$.ajax({
+		url: "/SIRORAGI/orderlist/payUpdate",
+		data : {"ORDER_NUMBER": order_code, "MEMBER_NUMBER":mem_num, "flag":en_flag},
+		type: "get",
+		async:false,
+		success : function(data){
+			$("#account-contentsWrap").html(data);
+		}
+	})}else{
+		return;
+	}
+}
+function pay_update2(order_code,flag){
+	var order_code = order_code;
+	var en_flag = flag;
+	var mem_num = ${sessionScope.MEMBER_NUMBER};
+	alert(en_flag);
+if(confirm("구매확정 하시겠습니까?") == true){
 	$.ajax({
 		url: "/SIRORAGI/orderlist/payUpdate",
 		data : {"ORDER_NUMBER": order_code, "MEMBER_NUMBER":mem_num, "flag":en_flag},
@@ -88,7 +107,7 @@ if(confirm("정말 주문취소 하시겠습니까?") == true){
 									</c:when>
 									<c:when test="${order.DELIVERY_STATE eq '배송완료' and order.GOODS_PAY_STATE eq '결제완료'}">
 									<td class="action">
-									<input type="button" id="flag" class="btn btn-success" onclick='javascript:pay_update(${order.ORDER_NUMBER},"구매확정")'  value="구매확정">
+									<input type="button" id="flag" class="btn btn-success" onclick='javascript:pay_update2(${order.ORDER_NUMBER},"구매확정")'  value="구매확정">
 									</td>
 									</c:when>
 									</c:choose>

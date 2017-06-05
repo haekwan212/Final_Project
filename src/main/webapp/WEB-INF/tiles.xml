@@ -172,19 +172,7 @@
 	<definition name="searchList" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/searchList.jsp"/>
 	</definition>
-	
-	<definition name="exchangelist" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/exchangelist.jsp"/>
-	</definition>
-	<definition name="returnlist" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/returnlist.jsp"/>
-	</definition>
-	<definition name="review" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/reviewlist.jsp"/>
-	</definition>
-	<definition name="myinfo" extends="common2">
-		<put-attribute name="body" value="/WEB-INF/jsp/myinfo.jsp"/>
-	</definition>
+
 	<!-- 마이페이지 -->
 	
 	
