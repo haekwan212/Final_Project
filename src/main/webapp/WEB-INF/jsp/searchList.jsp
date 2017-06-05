@@ -81,7 +81,7 @@
 		</div>
 	</section>-->
 
-	<section class="storeCatalog search section">
+	<section class="storeCatalog search section" id="changeList">
 		<div class="section-head">
 			<h3 id="search-product">PRODUCT <!-- - 125개의 상품이 있습니다.--></h3>
 			<span class="border"></span>
@@ -169,7 +169,7 @@
 
 
 <c:forEach var="goodsList"  items="${goodsList}" varStatus="stat">
-
+<c:if test="${stat.count <= pagingNum}">
 <c:url var="viewURL" value="/goodsDetail" >
 	<c:param name="GOODS_NUMBER" value="${goodsList.GOODS_NUMBER }" />							
 </c:url>	
@@ -245,7 +245,7 @@
 	</div>
 </li>
 
-
+</c:if>
 </c:forEach>
 	<!--  등록된 상품이 없을때 -->
 <c:if test="${fn:length(goodsList) le 0}">
@@ -279,35 +279,42 @@
 </ul>
 		</div>
 		<div class="section-foot">
-			<button class="button btn-more btn-more-search col-xs-offset-6 col-xs-12 col-md-offset-9 col-md-6" data-mode="search">
+			<button class="button btn-more btn-more-search col-xs-offset-6 col-xs-12 col-md-offset-9 col-md-6" data-mode="search" onclick="javascript:ajaxList();">
 				<span class="button-label">더보기</span>
 			</button>
 		</div>
 	</section>
 
-
-	<!--<section class="storeCatalog search section snaps">
-		<div class="section-head">
-			<h3>SNAP</h3>
-			<span class="border"></span>
-		</div>
-		<div class="section-body">
-			<ul class="catalog ajax-list-snap">
-				&lt;!&ndash; ### ajax snap &ndash;&gt;
-			</ul>
-		</div>
-		<div class="section-foot">
-			<button class="button btn-more btn-more-snap" data-mode="snap">
-				<span class="button-label">더보기</span>
-			</button>
-			<span class="border"></span>
-		</div>
-	</section>-->
 </div>
 </div>
 </div>
 </div>
-
+<script>
+function ajaxList(i){
+	var pagingNum = ${pagingNum};
+	var stxt = '${stxt}';
+	console.log("바보" +pagingNum);
+	
+	if(i!=null)
+	{
+		pagingNum= pagingNum + i;
+	}
+	else
+	{
+		pagingNum= pagingNum + 12;
+	}
+	
+	 
+ 	 $.ajax({
+	      url: "/SIRORAGI/searchList",
+	      type : "post",
+	      data: {"pagingNum":pagingNum,"stxt":stxt},
+	      success:function(data){
+	    	  $("#changeList").html(data);
+	      }
+	   });   
+}
+</script>
 
 
 </body>

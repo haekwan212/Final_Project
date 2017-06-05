@@ -18,6 +18,8 @@ public interface GoodsService {
 	public List<Map<String, Object>> goodsDetail(Map<String, Object> map) throws Exception;
 	// 세일카테고리 세일 상품 불러오기
 	public List<Map<String,Object>> goodsSale(Map<String, Object> map) throws Exception;
+	// 뉴카테고리 뉴 상품 불러오기
+	public List<Map<String,Object>> goodsNew(Map<String, Object> map) throws Exception;
 	
 	
 	// 상품 총 판매량 구하기
@@ -34,5 +36,8 @@ public interface GoodsService {
 
 	// 상품 평점 가져오기
 	public int goodsAvgGrade(Map<String, Object> map) throws Exception;
+	
+	// 상품 QNA 가져오기
+	public List<Map<String, Object>> goodsQna(Map<String, Object> map) throws Exception;
 		
 }

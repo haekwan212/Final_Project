@@ -54,6 +54,9 @@ public interface QnaService {
 	// 제목 검색
 	List<Map<String, Object>> qnaSearchTitleList(Map<String, Object> map) throws Exception;
 
+	// 답변상태 검색
+	public List<Map<String, Object>> qnaRepState(Map<String, Object> map) throws Exception;
+	
 	List<Map<String, Object>> qnaSearchMember(Map<String, Object> map) throws Exception;
 
 	int qnaNewAlarm(Map<String, Object> map) throws Exception;

@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
  <script type="text/javascript">
 if('${message}' != ""){
 	alert('${message}');
@@ -119,11 +122,17 @@ function _exec(mode){
 						<!-- guide//end -->
 						<div class="item order col-xs-24 col-md-offset-4 col-md-16">
 							<form method="post" >
+							
 								<input type="hidden" name="mode" value="guest">
 								<!--<input type="hidden" name="rurl" value="../order/order">-->
 								<div class="input">
 									<div class="email">
 										<input type="text" id="guestEmail" name="guestEmail" class="xx-control" placeholder="이메일" >
+										<c:forEach var="orderForm"  items="${goods}" varStatus="stat">
+		<input type="hidden" name="ea[]" value="${orderForm.EA }">
+		<input type="hidden" name="kinds[]" value="${orderForm.GOODS_KINDS_NUMBER }">
+		<input type="hidden" name="GOODS_NUMBER" value="${orderForm.GOODS_NUMBER }">
+	</c:forEach>
 									</div>
 								</div>
 								<!-- input//end -->

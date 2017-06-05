@@ -56,30 +56,35 @@ $.fn.rowspan = function(colIdx, isStats) {
 	}
 
 	function GOODS_PAY_STATE_CHANGE(number) {
-	
+		
 		var a= number;		
 		var x = $('#'+a+'>option:selected').val();
 		var currentPage =<%=request.getParameter("currentPage")%>;
 		var isSearch =<%=request.getParameter("isSearch")%>;
 		var searchNum =<%=request.getParameter("searchNum")%>;
-		window.location.href = 'orderStateModify?GOODS_PAY_STATE=' + x
+		window.location.href = '/SIRORAGI/order/orderStateModify?GOODS_PAY_STATE=' + x
 				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
 				+ '&searchNum=' + searchNum + '&ORDER_CODE='+a;
+	}
+	function GOODS_STATE_CHANGE(number) {
+		
+		var a= number;		
+		var x = $('#'+a+'>option:selected').val();
+		var currentPage =<%=request.getParameter("currentPage")%>;
+		var isSearch =<%=request.getParameter("isSearch")%>;
+		var searchNum =<%=request.getParameter("searchNum")%>;
+		window.location.href = '/SIRORAGI/order/orderStateModify?GOODS_STATE=' + x
+				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
+				+ '&searchNum=' + searchNum + '&ORDER_CODE='+a+"&cancel=1";
 	}
 
 	function DELIVERY_CHANGE(number) {
 		var a= number;	
 		var y = $('.'+a+'>option:selected').val();
-		var currentPage =
-<%=request.getParameter("currentPage")%>
-	;
-		var isSearch =
-<%=request.getParameter("isSearch")%>
-	;
-		var searchNum =
-<%=request.getParameter("searchNum")%>
-	;
-		window.location.href = 'orderStateModify?DELIVERY_STATE=' + y
+		var currentPage =<%=request.getParameter("currentPage")%>;
+		var isSearch =<%=request.getParameter("isSearch")%>;
+		var searchNum =<%=request.getParameter("searchNum")%>;
+		window.location.href = '/SIRORAGI/order/orderStateModify?DELIVERY_STATE=' + y
 				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
 				+ "&searchNum=" + searchNum+'&ORDER_CODE='+a;
 	}
@@ -133,7 +138,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 		<div class="panel-heading">
 
 
-			주문취소목록페이지 검색, 수정, 삭제 기능하는 페이지입니다.<a href="orderListModify"></a>
+			주문취소목록페이지 검색, 수정, 삭제 기능하는 페이지입니다.
 		</div>
 		<div class="panel-body">
 			<div class="dataTable_wrapper">
@@ -141,38 +146,16 @@ $.fn.rowspan = function(colIdx, isStats) {
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom: 5px;">
 						<div class="col-sm-6">
-							<a href="orderList"><button type="button"
+							<a href="cancelList"><button type="button"
 									class="btn btn-outline btn-default">전체</button></a> <select
 								class="form-control" name="select"
 								onchange="window.open(value,'_self');">
-								<option value="">-----주문상태-----</option>
+								<option value="">--주문상태--</option>
 								<option
-									value="/SIRORAGI/order/orderList?searchNum=1&isSearch=결제대기">결제대기</option>
+									value="/SIRORAGI/cancel/cancelList?searchNum=1&isSearch=주문취소">주문취소</option>
 								<option
-									value="/SIRORAGI/order/orderList?searchNum=1&isSearch=결제완료">결제완료</option>
-								<option
-									value="/SIRORAGI/order/orderList?searchNum=2&isSearch=구매확정">구매확정</option>
-								<option
-									value="/SIRORAGI/order/orderList?searchNum=2&isSearch=주문취소">주문취소</option>
-								<option
-									value="/SIRORAGI/order/orderList?searchNum=2&isSearch=교환/반품신청">교환/반품신청</option>
-								<option
-									value="/SIRORAGI/order/orderList?searchNum=2&isSearch=처리완료">취소/교환/반품처리완료</option>	
-							</select>  <select class="form-control" name="select"
-								onchange="window.open(value,'_self');">
-								<option value="">--배송상태--</option>
-								<option
-									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=배송준비중">배송준비중</option>
-								<option
-									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=배송중">배송중</option>
-								<option
-									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=배송완료">배송완료</option>
-								<option
-									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=배송취소">배송취소</option>
-								<option
-									value="/SIRORAGI/order/orderList?searchNum=3&isSearch=구매완료">구매완료</option>
-
-							</select>
+									value="/SIRORAGI/cancel/cancelList?searchNum=1&isSearch=취소완료">취소완료</option>
+								</select>  
 						</div>
 						<div class="col-sm-6" style="text-align: right;">
 							<div class="dataTables_info" id="dataTables-example_info"
@@ -191,117 +174,76 @@ $.fn.rowspan = function(colIdx, isStats) {
 										<th
 											style="width: 10%; text-align: center; vertical-align: middle;">주문코드</th>
 										<th
-											style="width: 6%; text-align: center; vertical-align: middle;">번호</th>
+											style="width: 4%; text-align: center; vertical-align: middle;">번호</th>
 										<th
-											style="width: 33%; text-align: center; vertical-align: middle;">주문상품</th>
+											style="width: 28%; text-align: center; vertical-align: middle;">주문상품</th>
 										<th
 											style="width: 7%; text-align: center; vertical-align: middle;">회원ID</th>
 										<th
-											style="width: 8%; text-align: center; vertical-align: middle;">주문금액</th>
+											style="width: 19%; text-align: center; vertical-align: middle;">취소사유</th>
 										<th
 											style="width: 8%; text-align: center; vertical-align: middle;">주문상태</th>
 										<th
-											style="width: 8%; text-align: center; vertical-align: middle;">배송상태</th>
+											style="width: 6%; text-align: center; vertical-align: middle;">배송상태</th>
 										<th
-											style="width: 10%; text-align: center; vertical-align: middle;">취소일자</th>
+											style="width: 8%; text-align: center; vertical-align: middle;">취소일자</th>
 										<th
 											style="width: 10%; text-align: center; vertical-align: middle;">관리</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="orderList" items="${orderList}"
+									<c:forEach var="cancelList" items="${cancelList}"
 										varStatus="stat">
-										<c:url var="viewURL" value="adminOrderDetail">
-											<c:param name="ORDER_CODE" value="${orderList.ORDER_CODE }" />
+										<c:url var="viewURL" value="/order/adminOrderDetail">
+											<c:param name="ORDER_CODE" value="${cancelList.ORDER_CODE }" />
+											<c:param name="CANCEL" value="1"/>
 										</c:url>
 										<tr class="gradeA even" role="row">
-											<td style="text-align: center; vertical-align: middle;">${orderList.ORDER_CODE}</td>
-											<td style="text-align: center; vertical-align: middle;">${orderList.ORDER_NUMBER}</td>
+											<td style="text-align: center; vertical-align: middle;">${cancelList.ORDER_CODE}</td>
+											<td style="text-align: center; vertical-align: middle;">${cancelList.CANCEL_NUMBER}</td>
 											<td style="text-align: center; vertical-align: middle;">
-												${orderList.GOODS_NUMBER }.${orderList.GOODS_NAME} |
-												${orderList.GOODS_COLOR} / ${orderList.GOODS_SIZE } /
-												${orderList.ORDER_AMOUNT }개</td>
+												${cancelList.GOODS_NUMBER }.${cancelList.GOODS_NAME} |
+												${cancelList.GOODS_COLOR} / ${cancelList.GOODS_SIZE } /
+												${cancelList.ORDER_AMOUNT }개</td>
 											
 											<td style="text-align: center; vertical-align: middle;">
-											<c:if test="${orderList.MEMBER_ID ne null}">
-											${orderList.MEMBER_ID}
+											<c:if test="${cancelList.MEMBER_ID ne null}">
+											${cancelList.MEMBER_ID}
 											</c:if>
-											<c:if test="${orderList.MEMBER_ID eq null }">
+											<c:if test="${cancelList.MEMBER_ID eq null }">
 											비회원
 											</c:if>
 											<div
-													style='display: none;'>${orderList.ORDER_CODE}</div></td>
-											<td style="text-align: center; vertical-align: middle;"><fmt:formatNumber
-													value="${orderList.GOODS_TOTAL}" type="number" />원
-												<div style='display: none;'>${orderList.ORDER_CODE}</div></td>
+													style='display: none;'>${cancelList.ORDER_CODE}</div></td>
+											<td style="text-align: center; vertical-align: middle;">${cancelList.CANCEL_CONTENT }
+												<div style='display: none;'>${cancelList.ORDER_CODE}</div></td>
 											<td style="text-align: center; vertical-align: middle;">
-												<c:if test="${orderList.GOODS_STATE eq null}">
-
-													
-													<select id="${orderList.ORDER_CODE }" name="GOODS_PAY_STATE"
-														onchange="GOODS_PAY_STATE_CHANGE('${orderList.ORDER_CODE }')">
-														<c:if test="${orderList.GOODS_PAY_STATE eq '결제대기'}">
-															<option value='결제대기' selected>결제대기</option>
-															<option value='결제완료'>결제완료</option>
-														</c:if>
-														<c:if test="${orderList.GOODS_PAY_STATE eq '결제완료'}">
-															<option value='결제대기'>결제대기</option>
-															<option value='결제완료' selected>결제완료</option>
-														</c:if>
-													</select>
-
-													<div style='display: none;'>${orderList.ORDER_CODE}</div>
-												</c:if> <c:if test="${orderList.GOODS_STATE ne null}">
+												<c:if test="${cancelList.GOODS_STATE eq '취소완료'}">
 												
-												${orderList.GOODS_STATE}
-												<div style='display: none;'>${orderList.ORDER_CODE}</div>
+												${cancelList.GOODS_STATE}
+												<div style='display: none;'>${cancelList.ORDER_CODE}</div>
+												</c:if>
+												<c:if test="${cancelList.GOODS_STATE ne '취소완료'}">
+												<select id="${cancelList.ORDER_CODE }" name="GOODS_STATE"
+												onchange="GOODS_STATE_CHANGE('${cancelList.ORDER_CODE }')">
+													<option value="주문취소" selected>주문취소</option>
+													<option value="취소완료">취소완료</option>
+												</select>
+												<div style='display: none;'>${cancelList.ORDER_CODE}</div>
 												</c:if>
 											</td>
 											<td style="text-align: center; vertical-align: middle;">
-												<select class="${orderList.ORDER_CODE }" name="DELIVERY_STATE"
-												onchange="DELIVERY_CHANGE('${orderList.ORDER_CODE }')">
-													<c:if test="${orderList.DELIVERY_STATE eq '결제대기'}">
-														<option value="결제대기" selected>결제대기</option>
-													</c:if>
-													<c:if test="${orderList.DELIVERY_STATE eq '배송준비중'}">
-														
-														<option value="배송준비중" selected>배송준비중</option>
-														<option value="배송중">배송중</option>
-														<option value="배송완료">배송완료</option>
-														<option value="주문취소">주문취소</option>
-													</c:if>
-													<c:if test="${orderList.DELIVERY_STATE eq '배송중'}">
-														
-														<option value="배송준비중">배송준비중</option>
-														<option value="배송중" selected>배송중</option>
-														<option value="배송완료">배송완료</option>
-														<option value="주문취소">주문취소</option>
-													</c:if>
-													<c:if test="${orderList.DELIVERY_STATE eq '배송완료'}">
-														
-														<option value="배송준비중">배송준비중</option>
-														<option value="배송중">배송중</option>
-														<option value="배송완료" selected>배송완료</option>
-														<option value="주문취소">주문취소</option>
-													</c:if>
-													<c:if test="${orderList.DELIVERY_STATE eq '주문취소'}">
-														
-														<option value="배송준비중">배송준비중</option>
-														<option value="배송중">배송중</option>
-														<option value="배송완료">배송완료</option>
-														<option value="주문취소" selected>주문취소</option>
-													</c:if>
-											</select>
-
-												<div style='display: none;'>${orderList.ORDER_CODE}</div>
+												배송취소
+												<div style='display: none;'>${cancelList.ORDER_CODE}</div>
 											</td>
 											<td style="text-align: center; vertical-align: middle;"><fmt:formatDate
-													value="${orderList.ORDER_DATE}" pattern="YY.MM.dd HH:mm" /></td>
+													value="${cancelList.CANCEL_REGDATE}" pattern="YY.MM.dd HH:mm" />
+													<div style='display: none;'>${cancelList.ORDER_CODE}</div></td>
 											<td style="text-align: center; vertical-align: middle;">
 												<a href="${viewURL}"><input type="image"
 													src="/SIRORAGI/theme/file-alt-48.png" width="28"></a>&nbsp;&nbsp;
 												<c:url var="viewURL2" value="adminOrderDelete">
-													<c:param name="ORDER_CODE" value="${orderList.ORDER_CODE }" />
+													<c:param name="ORDER_CODE" value="${cancelList.ORDER_CODE }" />
 												</c:url> <a href="${viewURL2}"><input type="image"
 													src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"
 													onclick="return delchk()"></a>
@@ -309,7 +251,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 										</tr>
 									</c:forEach>
 									<!--  등록된 상품이 없을때 -->
-									<c:if test="${fn:length(orderList) le 0}">
+									<c:if test="${fn:length(cancelList) le 0}">
 										<tr>
 											<td colspan="9" style="text-align: center;">등록된 상품이 없습니다</td>
 										</tr>
@@ -324,9 +266,9 @@ $.fn.rowspan = function(colIdx, isStats) {
 							<div id="dataTables-example_filter" class="dataTables_filter">
 								<form action="">
 									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="4">주문코드</option>
-										<option value="5">상품명</option>
-										<option value="6">회원ID</option>
+										<option value="2">주문코드</option>
+										<option value="3">상품명</option>
+										<option value="4">회원ID</option>
 									</select> <input class="form-control" type="text" name="isSearch"
 										id="isSearch" /> <span>
 										<button type="submit" class="btn btn-default">검색</button>

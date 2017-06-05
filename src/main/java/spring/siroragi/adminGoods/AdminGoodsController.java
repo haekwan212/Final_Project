@@ -48,9 +48,10 @@ public class AdminGoodsController {
 		ModelAndView mv = new ModelAndView("goodsList");
 
 		List<Map<String, Object>> goodsList = adminGoodsService.goodsList(commandMap.getMap());
-
-		isSearch = request.getParameter("isSearch");
-		if (isSearch != null) {
+		String s = request.getParameter("isSearch");
+		
+		if (request.getParameter("isSearch") != null) {
+			isSearch = new String(s.getBytes("iso-8859-1"), "utf-8");
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
 			if (searchNum == 0)// 상품이름

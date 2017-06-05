@@ -361,14 +361,14 @@
 			</div>
 			-->
 
-
+<!-- 
 			<div class="reset form-item col-xs-24">
 				<div class="form-item-wrap col-xs-24">
 					<button class="button" id="filterClear">
 						<span class="button-label">필터 초기화</span>
 					</button>
 				</div>
-			</div>
+			</div> -->
 
 		</div>
 		<div class="section-foot more">
@@ -448,48 +448,6 @@
 		<!-- ### 상품 리스트 -->
 		<ul class="catalog ajax-list row"><!--상품목록 ajax-->
 
-<li class="catalog-item col-xs-12 col-sm-6 col-md-4 items_0 c1">
-	<div class="thumbnail">
-		<a href="../goods/1408942139">
-			<img data-original="http://pic.styleindex.co.kr/g/s/140/1408942139" class="for-ie8 img-responsive lazy" width="500" height="500">
-			<div data-original="http://pic.styleindex.co.kr/g/s/140/1408942139" style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/140/1408942139&quot;);" class="lazy">
-				<img src="/SIRORAGI/theme/pshp/img/blank-square.png" class="img-responsive" width="500" height="500">
-			</div>
-			<div class="cabal-group">
-				<span class="cabal cabal-sale">
-					<span class="cabal-label">-83%</span>
-				</span>
-
-				<span class="cabal cabal-hurryup">
-					<span class="cabal-label">HURRY UP</span>
-				</span>
-			</div>
-		</a>
-		<div class="addon">
-			<div class="button-group">
-				<button class="button col-xs-12" target="modal" data-size="lg" data-label="상품 PREVIEW" href="../goods/modalview?goodsno=1408942139">
-					<span class="icon icon-expansion-white"></span>
-				</button>
-				<a href="../goods/sns?goodsno=1408942139" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
-					<span class="icon icon-share-white"></span>
-				</a>
-			</div>
-		</div>
-	</div>
-	<div class="caption">
-		<p class="brand">PANCOAT</p>
-		<p class="name">
-			<a href="../goods/1408942139">[팬콧샵] COOLING LIGHT HOODI TOP (G-1/FP) (ULTRA NAVY)_PROFPSZ01UN9</a>
-		</p>
-		<p class="price">
-			<span class="was"><span class="label sr-only">판매가격:</span>69,000<span class="currency">원</span></span>
-			<span class="now"><span class="label sr-only">할인가격:</span>11,520<span class="currency">원</span></span>
-		</p>
-	</div>
-</li>
-
-
-
 						<c:forEach var="goodsList" items="${goodsList}" varStatus="stat">
 
 							<c:url var="viewURL" value="/goodsDetail">
@@ -529,6 +487,7 @@
 													class="cabal-label">HURRY UP</span>
 												</span>
 											</c:if>
+											<!-- 조건 태그 끝 -->
 										</div>
 									</a>
 									<div class="addon">
@@ -546,7 +505,7 @@
 									</div>
 								</div>
 								<div class="caption">
-									<p class="brand">PANCOAT</p>
+									<p class="brand">SIRORAGI</p>
 									<p class="name">
 										<a href="${viewURL}">${goodsList.GOODS_NAME}</a>
 									</p>

@@ -10,6 +10,10 @@ function button1_click(frm) {
 	var theForm = document.frm;
 	theForm.action = "qnaForm?QNA_NUMBER=${qna.QNA_NUMBER}";
 }
+function button2_click(frm) {
+	var theForm = document.frm;
+	theForm.action = "qnaReplyDelete?QNA_NUMBER=${qna.QNA_NUMBER}";
+}
 
 function previewImage(targetObj, View_area) {
 	var preview = document.getElementById(View_area); //div id
@@ -100,42 +104,18 @@ function previewImage(targetObj, View_area) {
                        
                         <div class="form-group">
                             <label>QNA 카테고리</label>
-                            <select class="form-control"  id="QNA_CATEGORY" name="QNA_CATEGORY" style="width:140px;">
-								<option value ="">--카테고리--</option>
-								<c:choose>
-								 <c:when test="${qna.QNA_CATEGORY == '상품문의'}">
-								<option value ="상품문의" selected="selected">상품문의</option>
-								</c:when>
-								<c:when test="${qna.QNA_CATEGORY == '배송문의'}">
-								<option value ="배송문의" selected="selected">배송문의</option>
-								</c:when>
-								<c:when test="${qna.QNA_CATEGORY == '입금문의'}">
-								<option value ="입금문의" selected="selected">입금문의</option>
-								</c:when>
-								<c:when test="${qna.QNA_CATEGORY == '교환&반품문의'}">
-								<option value ="교환&반품문의" selected="selected">교환&반품문의</option>
-								</c:when>
-								<c:when test="${qna.QNA_CATEGORY == '기타문의'}">
-								<option value ="기타문의" selected="selected" >기타문의</option>
-								</c:when>
-								<c:otherwise>
-								<option value ="상품문의">상품문의</option>
-								<option value ="배송문의">배송문의</option>
-								<option value ="입금문의">입금문의</option>
-								<option value ="교환&반품문의">교환&반품문의</option>
-								<option value ="기타문의">기타문의</option>
-								</c:otherwise>
-								</c:choose>
-							</select>
+                            <input type="text" class="form-control" id="QNA_CATEGORY" name="QNA_CATEGORY" value="${qna.QNA_CATEGORY}" style="width:initial;;" readonly />
                         </div>
                         <div class="form-group">
                             <label>제목</label>
                             <input type="text" class="form-control" id="QNA_TITLE" name="QNA_TITLE" value="${qna.QNA_TITLE}" style="width:initial;;" readonly />
                         </div>
+                        <c:if test="${qna.GOODS_NUMBER ne null }">
                           <div class="form-group">
                             <label>상품번호</label>
                             <input type="text" class="form-control" id="GOODS_NUMBER" name="GOODS_NUMBER" value="${qna.GOODS_NUMBER}" style="width:250px;"readonly />
                         </div>
+                        </c:if>
                         <div class="form-group">
                             <label>회원 아이디</label>
                             <input type="text" class="form-control" id="MEMBER_NUMBER" name="MEMBER_NUMBER" value="${qna.MEMBER_ID}" style="width:250px;" readonly />
@@ -144,25 +124,27 @@ function previewImage(targetObj, View_area) {
                             <label>내용</label>
                         <textarea class="form-control" id="QNA_CONTENT" name="QNA_CONTENT"  rows="10" cols="30"  readonly >${qna.QNA_CONTENT}</textarea>
                         </div>
-                         <div class="form-group">
-                            <label>답변</label>
-                        <textarea class="form-control" id="QNA_REPCONTENT" name="QNA_REPCONTENT"  rows="10" cols="30"  readonly >${qna.QNA_REPCONTENT}</textarea>
-                        </div>
-                        <div class="form-group">
-							<label>등록 이미지</label> 
-                          </div >
                        <c:choose>
                        <c:when test="${qna.QNA_IMAGE1 != null && qna.QNA_IMAGE2 == null}">
+                       <div class="form-group">
+							<label>등록 이미지</label> 
+                          </div >
                        <div class="form-group">
                       <img src="/SIRORAGI/file/qnaFile/${qna.QNA_IMAGE1}" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" style="width:650px;"/>
                      	 </div>
                        </c:when>
                        <c:when test="${qna.QNA_IMAGE2 != null && qna.QNA_IMAGE1 == null}">
                        <div class="form-group">
+							<label>등록 이미지</label> 
+                          </div >
+                       <div class="form-group">
                       <img src="/SIRORAGI/file/qnaFile/${qna.QNA_IMAGE2}" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" style="width:650px;"/>
                      	 </div>
                        </c:when>
                         <c:when test="${qna.QNA_IMAGE1 != null && qna.QNA_IMAGE2 != null}">
+                        <div class="form-group">
+							<label>등록 이미지</label> 
+                          </div >
                         <div class="form-group">
                       <img src="/SIRORAGI/file/qnaFile/${qna.QNA_IMAGE1}" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" style="width:650px;"/>
                      	 </div>
@@ -170,17 +152,28 @@ function previewImage(targetObj, View_area) {
                       <img src="/SIRORAGI/file/qnaFile/${qna.QNA_IMAGE2}" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" style="width:650px;"/>
                      	 </div>
                        </c:when>
-                       <c:otherwise>
-                      
-                     	 </c:otherwise>
-                     	 </c:choose>
-                        <div class="form-group">
-                        <input type="hidden" name="QNA_RE_LEVEL" id="QNA_RE_LEVEL" value="${qna.QNA_RE_LEVEL}" />
-                        <input type="hidden" name="QNA_RE_STEP" id="QNA_RE_STEP" value="${qna.QNA_RE_STEP}" />
+                      </c:choose>
+                      <div class="form-group">
+                            <label>문의날짜</label>
+                            <input type="text" class="form-control" id="QNA_REGDATE" name="QNA_REGDATE" value="<fmt:formatDate value="${qna.QNA_REGDATE}" pattern="YY.MM.dd HH:mm" />" style="width:initial;;" readonly />
                         </div>
+                        
+                         <div class="form-group">
+                            <label>답변</label>
+                        <textarea class="form-control" id="QNA_REPCONTENT" name="QNA_REPCONTENT"  rows="10" cols="30"  readonly >${qna.QNA_REPCONTENT}</textarea>
+                        </div>
+                        <c:if test="${qna.QNA_REPCONTENT ne null}">
+                        <div class="form-group">
+                            <label>답변날짜</label>
+                            <input type="text" class="form-control" id="QNA_REGDATE" name="QNA_REPDATE" value="<fmt:formatDate value="${qna.QNA_REPDATE}" pattern="YY.MM.dd HH:mm" />" style="width:initial;;" readonly />
+                        </div>
+                        </c:if>
+                       <c:if test="${qna.QNA_REPCONTENT eq null}">
 						<button type="submit" class="btn btn-success" onclick="button1_click();">답변달기</button>
-						 <c:if test="${qna.QNA_RE_LEVEL == '1'}">
-						<button type="submit" class="btn btn-success" onclick="button1_click();">수정하기</button>
+						</c:if>
+						 <c:if test="${qna.QNA_REPCONTENT ne null}">
+						<button type="submit" class="btn btn-success" onclick="button1_click();">답변수정</button>
+						<button type="submit" class="btn btn-success" onclick="button2_click();">답변삭제</button>
 						</c:if>
 						<a href="/SIRORAGI/qna/qnaList"><button type="button" class="btn btn-outline btn-default">목록으로</button></a>		
 				</form:form>

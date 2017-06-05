@@ -107,7 +107,7 @@
 	</definition>
 	
 	<definition name="adminOrderDetail" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/jsp/order/adminOrderModifyForm.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/order/adminOrderDetail.jsp" />
 	</definition>
 	<definition name="adminCancelList" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/cancel/adminCancelList.jsp" />
@@ -136,6 +136,16 @@
  	<definition name="goodsCategory" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsCategory.jsp" />
 	</definition>
+	<!-- 뉴&세일카테고리추가 -->
+ 	<definition name="goodsSaleCategory" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsSaleCategory.jsp" />
+	</definition>
+	
+	<definition name="goodsNewCategory" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsNewCategory.jsp" />
+	</definition>
+	<!-- 뉴&세일카테고리추가 끝-->	
+
 
 	<definition name="joinStep1" extends="common2">
       <put-attribute name="body" value="/WEB-INF/jsp/joinStep1.jsp"></put-attribute>
@@ -179,6 +189,12 @@
 	</definition>
 	<definition name="noticeDetail" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeDetail.jsp"/>
+	</definition>
+	<definition name="store_locator" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/store_locator.jsp"/>
+	</definition>
+	<definition name="store_locator_view" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/store_locator_view.jsp"/>
 	</definition>
 	
 	<!-- 구매 -->

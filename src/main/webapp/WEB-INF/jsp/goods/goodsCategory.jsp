@@ -162,12 +162,6 @@
 							</div>
 
 
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 87df90845b63da27769efa5162a63c95ae707953
 							<div class="price form-item col-sm-24 col-lg-12">
 								<div>
 									<div class="form-item-title">
@@ -186,15 +180,10 @@
 										</div>
 										<div class="range-slider col-xs-12">
 											<!-- 슬라이드 -->
-											<div id="price-range-slider"
-												class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
-												aria-disabled="false">
-												<div class="ui-slider-range ui-widget-header ui-corner-all"
-													style="left: 0%; width: 0%;"></div>
-												<a class="ui-slider-handle ui-state-default ui-corner-all"
-													href="#" style="left: 5.03356%;"></a> <a
-													class="ui-slider-handle ui-state-default ui-corner-all"
-													href="#" style="left: 100%;"></a>
+											<div id="price-range-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+												<div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 0%;"></div>
+												<a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 5.03356%;"></a> 
+												<a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a>
 											</div>
 										</div>
 									</div>
@@ -213,7 +202,7 @@
 											<input type="checkbox" name="color[]" onclick="javascript:ajaxList();" value="BLACK" data-text="black">
 											<span class="icon icon-check-white"></span> 
 											<span class="checkbox-label">
-											<img src="../theme/pshp/img/filter-color-black.png" alt="black">
+											<img src="/SIRORAGI/theme/pshp/img/filter-color-black.png" alt="black">
 											</span>
 											</label>
 										</div>
@@ -221,7 +210,7 @@
 											<label> 
 											<input type="checkbox" onclick="javascript:ajaxList();" name="color[]" value="GRAY" data-text="gray"> 
 												<span class="icon icon-check-white"></span> 
-												<span class="checkbox-label"> <img src="../theme/pshp/img/filter-color-gray.png" alt="gray">
+												<span class="checkbox-label"> <img src="/SIRORAGI/theme/pshp/img/filter-color-gray.png" alt="gray">
 											</span>
 											</label>
 										</div>
@@ -230,7 +219,7 @@
 												value="BROWN" data-text="brown"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-brown.png" alt="brown">
+													src="/SIRORAGI/theme/pshp/img/filter-color-brown.png" alt="brown">
 											</span>
 											</label>
 										</div>
@@ -239,7 +228,7 @@
 												value="BURGUNDY" data-text="burgundy"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-burgundy.png"
+													src="/SIRORAGI/theme/pshp/img/filter-color-burgundy.png"
 													alt="burgundy">
 											</span>
 											</label>
@@ -249,7 +238,7 @@
 												value="PINK" data-text="pink"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-pink.png" alt="pink">
+													src="/SIRORAGI/theme/pshp/img/filter-color-pink.png" alt="pink">
 											</span>
 											</label>
 										</div>
@@ -258,7 +247,7 @@
 												value="PURPLE" data-text="purple"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-purple.png"
+													src="/SIRORAGI/theme/pshp/img/filter-color-purple.png"
 													alt="purple">
 											</span>
 											</label>
@@ -268,7 +257,7 @@
 												value="WHITE" data-text="white"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-white.png" alt="white">
+													src="/SIRORAGI/theme/pshp/img/filter-color-white.png" alt="white">
 											</span>
 											</label>
 										</div>
@@ -277,7 +266,7 @@
 												value="NAVY" data-text="navy"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-navy.png" alt="navy">
+													src="/SIRORAGI/theme/pshp/img/filter-color-navy.png" alt="navy">
 											</span>
 											</label>
 										</div>
@@ -286,7 +275,7 @@
 												value="SKYBLUE" ch data-text="skyblue"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-skyblue.png"
+													src="/SIRORAGI/theme/pshp/img/filter-color-skyblue.png"
 													alt="skyblue">
 											</span>
 											</label>
@@ -296,7 +285,7 @@
 												value="BLUE" data-text="blue"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-blue.png" alt="blue">
+													src="/SIRORAGI/theme/pshp/img/filter-color-blue.png" alt="blue">
 											</span>
 											</label>
 										</div>
@@ -305,7 +294,7 @@
 												value="GREEN" data-text="green"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-green.png" alt="green">
+													src="/SIRORAGI/theme/pshp/img/filter-color-green.png" alt="green">
 											</span>
 											</label>
 										</div>
@@ -314,7 +303,7 @@
 												value="YELLOW" data-text="yellow"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-yellow.png"
+													src="/SIRORAGI/theme/pshp/img/filter-color-yellow.png"
 													alt="yellow">
 											</span>
 											</label>
@@ -325,7 +314,7 @@
 												value="BEIGE" data-text="gradient-gold"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-beige.png"
+													src="/SIRORAGI/theme/pshp/img/filter-color-beige.png"
 													alt="gradient-gold">
 											</span>
 											</label>
@@ -337,7 +326,7 @@
 												value="RED" data-text="red"> <span
 												class="icon icon-check-white"></span> <span
 												class="checkbox-label"> <img
-													src="../theme/pshp/img/filter-color-red.png" alt="red">
+													src="/SIRORAGI/theme/pshp/img/filter-color-red.png" alt="red">
 											</span>
 											</label>
 										</div>
@@ -359,7 +348,7 @@
 							</div> -->
 
 						</div>
-						<div class="section-foot more">
+							 <div class="section-foot more">
 							<a class="button button hidden-md hidden-lg" id="filterMore">
 								<span class="button-label">MORE FILTER</span>
 							</a>
@@ -391,7 +380,7 @@
 										data-original="http://pic.styleindex.co.kr/g/s/145/1456896416"
 										style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/145/1456896416&quot;);"
 										class="lazy">
-										<img src="../theme/pshp/img/blank-square.png"
+										<img src="/SIRORAGI/theme/pshp/img/blank-square.png"
 											class="img-responsive" width="500" height="500">
 									</div>
 									<div class="cabal-group">
@@ -453,7 +442,7 @@
 												data-original="/SIRORAGI/file/goodsFile/${goodsRank.GOODS_THUMBNAIL}"
 												style="display: block; background-image: url(&quot;/SIRORAGI/file/goodsFile/${goodsRank.GOODS_THUMBNAIL}&quot;);"
 												class="lazy">
-												<img src="../theme/pshp/img/blank-square.png"
+												<img src="/SIRORAGI/theme/pshp/img/blank-square.png"
 													class="img-responsive" width="500" height="500">
 											</div>
 											<div class="cabal-group">
@@ -508,7 +497,7 @@
 										</div>
 									</div>
 									<div class="caption">
-										<p class="brand">PANCOAT</p>
+										<p class="brand">SIRORAGI</p>
 										<p class="name">
 											<a href="${viewURL}">${goodsRank.GOODS_NAME}</a>
 										</p>
@@ -633,7 +622,7 @@
                               data-original="http://pic.styleindex.co.kr/g/s/148/1487554074"
                               style="display: block; background-image: url(&quot;http://pic.styleindex.co.kr/g/s/148/1487554074&quot;);"
                               class="lazy">
-                              <img src="../theme/pshp/img/blank-square.png"
+                              <img src="/SIRORAGI/theme/pshp/img/blank-square.png"
                                  class="img-responsive" width="500" height="500">
                            </div>
                            <div class="cabal-group">
@@ -696,7 +685,7 @@
 											data-original="/SIRORAGI/file/goodsFile/${goodsList.GOODS_THUMBNAIL}"
 											style="display: block; background-image: url(&quot;/SIRORAGI/file/goodsFile/${goodsList.GOODS_THUMBNAIL}&quot;);"
 											class="lazy">
-											<img src="../theme/pshp/img/blank-square.png"
+											<img src="/SIRORAGI/theme/pshp/img/blank-square.png"
 												class="img-responsive" width="500" height="500">
 										</div>
 										<div class="cabal-group">
@@ -743,7 +732,7 @@
 									</div>
 								</div>
 								<div class="caption">
-									<p class="brand">PANCOAT</p>
+									<p class="brand">SIRORAGI</p>
 									<p class="name">
 										<a href="${viewURL}">${goodsList.GOODS_NAME}</a>
 									</p>

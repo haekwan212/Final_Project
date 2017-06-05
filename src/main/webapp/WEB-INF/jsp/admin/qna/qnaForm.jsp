@@ -23,7 +23,7 @@ function joinValidation(frm){
 
 function button1_click(frm) {
 	var theForm = document.frm;
-	theForm.action = "qnaModify";
+	theForm.action = "qnaWrite";
 }
 
 function button2_click(frm) {
@@ -126,33 +126,7 @@ function previewImage(targetObj, View_area) {
                        
                         <div class="form-group">
                             <label>QNA 카테고리</label>
-                            <select class="form-control"  id="QNA_CATEGORY" name="QNA_CATEGORY" style="width:140px;">
-								<option value ="">--카테고리--</option>
-								<c:choose>
-								 <c:when test="${qna.QNA_CATEGORY == '상품문의'}">
-								<option value ="상품문의" selected="selected">상품문의</option>
-								</c:when>
-								<c:when test="${qna.QNA_CATEGORY == '배송문의'}">
-								<option value ="배송문의" selected="selected">배송문의</option>
-								</c:when>
-								<c:when test="${qna.QNA_CATEGORY == '입금문의'}">
-								<option value ="입금문의" selected="selected">입금문의</option>
-								</c:when>
-								<c:when test="${qna.QNA_CATEGORY == '교환&반품문의'}">
-								<option value ="교환&반품문의" selected="selected">교환&반품문의</option>
-								</c:when>
-								<c:when test="${qna.QNA_CATEGORY == '기타문의'}">
-								<option value ="기타문의" selected="selected">기타문의</option>
-								</c:when>
-								<c:otherwise>
-								<option value ="상품문의">상품문의</option>
-								<option value ="배송문의">배송문의</option>
-								<option value ="입금문의">입금문의</option>
-								<option value ="교환&반품문의">교환&반품문의</option>
-								<option value ="기타문의">기타문의</option>
-								</c:otherwise>
-								</c:choose>
-							</select>
+                            <input type="text" class="form-control" id="QNA_CATEGORY" name="QNA_CATEGORY"  value="${qna.QNA_CATEGORY}" style="width:initial;" />
                         </div>
                         <div class="form-group">
                             <label>제목</label>
@@ -172,41 +146,48 @@ function previewImage(targetObj, View_area) {
                         </div> -->
                         <div class="form-group">
                             <label>내용</label>
-                        <textarea class="form-control" id="QNA_CONTENT" name="QNA_CONTENT"  rows="10" cols="30"  readonly ></textarea>
+                        <textarea class="form-control" id="QNA_CONTENT" name="QNA_CONTENT"  rows="10" cols="30"  readonly >${qna.QNA_CONTENT }</textarea>
                         </div>
-                         <div class="form-group">
-                            <label>답변</label>
-                        <textarea class="form-control" id="QNA_REPCONTENT" name="QNA_REPCONTENT"  rows="10" cols="30" ></textarea>
-                        </div>
-                         <div class="form-group">
+                        
+                        <c:choose>
+                       <c:when test="${qna.QNA_IMAGE1 != null && qna.QNA_IMAGE2 == null}">
+                       <div class="form-group">
 							<label>등록 이미지</label> 
                           </div >
-                       <div id='View_area1' style='position:relative; width: 100px; height: 100px; color: black; border: 0px solid black; dispaly: inline; ' ></div>
-                       <p />
-                       <div id='View_area2' style='position:relative; width: 100px; height: 100px; color: black; border: 0px solid black; dispaly: inline; ' ></div>
-                       <p />
+                       <div class="form-group">
+                      <img src="/SIRORAGI/file/qnaFile/${qna.QNA_IMAGE1}" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" style="width:650px;"/>
+                     	 </div>
+                       </c:when>
+                       <c:when test="${qna.QNA_IMAGE2 != null && qna.QNA_IMAGE1 == null}">
+                       <div class="form-group">
+							<label>등록 이미지</label> 
+                          </div >
+                       <div class="form-group">
+                      <img src="/SIRORAGI/file/qnaFile/${qna.QNA_IMAGE2}" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" style="width:650px;"/>
+                     	 </div>
+                       </c:when>
+                        <c:when test="${qna.QNA_IMAGE1 != null && qna.QNA_IMAGE2 != null}">
                         <div class="form-group">
-                            <label>이미지 찾기</label>
-                            </div>
-                           <div><input type="file" id="QNA_IMAGE1" name="QNA_IMAGE1"  style="width:initial;" onchange="previewImage(this,'View_area1')"/></div>
-                             <p />
-                            <div><input type="file" id="QNA_IMAGE2" name="QNA_IMAGE2"  style="width:initial;" onchange="previewImage(this,'View_area2')"/></div>
-                        	 <p />
+							<label>등록 이미지</label> 
+                          </div >
                         <div class="form-group">
-                        <input type="hidden" name="QNA_RE_LEVEL" id="QNA_RE_LEVEL" value="${qna.QNA_RE_LEVEL}" />
-                        <input type="hidden" name="QNA_RE_STEP" id="QNA_RE_STEP" value="${qna.QNA_RE_STEP}" />
-                            <c:choose>
-                             <c:when test="${qna.QNA_NUMBER == null}">
-							<input type="hidden" name="QNA_REF" id="QNA_REF" value="0" />
-							</c:when>
-							<c:otherwise>
-                            <input type="hidden" class="form-control" id="QNA_REF" name="QNA_REF" value="${qna.QNA_REF}" style="width:250px;" />
-                       </c:otherwise>
-                       </c:choose>
+                      <img src="/SIRORAGI/file/qnaFile/${qna.QNA_IMAGE1}" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" style="width:650px;"/>
+                     	 </div>
+                       <div class="form-group">
+                      <img src="/SIRORAGI/file/qnaFile/${qna.QNA_IMAGE2}" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" style="width:650px;"/>
+                     	 </div>
+                       </c:when>
+                      </c:choose>
+                        
+                        
+                         <div class="form-group">
+                            <label>답변</label>
+                        <textarea class="form-control" id="QNA_REPCONTENT" name="QNA_REPCONTENT"  rows="10" cols="30" ><c:if test="${qna.QNA_REPCONTENT ne null }">${qna.QNA_REPCONTENT}</c:if></textarea>
                         </div>
+                        
                         <c:choose>
-                        <c:when test="${qna.QNA_RE_LEVEL == '1'}">
-                        <button type="submit" class="btn btn-success" onclick="button1_click();">등록</button>
+                        <c:when test="${qna.QNA_REPCONTENT ne null}">
+                        <button type="submit" class="btn btn-success" onclick="button1_click();">수정</button>
                         </c:when>
                         <c:otherwise>
                          <button type="submit" class="btn btn-success" onclick="button2_click();">등록</button>

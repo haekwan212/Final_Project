@@ -16,6 +16,10 @@ public interface OrderService {
 
 	void orderGoodsSell(Map<String, Object> map) throws Exception;
 
+	Map<String, Object> selectCartOrder(Map<String, Object> map) throws Exception;
+
+	Map<String, Object> sessionCartList(Map<String, Object> map) throws Exception;
+
 	// 주문하기 폼으로 이동(상세보기페이지에서 이동.한 상품만 결제)
 
 	// 주문시 로그인 확인하고 로그인 폼으로 이동(비회원 로그인폼도 포함)

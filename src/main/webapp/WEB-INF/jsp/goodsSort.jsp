@@ -157,9 +157,9 @@
 
 
 									<span class="cabal cabal-sale"> <span
-										class="cabal-label">- <fmt:formatNumber
+										class="cabal-label">-<fmt:formatNumber
 												value="${(goodsList.GOODS_PRICE - goodsList.GOODS_DCPRICE)*100 / goodsList.GOODS_PRICE}"
-												type="number" /> %
+												type="number" />%
 									</span>
 									</span>
 								</c:if>
@@ -222,12 +222,12 @@
 
 
 						</c:forEach>
-	<!--  등록된 상품이 없을때 -->
+	<!--  등록된 상품이 없을때
 <c:if test="${fn:length(goodsList) le 0}">
 	
 	<font size="20" >&nbsp;&nbsp;등록된 상품이 없습니다</font>
 
-</c:if>
+</c:if> -->
 
 
 

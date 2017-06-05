@@ -45,7 +45,7 @@
 					<th scope="row">주문상태</th>
 					<td colspan="1">
 					<c:if test="${orderBasic.GOODS_STATE eq null }"><b>${orderBasic.GOODS_PAY_STATE }</b></c:if>
-					<c:if test="${orderBasic.GOODS_STATE ne null }"><b>${orderBasic.GOODS_STATE }</b></c:if>
+					<c:if test="${orderBasic.GOODS_STATE ne null }"><b>${orderBasic.GOODS_STATE }(${orderBasic.GOODS_PAY_STATE })</b></c:if>
 					</td>
 					<th scope="row">배송상태</th>
 					<td colspan="1"><b>${orderBasic.DELIVERY_STATE}</b></td>
@@ -93,11 +93,33 @@
 					<td colspan="3"><b><fmt:formatNumber value="${TOTALPRICE+orderBasic.POINT_POINT}" type="number"/>원</b></td>
 				</tr>
 				
+				<c:if test="${orderCancel ne null }">
+					<th scope="row">
+					<c:if test="${ orderBasic.GOODS_STATE eq '주문취소' || orderBasic.GOODS_STATE eq '취소완료'}">취소사유</c:if>
+					<c:if test="${ orderBasic.GOODS_STATE eq '교환신청' || orderBasic.GOODS_STATE eq '교환완료'}">교환사유</c:if>
+					<c:if test="${ orderBasic.GOODS_STATE eq '반품신청' || orderBasic.GOODS_STATE eq '반품완료'}">반품사유</c:if>
+					</th>
+					<td colspan="1">${orderCancel.CANCEL_CONTENT}</td>
+				
+					<th scope="row">신청날짜</th>
+					<td colspan="1"><fmt:formatDate	value="${orderCancel.CANCEL_REGDATE}" pattern="YY.MM.dd" /></td>
+				</c:if>
+				
 			</tbody>
 		</table>
 		
 		<br/><br/>
+		<c:choose>
+		<c:when test="${param.CANCEL ne null}">
+		<a href="#this" class="btn" id="cancel">목록으로</a>
+		</c:when>
+		<c:when test="${param.EXCHANGE ne null}">
+		<a href="#this" class="btn" id="exchange">목록으로</a>
+		</c:when>
+		<c:otherwise>
 		<a href="#this" class="btn" id="list">목록으로</a>
+		</c:otherwise>
+		</c:choose>
 	</form>
 	<br/>
 	<br/>
@@ -111,6 +133,14 @@
 			$("#list").on("click", function(e){ //목록으로 버튼
 				e.preventDefault();
 				fn_openOrderList();
+			});
+			$("#cancel").on("click", function(e){ //목록으로 버튼
+				e.preventDefault();
+				fn_openCancelList();
+			});
+			$("#exchange").on("click", function(e){ //목록으로 버튼
+				e.preventDefault();
+				fn_openExchangeList();
 			});
 			
 			$("#write").on("click", function(e){ //작성하기 버튼
@@ -137,6 +167,16 @@
 		function fn_openOrderList(){
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/order/orderList' />");
+			comSubmit.submit();
+		}
+		function fn_openCancelList(){
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("<c:url value='/cancel/cancelList' />");
+			comSubmit.submit();
+		}
+		function fn_openExchangeList(){
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("<c:url value='/cancel/exchangeList' />");
 			comSubmit.submit();
 		}
 		
