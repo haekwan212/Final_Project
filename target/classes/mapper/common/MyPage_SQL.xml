@@ -22,13 +22,7 @@
 				SELECT COUNT(*) FROM QNA WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND NOT QNA_CATEGORY = '상품문의'
 						]]>
 		</select>
-		<update id="updateMyinfo" parameterType="hashmap">
-		<![CDATA[
-			UPDATE MEMBER SET MEMBER_PHONE=#{MEMBER_PHONE}, MEMBER_ZIPCODE=#{MEMBER_ZIPCODE}, MEMBER_ADDRESS1=#{MEMBER_ADDRESS1}, 
-			MEMBER_ADDRESS2=#{MEMBER_ADDRESS2}, MEMBER_EMAIL=#{MEMBER_EMAIL} WHERE MEMBER_ID=#{MEMBER_ID}
-		]]>
-		</update>
-		
+
 		<select id="selectReviewList" parameterType="String" resultType="hashmap">
 		<![CDATA[
 		select A.REVIEW_NUMBER, A.GOODS_NUMBER, A.GOODS_NAME, A.GOODS_THUMBNAIL, A.REVIEW_TITLE, A.REVIEW_REGDATE, 
@@ -55,6 +49,22 @@
 		SELECT * FROM (SELECT * FROM ORDERLIST NATURAL JOIN GOODS) A WHERE GOODS_PAY_STATE='결제완료' AND DELIVERY_STATE = '배송완료' AND GOODS_STATE IN ('구매확정', '교환신청', '교환완료') AND MEMBER_NUMBER = #{MEMBER_NUMBER} ORDER BY ORDER_DATE DESC
 		]]>
 		</select>
+		
+<!-- 		<insert id="insertCancelList" parameterType="hashmap">
+		<![CDATA[
+		INSERT INTO CANCELLIST
+		(CANCEL_NUMBER,
+		 ORDER_CODE,
+		 CANCEL_CONTENT,
+		 CANCEL_REGDATE
+		 ) VALUES (
+		 CANCEL_NUMBER_SEQ.NEXTVAL,
+		 #{ORDER_CODE},
+		 #{CANCEL_CONTENT},
+		 SYSDATE
+		 )
+		]]>
+		</insert> -->
 		
 		<update id="changePassword" parameterType="hashmap">
 		<![CDATA[
@@ -83,6 +93,13 @@
 		<update id="updateExchange" parameterType="hashmap">
 		<![CDATA[
 		UPDATE ORDERLIST SET GOODS_STATE = '교환신청' WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND ORDER_NUMBER = #{ORDER_NUMBER}
+		]]>
+		</update>
+		
+		<update id="updateMyinfo" parameterType="hashmap">
+		<![CDATA[
+			UPDATE MEMBER SET MEMBER_PHONE=#{MEMBER_PHONE}, MEMBER_ZIPCODE=#{MEMBER_ZIPCODE}, MEMBER_ADDRESS1=#{MEMBER_ADDRESS1}, 
+			MEMBER_ADDRESS2=#{MEMBER_ADDRESS2}, MEMBER_EMAIL=#{MEMBER_EMAIL} WHERE MEMBER_ID=#{MEMBER_ID}
 		]]>
 		</update>
 		
