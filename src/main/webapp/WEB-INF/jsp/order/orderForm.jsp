@@ -503,11 +503,28 @@ function ajaxChangePoint() {
 	var GOODS_NUMBER='${GOODS_NUMBER}';//확인됨
 	var EA=document.getElementById("ea[]").value;
 	
+	var sum='${sum}';//확인됨
+	
 	console.log("goods_kinds_number :"+goods_kinds_number+"\n GOODS_NUMBER"+GOODS_NUMBER +"\n EA"+EA+"\n goods_kinds_number_real"+ goods_kinds_number_real);
 	
 	//var usePoint = document.getElementsByName('POINT_POINT').value;
 	
 	var nowPoint;
+	
+/* 	if(sum<usePoint){
+		document.getElementById("myPoint").value = myPoint+"원";
+		document.getElementById("POINT_POINT").value =null;
+		alert("상품금액을 넘었습니다.");
+	} */
+	
+/* 	if(document.getElementById("POINT_POINT").value>sum){
+		document.getElementById("myPoint").value = myPoint+"원";
+		document.getElementById("POINT_POINT").value =null;
+		alert("상품금액을 넘었습니다.");
+	} */
+	
+	
+		
 	if(myPoint>usePoint)
 	{
 		nowPoint=myPoint-usePoint;
@@ -523,11 +540,12 @@ function ajaxChangePoint() {
 		      }
 		   });   
 	}
-	else{
-		document.getElementById("myPoint").value = myPoint+"원";
-		document.getElementById("POINT_POINT").value =null;
-		alert("포인트가 부족합니다.");
-	}
+	
+		else{
+			document.getElementById("myPoint").value = myPoint+"원";
+			document.getElementById("POINT_POINT").value =null;
+			alert("포인트가 부족합니다.");
+		}
 	
 	
 	

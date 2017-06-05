@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -25,6 +26,7 @@ public class OrderController {
 	@Resource(name = "orderService")
 	private OrderService orderService;
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "order")
 	public ModelAndView orderForm(CommandMap commandMap, HttpServletRequest request) throws Exception {
 
@@ -54,7 +56,6 @@ public class OrderController {
 			mv.addObject("orderMember", orderMember);
 
 			String[] goods_kinds_number = request.getParameterValues("GOODS_KINDS_NUMBER");
-			String[] goods_number = request.getParameterValues("GOODS_NUMBER");
 
 			List<String> ea = new ArrayList<String>();
 
@@ -107,7 +108,7 @@ public class OrderController {
 				goods.add(orderGoods);
 
 				System.out.println("goods : " + goods);
-				
+
 				mv.addObject("ea", sArrays[i]);
 
 			}
@@ -161,9 +162,12 @@ public class OrderController {
 		String[] ea = request.getParameterValues("ea[]");
 
 		List<String> ea1 = new ArrayList<String>();
+		Map<String, Object> cartList = new HashMap<String, Object>();
+		List<Map<String, Object>> cartList1 = new ArrayList<Map<String, Object>>();
 
 		List<Map<String, Object>> goods1 = new ArrayList<Map<String, Object>>();
 		List<Map<String, Object>> goods = new ArrayList<Map<String, Object>>();
+		List<Map<String, Object>> cartSession = new ArrayList<Map<String, Object>>();
 
 		if (cart_kinds_number != null) {
 			System.out.println("cart_kinds_number : " + cart_kinds_number);
@@ -174,8 +178,57 @@ public class OrderController {
 
 				System.out.println(cart_kinds_number[i]);
 
-				Map<String, Object> cartList = orderService.selectCartOrder(commandMap.getMap());
+				if (session.getAttribute("MEMBER_NUMBER") == null) {
+					System.out.println("하하하");
+					if (session.getAttribute("cartSession") != null) {
+						cartSession = (List<Map<String, Object>>) session.getAttribute("cartSession");
+						for (int j = 0; j < cartSession.size(); j++) {
+							/* cartMap = new HashMap<String, Object>(); */
+							cartList.put("GOODS_KINDS_NUMBER", cartSession.get(j).get("GOODS_KINDS_NUMBER"));
+							cartList.put("GOODS_NUMBER", cartSession.get(j).get("GOODS_NUMBER"));
 
+							System.out.println("GOODS_KINDS_NUMBER : " + cartSession.get(j).get("GOODS_KINDS_NUMBER"));
+							System.out.println("GOODS_NUMBER : " + cartSession.get(j).get("GOODS_NUMBER"));
+
+							cartList = orderService.sessionCartList(cartList);
+							cartList.put("CART_AMOUNT", cartSession.get(j).get("CART_AMOUNT"));
+							cartList1.add(cartList);
+
+							System.out.println("호호호");
+							System.out.println("cartList1 : " + cartList1.get(i));
+
+							commandMap.put("GOODS_KINDS_NUMBER", cart_kinds_number[j]);
+							commandMap.put("EA", cartList.get("CART_AMOUNT"));
+							commandMap.put("GOODS_NUMBER", cartList.get("GOODS_NUMBER"));
+
+							Map<String, Object> orderGoods = orderService.orderGoods(commandMap.getMap());
+
+							orderGoods.put("EA", cartList.get("CART_AMOUNT"));
+
+							goods.add(orderGoods);
+
+							System.out.println("goods : " + goods);
+
+							mv.addObject("ea", cartList.get("CART_AMOUNT"));
+
+							System.out.println("sArrays : " + cartList.get("CART_AMOUNT"));
+
+							System.out.println("commandMap : " + commandMap.getMap());
+
+							mv.addObject("guestEmail", commandMap.get("guestEmail"));
+
+							System.out.println("guestEmail : " + commandMap.get("guestEmail"));
+
+							mv.addObject("goods_kinds_number", cart_kinds_number);
+							mv.addObject("goods", goods);
+
+						}
+						return mv;
+					}
+
+				} else {
+					cartList = orderService.selectCartOrder(commandMap.getMap());
+				}
 				String e = cartList.get("CART_AMOUNT").toString();
 				cartList.put("EA", e);
 
@@ -214,7 +267,7 @@ public class OrderController {
 
 			for (int i = 0; i < sArrays.length; i++) {
 
-				commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
+				commandMap.put("GOODS_KINDS_NUMBER", cart_kinds_number[i]);
 				commandMap.put("EA", sArrays[i]);
 				commandMap.put("GOODS_NUMBER", goods1.get(i).get("GOODS_NUMBER"));
 
@@ -225,7 +278,7 @@ public class OrderController {
 				goods.add(orderGoods);
 
 				System.out.println("goods : " + goods);
-				
+
 				mv.addObject("ea", sArrays[i]);
 
 			}
@@ -238,8 +291,9 @@ public class OrderController {
 
 			System.out.println("guestEmail : " + commandMap.get("guestEmail"));
 
-			mv.addObject("goods_kinds_number", goods_kinds_number);
-			
+
+			mv.addObject("goods_kinds_number", cart_kinds_number);
+			mv.addObject("goods", goods);
 
 
 			return mv;

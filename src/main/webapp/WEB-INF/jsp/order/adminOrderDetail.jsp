@@ -45,7 +45,7 @@
 					<th scope="row">주문상태</th>
 					<td colspan="1">
 					<c:if test="${orderBasic.GOODS_STATE eq null }"><b>${orderBasic.GOODS_PAY_STATE }</b></c:if>
-					<c:if test="${orderBasic.GOODS_STATE ne null }"><b>${orderBasic.GOODS_STATE }</b></c:if>
+					<c:if test="${orderBasic.GOODS_STATE ne null }"><b>${orderBasic.GOODS_STATE }(${orderBasic.GOODS_PAY_STATE })</b></c:if>
 					</td>
 					<th scope="row">배송상태</th>
 					<td colspan="1"><b>${orderBasic.DELIVERY_STATE}</b></td>

@@ -190,6 +190,12 @@
 	<definition name="noticeDetail" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeDetail.jsp"/>
 	</definition>
+	<definition name="store_locator" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/store_locator.jsp"/>
+	</definition>
+	<definition name="store_locator_view" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/store_locator_view.jsp"/>
+	</definition>
 	
 	<!-- 구매 -->
 	<definition name="orderForm" extends="common2">
