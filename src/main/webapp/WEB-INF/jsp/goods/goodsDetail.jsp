@@ -523,22 +523,6 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 								</dl>
 							</div>
 
-
-							<div class="hashTag-wrap">
-								<a href="/store/search?stxt=HOODIES" class="hashTag"> <span
-									class="hashTag-labl">#${goodsBasic.GOODS_CATEGORY2 }</span>
-								</a> <a href="/store/search?stxt=%ED%8C%AC%EC%BD%A7+HOODIES"
-									class="hashTag"> <span class="hashTag-labl">#실오라기
-										${goodsBasic.GOODS_CATEGORY2 }</span>
-								</a> <a href="/store/search?stxt=PANCOAT+HOODIES" class="hashTag">
-									<span class="hashTag-labl">#SIRORAGI
-										${goodsBasic.GOODS_CATEGORY2 }</span>
-								</a> <a href="/store/search?stxt=%ED%8C%AC%EC%BD%A7" class="hashTag">
-									<span class="hashTag-labl">#실오라기</span>
-								</a> <a href="/store/search?stxt=PANCOAT" class="hashTag"> <span
-									class="hashTag-labl">#SIRORAGI</span>
-								</a>
-							</div>
 						</div>
 				
 						<div class="section-foot">

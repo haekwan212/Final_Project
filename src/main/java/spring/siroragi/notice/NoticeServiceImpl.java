@@ -46,7 +46,14 @@ package spring.siroragi.notice;
 		public void noticeForm(Map<String, Object> map) throws Exception {
 			noticeDAO.noticeForm(map);
 		}
-		
+		@Override
+		public List<Map<String, Object>> noticeSearchTitleList(Map<String, Object> map) throws Exception {
+			return noticeDAO.noticeSearchTitleList(map);
+		}
+		@Override
+		public List<Map<String, Object>> noticeSearchContentList(Map<String, Object> map) throws Exception {
+			return noticeDAO.noticeSearchContentList(map);
+		}
 		// 파일첨부1
 		public void noticeImage1(Map<String,Object> map) throws Exception {
 			noticeDAO.noticeImage1(map);

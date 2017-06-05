@@ -564,8 +564,7 @@ $(function(){
         <div>
             <!-- <a href="../node/notice" class="col-xs-auto">공지사항</a> -->
             <!--<a href="http://store.pancoat.com/community/company" class="col-xs-auto">회사소개</a>-->
-            <a href="../service/agreement" class="col-xs-auto">이용약관 / 개인정보 처리방침</a>
-            <a href="../service/coorperation" class="col-xs-auto" target="modal" data-size="md" data-label="제휴/광고 문의">파트너쉽 / 제휴문의</a>
+            <a href="/SIRORAGI/agreement" class="col-xs-auto">이용약관 / 개인정보 처리방침</a>
             <a href="http://www.gra-fik.com" target="_blank" class="siteby col-xs-auto">Site by SIRORAGI</a>
         </div>
     </div>
@@ -577,12 +576,6 @@ $(function(){
                     <a  class="button button-ghost">
                     <span class="icon icon-headset-black"></span>
                     <span class="button-label">070-1234-5678 / 070-1234-5678</span>
-                    </a>
-                    <a href="../mypage/mycs" class="button">
-                        <span class="button-label">1:1 문의하기</span>
-                    </a>
-                    <a href="../service/faq" target="modal" data-size="sm" data-label="자주묻는 질문" class="button button-ghost">
-                        <span class="button-label">자주묻는질문 확인</span>
                     </a>
                 </div>
                 <p class="notice">반품 주소 :12814 서울특별시 강남구 역삼동 SIRORAGI</p>

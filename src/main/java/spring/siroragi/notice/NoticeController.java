@@ -60,11 +60,13 @@ import spring.siroragi.notice.NoticeService;
 
 				System.out.println("getMap : " + commandMap.getMap());
 
-				if (searchNum == 0) // 이름
-					noticeList = noticeService.noticeList(commandMap.getMap());
-
+				if (searchNum == 0) { //제목
+					noticeList = noticeService.noticeSearchTitleList(commandMap.getMap());
+				} else if (searchNum == 1) { // 내용
+					noticeList = noticeService.noticeSearchContentList(commandMap.getMap());
+				}
 				totalCount = noticeList.size();
-				page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList", searchNum, isSearch);
+				page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeAdminList", searchNum, isSearch);
 				pagingHtml = page.getPagingHtml().toString();
 
 				int lastCount = totalCount;
@@ -177,52 +179,13 @@ import spring.siroragi.notice.NoticeService;
 		
 		// 공지사항 수정
 		@RequestMapping(value = "/notice/noticeModify")
-		public ModelAndView noticeModify(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		public ModelAndView noticeModify(CommandMap commandMap) throws Exception {
 			ModelAndView mv = new ModelAndView();
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
-			if (multipartRequest.getFile("NOTICE_IMAGE1").isEmpty()) {
-
-				commandMap.put("NOTICE_IMAGE1", request.getParameter("NOTICE_IMAGE1"));
-
-				System.out.println("noticeModify : " + commandMap.getMap());
-				
-				noticeService.noticeModify(commandMap.getMap());
-				
-			} else {
-
-				MultipartFile NOTICE_IMAGE = multipartRequest.getFile("NOTICE_IMAGE1");
-
-				commandMap.put("NOTICE_IMAGE1", NOTICE_IMAGE.getOriginalFilename());
-
-				System.out.println("noticeModify : " + commandMap.getMap());
-				noticeService.noticeModify(commandMap.getMap());
-				
-				String IMAGEExtension = NOTICE_IMAGE.getOriginalFilename().substring(NOTICE_IMAGE.getOriginalFilename().lastIndexOf("."));
-				
-				String fileName = commandMap.get("NOTICE_NUMBER").toString();
-
-				File file = new File(filePath + fileName+ IMAGEExtension);
-				
-				String image = request.getParameter("AD_IMAGE2");
-
-				File imageFile = new File(filePath + image);
-
-				System.out.println(imageFile.isFile());
-
-				if (imageFile.isFile()) {
-					imageFile.delete();
-				}
-
-				if (file.exists() == false) {
-					file.mkdirs();
-				}
-
-				NOTICE_IMAGE.transferTo(file);
-			}
-
+			System.out.println(commandMap.getMap());
+			
 			noticeService.noticeModify(commandMap.getMap());
-			 
+			
 			mv.addObject("NOTICE_NUMBER", commandMap.get("NOTICE_NUMBER"));
 			mv.setViewName("redirect:/notice/noticeAdminList");
 
@@ -273,9 +236,11 @@ import spring.siroragi.notice.NoticeService;
 
 				System.out.println("getMap : " + commandMap.getMap());
 
-				if (searchNum == 0) // 제목
-					noticeAdminList = noticeService.noticeList(commandMap.getMap());
-
+				if (searchNum == 0) { //제목
+					noticeAdminList = noticeService.noticeSearchTitleList(commandMap.getMap());
+				} else if (searchNum == 1) { // 내용
+					noticeAdminList = noticeService.noticeSearchContentList(commandMap.getMap());
+				}
 				totalCount = noticeAdminList.size();
 				page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeAdminList", searchNum, isSearch);
 				pagingHtml = page.getPagingHtml().toString();
