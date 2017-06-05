@@ -60,11 +60,13 @@
 								aria-describedby="dataTables-example_info">
 								<thead>
 									<tr role="row">
-										<th style="width: 7%; text-align: center;">번호</th>
-										<th style="width: 7%; text-align: center;">이미지</th>
-										<th style="width: 25%; text-align: center;">제목</th>
-										<th style="width: 35%; text-align: center;">내용</th>										<th style="width: 12%; text-align: center;">등록일자</th>
-										<th style="width: 12%; text-align: center;">관리</th>
+										<th style="width: 4%; text-align: center;">번호</th>
+										<th style="width: 20%; text-align: center;">상품명</th>
+										<th style="width: 8%; text-align: center;">회원ID</th>
+										<th style="width: 20%; text-align: center;">제목</th>
+										<th style="width: 35%; text-align: center;">내용</th>										
+										<th style="width: 8%; text-align: center;">등록일자</th>
+										<th style="width: 5%; text-align: center;">관리</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -72,9 +74,14 @@
 										
 										<tr class="gradeA even" role="row">
 											<td style="text-align: center; vertical-align: middle;">${reviewList.REVIEW_NUMBER}</td>
-											<td style="text-align: center; vertical-align: middle;"><img src="/SIRORAGI/file/reviewFile/${reviewList.REVIEW_IMAGE}" width="100" height="100" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" /></td>
+											<td style="text-align: center; vertical-align: middle;">${reviewList.GOODS_NUMBER}. ${reviewList.GOODS_NAME}</td>
+											<td style="text-align: center; vertical-align: middle;">${reviewList.MEMBER_ID}</td>
 											<td style="text-align: center; vertical-align: middle;">${reviewList.REVIEW_TITLE}</td>
-											<td style="text-align: center; vertical-align: middle;">${reviewList.REVIEW_CONTENT}</td>
+											<td style="text-align: center; vertical-align: middle;">
+											<c:if test="${reviewList.REVIEW_IMAGE ne null}">
+											<img src="/SIRORAGI/file/reviewFile/${reviewList.REVIEW_IMAGE}" width="50" height="50" alt=""  onerror="this.src='/SIRORAGI/file/noimg_130.gif'" />
+											</c:if>
+											${reviewList.REVIEW_CONTENT}</td>
 											<td style="text-align: center; vertical-align: middle;"><fmt:formatDate value="${reviewList.REVIEW_REGDATE}" pattern="YY.MM.dd HH:mm" /></td>
 											<td style="text-align: center; vertical-align: middle;">
 												<c:url var="viewURL" value="/admin/reviewAdminDelete">
@@ -101,13 +108,14 @@
 						${pagingHtml}
 					</div> 
 
-					<!-- <div class="row">
+					<div class="row">
 						<div style="text-align: center;">
 							<div id="dataTables-example_filter" class="dataTables_filter">
 								<form action="">
 									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="0">제목</option>
-										<option value="1">내용</option>
+										<option value="0">회원ID</option>
+										<option value="1">상품명</option>
+										<option value="2">상품번호</option>
 
 									</select> <input class="form-control" type="text" name="isSearch" id="isSearch" /> <span>
 										<button type="submit" class="btn btn-default">검색</button>
@@ -116,7 +124,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="/SIRORAGI/admin/faqAdminForm"><button type="button" class="btn btn-outline btn-default">등록</button></a>	 -->
+					
 				</div>
 			</div>
 			<!-- /.table-responsive -->

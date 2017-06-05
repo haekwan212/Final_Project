@@ -54,4 +54,6 @@ public interface AdminGoodsService {
 	public List<Map<String, Object>> adminGoodsSearch5(String isSearch) throws Exception;
 	public List<Map<String, Object>> adminGoodsSearch6(String isSearch) throws Exception;
 
+	//주문취소시 상품 수량 복귀
+	public void addAmount(Map<String, Object> map) throws Exception;
 }

@@ -28,7 +28,19 @@ public class ReviewDAO extends AbstractDAO {
 	// 리뷰 코멘트 등록(등록하면서 적립금 주어야함)
 
 	// 리뷰 검색
-
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> searchReviewList0(Map<String, Object> map) throws Exception{
+		return (List<Map<String, Object>>)selectList("review.searchReviewList0",map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> searchReviewList1(Map<String, Object> map) throws Exception{
+		return (List<Map<String, Object>>)selectList("review.searchReviewList1",map);
+	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> searchReviewList2(Map<String, Object> map) throws Exception{
+		return (List<Map<String, Object>>)selectList("review.searchReviewList2",map);
+	}
+	
 	// 리뷰 평점 계산
 
 	// 리뷰 상세보기

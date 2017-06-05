@@ -39,6 +39,10 @@ public class GoodsDAO extends AbstractDAO{
 	public List<Map<String, Object>> goodsSale(Map<String, Object> map) throws Exception {
 		return sqlSession.selectList("goods.goodsSale",map);
 	}
+	// 뉴 상품 가져오기
+	public List<Map<String, Object>> goodsNew(Map<String, Object> map) throws Exception {
+		return sqlSession.selectList("goods.goodsNew",map);
+	}
 	
 	
 	
@@ -79,5 +83,9 @@ public class GoodsDAO extends AbstractDAO{
 		
 		return 0;
 	}
+	//상품 QNA 가져오기
+	public List<Map<String, Object>> goodsQna(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList("goods.goodsQna",map);
+	} 
 
 }

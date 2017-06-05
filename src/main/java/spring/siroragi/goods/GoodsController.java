@@ -3,11 +3,8 @@ package spring.siroragi.goods;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -33,26 +30,11 @@ public class GoodsController {
 	@Resource(name = "goodsService")
 	private GoodsService goodsService;
 	
-	
-	// 페이징 변수(리뷰)
-		private int reviewCurrentPage = 1;
-		private int reviewTotalCount;
-		
-		private int blockCount = 5;
-		private int blockPage = 5;
-		
-		private String reviewPagingHtml;
-		private Paging reviewPage;
-		
-	// 페이징 변수(Qna)
-		private int qnaCurrentPage = 1;
-		private int qnaTotalCount;
-		
-		private String qnaPagingHtml;
-		private Paging qnaPage;
 		
 		//new태그 날짜조정
 		public static final int DATE_DATE=10; 
+		//페이징 숫자
+		public static final int pagingSet=3; 
 	
 
 	//페이지이동 및 검색
@@ -217,7 +199,7 @@ public class GoodsController {
 								//검색했을때만 들어온다 or 검색후 정렬할때
 		System.out.println("검색조건사용");
 		
-			//컬러검색
+		//컬러검색 시작
 		try { //컬러를 하나만 체크하면 String값으로 받기때문에 try catch
 			String[] color=(String[])Map.getMap().get("myColor");
 			
@@ -359,9 +341,9 @@ public class GoodsController {
 				if(goodsSearchList.get(i).get("GOODS_SALEDATE")!=null && goodsSearchList.get(i).get("GOODS_DCPRICE") != null){
 					//sale태그 조건
 					Date dDay = (Date) goodsSearchList.get(i).get("GOODS_SALEDATE");
-					System.out.println("goods_saledate 는?"+dDay);
+					//System.out.println("goods_saledate 는?"+dDay);
 					if (dDay.getTime() < d.getTime()) {
-						System.out.println("goods_saledate 안으로 ");
+						//System.out.println("goods_saledate 안으로 ");
 						goodsSearchList.get(i).remove("GOODS_SALEDATE");
 						goodsSearchList.get(i).remove("GOODS_DCPRICE");
 					}
@@ -399,6 +381,29 @@ public class GoodsController {
 		String isSearch=stxt;//안해줘도되는데 그냥보기좋으라고해준듯 그럼첨부터 isSearch로 선언해도되는데
 		
 		ModelAndView mv = new ModelAndView("searchList");
+		
+		int intpagingNum;//페이징을 위한 변수하나선언
+		String pagingNum=(String)Map.getMap().get("pagingNum");
+		if(pagingNum != null)
+		{
+			System.out.println("pagingNum??"+pagingNum);
+			intpagingNum = Integer.parseInt(pagingNum);
+			//intpagingNum = intpagingNum +12;
+			System.out.println("intpagingNum??"+intpagingNum);
+			mv.setViewName("searchListPlus");
+		}
+		else
+		{
+			pagingNum="12";
+			intpagingNum =Integer.parseInt(pagingNum);
+			
+		}
+		mv.addObject("pagingNum",intpagingNum);
+		String searchCheck=(String)Map.getMap().get("searchCheck");
+		if(searchCheck!=null) //더보기를 눌렀는지 확인할것
+		{
+			mv.setViewName("searchListPlus");
+		}
 				
 		List<Map<String,Object>> goodsList=goodsService.goodsSearch(isSearch);
 		
@@ -422,12 +427,12 @@ public class GoodsController {
 			
 			//New태그 조건
 			Date newDay = (Date) goodsList.get(i).get("GOODS_DATE");
-			System.out.println("newDay는 : "+newDay);
+			//System.out.println("newDay는 : "+newDay);
 			newCal.setTime(newDay);//Data값 캘린더로 변경
 			newCal.add(Calendar.DATE, DATE_DATE);// +2주
 			
 			newDate=new Date(newCal.getTimeInMillis());
-			System.out.println("2주후 newDate는 : "+newDate);
+			//System.out.println("2주후 newDate는 : "+newDate);
 			goodsList.get(i).put("GOODS_NEWDATE", newDate);
 			
 			//hurry up 태그조건
@@ -502,6 +507,7 @@ public class GoodsController {
 				//12일땐 21
 				//23일땐 320
 				//13일땐 301
+				//123일떈 321
 				Map.getMap().put("saleCheck","ON2");
 				Map.getMap().put("sale",saleNum);
 			}
@@ -605,8 +611,116 @@ public class GoodsController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "goodsDetail")
-	public ModelAndView goodsDetail(CommandMap commandMap, HttpServletRequest request, HttpSession session) throws Exception {
+		//New 카테고리 
+		@RequestMapping(value="/goods/goodsNewCategory")
+		public ModelAndView goodsNewCategory(HttpServletResponse response, HttpServletRequest request,CommandMap Map) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("goodsNewCategory");
+			
+			//Map.getMap().put("date",DATE_DATE); //뉴태그 
+			
+			
+			String searchCheck=(String)Map.getMap().get("searchCheck");//서치됬는지 확인
+			Map.getMap().put("priceSearchRange1", 7000);
+			Map.getMap().put("priceSearchRange2", 298000);
+			Map.getMap().put("date",30);
+			//가격 기본값 포함해서 검색해야하기떄문에 넣어줘야한다.
+			if(searchCheck!=null){
+				System.out.println("검색조건사용");
+				//가격 검색
+				String[] priceRange=(String[])Map.getMap().get("priceRange");
+			//	if(priceRange!=null) 검색을하면 null일수가 없어서 뺐다
+					String pr1=priceRange[0];
+					String pr2=priceRange[1];
+					
+					pr1=pr1.replaceAll(",","");
+					pr2=pr2.replaceAll(",","");//중간 문자열빼기
+					
+					Map.getMap().put("priceSearchRange1", pr1);
+					Map.getMap().put("priceSearchRange2", pr2);
+					
+					System.out.println(" 가격1 : " +pr1+ " 가격2 : " + pr2);
+				//가격검색끝
+
+			
+			//컬러검색 시작
+			try { //컬러를 하나만 체크하면 String값으로 받기때문에 try catch
+				String[] color=(String[])Map.getMap().get("myColor");
+				
+				if(color!=null)
+				{
+					for(int i =0;i<color.length;i++){
+					System.out.println("다중컬러 선택" + color[i]);
+					}
+					Map.getMap().put("colorCheck","ON2");
+					Map.getMap().put("color",color);
+				}
+			}catch (Exception e) {
+				String color=(String)Map.getMap().get("myColor");
+				
+				if(color!=null)
+				{
+					System.out.println("원컬러 선택" + color);	
+					Map.getMap().put("colorCheck","ON1");
+					Map.getMap().put("color",color);
+				}
+				
+			}
+			//컬러검색끝
+			
+			//기간 검색 시작
+			String period=(String)Map.getMap().get("period");
+			System.out.println("period 값"+period);
+			Map.getMap().put("date", period);
+			//기간 검색 끝
+				
+			mv.setViewName("goods/goodsNewSort");
+			}//서치체크끝
+			
+			List<Map<String,Object>> goodsList=goodsService.goodsNew(Map.getMap());
+
+			//sale&New 로직 시작
+			
+			Calendar today = Calendar.getInstance();
+			Date d = new Date(today.getTimeInMillis());
+			
+			//new태그위해 선언
+			 Calendar newCal = Calendar.getInstance();
+			 Date newDate =new Date();
+			    
+
+			for(int i=0; i<goodsList.size();i++){
+				if(goodsList.get(i).get("GOODS_SALEDATE")!=null && goodsList.get(i).get("GOODS_DCPRICE") != null){
+					//sale태그 조건
+					Date dDay = (Date) goodsList.get(i).get("GOODS_SALEDATE");
+					if (dDay.getTime() < d.getTime()) {
+						goodsList.get(i).remove("GOODS_SALEDATE");
+						goodsList.get(i).remove("GOODS_DCPRICE");
+					}
+				}
+				
+				//New태그 조건
+				Date newDay = (Date) goodsList.get(i).get("GOODS_DATE");
+				newCal.setTime(newDay);//Data값 캘린더로 변경
+				newCal.add(Calendar.DATE, DATE_DATE);// +10
+				
+				newDate=new Date(newCal.getTimeInMillis());
+				goodsList.get(i).put("GOODS_NEWDATE", newDate);
+				
+				//hurry up 태그조건
+				
+			}
+			mv.addObject("nowDate",d); //현재시간 보내기
+			mv.addObject("goodsList",goodsList);
+			//new&sale로직끝
+			
+			
+			return mv;
+		}
+
+	
+	@RequestMapping(value = "/goodsDetail")
+	public ModelAndView goodsDetail(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception {
 
 		ModelAndView mv = new ModelAndView("goodsDetail");
 
@@ -648,12 +762,103 @@ public class GoodsController {
 		
 		// 구매후기 가져오기
 
-		// 상품qna 가져오기
 		
-		//상품 리뷰 가져오기
+		// 상품qna 가져오기
+		// QNA 서비스가 있는주 모르고 그냥 goods서비스에 해버림
+		System.out.println("goods_number은?"+goodsDetail.get(0).get("GOODS_NUMBER"));
+		commandMap.put("GOODS_NUMBER", commandMap.getMap().get("GOODS_NUMBER"));
+		//String goods_number=String.valueOf(commandMap.getMap().get("GOODS_NUMBER"));
+		//System.out.println("넘버값은?"+number);
+		List<Map<String, Object>> goodsQna=goodsService.goodsQna(commandMap.getMap());
+		
+		System.out.println("goodsQna.size() ="+goodsQna.size());
+		//List<Map<String,Object>> goodsQnaUser=new ArrayList<Map<String,Object>>();
+		//List<Map<String,Object>> goodsQnaAdmin=new ArrayList<Map<String,Object>>();
+		//나눠남는다 유저랑 어드민 비교해서(로직바껴서 필요없음)
+		//for(int i=0;i<goodsQna.size();i++)
+		//{
+			////System.out.println("몰로변환해야됨 ㅡㅡ?"+goodsQna.get(i).get("MEMBER_NUMBER"));
+			////String j = String.valueOf(goodsQna.get(i).get("MEMBER_NUMBER"));
+			
+			////String j =(String)(goodsQna.get(i).get("MEMBER_NUMBER"));
+			//if((goodsQna.get(i).get("MEMBER_ID")).equals("admin"))
+			//{
+			//	System.out.println("여기어드민있다");
+			//	goodsQnaAdmin.add(goodsQna.get(i));
+			//	
+		//	}
+		//	else{
+		//		goodsQnaUser.add(goodsQna.get(i));
+		//	}
+				
+		//}
+		//System.out.println("QNA admin 사이즈 : "+goodsQnaAdmin.size()+"\nQNA USER사이즈 : "+ goodsQnaUser.size());
+		//mv.addObject("goodsQnaUser",goodsQnaUser);
+		//mv.addObject("goodsQnaAdmin",goodsQnaAdmin);
+		mv.addObject("goodsQna",goodsQna);
+		
+		//Qna페이징 하기
+		int qnaEndPagingNum=pagingSet;
+		int qnaStartPagingNum=0;
+		int qnaNowPage=1;
+		
+		String pagingQnaOnOff=(String)commandMap.getMap().get("pagingQnaOnOff");
+		if(pagingQnaOnOff!=null)
+		{
+			String i=(String)commandMap.getMap().get("i");
+			qnaEndPagingNum=Integer.parseInt((String)commandMap.getMap().get("qnaEndPagingNum"));
+			//String qnaStartPagingNumCheck=((String)commandMap.getMap().get("qnaStartPagingNum"));
+			//if(qnaStartPagingNumCheck!=null)
+			//{
+			qnaStartPagingNum=Integer.parseInt((String)commandMap.getMap().get("qnaStartPagingNum"));
+			//}
+			//System.out.println("페이징 넘1 :" + qnaStartPagingNum);
+			//System.out.println("페이징 넘 :" + qnaEndPagingNum);
+			qnaNowPage=Integer.parseInt((String)commandMap.getMap().get("qnaNowPage"));
+			if(i.equals("1"))//prev 클릭
+			{
+				if(qnaEndPagingNum==pagingSet)
+				{
+					System.out.println("첫페이지");
+				}
+				else{
+					qnaStartPagingNum=qnaStartPagingNum-pagingSet;
+					qnaEndPagingNum=qnaEndPagingNum-pagingSet; 
+					qnaNowPage = qnaNowPage-1;
+					System.out.println("전페이지이동");
+				}
+			}
+			else if(i.equals("2")) //next 클릭
+			{
+				if(qnaEndPagingNum<goodsQna.size())
+				{
+					qnaStartPagingNum=qnaStartPagingNum+pagingSet;
+					qnaEndPagingNum=qnaEndPagingNum+pagingSet;
+					qnaNowPage= qnaNowPage+1;
+					System.out.println("다음페이지이동");
+				}
+				else
+				{
+					System.out.println("마지막페이지");
+				}
+				
+			}
+			System.out.println("페이징 넘연산결과 " + qnaEndPagingNum);
+			mv.setViewName("goods/qna/goodsDetail_Qna");
+		}
+		mv.addObject("qnaEndPagingNum",qnaEndPagingNum);
+		mv.addObject("qnaStartPagingNum",qnaStartPagingNum);
+		mv.addObject("qnaNowPage",qnaNowPage);
+		
+		
+		
+		//상품 Review 가져오기
 		List<Map<String, Object>> goodsReview=reviewService.goodsReview(commandMap.getMap());
 		
-		reviewTotalCount = goodsReview.size();
+		mv.addObject("goodsReview",goodsReview);
+
+/*		재훈씨 원본
+ * 		reviewTotalCount = goodsReview.size();
 		reviewPage = new Paging(reviewCurrentPage, reviewTotalCount, blockCount, blockPage, "goodsDetail");
 		reviewPagingHtml = reviewPage.getPagingHtml().toString();
 
@@ -664,7 +869,63 @@ public class GoodsController {
 
 		goodsReview = goodsReview.subList(reviewPage.getStartCount(), lastCount);
 		mv.addObject("goodsReview",goodsReview);		
+*/
+		
+		//Review 페이징하기
 
+		int reviewEndPagingNum=pagingSet;
+		int reviewStartPagingNum=0;
+		int reviewNowPage=1;
+		
+		String pagingReviewOnOff=(String)commandMap.getMap().get("pagingReviewOnOff");
+		if(pagingReviewOnOff!=null)
+		{
+			String i=(String)commandMap.getMap().get("i");
+			reviewEndPagingNum=Integer.parseInt((String)commandMap.getMap().get("reviewEndPagingNum"));
+			//String qnaStartPagingNumCheck=((String)commandMap.getMap().get("qnaStartPagingNum"));
+			//if(qnaStartPagingNumCheck!=null)
+			//{
+			reviewStartPagingNum=Integer.parseInt((String)commandMap.getMap().get("reviewStartPagingNum"));
+			//}
+			//System.out.println("페이징 넘1 :" + qnaStartPagingNum);
+			//System.out.println("페이징 넘 :" + qnaEndPagingNum);
+			reviewNowPage=Integer.parseInt((String)commandMap.getMap().get("reviewNowPage"));
+			if(i.equals("1"))//prev 클릭
+			{
+				if(reviewEndPagingNum==pagingSet)
+				{
+					System.out.println("첫페이지");
+				}
+				else{
+					reviewStartPagingNum = reviewStartPagingNum-pagingSet;
+					reviewEndPagingNum = reviewEndPagingNum-pagingSet; 
+					reviewNowPage = reviewNowPage-1;
+					System.out.println("리뷰전페이지이동");
+				}
+			}
+			else if(i.equals("2")) //next 클릭
+			{
+				if(reviewEndPagingNum<goodsReview.size())
+				{
+					reviewStartPagingNum=reviewStartPagingNum+pagingSet;
+					reviewEndPagingNum=reviewEndPagingNum+pagingSet;
+					reviewNowPage= reviewNowPage+1;
+					System.out.println("리뷰다음페이지이동");
+				}
+				else
+				{
+					System.out.println("마지막페이지");
+				}
+				
+			}
+			System.out.println("페이징 넘연산결과 " + reviewEndPagingNum);
+			mv.setViewName("goods/review/goodsDetail_Review");
+		}
+		mv.addObject("reviewEndPagingNum",reviewEndPagingNum);
+		mv.addObject("reviewStartPagingNum",reviewStartPagingNum);
+		mv.addObject("reviewNowPage",reviewNowPage);
+		
+		
 		return mv;
 	}
 }

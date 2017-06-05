@@ -1,0 +1,9 @@
+diff a/src/main/webapp/WEB-INF/jsp/goods/goodsCategory.jsp b/src/main/webapp/WEB-INF/jsp/goods/goodsCategory.jsp	(rejected hunks)
+@@ -568,6 +568,7 @@
+ 
+ 
+ 
++<<<<<<< HEAD
+                      <!-- �˻�/�����ʱ�ȭ
+                       <div class="reset form-item col-xs-24">
+                         <div class="form-item-wrap col-xs-24">

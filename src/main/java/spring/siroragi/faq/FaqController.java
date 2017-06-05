@@ -1,5 +1,6 @@
 package spring.siroragi.faq;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -89,17 +90,20 @@ public class FaqController {
 		mv.addObject("list8", list8);
 		mv.addObject("list9", list9);
 		mv.addObject("list10", list10);
+
+		String s = request.getParameter("isSearch");
+		Map<String, Object> isSearchMap= new HashMap<String, Object>();
 		
-
-		isSearch = request.getParameter("isSearch");
-		if (isSearch != null) {
+		if (request.getParameter("isSearch") != null) {
+			isSearch= new String(s.getBytes("iso-8859-1"), "utf-8");
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
-
+			isSearchMap.put("isSearch", isSearch);
+			
 			if (searchNum == 0) { // 글제목
-				list = faqService.searchTitleList(commandMap.getMap(), isSearch);
+				list = faqService.searchTitleList(isSearchMap, isSearch);
 			}
 			if (searchNum == 1) { // 글내용
-				list = faqService.searchContentList(commandMap.getMap(), isSearch);
+				list = faqService.searchContentList(isSearchMap, isSearch);
 			}
 
 			totalCount = list.size();

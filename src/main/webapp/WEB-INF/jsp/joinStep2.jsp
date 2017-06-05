@@ -520,7 +520,7 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 		</div>
 		<div class="col-lg-21 col-md-20">
 			<div class="input-box">
-					<input type="text" id="input-birth01" name="MEMBER_BIRTHDAY" value="" maxlength="8" placeholder="예)19000101" class="xx-control">
+					<input type="text" id="input-birth01" name="MEMBER_BIRTHDAY" value="" maxlength="8" placeholder="예)19000101" class="xx-control" required="">
 			</div>
 		</div>
 	</li>

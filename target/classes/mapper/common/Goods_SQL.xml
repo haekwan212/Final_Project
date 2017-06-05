@@ -201,6 +201,33 @@
 		 
 	</select>
 	
+	<select id="goodsNew" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		select A.goods_number,A.goods_name,A.goods_price,A.goods_dcprice,A.goods_simple,A.goods_category1,A.GOODS_DATE,A.GOODS_SALEDATE,A.GOODS_THUMBNAIL,SUM(A.GOODS_SELLCOUNT) as SELLCOUNT,NVL((GOODS_PRICE-GOODS_DCPRICE)/GOODS_PRICE*100,0) as DCPERSENT,sum(A.goods_amount) as AMOUNT
+		from (select * from goods natural join goods_kinds) A where A.goods_onoff='0' and A.goods_PRICE >= #{priceSearchRange1} and A.goods_price <= #{priceSearchRange2} and A.goods_Date > sysdate - #{date}
+		]]>
+		
+		<if test="colorCheck == 'ON1'">
+		and	goods_color=#{color} 
+		</if>
+		<if test="colorCheck == 'ON2'">
+		and (
+		<foreach collection="color" item="color" separator="or">
+		goods_color=#{color} 
+		</foreach>
+		) 
+		</if>
+		
+		group by A.GOODS_SALEDATE,A.GOODS_DATE,A.GOODS_THUMBNAIL,A.goods_category1,A.goods_simple,A.goods_dcprice,A.goods_price,A.goods_number, A.goods_name
+		order by A.GOODS_NUMBER DESC,A.GOODS_PRICE DESC
+	
+	</select>
+	
+	<select id="goodsQna" parameterType="hashmap" resultType="hashmap">
+		select * from (select * from qna natural join member) A where goods_number=#{GOODS_NUMBER} order by QNA_NUMBER DESC
+		
+	</select>
+	<!-- select * from (select * from qna natural join member) A where goods_number=#{GOODS_NUMBER} order by QNA_REF DESC,MEMBER_NUMBER DESC -->
 	<update id="goodsCountUp" parameterType="hashmap">
 		<![CDATA[
 			UPDATE GOODS SET GOODS_COUNT=GOODS_COUNT+1 WHERE GOODS_NUMBER=#{GOODS_NUMBER}

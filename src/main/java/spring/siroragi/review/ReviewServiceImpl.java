@@ -39,6 +39,15 @@ public class ReviewServiceImpl implements ReviewService {
 	// 리뷰 코멘트 등록(등록하면서 적립금 주어야함)
 
 	// 리뷰 검색
+	public List<Map<String, Object>> searchReviewList0(Map<String, Object> map) throws Exception{
+		return reviewDAO.searchReviewList0(map);
+	}
+	public List<Map<String, Object>> searchReviewList1(Map<String, Object> map) throws Exception{
+		return reviewDAO.searchReviewList1(map);
+	}
+	public List<Map<String, Object>> searchReviewList2(Map<String, Object> map) throws Exception{
+		return reviewDAO.searchReviewList2(map);
+	}
 
 	// 리뷰 평점 계산
 

@@ -32,6 +32,12 @@
 		]]>
 	</select>
 
+		<select id="selectGoodsReviewByMemNum" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT * FROM REVIEW WHERE MEMBER_NUMBER = #{MEMBER_NUMBER}
+				]]>
+	</select>
+
 	<select id="selectGoodsEvgGrade" parameterType="hashmap"
 		resultType="Integer">
 		<![CDATA[
@@ -42,9 +48,43 @@
 	<!-- 리스트 전체 불러오기(AdminPage) -->
 	<select id="reviewList" parameterType="hashmap" resultType="hashmap">
 	<![CDATA[
-		SELECT 
-		* 
-		FROM REVIEW
+		SELECT A.GOODS_NUMBER, A.REVIEW_NUMBER, A.MEMBER_NUMBER, A.REVIEW_CONTENT, A.REVIEW_IMAGE,
+		A.REVIEW_TITLE,A.REVIEW_GRADE, A.REVIEW_REGDATE, C.GOODS_NAME, D.MEMBER_ID
+		FROM REVIEW A, GOODS C, MEMBER D 
+		WHERE A.GOODS_NUMBER=C.GOODS_NUMBER AND A.MEMBER_NUMBER=D.MEMBER_NUMBER
+		ORDER BY REVIEW_NUMBER DESC		
+	]]>
+	</select>
+	
+	<select id="searchReviewList0" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		SELECT A.GOODS_NUMBER, A.REVIEW_NUMBER, A.MEMBER_NUMBER, A.REVIEW_CONTENT, A.REVIEW_IMAGE,
+		A.REVIEW_TITLE,A.REVIEW_GRADE, A.REVIEW_REGDATE, C.GOODS_NAME, D.MEMBER_ID
+		FROM REVIEW A, GOODS C, MEMBER D 
+		WHERE A.GOODS_NUMBER=C.GOODS_NUMBER AND A.MEMBER_NUMBER=D.MEMBER_NUMBER
+   		AND D.MEMBER_ID LIKE '%'||#{isSearch}||'%'
+		ORDER BY REVIEW_NUMBER DESC	
+	]]>
+	</select>
+	
+	<select id="searchReviewList1" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		SELECT A.GOODS_NUMBER, A.REVIEW_NUMBER, A.MEMBER_NUMBER, A.REVIEW_CONTENT, A.REVIEW_IMAGE,
+		A.REVIEW_TITLE,A.REVIEW_GRADE, A.REVIEW_REGDATE, C.GOODS_NAME, D.MEMBER_ID
+		FROM REVIEW A, GOODS C, MEMBER D 
+		WHERE A.GOODS_NUMBER=C.GOODS_NUMBER AND A.MEMBER_NUMBER=D.MEMBER_NUMBER
+    	AND C.GOODS_NAME LIKE '%'||#{isSearch}||'%'
+		ORDER BY REVIEW_NUMBER DESC	
+	]]>
+	</select>
+	
+	<select id="searchReviewList2" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		SELECT A.GOODS_NUMBER, A.REVIEW_NUMBER, A.MEMBER_NUMBER, A.REVIEW_CONTENT, A.REVIEW_IMAGE,
+		A.REVIEW_TITLE,A.REVIEW_GRADE, A.REVIEW_REGDATE, C.GOODS_NAME, D.MEMBER_ID
+		FROM REVIEW A, GOODS C, MEMBER D 
+		WHERE A.GOODS_NUMBER=C.GOODS_NUMBER AND A.MEMBER_NUMBER=D.MEMBER_NUMBER
+		AND C.GOODS_NUMBER LIKE '%'||#{isSearch}||'%'
 		ORDER BY REVIEW_NUMBER DESC		
 	]]>
 	</select>

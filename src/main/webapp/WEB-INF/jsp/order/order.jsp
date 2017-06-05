@@ -16,6 +16,7 @@
 	$('#dataTables-example').rowspan(6);
 	$('#dataTables-example').rowspan(7);
 	$('#dataTables-example').rowspan(8);
+	
 });
 
 $.fn.rowspan = function(colIdx, isStats) {       
@@ -66,19 +67,24 @@ $.fn.rowspan = function(colIdx, isStats) {
 				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
 				+ '&searchNum=' + searchNum + '&ORDER_CODE='+a;
 	}
+	function GOODS_STATE_CHANGE(number) {
+		
+		var a= number;		
+		var x = $('#'+a+'>option:selected').val();
+		var currentPage =<%=request.getParameter("currentPage")%>;
+		var isSearch =<%=request.getParameter("isSearch")%>;
+		var searchNum =<%=request.getParameter("searchNum")%>;
+		window.location.href = 'orderStateModify?GOODS_STATE=' + x
+				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
+				+ '&searchNum=' + searchNum + '&ORDER_CODE='+a;
+	}
 
 	function DELIVERY_CHANGE(number) {
 		var a= number;	
 		var y = $('.'+a+'>option:selected').val();
-		var currentPage =
-<%=request.getParameter("currentPage")%>
-	;
-		var isSearch =
-<%=request.getParameter("isSearch")%>
-	;
-		var searchNum =
-<%=request.getParameter("searchNum")%>
-	;
+		var currentPage =<%=request.getParameter("currentPage")%>;
+		var isSearch =<%=request.getParameter("isSearch")%>;
+		var searchNum =<%=request.getParameter("searchNum")%>;
 		window.location.href = 'orderStateModify?DELIVERY_STATE=' + y
 				+ '&currentPage=' + currentPage + '&isSearch=' + isSearch
 				+ "&searchNum=" + searchNum+'&ORDER_CODE='+a;
@@ -252,51 +258,72 @@ $.fn.rowspan = function(colIdx, isStats) {
 
 													<div style='display: none;'>${orderList.ORDER_CODE}</div>
 												</c:if> <c:if test="${orderList.GOODS_STATE ne null}">
+													<c:if test="${orderList.GOODS_STATE eq '구매확정' ||orderList.GOODS_STATE eq '취소완료' || orderList.GOODS_STATE eq '교환완료' || orderList.GOODS_STATE eq '반품완료'}">
+														${orderList.GOODS_STATE}
+													</c:if>
+													<c:if test="${orderList.GOODS_STATE eq '주문취소'}">
+														<select id="${orderList.ORDER_CODE }" name="GOODS_STATE"
+														onchange="GOODS_STATE_CHANGE('${orderList.ORDER_CODE }')">
+															<option value='주문취소' selected>주문취소</option>
+															<option value='취소완료'>취소완료</option>
+														</select>
+													</c:if>
+													<c:if test="${orderList.GOODS_STATE eq '교환신청'}">
+														<select id="${orderList.ORDER_CODE }" name="GOODS_STATE"
+														onchange="GOODS_STATE_CHANGE('${orderList.ORDER_CODE }')">
+															<option value='교환신청' selected>교환신청</option>
+															<option value='교환완료'>교환완료</option>
+														</select>
+													</c:if>
+													<c:if test="${orderList.GOODS_STATE eq '반품신청'}">
+														<select id="${orderList.ORDER_CODE }" name="GOODS_STATE"
+														onchange="GOODS_STATE_CHANGE('${orderList.ORDER_CODE }')">
+															<option value='반품신청' selected>반품신청</option>
+															<option value='반품완료'>반품완료</option>
+														</select>
+													</c:if>
+													
 												
-												${orderList.GOODS_STATE}
+												
 												<div style='display: none;'>${orderList.ORDER_CODE}</div>
 												</c:if>
 											</td>
 											<td style="text-align: center; vertical-align: middle;">
-												<select class="${orderList.ORDER_CODE }" name="DELIVERY_STATE"
-												onchange="DELIVERY_CHANGE('${orderList.ORDER_CODE }')">
 													<c:if test="${orderList.DELIVERY_STATE eq '결제대기'}">
+													<select class="${orderList.ORDER_CODE }" name="DELIVERY_STATE"
+												onchange="DELIVERY_CHANGE('${orderList.ORDER_CODE }')">
 														<option value="결제대기" selected>결제대기</option>
+														</select>
 													</c:if>
 													<c:if test="${orderList.DELIVERY_STATE eq '배송준비중'}">
-														
+														<select class="${orderList.ORDER_CODE }" name="DELIVERY_STATE"
+												onchange="DELIVERY_CHANGE('${orderList.ORDER_CODE }')">
 														<option value="배송준비중" selected>배송준비중</option>
 														<option value="배송중">배송중</option>
 														<option value="배송완료">배송완료</option>
-														<option value="주문취소">주문취소</option>
+														</select>
 													</c:if>
 													<c:if test="${orderList.DELIVERY_STATE eq '배송중'}">
-														
+														<select class="${orderList.ORDER_CODE }" name="DELIVERY_STATE"
+												onchange="DELIVERY_CHANGE('${orderList.ORDER_CODE }')">
 														<option value="배송준비중">배송준비중</option>
 														<option value="배송중" selected>배송중</option>
 														<option value="배송완료">배송완료</option>
-														<option value="주문취소">주문취소</option>
+														</select>
 													</c:if>
 													<c:if test="${orderList.DELIVERY_STATE eq '배송완료'}">
-														
-														<option value="배송준비중">배송준비중</option>
-														<option value="배송중">배송중</option>
-														<option value="배송완료" selected>배송완료</option>
-														<option value="주문취소">주문취소</option>
+														${orderList.DELIVERY_STATE}
 													</c:if>
-													<c:if test="${orderList.DELIVERY_STATE eq '주문취소'}">
+													<c:if test="${orderList.DELIVERY_STATE eq '배송취소'}">
 														
-														<option value="배송준비중">배송준비중</option>
-														<option value="배송중">배송중</option>
-														<option value="배송완료">배송완료</option>
-														<option value="주문취소" selected>주문취소</option>
+														${orderList.DELIVERY_STATE}
 													</c:if>
-											</select>
 
 												<div style='display: none;'>${orderList.ORDER_CODE}</div>
 											</td>
 											<td style="text-align: center; vertical-align: middle;"><fmt:formatDate
-													value="${orderList.ORDER_DATE}" pattern="YY.MM.dd HH:mm" /></td>
+													value="${orderList.ORDER_DATE}" pattern="YY.MM.dd HH:mm" />
+													<div style='display: none;'>${orderList.ORDER_CODE}</div></td>
 											<td style="text-align: center; vertical-align: middle;">
 												<a href="${viewURL}"><input type="image"
 													src="/SIRORAGI/theme/file-alt-48.png" width="28"></a>&nbsp;&nbsp;

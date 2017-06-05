@@ -92,16 +92,16 @@
 				</a>
 			</div>
 		</div>
-		<div class="tier1-group">
+		<!-- <div class="tier1-group">
 			<div class="tier1-head">
 				<a href="/about/news_download">
 					<strong>Q&A</strong>
 				</a>
 			</div>
-		</div>
+		</div> -->
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/about/store_locator">
+				<a href="/SIRORAGI/store_locator">
 					<span class="icon icon-locator-black"></span>
 					<strong>store locator</strong>
 				</a>
@@ -232,11 +232,11 @@
 				<div class="nav-group">
 					<a href="/SIRORAGI/faq/faqList" class="nav-head"><span class="label">FAQ<span class="border"></span></span></a>
 				</div>
-				<div class="nav-group">
+				<!-- <div class="nav-group">
 					<a href="../about/news_download" class="nav-head"><span class="label">Q&A<span class="border"></span></span></a>
-				</div>
+				</div> -->
 				<div class="nav-group locator">
-					<a href="../about/store_locator" class="nav-head">
+					<a href="/SIRORAGI/store_locator" class="nav-head">
 						<span class="icon icon-locator-black"></span>
 						<span class="label">store locator<span class="border"></span></span>
 					</a>
