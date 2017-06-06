@@ -378,10 +378,9 @@ public class GoodsController {
 	public ModelAndView searchList(HttpSession session,HttpServletResponse response, HttpServletRequest request,CommandMap Map) throws Exception {
 		String stxt = (String) Map.getMap().get("stxt");
 		session.setAttribute("stxt",stxt);
-		String isSearch = new String(stxt.getBytes("iso-8859-1"), "utf-8");
-		System.out.println("isSearch"+isSearch);
+		String isSearch=stxt;//안해줘도되는데 그냥보기좋으라고해준듯 그럼첨부터 isSearch로 선언해도되는데
+		
 		ModelAndView mv = new ModelAndView("searchList");
-		mv.addObject("isSearch",isSearch);
 		
 		int intpagingNum;//페이징을 위한 변수하나선언
 		String pagingNum=(String)Map.getMap().get("pagingNum");

@@ -51,7 +51,8 @@ public class AdminGoodsController {
 		String s = request.getParameter("isSearch");
 		
 		if (request.getParameter("isSearch") != null) {
-			isSearch = new String(s.getBytes("iso-8859-1"), "utf-8");
+			//isSearch = new String(s.getBytes("iso-8859-1"), "utf-8");
+			isSearch=request.getParameter("isSearch");
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
 			if (searchNum == 0)// 상품이름
