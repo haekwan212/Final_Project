@@ -675,15 +675,25 @@ public class OrderController {
 			mv.addObject("BUYER_NUMBER", commandMap.get("guestPhone"));
 
 		}
-		int usePoint = Integer.parseInt((String) commandMap.getMap().get("usePoint"));
-		System.out.println("야야" + usePoint);
-		// int totalpoint =Integer.parseInt(goods_total[0]);
 
-		int POINT_POINT = -(usePoint);
-		System.out.println("POINT_POINT" + POINT_POINT);
+		int usePoint=Integer.parseInt((String)commandMap.getMap().get("usePoint"));
+		System.out.println("야야"+usePoint);
+		//int totalpoint =Integer.parseInt(goods_total[0]); 
+		
+		if(usePoint!=0)
+		{
+		System.out.println("포인트가 0이 아닌것들만 적립내역DB에 들어가거라");
+		
+		int POINT_POINT=-(usePoint);
+		
+		System.out.println("POINT_POINT"+POINT_POINT);
+
 		commandMap.getMap().put("POINT_POINT", POINT_POINT);
 
 		orderService.updatePoint(commandMap.getMap());
+
+		}
+
 
 		mv.addObject("ORDER_CODE", ORDER_CODE);
 		mv.addObject("BUYER_NUMBER", commandMap.get("BUYER_NUMBER"));
