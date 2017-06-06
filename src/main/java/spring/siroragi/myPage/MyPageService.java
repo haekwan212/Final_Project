@@ -7,6 +7,13 @@ public interface MyPageService {
 
 	int selectOtoCount(String mem_num) throws Exception;
 	// 개인 정보 수정
+	int selectBuyCount(String mem_num) throws Exception;
+	
+	int selectExCount(String mem_num) throws Exception;
+	
+	int selectReCount(String mem_num) throws Exception;
+	
+	int selectTotalMoney(String mem_num) throws Exception;
 	void updateMyinfo(Map<String, Object> map) throws Exception;
 	// 비밀번호 변경
 	void changeMypassword(Map<String, Object> map) throws Exception;

@@ -67,9 +67,11 @@
 						<tr class="detail end">
 								<td colspan="7">
 									<div class="contents">
+										<c:if test="${review.REVIEW_IMAGE ne null }">
 										<div style="max-width:300px">
 										<img src="/SIRORAGI/file/qnaFile/${review.REVIEW_IMAGE}" class="img-responsive">
 										</div>
+										</c:if>
 										<div class="description">
 											<p>${review.REVIEW_CONTENT }</p>
 										</div>

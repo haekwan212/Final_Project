@@ -19,6 +19,25 @@ public class MyPageServiceImpl implements MyPageService{
 		return myPageDAO.selectOtoCount(mem_num);
 	}
 	@Override
+	public int selectBuyCount(String mem_num) throws Exception {
+		// TODO Auto-generated method stub
+		return myPageDAO.selectBuyCount(mem_num);
+	}
+	@Override
+	public int selectExCount(String mem_num) throws Exception {
+		// TODO Auto-generated method stub
+		return myPageDAO.selectExCount(mem_num);
+	}
+	@Override
+	public int selectReCount(String mem_num) throws Exception {
+		// TODO Auto-generated method stub
+		return myPageDAO.selectReCount(mem_num);
+	}
+	@Override
+	public int selectTotalMoney(String mem_num) throws Exception {
+		return myPageDAO.selectTotalMoney(mem_num);
+	}
+	@Override
 	public void updateMyinfo(Map<String, Object> map) throws Exception {
 		myPageDAO.updateMyinfo(map);
 	}

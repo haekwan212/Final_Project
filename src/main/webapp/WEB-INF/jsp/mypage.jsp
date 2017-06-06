@@ -137,15 +137,41 @@ function tab(num){
 					<div class="info">						<strong>
 						<span class="level" style="text-align:center;">${sessionScope.MEMBER_ID}</span>(${sessionScope.MEMBER_NAME }님)
 						</strong>
+						<a href="#" onclick="javascript:tab(7)" class="button small button-dimmed">
+							<span class="button-label">내 정보 수정</span>
+						</a>
 					</div>
 				</div>
 				<div class="item point col-xs-8 col-md-6">
-					<strong>적립금 : </strong>
+					<strong>포인트 : </strong>
 					<em><fmt:formatNumber value="${sumPoint}" type="number" />원</em><br>
 					<button class="button small" target="modal" data-size="md" data-label="나의 적립금" href="/SIRORAGI/member/myPoint">
 						<span class="button-label">자세히 보기</span>
 					</button>
 					<div></div>
+				</div>
+				<div class="item cash col-xs-8 col-md-6">
+				<div class="info">
+				<span>총  구입금액 : </span>
+				 <span>${totalMoney }원</span>
+				
+				
+				</div>
+				</div>
+				<div class="item coupon col-xs-8 col-md-6">
+				<div style="margin-top:-15px">
+					<span>주문진행중 : </span>
+				<span>${buyCount }건</span><br> 
+				</div>
+				<div>
+					<span>반품진행중 : </span>
+					 <span>${ReCount }건</span><br> 
+					 </div>
+					 <div>
+					<span>교환진행중 : </span>
+					 <span>${ExCount }건</span><br> 
+					 </div>
+				
 				</div>
 			</div>
 		</section>
