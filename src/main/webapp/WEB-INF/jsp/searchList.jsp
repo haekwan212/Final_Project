@@ -42,12 +42,12 @@
 
 <div class="container">
 	<section class="globalSearch-form section box-shadow">
-		<p><strong class="c01">"${stxt}"</strong>
+		<p><strong class="c01">"${isSearch}"</strong>
 		키워드로 검색된 추천 컨텐츠입니다.</p>
 		<div class="searchForm col-xs-24 col-sm-auto">
 			<form action="/SIRORAGI/searchList">
 				<div class="x-group col-xs-24 col-sm-auto">
-						<input class="xx-control" type="text" id="global-search" placeholder="통합 검색" size="40" value="${stxt}" name="stxt">
+						<input class="xx-control" type="text" id="global-search" placeholder="통합 검색" size="40" value="${isSearch}" name="stxt">
 					<div class="x-group-addon">
 						<button type="submit" class="button button-dimmed">검색</button>
 					</div>
@@ -57,14 +57,14 @@
 		<div class="related">
 			<strong>추천 검색어</strong>
 			<ul>
-				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7%ED%82%A4%EC%A6%88">SIRORAGI키즈</a></li>
-				<li><a href="?stxt=%EC%9B%90%ED%94%BC%EC%8A%A4">원피스</a></li>
-				<li><a href="?stxt=%EB%B0%98%ED%8C%94%ED%8B%B0">반팔티</a></li>
-				<li><a href="?stxt=sesame">sesame</a></li>
-				<li><a href="?stxt=PKOEURS">PKOEURS</a></li>
-				<li><a href="?stxt=%ED%8C%AC%EC%BD%A7+">SIRORAGI </a></li>
-				<li><a href="?stxt=%EB%AA%A8%EC%9E%90">모자</a></li>
-				<li><a href="?stxt=PANCOAT+KIDS">SIRORAGI KIDS</a></li>
+				<li>SIRORAGI키즈</li>
+				<li>원피스</li>
+				<li>반팔티</li>
+				<li>sesame</li>
+				<li>PKOEURS</li>
+				<li>SIRORAGI</li>
+				<li>모자</li>
+				<li>SIRORAGI KIDS</li>
 			</ul>
 		</div>
 	</section>
