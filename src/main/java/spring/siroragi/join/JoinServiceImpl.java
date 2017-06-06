@@ -24,4 +24,10 @@ public class JoinServiceImpl implements JoinService{
 		return joinDAO.checkMember(map);
 		
 	}
+	
+	@Override
+	public int chekcId(String mem_id) throws Exception {
+		// TODO Auto-generated method stub
+		return joinDAO.checkId(mem_id);
+	}
 }

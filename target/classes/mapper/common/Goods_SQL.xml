@@ -234,5 +234,11 @@
 		]]>
 	</update>
 	
+	<select id="checkBuy" parameterType="hashmap" resultType="string">
+		<![CDATA[
+			SELECT GOODS_NUMBER FROM ORDERLIST WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND GOODS_NUMBER = #{GOODS_NUMBER} group by GOODS_NUMBER
+		]]>
+	</select>
+	
 </mapper>
 

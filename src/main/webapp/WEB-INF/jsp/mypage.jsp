@@ -178,7 +178,7 @@ function tab(num){
 					<li class=" col-sm-3 xx">
 						<a href="#orderlist" onclick="javascript:tab(1)">주문조회/취소
 							<!-- 글이 있을 경우 exist라는 클래스명 붙임 -->
-							<em class="badge badge-point">0</em>
+							<em class="badge badge-point"></em>
 						</a>
 					</li>
 
@@ -192,7 +192,7 @@ function tab(num){
 					<li class=" col-sm-3">
 						<a href="#review" onclick="javascript:tab(4)">구매 후기
 							<!-- 글이 있을 경우 exist라는 클래스명 붙임 -->
-							<em class="badge badge-point">0</em>
+							<em class="badge badge-point"></em>
 						</a>
 					</li>
 					<li class=" col-sm-3">

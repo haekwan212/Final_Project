@@ -61,7 +61,7 @@
 									<c:when test="${order.GOODS_STATE eq '구매확정' }">
 									<td>
 									<div class="section-foot">
-									<a class="button" target="modal" data-size="md" data-label="반품신청" href="/SIRORAGI/exchangelist/form?ORDER_NUMBER=${order.ORDER_NUMBER }">
+									<a class="button" target="modal" data-size="md" data-label="반품신청" href="/SIRORAGI/exchangelist/form?ORDER_NUMBER=${order.ORDER_NUMBER }&ORDER_CODE=${order.ORDER_CODE}">
 									<span class="button-label">교환신청</span>
 									</a>
 									</div>

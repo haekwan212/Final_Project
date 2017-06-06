@@ -593,7 +593,7 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 $("input[name=MEMBER_ID]").blur(function(){
 	var MEMBER_ID = $(this).val();
 	var p = $(this).parent();
-	$.post("/SIRORAGI/joinStep2",{mode:"chkid", MEMBER_ID:MEMBER_ID},function(data){
+	$.post("/SIRORAGI/checkId",{MEMBER_ID:MEMBER_ID},function(data){
 		if (!MEMBER_ID){
 			$(".alert",p).removeClass("alert-positive").addClass("alert-negative").html("<span class='icon icon-negative-orange'></span> 아이디를 입력해주세요");
 			$("input[name=chkid]").val("");

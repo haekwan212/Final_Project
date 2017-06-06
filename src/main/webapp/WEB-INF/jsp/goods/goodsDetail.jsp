@@ -138,6 +138,10 @@
 		};
 	}
 
+	function check_buy(goodsNumber, memberId){
+		alert(goodsNumber);
+		alert(memberId);
+	}
 </script>
 <div class="hashFilter eshop">
 	<section class="page-category container">
@@ -1037,16 +1041,21 @@ function _exec(mode){
                 </div>
                 -->
 			<div class="section-foot">
-				<c:if test="${MEMBER_ID eq null}">
+				<c:if test="${sessionScope.MEMBER_ID eq null}">
 					<a href="#" class="button" data-size="md" data-label="구매 후기 작성"
 						onClick="alert('로그인을 해주세요.'); return false;"> <span
 						class="button-label">구매 후기 작성</span>
 					</a>
 				</c:if>
-				<c:if test="${MEMBER_ID ne null }">
-					<a
-						href="/SIRORAGI/review/reviewForm?GOODS_NUMBER=${goodsBasic.GOODS_NUMBER}"
-						class="button" target="modal" data-size="md" data-label="구매 후기 작성">
+				<c:if test="${sessionScope.MEMBER_ID ne null and checkBuy ne goodsBasic.GOODS_NUMBER}">
+					<a href="#" class="button" data-size="md" data-label="구매 후기 작성"
+						onClick="alert('구매후 작성 가능합니다..'); return false;"> <span
+						class="button-label">구매 후기 작성</span>
+					</a>
+				</c:if>
+				<c:if test="${sessionScope.MEMBER_ID ne null and checkBuy eq goodsBasic.GOODS_NUMBER }">
+					<a href="/SIRORAGI/review/reviewForm?GOODS_NUMBER=${goodsBasic.GOODS_NUMBER}"
+						class="button" target="modal" data-size="md" data-label="구매 후기 작성" onclick="javascript:check_buy(${goodsBasic.GOODS_NUMBER}, ${sessionScope.MEMBER_ID })">
 						<span class="button-label">구매 후기 작성</span>
 					</a>
 				</c:if>

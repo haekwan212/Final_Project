@@ -68,9 +68,10 @@ public class MyPageController {
 		ModelAndView mv = new ModelAndView("orderlist");
 		String flag = URLDecoder.decode(commandMap.get("flag").toString(), "utf-8");
 		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
+		System.out.println(flag);
 		if(flag.equals("구매취소")){
 			mypageService.cancel_order(commandMap.getMap());
-		}else{
+		}else if(flag.equals("구매확정")) {
 			mypageService.confirm_order(commandMap.getMap());
 		}
 		List<Map<String, Object>> list = mypageService.selectOrderList(mem_num);
@@ -154,8 +155,11 @@ public class MyPageController {
 	@ResponseBody
 	public ModelAndView exchangelistForm(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("modal_exchangeForm");
+		String orderCode = commandMap.get("ORDER_CODE").toString();
 		String orderNumber = commandMap.get("ORDER_NUMBER").toString();
 		mv.addObject("ORDER_NUMBER", orderNumber);
+		mv.addObject("ORDER_CODE", orderCode);
+		System.out.println(orderCode);
 		return mv;
 	}
 	
@@ -191,6 +195,7 @@ public class MyPageController {
 		String orderCode = commandMap.get("ORDER_CODE").toString();
 		mv.addObject("ORDER_NUMBER", orderNumber);
 		mv.addObject("ORDER_CODE", orderCode);
+		System.out.println(orderCode);
 		return mv;
 	}
 	
