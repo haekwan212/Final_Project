@@ -13,12 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import spring.kh.siroragi.CommandMap;
 import spring.kh.siroragi.Paging;
+import spring.siroragi.adminOrder.AdminOrderService;
 
 @Controller
 public class AdminCancelController {
 
 	@Resource(name = "adminCancelService")
 	private AdminCancelService adminCancelService;
+	
+	@Resource(name = "adminOrderService")
+	private AdminOrderService adminOrderService;
 
 	// 페이징 변수
 	private int searchNum;
@@ -181,6 +185,28 @@ public class AdminCancelController {
 
 		mv.addObject("exchangeList", exchangeList);
 		
+		return mv;
+	}
+	
+	//주문취소 삭제
+	@RequestMapping(value = "cancel/adminCancelDelete")
+	public ModelAndView adminCancelDelete(CommandMap commandMap) throws Exception {
+
+		ModelAndView mv = new ModelAndView("redirect:cancelList");
+
+		adminOrderService.orderDelete(commandMap.getMap());
+
+		return mv;
+	}
+	
+	//교환,반품 삭제
+	@RequestMapping(value = "cancel/adminExchangeDelete")
+	public ModelAndView adminExchangeDelete(CommandMap commandMap) throws Exception {
+
+		ModelAndView mv = new ModelAndView("redirect:exchangeList");
+
+		adminOrderService.orderDelete(commandMap.getMap());
+
 		return mv;
 	}
 

@@ -177,7 +177,6 @@ public class AdminOrderController {
 
 			String a = (String) commandMap.get("ORDER_CODE");
 			String b = (String) commandMap.getMap().get("GOODS_PAY_STATE");
-			b = new String(b.getBytes("iso-8859-1"), "utf-8");
 
 			stateMap.put("GOODS_PAY_STATE", b);
 			stateMap.put("ORDER_CODE", a);
@@ -192,7 +191,6 @@ public class AdminOrderController {
 
 			String a = (String) commandMap.get("ORDER_CODE");
 			String b = (String) commandMap.getMap().get("DELIVERY_STATE");
-			b = new String(b.getBytes("iso-8859-1"), "utf-8");
 
 			stateMap.put("DELIVERY_STATE", b);
 			stateMap.put("ORDER_CODE", a);
@@ -201,7 +199,6 @@ public class AdminOrderController {
 
 			String a = (String) commandMap.get("ORDER_CODE");
 			String b = (String) commandMap.getMap().get("GOODS_STATE");
-			b = new String(b.getBytes("iso-8859-1"), "utf-8");
 			stateMap.put("GOODS_STATE", b);
 			stateMap.put("ORDER_CODE", a);
 
