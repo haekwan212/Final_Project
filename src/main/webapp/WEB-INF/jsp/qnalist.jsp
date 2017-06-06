@@ -35,7 +35,7 @@
 							<!-- 문의가 종료되었을때, end클래스명 붙여줌 -->
 								<td class="info-img">
 									<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${qna.GOODS_NUMBER }">
-									<img img_layer="/SIRORAGI/file/goodsfile/${qna.GOODS_THUMBNAIL}" goodsno="${qna.GOODS_NUMBER }" src="/SIRORAGI/file/goodsfile/${qna.GOODS_THUMBNAIL}" class="img-responsive"></a>
+									<img img_layer="/SIRORAGI/file/goodsFile/${qna.GOODS_THUMBNAIL}" goodsno="${qna.GOODS_NUMBER }" src="/SIRORAGI/file/goodsFile/${qna.GOODS_THUMBNAIL}" class="img-responsive"></a>
 									<input type="hidden" id="qna_number" name="qna_number" value="${qna.QNA_NUMBER}">
 									<input type="hidden" id="qna_state" name="qna_state" value="${qna.QNA_REPSTATE}">
 								</td>

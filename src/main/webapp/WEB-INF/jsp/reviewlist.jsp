@@ -31,7 +31,7 @@
 							<tr class="brief" id="brief"><!-- 문의가 종료되었을때, end클래스명 붙여줌 -->
 								<td class="info-img">
 									<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${review.GOODS_NUMBER }">
-									<img img_layer="/SIRORAGI/file/goodsfile/${review.GOODS_THUMBNAIL}" goodsno="${review.GOODS_NUMBER }" src="/SIRORAGI/file/goodsfile/${review.GOODS_THUMBNAIL}" class="img-responsive"></a>
+									<img img_layer="/SIRORAGI/file/goodsFile/${review.GOODS_THUMBNAIL}" goodsno="${review.GOODS_NUMBER }" src="/SIRORAGI/file/goodsFile/${review.GOODS_THUMBNAIL}" class="img-responsive"></a>
 								</td>
 								<td class="info-caption">
 									<strong class="brand">SIRORAGI</strong>
