@@ -308,6 +308,7 @@
 		<c:forEach var="orderForm"  items="${goods}" varStatus="stat">
 			<c:set var= "sum" value="${sum + orderForm.TOTALPRICE}"/>
 		</c:forEach>
+		<c:if test="${not empty sessionScope.MEMBER_ID}">
 		<div class="col-lg-25">
 			<section class="input-horizontal list-horizontal section box-shadow">
 				<div class="section-head left border">
@@ -351,6 +352,7 @@
 				</ul>
 			</section>
 			</div>
+			</c:if>
 </div>
 		<div class="col-lg-6">
 
