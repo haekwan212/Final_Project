@@ -21,8 +21,8 @@
 									<th class="number">주문 번호</th>
 									<th class="payment">결제 금액/방법</th>
 									<th class="delivery">배송 정보</th>
-									<th class="situation">진행 현황</th>
 									<th class="situation">결제 상태</th>
+									<th class="situation">주문 상태</th>
 									<th class="situation">반품 신청</th>
 								</tr>
 							</thead>
