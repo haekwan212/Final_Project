@@ -308,6 +308,7 @@
 		<c:forEach var="orderForm"  items="${goods}" varStatus="stat">
 			<c:set var= "sum" value="${sum + orderForm.TOTALPRICE}"/>
 		</c:forEach>
+		<c:if test="${not empty sessionScope.MEMBER_ID}">
 		<div class="col-lg-25">
 			<section class="input-horizontal list-horizontal section box-shadow">
 				<div class="section-head left border">
@@ -351,6 +352,7 @@
 				</ul>
 			</section>
 			</div>
+			</c:if>
 </div>
 		<div class="col-lg-6">
 
@@ -402,8 +404,11 @@
 									<div class="item-label">
 										<strong>적립 포인트</strong>
 									</div>
+									
 									<div>
-										<em><fmt:formatNumber value="${sum / 100 }" type="number" />원</em>
+										<em>
+										<c:if test="${not empty sessionScope.MEMBER_ID}"><fmt:formatNumber value="${sum / 100 }" type="number" />원</c:if>
+										<c:if test="${not empty sessionScope.MEMBER_ID}">-</c:if></em>
 									</div>
 								</div>
 								<div class="item col-xs-12">

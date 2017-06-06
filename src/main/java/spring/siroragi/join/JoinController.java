@@ -64,6 +64,18 @@ public class JoinController {
 		mv.addObject("email2",email2);*/
 		return mv;
 	}
+	
+	@RequestMapping(value="/checkId")
+	@ResponseBody
+	public void checkId(HttpServletRequest request, HttpServletResponse response, CommandMap commandMap) throws Exception{
+		PrintWriter out = response.getWriter();
+		String paramId= (request.getParameter("MEMBER_ID") == null)?"":String.valueOf(request.getParameter("MEMBER_ID"));
+		int checkId = joinService.chekcId(paramId);
+		
+		out.print(checkId);
+		out.flush();
+		out.close();
+	}
 
 	@RequestMapping(value="/joinStep1/modal_email_auth")
 	public ModelAndView email_auth(HttpServletResponse response, HttpServletRequest request,CommandMap Map)throws Exception{

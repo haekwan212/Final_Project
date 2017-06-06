@@ -5,6 +5,7 @@
 <form method="post" action="/SIRORAGI/returnlist/write">
 <input type="hidden" name="MEMBER_NUMBER" value="${sessionScope.MEMBER_NUMBER }">
 <input type="hidden" name="ORDER_NUMBER" value="${ORDER_NUMBER }">
+<input type="hidden" name="ORDER_CODE" value="${ORDER_CODE}">
 <div class="modal-inquiry">
 	<section class="guide box-shadow">
 		<div class="section-head left">
@@ -26,10 +27,21 @@
 		<div class="section-body list-horizontal">
 			<div class="list-item">
 				<div class="item-title col-xs-24 col-md-6">
-					<label for="id_subject"><strong>제목</strong></label>
+					<label for="id_subject"><strong>작성 방법</strong></label>
 				</div>
 				<div class="item-contents col-xs-24 col-md-18">
+	① 주문번호,주문자 성함,ID,입금자명
+<br> 
 
+	②교환하실 제품명 (사이트에 명시된 상품명, 컬러, 사이즈)
+<br>
+④ 교환 환불 사유 (EX; 사이즈미스로 인한 사이즈교환, 단순변심, 업체 측 오배송 등)
+<br>
+
+
+⑤ 결재 방법(무통장입금)
+ 환불 받을 '계좌주명,은행명,계좌번호,금액'을 기재하여 주셔야 합니다.
+<br>
 				</div>
 			</div>
 			<div class="list-item">
@@ -37,7 +49,7 @@
 					<label for="pw-contents"><strong>반품 사유</strong></label>
 				</div>
 				<div class="item-contents col-xs-24 col-md-18">
-					<input rows="16" class="xx-control" name="QNA_CONTENT" required="" style="height:150px;"/>
+					<input rows="16" class="xx-control" name="CANCEL_CONTENT" required="" style="height:150px;"/>
 				</div>
 			</div>
 		</div>

@@ -115,15 +115,7 @@ function tab(num){
 				<option value="">마이페이지</option>
 			</select>
 		</div>
-		<div class="selectbox">
-			<div class="selectbox-data">
-				<strong class="text">마이페이지 </strong>
-				<span class="icon icon-dropdown-white"></span>
-			</div>
-			<select name="category[]" id="cate02">
-				<option value="">마이페이지</option>
-			</select>
-		</div>
+		
 		<!--
 		<a href="#" class="comment">
 			<span class="icon icon-speaker-white"></span>
@@ -178,7 +170,7 @@ function tab(num){
 					<li class=" col-sm-3 xx">
 						<a href="#orderlist" onclick="javascript:tab(1)">주문조회/취소
 							<!-- 글이 있을 경우 exist라는 클래스명 붙임 -->
-							<em class="badge badge-point">0</em>
+							<em class="badge badge-point"></em>
 						</a>
 					</li>
 
@@ -192,7 +184,7 @@ function tab(num){
 					<li class=" col-sm-3">
 						<a href="#review" onclick="javascript:tab(4)">구매 후기
 							<!-- 글이 있을 경우 exist라는 클래스명 붙임 -->
-							<em class="badge badge-point">0</em>
+							<em class="badge badge-point"></em>
 						</a>
 					</li>
 					<li class=" col-sm-3">

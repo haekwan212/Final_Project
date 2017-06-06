@@ -726,13 +726,19 @@ public class GoodsController {
 
 		// 조회수 올리기
 		goodsService.goodsCountUp(commandMap.getMap());
-
+		
 		// 상품정보 가져오기
 		List<Map<String, Object>> goodsDetail = goodsService.goodsDetail(commandMap.getMap());
-
+		
+		if(session.getAttribute("MEMBER_NUMBER") != null ){
+		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
+		commandMap.put("MEMBER_NUMBER", mem_num);
+		String checkBuy = goodsService.checkBuy(commandMap.getMap());
+		mv.addObject("checkBuy", checkBuy);
+		}
 		Calendar today=Calendar.getInstance();
 		Date d=new Date(today.getTimeInMillis());
-	
+		
 		Map<String, Object> goodsBasic = goodsDetail.get(0);
 		session.setAttribute("GOODS_NUMBER", goodsBasic.get("GOODS_NUMBER"));
 		if (goodsBasic.get("GOODS_SALEDATE") != null && goodsBasic.get("GOODS_DCPRICE") != null) {
@@ -746,7 +752,7 @@ public class GoodsController {
 		mv.addObject("goodsDetail", goodsDetail);
 		mv.addObject("GOODS_NUMBER",goodsDetail.get(0).get("GOODS_NUMBER"));
 		mv.addObject("goodsBasic", goodsBasic);
-		
+
 		int totalSellCount = goodsService.countTotalSell(commandMap.getMap());
 
 		mv.addObject("totalSellCount", totalSellCount);

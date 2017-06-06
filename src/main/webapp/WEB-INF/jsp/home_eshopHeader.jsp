@@ -72,8 +72,8 @@
 	<nav>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/SIRORAGI/main">
-					<strong>HOME</strong>
+				<a href="/SIRORAGI/about">
+					<strong>ABOUT</strong>
 				</a>
 			</div>
 		</div>
@@ -107,13 +107,7 @@
 			</div>
 		</div>
 		<div class="tier1-group toggle">
-			<div class="tier1-head">
-				<a href="/main/index2">
-					<img src="/SIRORAGI/theme/pshp/img/home_btn_r.png" width="15" height="15" >
-					<strong class="red">e-shop</strong>
-					<span class="icon icon-"></span>
-				</a>
-			</div>
+			
 			<ul class="tier1">
 				<li class="tier2-group col-xs-12">
 					<div class="tier2-head">
@@ -204,10 +198,7 @@
 				<span class="icon icon-hamburger-black"></span>
 				<span class="button-label sr-only">메뉴 펼침/닫음</span>
 			</button>
-			<a href="/main/index2" class="globalHeader-account-mobile">
-				<img src="/SIRORAGI/theme/pshp/img/home_btn.png" width="20" height="20">
-				<span class="sr-only">E-shop</span>
-			</a>
+			
 			<a href="/SIRORAGI/main" class="globalHeader-siteBrand"><span class="sr-only">SIRORAGI</span></a>
 		</div>
 	</div>
@@ -219,8 +210,8 @@
 				<!-- 각페이지로 들어갓을 때 페이지에 해당되는 nav-group에 selected클래스를 추가 -->
 
 				<div class="nav-group">
-					<a href="/SIRORAGI/main" class="nav-head">
-						<span class="label">HOME<span class="border"></span></span>
+					<a href="/SIRORAGI/about" class="nav-head">
+						<span class="label">ABOUT<span class="border"></span></span>
 					</a>
 				</div>
 				<div class="nav-group">
@@ -246,11 +237,7 @@
 				<!-- eshop으로 들어왓을때 <div class="nav-group eshop active">-->
 
 				<div class="nav-group eshop active">
-					<a href="/main/index2" class="nav-head">
-						<img src="/SIRORAGI/theme/pshp/img/home_btn_r.png" width="15" height="15">
-						<span class="label red">e-shop<span class="border" style="background:red"></span></span>
-						<span class="bullet"></span>
-					</a>
+					
 					<div class="nav-wrap">
 						<div class="nav-group-depth2">
 							<ul class="container">

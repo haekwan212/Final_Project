@@ -138,6 +138,10 @@
 		};
 	}
 
+	function check_buy(goodsNumber, memberId){
+		alert(goodsNumber);
+		alert(memberId);
+	}
 </script>
 <div class="hashFilter eshop">
 	<section class="page-category container">
@@ -327,7 +331,17 @@
 								<dl class="delivery">
 									<dt class="col-xs-6 col-md-5">배송비</dt>
 									<dd class="col-xs-18 col-md-19">
+									<c:choose>
+									<c:when test="${goodsBasic.GOODS_DCPRICE eq null && goodsBasic.GOODS_PRICE>29999}">
+										<b>무료</b> (30,000원 이상 무료배송)
+										</c:when>
+										<c:when test="${goodsBasic.GOODS_DCPRICE ne null && goodsBasic.GOODS_DCPRICE>'29999'}">
+										<b>무료</b> (30,000원 이상 무료배송)
+										</c:when>
+										<c:otherwise>
 										<b>2,500원</b> (30,000원 이상 무료배송)
+										</c:otherwise>
+										</c:choose>
 									</dd>
 								</dl>
 								<!--delivery charge-->
@@ -357,21 +371,12 @@
 				</dl>
 				-->
 
-								<dl class="installment">
-									<dt class="col-xs-6 col-md-5">무이자 혜택</dt>
-									<dd class="col-xs-18 col-md-19">
-										<a href="../service/card_dc_info" target="modal"
-											data-size="sm" class="button button-dimmed"
-											data-label="무이자 할부 혜택 보기">카드 무이자 혜택 확인</a>
-									</dd>
-								</dl>
+								
 								<!-- installment//end -->
 							</div>
 							<div class="payco_info col-lg-24 row text-center"
 								style="font-size: 14px; font-weight: bold; line-height: 20px; width: 100%; margin: 0; margin-bottom: 10px; background-color: #ffc000; color: #fff; border-top: 1px solid #ffc000;">
-								<a href="/store/event?no=105"><img
-									src="http://pic.styleindex.co.kr/skin/pshp/img/payco.png"
-									style="margin-bottom: 1px"> 생애 첫 결제시 3,500원 할인</a>
+								트렌디한 남자의 방 <font color=red>실오라기</font>
 							</div>
 
 							<div class="option">
@@ -512,17 +517,26 @@ $("#optionbox").on("click", "li a.btn-ea-dn", function(e) {
 </script>
 										</div>
 
-										<div class="col-xs-11 action">
-											<a href="../goods/restock?goodsno=${goodsBasic.GOODS_NUMBER }" target="modal"
-												data-size="sm" data-label="재입고 요청"
-												class="button button-dimmed"> <span class="button-label">재입고시
-													문자 받기</span>
-											</a>
-										</div>
+										
 									</dd>
 								</dl>
 							</div>
 
+						<div class="hashTag-wrap">
+								<a href="/SIRORAGI/searchList?stxt=${goodsBasic.GOODS_CATEGORY2 }" class="hashTag"> <span
+									class="hashTag-labl">#${goodsBasic.GOODS_CATEGORY2 }</span>
+								</a> <a href="/SIRORAGI/searchList?stxt=${goodsBasic.GOODS_CATEGORY2 }"
+									class="hashTag"> <span class="hashTag-labl">#실오라기
+										${goodsBasic.GOODS_CATEGORY2 }</span>
+								</a> <a href="/SIRORAGI/searchList?stxt=${goodsBasic.GOODS_CATEGORY2 }" class="hashTag">
+									<span class="hashTag-labl">#SIRORAGI
+										${goodsBasic.GOODS_CATEGORY2 }</span>
+								</a> <a href="/SIRORAGI/searchList?stxt= " class="hashTag">
+									<span class="hashTag-labl">#실오라기</span>
+								</a> <a href="/SIRORAGI/searchList?stxt= " class="hashTag"> <span
+									class="hashTag-labl">#SIRORAGI</span>
+								</a>
+							</div>
 						</div>
 				
 						<div class="section-foot">
@@ -1037,16 +1051,21 @@ function _exec(mode){
                 </div>
                 -->
 			<div class="section-foot">
-				<c:if test="${MEMBER_ID eq null}">
+				<c:if test="${sessionScope.MEMBER_ID eq null}">
 					<a href="#" class="button" data-size="md" data-label="구매 후기 작성"
 						onClick="alert('로그인을 해주세요.'); return false;"> <span
 						class="button-label">구매 후기 작성</span>
 					</a>
 				</c:if>
-				<c:if test="${MEMBER_ID ne null }">
-					<a
-						href="/SIRORAGI/review/reviewForm?GOODS_NUMBER=${goodsBasic.GOODS_NUMBER}"
-						class="button" target="modal" data-size="md" data-label="구매 후기 작성">
+				<c:if test="${sessionScope.MEMBER_ID ne null and checkBuy ne goodsBasic.GOODS_NUMBER}">
+					<a href="#" class="button" data-size="md" data-label="구매 후기 작성"
+						onClick="alert('구매후 작성 가능합니다..'); return false;"> <span
+						class="button-label">구매 후기 작성</span>
+					</a>
+				</c:if>
+				<c:if test="${sessionScope.MEMBER_ID ne null and checkBuy eq goodsBasic.GOODS_NUMBER }">
+					<a href="/SIRORAGI/review/reviewForm?GOODS_NUMBER=${goodsBasic.GOODS_NUMBER}"
+						class="button" target="modal" data-size="md" data-label="구매 후기 작성" onclick="javascript:check_buy(${goodsBasic.GOODS_NUMBER}, ${sessionScope.MEMBER_ID })">
 						<span class="button-label">구매 후기 작성</span>
 					</a>
 				</c:if>

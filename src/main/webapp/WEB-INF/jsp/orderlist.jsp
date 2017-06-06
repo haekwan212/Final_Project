@@ -6,9 +6,8 @@
  	<script>
 function pay_update(order_code,flag){
 	var order_code = order_code;
-	var en_flag = flag;
+	var en_flag = encodeURIComponent(flag);
 	var mem_num = ${sessionScope.MEMBER_NUMBER};
-	alert(en_flag);
 if(confirm("정말 주문취소 하시겠습니까?") == true){
 	$.ajax({
 		url: "/SIRORAGI/orderlist/payUpdate",
@@ -24,9 +23,8 @@ if(confirm("정말 주문취소 하시겠습니까?") == true){
 }
 function pay_update2(order_code,flag){
 	var order_code = order_code;
-	var en_flag = flag;
+	var en_flag = encodeURIComponent(flag);
 	var mem_num = ${sessionScope.MEMBER_NUMBER};
-	alert(en_flag);
 if(confirm("구매확정 하시겠습니까?") == true){
 	$.ajax({
 		url: "/SIRORAGI/orderlist/payUpdate",
@@ -72,7 +70,7 @@ if(confirm("구매확정 하시겠습니까?") == true){
 							<c:forEach items="${list }" var="order">
 									<tr>
 									<td class="info-img"><a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${order.GOODS_NUMBER }">
-									<img img_layer="/SIRORAGI/file/goodsfile/${order.GOODS_THUMBNAIL}" goodsno="${order.GOODS_NUMBER }" src="/SIRORAGI/file/goodsfile/${order.GOODS_THUMBNAIL}" class="img-responsive"></a>
+									<img img_layer="/SIRORAGI/file/goodsFile/${order.GOODS_THUMBNAIL}" goodsno="${order.GOODS_NUMBER }" src="/SIRORAGI/file/goodsFile/${order.GOODS_THUMBNAIL}" class="img-responsive"></a>
 									<input type="hidden" id="order" value="${order.ORDER_NUMBER}" name="order">
 									</td>
 									<td class="info-caption">
@@ -98,7 +96,7 @@ if(confirm("구매확정 하시겠습니까?") == true){
 									<c:choose>
 									<c:when test="${order.DELIVERY_STATE eq '결제대기' or order.DELIVERY_STATE eq '배송준비중' }">
 									<td class="action">
-									<input type="button" id="flag" class="btn btn-danger" onclick='javascript:pay_update(${order.ORDER_NUMBER},"구매취소")'  value="주문취소">
+									<input type="button" id="flag" class="btn btn-danger" onclick='javascript:pay_update(${order.ORDER_NUMBER},"구매취소")'  value="구매취소">
 									</td>
 									</c:when>
 									<c:when test="${order.GOODS_STATE eq '구매확정' or order.GOODS_STATE eq '주문취소'}">

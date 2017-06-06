@@ -16,6 +16,10 @@ public class GoodsServiceImpl implements GoodsService{
 	private GoodsDAO goodsDAO;
 
 	@Override
+	public String checkBuy(Map<String, Object> map) throws Exception {
+		return goodsDAO.check_buy(map);
+	}
+	@Override
 	public List<Map<String, Object>> goodsSearch(String isSearch) throws Exception {
 		return goodsDAO.goodsSearch(isSearch);
 	}

@@ -59,7 +59,8 @@ public class AdminOrderController {
 		Map<String, Object> isSearchMap;
 
 		if (request.getParameterMap().get("isSearch") != null && request.getParameterMap().get("isSearch") != "") {
-			isSearch = new String(s.getBytes("iso-8859-1"), "utf-8");
+			//isSearch = new String(s.getBytes("iso-8859-1"), "utf-8");
+			isSearch=request.getParameter("isSearch");
 			isSearchMap = new HashMap<String, Object>();
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 			isSearchMap.put("isSearch", isSearch);

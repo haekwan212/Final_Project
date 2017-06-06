@@ -115,7 +115,17 @@
 								<dl class="delivery">
 									<dt class="col-xs-6 col-md-5">배송비</dt>
 									<dd class="col-xs-18 col-md-19">
+										<c:choose>
+									<c:when test="${goodsBasic.GOODS_DCPRICE eq null && goodsBasic.GOODS_PRICE>29999}">
+										<b>무료</b> (30,000원 이상 무료배송)
+										</c:when>
+										<c:when test="${goodsBasic.GOODS_DCPRICE ne null && goodsBasic.GOODS_DCPRICE>'29999'}">
+										<b>무료</b> (30,000원 이상 무료배송)
+										</c:when>
+										<c:otherwise>
 										<b>2,500원</b> (30,000원 이상 무료배송)
+										</c:otherwise>
+										</c:choose>
 									</dd>
 								</dl>
 								<!--delivery charge-->
@@ -145,21 +155,12 @@
 				</dl>
 				-->
 
-								<dl class="installment">
-									<dt class="col-xs-6 col-md-5">무이자 혜택</dt>
-									<dd class="col-xs-18 col-md-19">
-										<a href="../service/card_dc_info" target="modal-inner"
-											data-size="sm" class="button button-dimmed"
-											data-label="무이자 할부 혜택 보기">카드 무이자 혜택 확인</a>
-									</dd>
-								</dl>
+								
 								<!-- installment//end -->
 							</div>
 							<div class="payco_info col-lg-24 row text-center"
 								style="font-size: 14px; font-weight: bold; line-height: 20px; width: 100%; margin: 0; margin-bottom: 10px; background-color: #ffc000; color: #fff; border-top: 1px solid #ffc000;">
-								<a href="/store/event?no=105"><img
-									src="http://pic.styleindex.co.kr/skin/pshp/img/payco.png"
-									style="margin-bottom: 1px"> 생애 첫 결제시 3,500원 할인</a>
+								<font color=red>실오라기</font> 데일리룩 스타일링
 							</div>
 
 							<div class="option">
@@ -385,31 +386,31 @@
 							<div class="action">
 								<div class="row">
 									<div class="col-xs-12">
-										<a href="../goods/1491899644"
+										<a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${goodsBasic.GOODS_NUMBER}"
 											class="button button-dimmed col-xs-24"> <span
 											class="button-label">상품상세보기</span>
 										</a>
 									</div>
 									<div class="col-xs-12">
-										<a href="../brand/96" class="button button-dimmed col-xs-24">
-											<span class="button-label">브랜드바로가기</span>
+										<a href="/SIRORAGI/searchList?stxt=${goodsBasic.GOODS_CATEGORY2}" class="button button-dimmed col-xs-24">
+											<span class="button-label">${goodsBasic.GOODS_CATEGORY2 } 더보기</span>
 										</a>
 									</div>
 								</div>
 							</div>
 
 							<div class="hashTag-wrap">
-								<a href="/store/search?stxt=HOODIES" class="hashTag"> <span
+								<a href="/SIRORAGI/searchList?stxt=${goodsBasic.GOODS_CATEGORY2 }" class="hashTag"> <span
 									class="hashTag-labl">#${goodsBasic.GOODS_CATEGORY2 }</span>
-								</a> <a href="/store/search?stxt=%ED%8C%AC%EC%BD%A7+HOODIES"
+								</a> <a href="/SIRORAGI/searchList?stxt=${goodsBasic.GOODS_CATEGORY2 }"
 									class="hashTag"> <span class="hashTag-labl">#실오라기
 										${goodsBasic.GOODS_CATEGORY2 }</span>
-								</a> <a href="/store/search?stxt=PANCOAT+HOODIES" class="hashTag">
+								</a> <a href="/SIRORAGI/searchList?stxt=${goodsBasic.GOODS_CATEGORY2 }" class="hashTag">
 									<span class="hashTag-labl">#SIRORAGI
 										${goodsBasic.GOODS_CATEGORY2 }</span>
-								</a> <a href="/store/search?stxt=%ED%8C%AC%EC%BD%A7" class="hashTag">
+								</a> <a href="/SIRORAGI/searchList?stxt= " class="hashTag">
 									<span class="hashTag-labl">#실오라기</span>
-								</a> <a href="/store/search?stxt=PANCOAT" class="hashTag"> <span
+								</a> <a href="/SIRORAGI/searchList?stxt= " class="hashTag"> <span
 									class="hashTag-labl">#SIRORAGI</span>
 								</a>
 							</div>
@@ -643,29 +644,36 @@
 		</div>
 	</form>
 
-	<script>
-		function _exec(mode) {
+		<script>
+function _exec(mode){
+	
+	if(mode == 'restock'){
 
-			if (mode == 'restock') {
+		document.location.href="./restock";
 
-				document.location.href = "./restock";
+	}
+	else if (mode=="buy"){
+		if (document.getElementsByName("optno[]").length==0){ alert("옵션을 선택해주세요"); return; }
+		
+		var fm = document.fmOrder;
+		fm.mode.value = mode;
+		fm.target = "_self";
+		fm.action = "/SIRORAGI/order";
+		//if (mode=="order") fm.action = "../order";
+		fm.submit();
+	}
+	else if (mode!="wishlist"){
+		if (document.getElementsByName("optno[]").length==0){ alert("옵션을 선택해주세요"); return; }
 
-			} else if (mode != "wishlist") {
-				if (document.getElementsByName("optno[]").length == 0) {
-					alert("옵션을 선택해주세요");
-					return;
-				}
-
-				var fm = document.fmOrder;
-				fm.mode.value = mode;
-				fm.target = "_self";
-				fm.action = "/SIRORAGI/cart/cartIn";
-				//if (mode=="wishlist") fm.action = "../mypage/wishlist";
-				fm.submit();
-
-			}
-		}
-	</script>
+		var fm = document.fmOrder;
+		fm.mode.value = mode;
+		fm.target = "_self";
+		fm.action = "/SIRORAGI/cart/cartIn";
+		//if (mode=="wishlist") fm.action = "../mypage/wishlist";
+		fm.submit();
+	}
+}
+</script>
 
 	<script>
 		modal_label("상품 PREVIEW");

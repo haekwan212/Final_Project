@@ -95,7 +95,8 @@ public class FaqController {
 		Map<String, Object> isSearchMap= new HashMap<String, Object>();
 		
 		if (request.getParameter("isSearch") != null) {
-			isSearch= new String(s.getBytes("iso-8859-1"), "utf-8");
+			isSearch=request.getParameter("isSearch");
+			//isSearch= new String(s.getBytes("iso-8859-1"), "utf-8");
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 			isSearchMap.put("isSearch", isSearch);
 			

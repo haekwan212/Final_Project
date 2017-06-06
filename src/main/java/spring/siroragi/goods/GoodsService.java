@@ -20,8 +20,8 @@ public interface GoodsService {
 	public List<Map<String,Object>> goodsSale(Map<String, Object> map) throws Exception;
 	// 뉴카테고리 뉴 상품 불러오기
 	public List<Map<String,Object>> goodsNew(Map<String, Object> map) throws Exception;
-	
-	
+	//구매확인
+	public String checkBuy(Map<String, Object> map) throws Exception;
 	// 상품 총 판매량 구하기
 	public int countTotalSell(Map<String, Object> map) throws Exception;
 

@@ -372,6 +372,12 @@
 function cartBuy(){
 		
 		var fm = document.fmCart;
+		
+		if($("input:checkbox[name='GOODS_KINDS_NUMBER']").is(":checked") == false) {
+			alert("상품을 선택해 주세요");
+			return false;
+		};
+		
 		fm.mode.value = "cart";
 		fm.target = "_self";
 		fm.action = "/SIRORAGI/order";

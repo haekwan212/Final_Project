@@ -249,7 +249,7 @@
 </c:forEach>
 	<!--  등록된 상품이 없을때 -->
 <c:if test="${fn:length(goodsList) le 0}">
-	<tr><td colspan="11" style="text-align:center;">등록된 상품이 없습니다</td></tr>
+	<tr><td colspan="11" style="text-align:center;">&nbsp;&nbsp;&nbsp;등록된 상품이 없습니다</td></tr>
 </c:if> 
            <%--  <c:choose>
                 <c:when test="${goodsList.lenth}> 0">
