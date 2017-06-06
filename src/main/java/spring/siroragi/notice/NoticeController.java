@@ -130,7 +130,6 @@ import spring.siroragi.notice.NoticeService;
 			MultipartFile NOTICE_IMAGE = multipartRequest.getFile("NOTICE_IMAGE1");
 			noticeService.noticeWrite(commandMap.getMap());
 			
-			System.out.println("noticeWrite : " + commandMap.getMap());
 			if(!NOTICE_IMAGE.getOriginalFilename().isEmpty()){
 		
 			System.out.println(NOTICE_IMAGE.getOriginalFilename());
@@ -179,16 +178,14 @@ import spring.siroragi.notice.NoticeService;
 		
 		// 공지사항 수정
 		@RequestMapping(value = "/notice/noticeModify")
-		public ModelAndView noticeModify(CommandMap commandMap) throws Exception {
-			ModelAndView mv = new ModelAndView();
-
-			System.out.println(commandMap.getMap());
+		public ModelAndView noticeModify(CommandMap commandMap, HttpServletRequest request) throws Exception {
+			ModelAndView mv = new ModelAndView();Map<String,Object> noticeMap=new HashMap<String,Object>(); 
 			
+			System.out.println("commandMap:"+commandMap.getMap());
 			noticeService.noticeModify(commandMap.getMap());
-			
-			mv.addObject("NOTICE_NUMBER", commandMap.get("NOTICE_NUMBER"));
+			mv.addObject("NOTICE_NUMBER",commandMap.get("NOTICE_NUMBER"));
 			mv.setViewName("redirect:/notice/noticeAdminList");
-
+				
 			return mv;
 		}
 		

@@ -84,10 +84,10 @@
 										<tr>
 											<td>
 											<c:if test="${!empty sessionScope.MEMBER_ID}">
-											<input type="checkbox" id="GOODS_KINDS_NUMBER" name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
+											<input type="checkbox" name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
 											</c:if>
 											<c:if test="${empty sessionScope.MEMBER_ID}">
-											<input type="checkbox" id="GOODS_KINDS_NUMBER"  name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
+											<input type="checkbox" name="GOODS_KINDS_NUMBER" value="${cartList.GOODS_KINDS_NUMBER}">
 											</c:if>
 											</td>
 											<td class="info-img"><a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${cartList.GOODS_NUMBER }"><img
@@ -373,8 +373,8 @@ function cartBuy(){
 		
 		var fm = document.fmCart;
 		
-		if($("input:checkbox[id='GOODS_KINDS_NUMBER']").prop("checked", false)) {
-			alert("체크박스를 선택해 주세요");
+		if($("input:checkbox[name='GOODS_KINDS_NUMBER']").is(":checked") == false) {
+			alert("상품을 선택해 주세요");
 			return false;
 		};
 		
