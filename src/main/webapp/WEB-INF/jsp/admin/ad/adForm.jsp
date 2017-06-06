@@ -161,13 +161,13 @@ function previewImage(targetObj, View_area) {
                         </div>
                         <c:choose>
                         <c:when test="${ad.AD_NUMBER == null}">
-						<button type="submit" class="btn btn-success" id="posting" name="posting" value ="1" onclick="button1_click();">상단광고</button>
-						<button type="submit" class="btn btn-success" id="posting" name="posting" value ="2" onclick="button1_click();">측면광고</button>
+						<button type="submit" class="btn btn-success" id="posting" name="posting" value ="1" onclick="button1_click();">상단광고1</button>
+						<button type="submit" class="btn btn-success" id="posting" name="posting" value ="2" onclick="button1_click();">상단광고2</button>
 						<button type="submit" class="btn btn-success" id="posting" name="posting" value ="0" onclick="button1_click();">비활성</button>
 						</c:when>
 						<c:otherwise>
 						<button type="submit" class="btn btn-success" id="posting" name="posting" value ="1" onclick="button2_click();">상단광고</button>
-						<button type="submit" class="btn btn-success" id="posting" name="posting" value ="2" onclick="button2_click();">측면광고</button>
+						<button type="submit" class="btn btn-success" id="posting" name="posting" value ="2" onclick="button2_click();">상단광고2</button>
 						<button type="submit" class="btn btn-success" id="posting" name="posting" value ="0" onclick="button2_click();">비활성</button>
 						</c:otherwise>
 						</c:choose>

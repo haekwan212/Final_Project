@@ -41,8 +41,8 @@ function delchk(){
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
 						<a href="/SIRORAGI/ad/adList?posting=0&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">비활성</button></a>	
-						<a href="/SIRORAGI/ad/adList?posting=1&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">상단광고</button></a>		
-						<a href="/SIRORAGI/ad/adList?posting=2&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">측면광고</button></a>		
+						<a href="/SIRORAGI/ad/adList?posting=1&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">상단광고1</button></a>		
+						<a href="/SIRORAGI/ad/adList?posting=2&searchNum=0&isSearch="><button type="button" name="searchNum" id="searchNum" class="btn btn-outline btn-default">상단광고2</button></a>		
 							</div>
 						<div class="col-sm-6" style="text-align:right;">
 							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 광고수 : ${totalCount}</div>
@@ -85,10 +85,10 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;"></td>
 										</c:if>
 										<c:if test="${adList.AD_POSTING == '1'}">
-										<td style="text-align:center;vertical-align:middle;">상단</td>
+										<td style="text-align:center;vertical-align:middle;">상단광고1</td>
 										</c:if>
 										<c:if test="${adList.AD_POSTING == '2'}">
-										<td style="text-align:center;vertical-align:middle;">측면</td>
+										<td style="text-align:center;vertical-align:middle;">상단광고2</td>
 										</c:if>
 										
 										<td style="text-align:center;vertical-align:middle;">${adList.AD_NAME}</td>

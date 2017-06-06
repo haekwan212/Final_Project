@@ -42,11 +42,7 @@
 	
 		<select resultType="hashmap" parameterType="hashmap" id="adImages">
 	<![CDATA[ 
-	SELECT 
-		* 
-	FROM AD 
-	WHERE AD_POSTING = '1'
-	ORDER BY AD_NUMBER DESC
+	SELECT AD_IMAGE FROM AD WHERE AD_POSTING IN (1,2) ORDER BY AD_POSTING
 	]]>
 	</select>
 </mapper>
