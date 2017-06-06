@@ -40,7 +40,7 @@
 			</div>
 			<div class="section-foot">
 				<div class="button-group">
-					<a href="../mypage/orderview?ordno=1496041079191" class="button large">
+					<a href="/SIRORAGI/mypage#orderlist" class="button large">
 						<span class="button-label">주문 확인</span>
 					</a>
 					<a href="/SIRORAGI/main" class="button button-dimmed large">

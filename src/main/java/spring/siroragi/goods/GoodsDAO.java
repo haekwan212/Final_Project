@@ -43,9 +43,11 @@ public class GoodsDAO extends AbstractDAO{
 	public List<Map<String, Object>> goodsNew(Map<String, Object> map) throws Exception {
 		return sqlSession.selectList("goods.goodsNew",map);
 	}
+	//구매확인
 	
-	
-	
+	public String check_buy(Map<String, Object> map) throws Exception{
+		return (String)selectOne("goods.checkBuy", map);
+	}
 	//낮은가격/높은가격/상품명/리뷰수/평점순/인기순/신상순 정렬
 	
 	//상품 상세보기 페이지로 이동
