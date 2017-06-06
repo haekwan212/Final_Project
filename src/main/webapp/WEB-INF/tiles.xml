@@ -115,6 +115,12 @@
 	<definition name="adminOrderDetail" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/jsp/order/adminOrderModifyForm.jsp" />
 	</definition>
+	<definition name="adminCancelList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/cancel/adminCancelList.jsp" />
+	</definition>
+	<definition name="adminExchangeList" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/jsp/cancel/adminExchangeList.jsp" />
+	</definition>
 	
 	<!-- admin -->
 	
@@ -155,6 +161,13 @@
 	<definition name="about" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/about.jsp"/>
 	</definition>
+	<definition name="goodsSaleCategory" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsSaleCategory.jsp"/>
+	</definition>
+	<definition name="goodsNewCategory" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsNewCategory.jsp"/>
+	</definition>
+	
 	
 	
 	<!-- 마이페이지 -->
