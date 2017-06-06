@@ -371,9 +371,9 @@
 						</button>
 					</div>					
 					<div class="col-xs-12 col-lg-24">
-						<a href="order" class="button button-dimmed large">
+						<button type="button"  class="button button-dimmed large" onclick="back();">
 							<span class="button-label">이전 단계</span>
-						</a>
+						</button>
 					</div>
 				</div>
 			</section>
@@ -386,6 +386,11 @@
 	<!-- page-action//end -->
 </div></form>
 <!-- container-fluid//end -->
+<script type="text/javascript">
+function back() {
+	history.back();
+}
+</script>
 <script>
 function pay_chk(){
 	if($('#ck').is(':checked')){

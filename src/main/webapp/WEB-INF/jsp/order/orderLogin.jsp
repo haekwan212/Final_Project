@@ -165,40 +165,6 @@ function _exec(mode){
 					</div>
 				</div>
 				</section>
-			<section class="non-member col-xs-24 col-lg-12 section">
-				<div class="box-shadow">
-					<div class="section-head left border">
-						<h3>비회원 주문조회</h3>
-					</div>
-					<div class="section-body">
-						<div class="guide col-xs-24">
-							<p>주문시 입력하신 이메일과 핸드폰 번호로 주문내역을 확인하실수 있습니다</p>
-						</div>
-						<!-- guide//end -->
-						<div class="item col-xs-24 col-sm-offset-6 col-sm-12 col-lg-offset-4 col-lg-16">
-
-							<form method="get" action="../mypage/orderlist">
-								<div class="input">
-									<div class="email">
-										<input type="text" id="ml-email" name="email" class="xx-control" placeholder="이메일" required="">
-									</div>
-									<div class="mobile">
-										<input type="text" id="ml-mobile" name="mobile" class="xx-control" placeholder="핸드폰번호" required="">
-									</div>
-								</div>
-								<!-- input//end -->
-								<button type="submit" class="button">
-									<span class="button-label">비회원 주문조회</span>
-								</button>
-								<!-- button//end -->
-							</form>
-							<div class="action">
-								<p>SIRORAGI 고객센터 : <a href="tel:1544-5991">1544-1234</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
 		</div>
 		<section class="member-signup col-xs-24 section">
 			<div class="guide col-xs-24">

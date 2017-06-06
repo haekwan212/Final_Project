@@ -180,15 +180,13 @@ $.fn.rowspan = function(colIdx, isStats) {
 										<th
 											style="width: 7%; text-align: center; vertical-align: middle;">회원ID</th>
 										<th
-											style="width: 19%; text-align: center; vertical-align: middle;">취소사유</th>
+											style="width: 10%; text-align: center; vertical-align: middle;">주문상태</th>
 										<th
-											style="width: 8%; text-align: center; vertical-align: middle;">주문상태</th>
+											style="width: 8%; text-align: center; vertical-align: middle;">배송상태</th>
 										<th
-											style="width: 6%; text-align: center; vertical-align: middle;">배송상태</th>
+											style="width: 10%; text-align: center; vertical-align: middle;">주문일자</th>
 										<th
-											style="width: 8%; text-align: center; vertical-align: middle;">취소일자</th>
-										<th
-											style="width: 10%; text-align: center; vertical-align: middle;">관리</th>
+											style="width: 8%; text-align: center; vertical-align: middle;">관리</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -200,7 +198,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 										</c:url>
 										<tr class="gradeA even" role="row">
 											<td style="text-align: center; vertical-align: middle;">${cancelList.ORDER_CODE}</td>
-											<td style="text-align: center; vertical-align: middle;">${cancelList.CANCEL_NUMBER}</td>
+											<td style="text-align: center; vertical-align: middle;">${cancelList.ORDER_NUMBER}</td>
 											<td style="text-align: center; vertical-align: middle;">
 												${cancelList.GOODS_NUMBER }.${cancelList.GOODS_NAME} |
 												${cancelList.GOODS_COLOR} / ${cancelList.GOODS_SIZE } /
@@ -215,8 +213,6 @@ $.fn.rowspan = function(colIdx, isStats) {
 											</c:if>
 											<div
 													style='display: none;'>${cancelList.ORDER_CODE}</div></td>
-											<td style="text-align: center; vertical-align: middle;">${cancelList.CANCEL_CONTENT }
-												<div style='display: none;'>${cancelList.ORDER_CODE}</div></td>
 											<td style="text-align: center; vertical-align: middle;">
 												<c:if test="${cancelList.GOODS_STATE eq '취소완료'}">
 												
@@ -237,12 +233,12 @@ $.fn.rowspan = function(colIdx, isStats) {
 												<div style='display: none;'>${cancelList.ORDER_CODE}</div>
 											</td>
 											<td style="text-align: center; vertical-align: middle;"><fmt:formatDate
-													value="${cancelList.CANCEL_REGDATE}" pattern="YY.MM.dd HH:mm" />
+													value="${cancelList.ORDER_DATE}" pattern="YY.MM.dd HH:mm" />
 													<div style='display: none;'>${cancelList.ORDER_CODE}</div></td>
 											<td style="text-align: center; vertical-align: middle;">
 												<a href="${viewURL}"><input type="image"
 													src="/SIRORAGI/theme/file-alt-48.png" width="28"></a>&nbsp;&nbsp;
-												<c:url var="viewURL2" value="adminOrderDelete">
+												<c:url var="viewURL2" value="adminCancelDelete">
 													<c:param name="ORDER_CODE" value="${cancelList.ORDER_CODE }" />
 												</c:url> <a href="${viewURL2}"><input type="image"
 													src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"

@@ -187,21 +187,21 @@ $.fn.rowspan = function(colIdx, isStats) {
 										<th
 											style="width: 10%; text-align: center; vertical-align: middle;">주문코드</th>
 										<th
-											style="width: 6%; text-align: center; vertical-align: middle;">번호</th>
+											style="width: 4%; text-align: center; vertical-align: middle;">번호</th>
 										<th
-											style="width: 33%; text-align: center; vertical-align: middle;">주문상품</th>
+											style="width: 30%; text-align: center; vertical-align: middle;">주문상품</th>
 										<th
-											style="width: 7%; text-align: center; vertical-align: middle;">회원ID</th>
+											style="width: 6%; text-align: center; vertical-align: middle;">회원ID</th>
 										<th
-											style="width: 8%; text-align: center; vertical-align: middle;">주문금액</th>
+											style="width: 18%; text-align: center; vertical-align: middle;">반품사유</th>
 										<th
 											style="width: 8%; text-align: center; vertical-align: middle;">주문상태</th>
 										<th
 											style="width: 8%; text-align: center; vertical-align: middle;">배송상태</th>
 										<th
-											style="width: 10%; text-align: center; vertical-align: middle;">교환/반품신청일자</th>
+											style="width: 8%; text-align: center; vertical-align: middle;">신청일자</th>
 										<th
-											style="width: 10%; text-align: center; vertical-align: middle;">관리</th>
+											style="width: 8%; text-align: center; vertical-align: middle;">관리</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -228,8 +228,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 											</c:if>
 											<div
 													style='display: none;'>${exchangeList.ORDER_CODE}</div></td>
-											<td style="text-align: center; vertical-align: middle;"><fmt:formatNumber
-													value="${exchangeList.GOODS_TOTAL}" type="number" />원
+											<td style="text-align: center; vertical-align: middle;">${exchangeList.CANCEL_CONTENT }
 												<div style='display: none;'>${exchangeList.ORDER_CODE}</div></td>
 											<td style="text-align: center; vertical-align: middle;">
 													<c:if test="${exchangeList.GOODS_STATE eq '교환신청'}">
@@ -278,7 +277,7 @@ $.fn.rowspan = function(colIdx, isStats) {
 											<td style="text-align: center; vertical-align: middle;">
 												<a href="${viewURL}"><input type="image"
 													src="/SIRORAGI/theme/file-alt-48.png" width="28"></a>&nbsp;&nbsp;
-												<c:url var="viewURL2" value="adminOrderDelete">
+												<c:url var="viewURL2" value="adminExchangeDelete">
 													<c:param name="ORDER_CODE" value="${exchangeList.ORDER_CODE }" />
 												</c:url> <a href="${viewURL2}"><input type="image"
 													src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png"

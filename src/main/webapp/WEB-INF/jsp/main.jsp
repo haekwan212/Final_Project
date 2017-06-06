@@ -270,7 +270,7 @@
 							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${top.GOODS_NUMBER}">
 								<span class="icon icon-expansion-white"></span>
 							</button>
-							<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
+							<a href="/SIRORAGI/sns" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
 								<span class="icon icon-share-white"></span>
 							</a>
 						</div>
@@ -366,7 +366,7 @@
 							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${top.GOODS_NUMBER}">
 								<span class="icon icon-expansion-white"></span>
 							</button>
-							<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
+							<a href="/SIRORAGI/sns" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
 								<span class="icon icon-share-white"></span>
 							</a>
 						</div>
@@ -461,7 +461,7 @@
 							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${top.GOODS_NUMBER}">
 								<span class="icon icon-expansion-white"></span>
 							</button>
-							<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
+							<a href="/SIRORAGI/sns" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
 								<span class="icon icon-share-white"></span>
 							</a>
 						</div>
@@ -557,7 +557,7 @@
 							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${top.GOODS_NUMBER}">
 								<span class="icon icon-expansion-white"></span>
 							</button>
-							<a href="/SIRORAGI/main/goods" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
+							<a href="/SIRORAGI/sns" class="button button-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
 								<span class="icon icon-share-white"></span>
 							</a>
 						</div>
@@ -656,7 +656,7 @@
 							<button class="button col-xs-12" target="modal" data-size="lg" data-label="GOODSPREVIEW" href="/SIRORAGI/main/goods?GOODS_NUMBER=${top.GOODS_NUMBER}">
 								<span class="icon icon-expansion-white"></span>
 							</button>
-							<a href="/SIRORAGI/main/goods" class="button n-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
+							<a href="/SIRORAGI/sns" class="button n-dimmed col-xs-12" target="modal" data-size="sm" data-label="SNS공유하기">
 								<span class="icon icon-share-white"></span>
 							</a>
 						</div>

@@ -23,8 +23,8 @@ public class CommonController {
 
 	@Resource(name = "commonService")
 	private CommonService commonService;
-	
-	int DATE_DATE=GoodsController.DATE_DATE;
+
+	int DATE_DATE = GoodsController.DATE_DATE;
 
 	// 실험용
 	@RequestMapping(value = "/main")
@@ -35,187 +35,176 @@ public class CommonController {
 		List<Map<String, Object>> listByPan = commonService.listByPan(commandMap.getMap());
 		List<Map<String, Object>> listByAcc = commonService.listByAcc(commandMap.getMap());
 		List<Map<String, Object>> listByShoes = commonService.listByShoes(commandMap.getMap());
-		
-		//AD
+
+		// AD
 		List<Map<String, Object>> adImages = commonService.adImages(commandMap.getMap());
 		mv.addObject("adImages", adImages);
-		
-		//sale&New 로직 시작
+
+		// sale&New 로직 시작
 		Calendar today = Calendar.getInstance();
 		Date d = new Date(today.getTimeInMillis());
-		//new태그위해 선언
-		 Calendar newCal = Calendar.getInstance();
-		 Date newDate =new Date();
+		// new태그위해 선언
+		Calendar newCal = Calendar.getInstance();
+		Date newDate = new Date();
 
-		 //TOP
-			for(int i=0; i<listByTop.size();i++){
-				if(listByTop.get(i).get("GOODS_SALEDATE")!=null && listByTop.get(i).get("GOODS_DCPRICE") != null){
-					//sale태그 조건
-					Date dDay = (Date) listByTop.get(i).get("GOODS_SALEDATE");
-					if (dDay.getTime() < d.getTime()) {
-						listByTop.get(i).remove("GOODS_SALEDATE");
-						listByTop.get(i).remove("GOODS_DCPRICE");
-					}
+		// TOP
+		for (int i = 0; i < listByTop.size(); i++) {
+			if (listByTop.get(i).get("GOODS_SALEDATE") != null && listByTop.get(i).get("GOODS_DCPRICE") != null) {
+				// sale태그 조건
+				Date dDay = (Date) listByTop.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					listByTop.get(i).remove("GOODS_SALEDATE");
+					listByTop.get(i).remove("GOODS_DCPRICE");
 				}
-				
-				//New태그 조건
-				Date newDay = (Date) listByTop.get(i).get("GOODS_DATE");
-				newCal.setTime(newDay);//Data값 캘린더로 변경
-				newCal.add(Calendar.DATE, DATE_DATE);// +10
-				
-				newDate=new Date(newCal.getTimeInMillis());
-				listByTop.get(i).put("GOODS_NEWDATE", newDate);
-				
-				//hurry up 태그조건
-				
-			}
-			
-			//OUTER
-			for(int i=0; i<listByOut.size();i++){
-				if(listByOut.get(i).get("GOODS_SALEDATE")!=null && listByOut.get(i).get("GOODS_DCPRICE") != null){
-					//sale태그 조건
-					Date dDay = (Date) listByOut.get(i).get("GOODS_SALEDATE");
-					if (dDay.getTime() < d.getTime()) {
-						listByOut.get(i).remove("GOODS_SALEDATE");
-						listByOut.get(i).remove("GOODS_DCPRICE");
-					}
-				}
-				
-				//New태그 조건
-				Date newDay = (Date) listByOut.get(i).get("GOODS_DATE");
-				newCal.setTime(newDay);//Data값 캘린더로 변경
-				newCal.add(Calendar.DATE, DATE_DATE);// +10
-				
-				newDate=new Date(newCal.getTimeInMillis());
-				listByOut.get(i).put("GOODS_NEWDATE", newDate);
-				
-				//hurry up 태그조건
-				
 			}
 
-			//PANTS
-			for(int i=0; i<listByPan.size();i++){
-				if(listByPan.get(i).get("GOODS_SALEDATE")!=null && listByPan.get(i).get("GOODS_DCPRICE") != null){
-					//sale태그 조건
-					Date dDay = (Date) listByPan.get(i).get("GOODS_SALEDATE");
-					if (dDay.getTime() < d.getTime()) {
-						listByPan.get(i).remove("GOODS_SALEDATE");
-						listByPan.get(i).remove("GOODS_DCPRICE");
-					}
-				}
-				
-				//New태그 조건
-				Date newDay = (Date) listByPan.get(i).get("GOODS_DATE");
-				newCal.setTime(newDay);//Data값 캘린더로 변경
-				newCal.add(Calendar.DATE, DATE_DATE);// +10
-				
-				newDate=new Date(newCal.getTimeInMillis());
-				listByPan.get(i).put("GOODS_NEWDATE", newDate);
-				
-				//hurry up 태그조건
-				
-			}
+			// New태그 조건
+			Date newDay = (Date) listByTop.get(i).get("GOODS_DATE");
+			newCal.setTime(newDay);// Data값 캘린더로 변경
+			newCal.add(Calendar.DATE, DATE_DATE);// +10
 
-			//ACC
-			for(int i=0; i<listByAcc.size();i++){
-				if(listByAcc.get(i).get("GOODS_SALEDATE")!=null && listByAcc.get(i).get("GOODS_DCPRICE") != null){
-					//sale태그 조건
-					Date dDay = (Date) listByAcc.get(i).get("GOODS_SALEDATE");
-					if (dDay.getTime() < d.getTime()) {
-						listByAcc.get(i).remove("GOODS_SALEDATE");
-						listByAcc.get(i).remove("GOODS_DCPRICE");
-					}
-				}
-				
-				//New태그 조건
-				Date newDay = (Date) listByAcc.get(i).get("GOODS_DATE");
-				newCal.setTime(newDay);//Data값 캘린더로 변경
-				newCal.add(Calendar.DATE, DATE_DATE);// +10
-				
-				newDate=new Date(newCal.getTimeInMillis());
-				listByAcc.get(i).put("GOODS_NEWDATE", newDate);
-				
-				//hurry up 태그조건
-				
-			}
+			newDate = new Date(newCal.getTimeInMillis());
+			listByTop.get(i).put("GOODS_NEWDATE", newDate);
 
-			//SHOSE
-			for(int i=0; i<listByShoes.size();i++){
-				if(listByShoes.get(i).get("GOODS_SALEDATE")!=null && listByShoes.get(i).get("GOODS_DCPRICE") != null){
-					//sale태그 조건
-					Date dDay = (Date) listByShoes.get(i).get("GOODS_SALEDATE");
-					if (dDay.getTime() < d.getTime()) {
-						listByShoes.get(i).remove("GOODS_SALEDATE");
-						listByShoes.get(i).remove("GOODS_DCPRICE");
-					}
-				}
-				
-				//New태그 조건
-				Date newDay = (Date) listByShoes.get(i).get("GOODS_DATE");
-				newCal.setTime(newDay);//Data값 캘린더로 변경
-				newCal.add(Calendar.DATE, DATE_DATE);// +10
-				
-				newDate=new Date(newCal.getTimeInMillis());
-				listByShoes.get(i).put("GOODS_NEWDATE", newDate);
-				
-				//hurry up 태그조건
-				
-			}
-			
-			/* 재훈씨 원본 코드 TOP삭제됨
-		// Outer
-		//List<Map<String, Object>> listByOut = commonService.listByOut(commandMap.getMap());
-		for(int i=0; i<listByOut.size();i++){
-			if(listByOut.get(i).get("GOODS_SALEDATE")!=null && listByOut.get(i).get("GOODS_DCPRICE") != null){
+			// hurry up 태그조건
+
+		}
+
+		// OUTER
+		for (int i = 0; i < listByOut.size(); i++) {
+			if (listByOut.get(i).get("GOODS_SALEDATE") != null && listByOut.get(i).get("GOODS_DCPRICE") != null) {
+				// sale태그 조건
 				Date dDay = (Date) listByOut.get(i).get("GOODS_SALEDATE");
 				if (dDay.getTime() < d.getTime()) {
 					listByOut.get(i).remove("GOODS_SALEDATE");
 					listByOut.get(i).remove("GOODS_DCPRICE");
 				}
 			}
+
+			// New태그 조건
+			Date newDay = (Date) listByOut.get(i).get("GOODS_DATE");
+			newCal.setTime(newDay);// Data값 캘린더로 변경
+			newCal.add(Calendar.DATE, DATE_DATE);// +10
+
+			newDate = new Date(newCal.getTimeInMillis());
+			listByOut.get(i).put("GOODS_NEWDATE", newDate);
+
+			// hurry up 태그조건
+
 		}
-		// pants
-		//List<Map<String, Object>> listByPan = commonService.listByPan(commandMap.getMap());
-		for(int i=0; i<listByPan.size();i++){
-			if(listByPan.get(i).get("GOODS_SALEDATE")!=null && listByPan.get(i).get("GOODS_DCPRICE") != null){
+
+		// PANTS
+		for (int i = 0; i < listByPan.size(); i++) {
+			if (listByPan.get(i).get("GOODS_SALEDATE") != null && listByPan.get(i).get("GOODS_DCPRICE") != null) {
+				// sale태그 조건
 				Date dDay = (Date) listByPan.get(i).get("GOODS_SALEDATE");
 				if (dDay.getTime() < d.getTime()) {
 					listByPan.get(i).remove("GOODS_SALEDATE");
 					listByPan.get(i).remove("GOODS_DCPRICE");
 				}
 			}
+
+			// New태그 조건
+			Date newDay = (Date) listByPan.get(i).get("GOODS_DATE");
+			newCal.setTime(newDay);// Data값 캘린더로 변경
+			newCal.add(Calendar.DATE, DATE_DATE);// +10
+
+			newDate = new Date(newCal.getTimeInMillis());
+			listByPan.get(i).put("GOODS_NEWDATE", newDate);
+
+			// hurry up 태그조건
+
 		}
-		//ACC
-		//List<Map<String, Object>> listByAcc = commonService.listByAcc(commandMap.getMap());
-		for(int i=0; i<listByAcc.size();i++){
-			if(listByAcc.get(i).get("GOODS_SALEDATE")!=null && listByAcc.get(i).get("GOODS_DCPRICE") != null){
+
+		// ACC
+		for (int i = 0; i < listByAcc.size(); i++) {
+			if (listByAcc.get(i).get("GOODS_SALEDATE") != null && listByAcc.get(i).get("GOODS_DCPRICE") != null) {
+				// sale태그 조건
 				Date dDay = (Date) listByAcc.get(i).get("GOODS_SALEDATE");
 				if (dDay.getTime() < d.getTime()) {
 					listByAcc.get(i).remove("GOODS_SALEDATE");
 					listByAcc.get(i).remove("GOODS_DCPRICE");
 				}
 			}
+
+			// New태그 조건
+			Date newDay = (Date) listByAcc.get(i).get("GOODS_DATE");
+			newCal.setTime(newDay);// Data값 캘린더로 변경
+			newCal.add(Calendar.DATE, DATE_DATE);// +10
+
+			newDate = new Date(newCal.getTimeInMillis());
+			listByAcc.get(i).put("GOODS_NEWDATE", newDate);
+
+			// hurry up 태그조건
+
 		}
-		//SHOES
-		//List<Map<String, Object>> listByShoes = commonService.listByShoes(commandMap.getMap());
-		for(int i=0; i<listByShoes.size();i++){
-			if(listByShoes.get(i).get("GOODS_SALEDATE")!=null && listByShoes.get(i).get("GOODS_DCPRICE") != null){
+
+		// SHOSE
+		for (int i = 0; i < listByShoes.size(); i++) {
+			if (listByShoes.get(i).get("GOODS_SALEDATE") != null && listByShoes.get(i).get("GOODS_DCPRICE") != null) {
+				// sale태그 조건
 				Date dDay = (Date) listByShoes.get(i).get("GOODS_SALEDATE");
 				if (dDay.getTime() < d.getTime()) {
 					listByShoes.get(i).remove("GOODS_SALEDATE");
 					listByShoes.get(i).remove("GOODS_DCPRICE");
 				}
 			}
-		}*/
 
-		mv.addObject("nowDate",d); //현재시간 보내기
+			// New태그 조건
+			Date newDay = (Date) listByShoes.get(i).get("GOODS_DATE");
+			newCal.setTime(newDay);// Data값 캘린더로 변경
+			newCal.add(Calendar.DATE, DATE_DATE);// +10
+
+			newDate = new Date(newCal.getTimeInMillis());
+			listByShoes.get(i).put("GOODS_NEWDATE", newDate);
+
+			// hurry up 태그조건
+
+		}
+
+		/*
+		 * 재훈씨 원본 코드 TOP삭제됨 // Outer //List<Map<String, Object>> listByOut =
+		 * commonService.listByOut(commandMap.getMap()); for(int i=0;
+		 * i<listByOut.size();i++){
+		 * if(listByOut.get(i).get("GOODS_SALEDATE")!=null &&
+		 * listByOut.get(i).get("GOODS_DCPRICE") != null){ Date dDay = (Date)
+		 * listByOut.get(i).get("GOODS_SALEDATE"); if (dDay.getTime() <
+		 * d.getTime()) { listByOut.get(i).remove("GOODS_SALEDATE");
+		 * listByOut.get(i).remove("GOODS_DCPRICE"); } } } // pants
+		 * //List<Map<String, Object>> listByPan =
+		 * commonService.listByPan(commandMap.getMap()); for(int i=0;
+		 * i<listByPan.size();i++){
+		 * if(listByPan.get(i).get("GOODS_SALEDATE")!=null &&
+		 * listByPan.get(i).get("GOODS_DCPRICE") != null){ Date dDay = (Date)
+		 * listByPan.get(i).get("GOODS_SALEDATE"); if (dDay.getTime() <
+		 * d.getTime()) { listByPan.get(i).remove("GOODS_SALEDATE");
+		 * listByPan.get(i).remove("GOODS_DCPRICE"); } } } //ACC
+		 * //List<Map<String, Object>> listByAcc =
+		 * commonService.listByAcc(commandMap.getMap()); for(int i=0;
+		 * i<listByAcc.size();i++){
+		 * if(listByAcc.get(i).get("GOODS_SALEDATE")!=null &&
+		 * listByAcc.get(i).get("GOODS_DCPRICE") != null){ Date dDay = (Date)
+		 * listByAcc.get(i).get("GOODS_SALEDATE"); if (dDay.getTime() <
+		 * d.getTime()) { listByAcc.get(i).remove("GOODS_SALEDATE");
+		 * listByAcc.get(i).remove("GOODS_DCPRICE"); } } } //SHOES
+		 * //List<Map<String, Object>> listByShoes =
+		 * commonService.listByShoes(commandMap.getMap()); for(int i=0;
+		 * i<listByShoes.size();i++){
+		 * if(listByShoes.get(i).get("GOODS_SALEDATE")!=null &&
+		 * listByShoes.get(i).get("GOODS_DCPRICE") != null){ Date dDay = (Date)
+		 * listByShoes.get(i).get("GOODS_SALEDATE"); if (dDay.getTime() <
+		 * d.getTime()) { listByShoes.get(i).remove("GOODS_SALEDATE");
+		 * listByShoes.get(i).remove("GOODS_DCPRICE"); } } }
+		 */
+
+		mv.addObject("nowDate", d); // 현재시간 보내기
 		mv.addObject("listByTop", listByTop);
 		mv.addObject("listByOut", listByOut);
 		mv.addObject("listByPan", listByPan);
 		mv.addObject("listByAcc", listByAcc);
 		mv.addObject("listByShoes", listByShoes);
 		for (int i = 0; i < listByTop.size(); i++) {
-			//System.out.println(listByTop.get(i).toString());
+			// System.out.println(listByTop.get(i).toString());
 		}
 		mv.setViewName("common");
 		return mv;
@@ -230,7 +219,7 @@ public class CommonController {
 	@RequestMapping(value = "/main/goods")
 	public ModelAndView goods(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("goods");
-		
+
 		// 조회수 올리기
 		goodsService.goodsCountUp(commandMap.getMap());
 
@@ -274,6 +263,13 @@ public class CommonController {
 	public ModelAndView about() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("about");
+		return mv;
+	}
+
+	// SNS로 이동
+	@RequestMapping(value = "/sns")
+	public ModelAndView reviewForm() {
+		ModelAndView mv = new ModelAndView("common/sns");
 		return mv;
 	}
 
