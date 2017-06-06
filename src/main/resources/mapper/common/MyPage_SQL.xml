@@ -50,7 +50,7 @@
 		]]>
 		</select>
 		
-<!-- 		<insert id="insertCancelList" parameterType="hashmap">
+		<insert id="insertCancelList" parameterType="hashmap">
 		<![CDATA[
 		INSERT INTO CANCELLIST
 		(CANCEL_NUMBER,
@@ -64,7 +64,7 @@
 		 SYSDATE
 		 )
 		]]>
-		</insert> -->
+		</insert>
 		
 		<update id="changePassword" parameterType="hashmap">
 		<![CDATA[

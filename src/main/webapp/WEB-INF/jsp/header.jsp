@@ -73,8 +73,8 @@
 	<nav>
 		<div class="tier1-group">
 			<div class="tier1-head">
-				<a href="/SIRORAGI/main">
-					<strong>HOME</strong>
+				<a href="/SIRORAGI/about">
+					<strong>ABOUT</strong>
 				</a>
 			</div>
 		</div>
@@ -220,8 +220,8 @@
 				<!-- 각페이지로 들어갓을 때 페이지에 해당되는 nav-group에 selected클래스를 추가 -->
 
 				<div class="nav-group">
-					<a href="/SIRORAGI/main" class="nav-head">
-						<span class="label">HOME<span class="border"></span></span>
+					<a href="/SIRORAGI/about" class="nav-head">
+						<span class="label">ABOUT<span class="border"></span></span>
 					</a>
 				</div>
 				<div class="nav-group">

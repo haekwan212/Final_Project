@@ -49,4 +49,8 @@ public class CommonDAO extends AbstractDAO {
 	public void goodsSale(Map<String, Object> map) throws Exception{
 		update("common.goodsSale",map);
 	}
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> adImages(Map<String, Object> map)  throws Exception {
+		return (List<Map<String, Object>>)selectList("common.adImages", map);
+	}
 }

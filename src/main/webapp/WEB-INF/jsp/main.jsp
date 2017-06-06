@@ -5,7 +5,13 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div style="position:relative;margin-bottom:10px;">
 	<div class="main-banner img-full main-owl BE-box" data-code="main_slider">
-<div data-code='main_banner_top' data-size='0' class='_edit_box owl'><a href='http://blog.naver.com/pancoat/220929088519' target='_blank'><img src='theme/pshp/_conf/banner/main_banner_top/3.jpg' class='img-responsive' style='margin:0 0 0 0'></a><a href='http://shop.pancoat.com/store/event?no=135' target='_self'><img src='theme/pshp/_conf/banner/main_banner_top/1.jpg' class='img-responsive' style='margin:0 0 0 0'></a></div>	</div>
+<div data-code='main_banner_top' data-size='0' class='_edit_box owl'>
+<c:forEach var="adImages"  items="${adImages}" varStatus="stat">
+<a href='http://blog.naver.com/pancoat/220929088519' target='_self'>
+<img src='/SIRORAGI/file/adFile/${adImages.AD_IMAGE}' class='img-responsive' style='margin:0 0 0 0'></a>
+</c:forEach>
+</div>	
+</div>
 </div>
 <section class="start-featured section container">
 	<div class="section-body">
@@ -13,6 +19,7 @@
 			<div class="catalog-item col-xs-8 col-md-8" style="display:block;">
 				<div class="thumbnail">
 					<a href="/store/lookbook_view?no=397" target="modal" data-size="lg" data-label="">
+					
 						<!--<img src="/theme/pshp/_conf/banner/event_banner/홈페이지-룩북.jpg" class="for-ie8 img-responsive lazy" width="340" height="190">-->
 						<div style="background-image: url('theme/pshp/_conf/banner/event_banner/lookbook.jpg'); position:relative;" class="maskimg">
 							<img src="theme/pshp/img/blank-340x190.png" class="img-responsive" width="340" height="190">

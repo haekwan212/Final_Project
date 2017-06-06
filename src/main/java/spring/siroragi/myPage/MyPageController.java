@@ -188,7 +188,9 @@ public class MyPageController {
 	public ModelAndView returnlistForm(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("modal_returnForm");
 		String orderNumber = commandMap.get("ORDER_NUMBER").toString();
+		String orderCode = commandMap.get("ORDER_CODE").toString();
 		mv.addObject("ORDER_NUMBER", orderNumber);
+		mv.addObject("ORDER_CODE", orderCode);
 		return mv;
 	}
 	
@@ -198,6 +200,8 @@ public class MyPageController {
 		System.out.println(commandmap.getMap().toString());
 		ModelAndView mv = new ModelAndView();
 		mypageService.updateReturn(commandmap.getMap());
+		mypageService.insertCancelList(commandmap.getMap());
+		System.out.println(commandmap.getMap());
 		mv.setViewName("redirect:/mypage#returnlist");
 		return mv;
 	}

@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script>
+$(document).ready(function(){
+
+
+});
+
+</script>
 <div class="modal-body">
 <form method="post" action="/SIRORAGI/oneToOne/write" enctype="multipart/form-data">
 <input type="hidden" name="MEMBER_NUMBER" value="${sessionScope.MEMBER_NUMBER }">
@@ -27,9 +34,9 @@
 					<strong>문의 분류</strong>
 				</div>
 				<div class="item-contents col-xs-24 col-md-18">
-					<div class="radio col-xs-auto">
+					<div class="radio col-xs-auto selected">
 						<label for="qncode0">
-							<input type="radio" name="QNA_CATEGORY" value="회원문의">
+							<input type="radio" name="QNA_CATEGORY" value="회원문의" required="">
 							<span class="icon icon-radio"></span>
 							<span class="radio-label">회원</span>
 						</label>

@@ -36,6 +36,10 @@ public class CommonController {
 		List<Map<String, Object>> listByAcc = commonService.listByAcc(commandMap.getMap());
 		List<Map<String, Object>> listByShoes = commonService.listByShoes(commandMap.getMap());
 		
+		//AD
+		List<Map<String, Object>> adImages = commonService.adImages(commandMap.getMap());
+		mv.addObject("adImages", adImages);
+		
 		//sale&New 로직 시작
 		Calendar today = Calendar.getInstance();
 		Date d = new Date(today.getTimeInMillis());

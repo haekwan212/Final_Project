@@ -32,5 +32,7 @@ public interface CommonService {
 
 	// Sale기간 지난 물품 정리
 	void goodsSale(Map<String, Object> map) throws Exception;
-		
+
+	List<Map<String, Object>> adImages(Map<String, Object> map) throws Exception;
+
 }
