@@ -115,15 +115,7 @@ function tab(num){
 				<option value="">마이페이지</option>
 			</select>
 		</div>
-		<div class="selectbox">
-			<div class="selectbox-data">
-				<strong class="text">마이페이지 </strong>
-				<span class="icon icon-dropdown-white"></span>
-			</div>
-			<select name="category[]" id="cate02">
-				<option value="">마이페이지</option>
-			</select>
-		</div>
+		
 		<!--
 		<a href="#" class="comment">
 			<span class="icon icon-speaker-white"></span>
