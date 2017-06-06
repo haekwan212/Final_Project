@@ -4,8 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	<div class="account-privacy">
 		<form method="post" action="/SIRORAGI/myinfo">
-		<input type="hidden" name="mode" value="myinfo">
 		<input type="hidden" name="MEMBER_ID" value="${myinfo.MEMBER_ID }"/>
+		<input type="hidden" name="MEMBER_ZIPCODE" value="${myinfo.MEMBER_ZIPCODE }">
+		<input type="hidden" name="MEMBER_ADDRESS1" value="${myinfo.MEMBER_ADDRESS1 }">
 		<!-- account-nav//end -->
 		<section class="input-horizontal list-horizontal section box-shadow">
 			<div class="section-head left border">
@@ -43,7 +44,7 @@
 			</label>
 		</div>
 		<div class="col-lg-21 col-md-20">
-			<input type="password" id="input-password" class="xx-control" value="" name="MEMBER_PASSWORD"  label="비밀번호">
+			<input type="password" id="input-password" class="xx-control" value="" name="MEMBER_PASSWORD" label="비밀번호">
 		</div>
 	</li>
 	<li class="password check">
@@ -141,7 +142,7 @@
 		</div>
 		<div class="col-lg-21 col-md-20">
 			<div class="input-box">
-			<input type="text" id="sample6_postcode" name="MEMBER_ZIPCODE" disabled="disabled" label="우편번호" value="${myinfo.MEMBER_ZIPCODE }" readonly=""maxlength="6" required="">
+			<input type="text" id="sample6_postcode" name="MEMBER_ZIPCODE" disabled="disabled" label="우편번호" value="${myinfo.MEMBER_ZIPCODE }" readonly="" maxlength="6" required="">
 				<span class="button button-dimmed" onclick="sample6_execDaumPostcode()">주소 찾기</span>
 			</div>
 			<input type="text" id="sample6_address" class="xx-control" name="MEMBER_ADDRESS1" label="주소" disabled="disabled" value="${myinfo.MEMBER_ADDRESS1}" size="48" readonly="" required="">

@@ -22,6 +22,30 @@
 				SELECT COUNT(*) FROM QNA WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND NOT QNA_CATEGORY = '상품문의'
 						]]>
 		</select>
+		
+		<select id="selectBuyCount" parameterType="String" resultType="int">
+		<![CDATA[
+				SELECT COUNT(*) FROM ORDERLIST WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND GOODS_STATE = '주문진행중'
+						]]>
+		</select>
+		
+		<select id="selectExCount" parameterType="String" resultType="int">
+		<![CDATA[
+				SELECT COUNT(*) FROM ORDERLIST WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND GOODS_STATE = '교환신청'
+						]]>
+		</select>
+		
+		<select id="selectReCount" parameterType="String" resultType="int">
+		<![CDATA[
+				SELECT COUNT(*) FROM ORDERLIST WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND GOODS_STATE = '반품신청'
+						]]>
+		</select>
+		
+		<select id="selectTotalMoney" parameterType="String" resultType="int">
+		<![CDATA[
+				select sum(GOODS_TOTAL) as totalPrice from orderlist where member_number = #{MEMBER_NUMBER}
+						]]>
+		</select>
 
 		<select id="selectReviewList" parameterType="String" resultType="hashmap">
 		<![CDATA[
@@ -102,5 +126,6 @@
 			MEMBER_ADDRESS2=#{MEMBER_ADDRESS2}, MEMBER_EMAIL=#{MEMBER_EMAIL} WHERE MEMBER_ID=#{MEMBER_ID}
 		]]>
 		</update>
+		
 		
 </mapper>

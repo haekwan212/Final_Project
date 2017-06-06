@@ -108,10 +108,6 @@
 							<li>2. 교환 정보 입력 후 배송비 결제 진행</li>
 							<li>3. 회수된 상품을 확인 후 교환 진행 (수거 서비스 신청 시 택배기사 2~3일 이내 방문)</li>
 						</ul>
-						<div class="row">
-							<div class="col-sm-12 col-md-11"><img src="http://pic.styleindex.co.kr/skin/nztr/img/exchangelist_01.jpg" class="img-responsive"></div>
-							<div class="col-sm-12 col-md-11"><img src="http://pic.styleindex.co.kr/skin/nztr/img/exchangelist_02.jpg" class="img-responsive"></div>
-						</div>
 					</div>
 					<div class="guide-situation">
 						<ul>

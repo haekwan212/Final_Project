@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="modal-body">
-<form method="post" action="/SIRORAGI/returnlist/write">
+<form method="post" action="/SIRORAGI/exchangelist/write">
 <input type="hidden" name="MEMBER_NUMBER" value="${sessionScope.MEMBER_NUMBER }">
 <input type="hidden" name="ORDER_NUMBER" value="${ORDER_NUMBER }">
 <input type="hidden" name="ORDER_CODE" value="${ORDER_CODE}">

@@ -40,15 +40,26 @@ public class MyPageController {
 	@RequestMapping(value="/mypage")
 	public ModelAndView mypageForm(CommandMap commandMap, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		String m_num = session.getAttribute("MEMBER_NUMBER").toString();
-		commandMap.getMap().put("MEMBER_NUMBER", m_num);
+		String mem_num = session.getAttribute("MEMBER_NUMBER").toString();
+		commandMap.getMap().put("MEMBER_NUMBER", mem_num);
+		
 		int newAlarm = qnaService.qnaNewAlarm(commandMap.getMap());
-		int selectOtoCount = mypageService.selectOtoCount(m_num);
+		int selectOtoCount = mypageService.selectOtoCount(mem_num);
+		int selectBuycount = mypageService.selectBuyCount(mem_num);
+		int selectExCount = mypageService.selectExCount(mem_num);
+		int selectReCount = mypageService.selectReCount(mem_num);
+		int selectTotalMoney = mypageService.selectTotalMoney(mem_num);
+		
+		
 		mv.setViewName("mypage");
 		Map<String, Object> sumPoint = pointService.sumPoint(commandMap.getMap());
 		mv.addObject("sumPoint", sumPoint.get("SUM"));
 		mv.addObject("newAlarm", newAlarm);
 		mv.addObject("selectOtoCount", selectOtoCount);
+		mv.addObject("buyCount", selectBuycount);
+		mv.addObject("ExCount", selectExCount);
+		mv.addObject("ReCount", selectReCount);
+		mv.addObject("totalMoney", selectTotalMoney);
 		return mv;
 	}
 	
@@ -169,6 +180,7 @@ public class MyPageController {
 		System.out.println(commandmap.getMap().toString());
 		ModelAndView mv = new ModelAndView();
 		mypageService.updateExchange(commandmap.getMap());
+		mypageService.insertCancelList(commandmap.getMap());
 		mv.setViewName("redirect:/mypage#exchangelist");
 		return mv;
 	}
@@ -266,11 +278,13 @@ public class MyPageController {
 	public ModelAndView updateMyinfo(CommandMap commandMap, HttpSession session) throws Exception{
 		String password = commandMap.get("MEMBER_PASSWORD").toString();
 		if(password.equals("") || password.equals(null)){
+			System.out.println(commandMap.getMap().toString());
 		String email1 = commandMap.get("MEMBER_EMAIL1").toString();
 		String email2 = commandMap.get("MEMBER_EMAIL2").toString();
 		commandMap.getMap().put("MEMBER_EMAIL", email1+"@"+email2);
 		mypageService.updateMyinfo(commandMap.getMap());
 		}else{
+			System.out.println("222222222222222222222222222222222");
 		mypageService.changeMypassword(commandMap.getMap());
 		}
 		ModelAndView mv = new ModelAndView();
