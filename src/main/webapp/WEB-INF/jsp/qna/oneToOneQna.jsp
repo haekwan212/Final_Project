@@ -47,7 +47,7 @@
 										<div class="description">
 											<p>${list.QNA_CONTENT }</p>
 										</div>
-										<c:if test="${list.QNA_IMAGE1 ne null }">
+										<c:if test="${list.QNA_IMAGE1 ne '이미지없음' }">
 											<div style="max-width:300px">
 											<img src="/SIRORAGI/file/qnaFile/${list.QNA_IMAGE1}" class="img-responsive">
 											</div>
