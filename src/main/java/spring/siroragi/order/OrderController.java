@@ -594,6 +594,8 @@ public class OrderController {
 		System.out.println("굿스토탈 " + goods_total[0]);
 		String[] goods_number = request.getParameterValues("GOODS_NUMBER");
 
+		int total = 0;
+
 		for (int i = 0; i < goods_kinds_number.length; i++) {
 
 			commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
@@ -608,6 +610,7 @@ public class OrderController {
 
 			System.out.println("goods : " + goods);
 
+			total += Integer.parseInt((String) goods_total[i]);
 		}
 
 		Date d = new Date();
@@ -725,7 +728,7 @@ public class OrderController {
 		mv.addObject("ORDER_CODE", ORDER_CODE);
 		mv.addObject("BUYER_NUMBER", commandMap.get("BUYER_NUMBER"));
 		// mv.addObject("TOTALPRICE", commandMap.get("TOTALPRICE"));
-		mv.addObject("TOTALPRICE", goods_total[0]);
+		mv.addObject("TOTALPRICE", total);
 		mv.addObject("RECEIVER_NAME", commandMap.get("RECEIVER_NAME"));
 		mv.addObject("RECEIVER_ZIPCODE", commandMap.get("RECEIVER_ZIPCODE"));
 		mv.addObject("RECEIVER_ADDRESS1", commandMap.get("RECEIVER_ADDRESS1"));

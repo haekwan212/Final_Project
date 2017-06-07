@@ -229,7 +229,6 @@
 				<td class="payment">
 					<c:choose>
 				<c:when test="${orderDetail.TOTALPRICE ne null}">
-				<del>${orderDetail.GOODS_PRICE * orderDetail.EA}원</del><br/>
 					<span><fmt:formatNumber value="${orderDetail.TOTALPRICE}" type="number" />원</span>
 				</c:when>
 				</c:choose>
