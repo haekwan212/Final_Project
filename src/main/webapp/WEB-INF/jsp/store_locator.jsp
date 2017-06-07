@@ -88,7 +88,7 @@
 <section class="store-locator-search section">
 	<div class="section-body container">
 		<div class="store-search-form">
-			<p>가까운 팬콧 매장을 검색하거나, 아래 목록에서 선택하실 수 있습니다.</p>
+			<p>가까운 SIRORAGI 매장을 검색하거나, 아래 목록에서 선택하실 수 있습니다.</p>
 			<form action="/SIRORAGI/store_locator_view">
 				<div class="x-group col-xs-24 col-md-auto">
 					<div class="x-group-addon">
