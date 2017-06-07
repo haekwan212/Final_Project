@@ -113,7 +113,7 @@ function popup_nice_open(){
 		console.log("로그 내용2"+idemail);
 		$.ajax({
 	        type: "POST",
-	        url: "./login/find",
+	        url: "/SIRORAGI/login/find",
 	        data: ({mode:mode,idemail:idemail,idname:idname,check_find:check_find}),
 	        //contentType: "text/plain; charset=euc-kr",
 	        success: function(data) {
@@ -138,7 +138,7 @@ function popup_nice_open(){
 		var mode = "find_pw_chk";
 		$.ajax({
 	        type: "POST",
-	        url: "./login/find",
+	        url: "/SIRORAGI/login/find",
 	        data: ({mode:mode,pwemail:pwemail,mid:mid,pwname:pwname,check_find:check_find}),
 	        //contentType: "text/plain; charset=euc-kr",
 	        success: function(data) {

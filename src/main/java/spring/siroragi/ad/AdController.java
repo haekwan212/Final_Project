@@ -1,6 +1,8 @@
 package spring.siroragi.ad;
 
 import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -149,17 +151,19 @@ public class AdController {
 		posting = Integer.parseInt(request.getParameter("posting"));
 
 		MultipartFile AD_IMAGE = multipartRequest.getFile("AD_IMAGE");
-
-		commandMap.put("AD_IMAGE", AD_IMAGE.getOriginalFilename());
+		
+		String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\adFile\\";
+		String fileName = AD_IMAGE.getOriginalFilename();
+		String IMAGEExtension = fileName.substring(fileName.lastIndexOf("."));
+		String fileName2="AD_IMAGE"+System.currentTimeMillis()+IMAGEExtension;
+		
+		commandMap.put("AD_IMAGE", fileName2);
 
 		System.out.println("adWrite : " + commandMap.getMap());
 
 		adService.adWrite(commandMap.getMap());
-
-		String filePath = "C:\\Java\\App\\SIRORAGI\\src\\main\\webapp\\file\\adFile\\";
-		String fileName = AD_IMAGE.getOriginalFilename();
-
-		File file = new File(filePath + fileName);
+		
+		File file = new File(filePath + fileName2);
 
 		if (file.exists() == false) {
 			file.mkdirs();

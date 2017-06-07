@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <div class="modal-body"><div class="share-sns_sub">
 	<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.pancoat.com/" class="button button-ghost col-xs-8" onclick="postToFeed();return false;">
 		<span class="icon icon-facebook"></span>
@@ -42,10 +42,10 @@ function postToFeed(){
   FB.ui({
   	method: 'feed',  	
   	link: 'http://www.pancoat.com/',
-	name : 'PANCOAT [íŒ¬ì½§ìƒµ] MULTI TWEEN FLOWER STRIPE SEMI OVER T-SHIRT (MIDNIGHT BLACK)_PPOEURS29VC6',
-  	caption: '[íŒ¬ì½§ìƒµ] MULTI TWEEN FLOWER STRIPE SEMI OVER T-SHIRT (MIDNIGHT BLACK)_PPOEURS29VC6',
+	name : 'PANCOAT [ÆÒÄà¼¥] MULTI TWEEN FLOWER STRIPE SEMI OVER T-SHIRT (MIDNIGHT BLACK)_PPOEURS29VC6',
+  	caption: '[ÆÒÄà¼¥] MULTI TWEEN FLOWER STRIPE SEMI OVER T-SHIRT (MIDNIGHT BLACK)_PPOEURS29VC6',
 	picture: 'http://pic.styleindex.co.kr/data/goods/pshp/m/149/1496390649',
-	description: '[íŒ¬ì½§ìƒµ] MULTI TWEEN FLOWER STRIPE SEMI OVER T-SHIRT (MIDNIGHT BLACK)_PPOEURS29VC6',
+	description: '[ÆÒÄà¼¥] MULTI TWEEN FLOWER STRIPE SEMI OVER T-SHIRT (MIDNIGHT BLACK)_PPOEURS29VC6',
 	}, function(response){});
 };
   (function(d, s, id){

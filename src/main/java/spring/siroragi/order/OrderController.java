@@ -689,24 +689,26 @@ public class OrderController {
 
 		}
 
-		int usePoint=Integer.parseInt((String)commandMap.getMap().get("usePoint"));
-		System.out.println("야야"+usePoint);
-		//int totalpoint =Integer.parseInt(goods_total[0]); 
-		
-		if(usePoint!=0)
-		{
-		System.out.println("포인트가 0이 아닌것들만 적립내역DB에 들어가거라");
-		
-		int POINT_POINT=-(usePoint);
-		
-		System.out.println("POINT_POINT"+POINT_POINT);
+		if (commandMap.getMap().get("usePoint") != "") {
+			int usePoint = Integer.parseInt((String) commandMap.getMap().get("usePoint"));
+			System.out.println("야야" + usePoint);
+			// int totalpoint =Integer.parseInt(goods_total[0]);
 
-		commandMap.getMap().put("POINT_POINT", POINT_POINT);
+			if (usePoint != 0) {
+				System.out.println("포인트가 0이 아닌것들만 적립내역DB에 들어가거라");
 
-		orderService.updatePoint(commandMap.getMap());
+				int POINT_POINT = -(usePoint);
 
+				System.out.println("POINT_POINT" + POINT_POINT);
+
+				commandMap.getMap().put("POINT_POINT", POINT_POINT);
+
+				orderService.updatePoint(commandMap.getMap());
+
+			}
+			
+			mv.addObject("usePoint", usePoint);
 		}
-
 
 		mv.addObject("ORDER_CODE", ORDER_CODE);
 		mv.addObject("BUYER_NUMBER", commandMap.get("BUYER_NUMBER"));
@@ -719,7 +721,7 @@ public class OrderController {
 		mv.addObject("DELIVERY_MESSAGE", commandMap.get("DELIVERY_MESSAGE"));
 		mv.addObject("RECEIVER_PHONE", commandMap.get("RECEIVER_NUMBER"));
 
-		mv.addObject("usePoint", usePoint);
+		
 		mv.setViewName("orderEnd");
 
 		return mv;
