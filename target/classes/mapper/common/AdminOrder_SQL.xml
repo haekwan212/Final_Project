@@ -51,7 +51,7 @@
 	
 	<delete id="orderDelete" parameterType="hashmap">
 		<![CDATA[
-			DELETE ORDERLIST WHERE ORDER_CODE=#{ORDER_CODE}
+			DELETE DELIVERY WHERE ORDER_CODE=#{ORDER_CODE}
 		]]>
 	</delete>
 	
