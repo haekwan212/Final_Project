@@ -49,6 +49,10 @@ public class ReviewDAO extends AbstractDAO {
 	public void reviewWrite(Map<String, Object> map) throws Exception {
 		insert("review.insertReview", map);
 	}
+	
+	public void reviewPoint(Map<String, Object> map) throws Exception {
+		insert("review.reviewPoint", map);
+	}
 
 	// 리뷰에 이미지 등록
 	public void reviewImageWrite(Map<String, Object> map) throws Exception {

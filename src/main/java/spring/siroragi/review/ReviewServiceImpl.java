@@ -92,4 +92,9 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewDAO.goodsReview(map);
 	}
 
+	@Override
+	public void reviewPoint(Map<String, Object> map, HttpServletRequest request) throws Exception {
+		reviewDAO.reviewPoint(map);
+	}
+
 }
