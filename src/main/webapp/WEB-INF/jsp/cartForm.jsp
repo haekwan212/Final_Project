@@ -120,20 +120,20 @@
 											<!-- 쿠폰다운로드 부분은 payment페이지에서  -->
 											
 											<c:if test="${cartList.GOODS_DCPRICE eq null}">
-												<td class="payment"><span>${cartList.GOODS_PRICE }원</span></td>
-												<c:set var="TOTALPRICE" value="${TOTALPRICE+cartList.GOODS_PRICE }" />
+												<td class="payment"><span>${cartList.GOODS_PRICE * cartList.CART_AMOUNT}원</span></td>
+												<c:set var="TOTALPRICE" value="${TOTALPRICE+cartList.GOODS_PRICE * cartList.CART_AMOUNT}" />
 												
 											</c:if>
 											<c:if test="${cartList.GOODS_DCPRICE ne null}">
-												<td class="payment"><span> <del>${cartList.GOODS_PRICE }원</del>
-												<br/>${cartList.GOODS_DCPRICE }원
-												<c:set var="TOTALPRICE" value="${TOTALPRICE+cartList.GOODS_PRICE }" />
-												<c:set var="TOTALDCPRICE" value="${TOTALDCPRICE+cartList.GOODS_PRICE-cartList.GOODS_DCPRICE }" />
+												<td class="payment"><span> <del>${cartList.GOODS_PRICE * cartList.CART_AMOUNT}원</del>
+												<br/>${cartList.GOODS_DCPRICE * cartList.CART_AMOUNT}원
+												<c:set var="TOTALPRICE" value="${TOTALPRICE+cartList.GOODS_PRICE * cartList.CART_AMOUNT}" />
+												<c:set var="TOTALDCPRICE" value="${TOTALDCPRICE+cartList.GOODS_PRICE* cartList.CART_AMOUNT-cartList.GOODS_DCPRICE* cartList.CART_AMOUNT }" />
 												</span></td>
 											</c:if>
 											<td class="sale">
 											<c:if test="${cartList.GOODS_DCPRICE ne null}">
-											${cartList.GOODS_PRICE-cartList.GOODS_DCPRICE}원</c:if></td>
+											${cartList.GOODS_PRICE* cartList.CART_AMOUNT-cartList.GOODS_DCPRICE* cartList.CART_AMOUNT}원</c:if></td>
 											<td class="delivery"><span>0원</span> <!-- 배송비없을때 <span>무료</span>-->
 											</td>
 											<td class="delete">
