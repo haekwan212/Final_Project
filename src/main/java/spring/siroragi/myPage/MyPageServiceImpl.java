@@ -34,8 +34,12 @@ public class MyPageServiceImpl implements MyPageService{
 		return myPageDAO.selectReCount(mem_num);
 	}
 	@Override
-	public String selectTotalMoney(String mem_num) throws Exception {
+	public int selectTotalMoney(String mem_num) throws Exception {
 		return myPageDAO.selectTotalMoney(mem_num);
+	}
+	@Override
+	public int checkTotalMoney(String mem_num) throws Exception {
+		return myPageDAO.checkTotalMoney(mem_num);
 	}
 	@Override
 	public void updateMyinfo(Map<String, Object> map) throws Exception {
