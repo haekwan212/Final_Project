@@ -68,7 +68,8 @@ public class AdminCancelController {
 				cancelList = adminCancelService.allCancelSearch3(isSearchMap);
 			else if (searchNum == 4)// 주문코드
 				cancelList = adminCancelService.allCancelSearch4(isSearchMap);
-			
+			else
+				cancelList=adminCancelService.allCancelList(commandMap.getMap());
 
 			totalCount = cancelList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "cancelList", searchNum, isSearch);

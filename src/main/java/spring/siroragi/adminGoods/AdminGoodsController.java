@@ -69,6 +69,8 @@ public class AdminGoodsController {
 				goodsList = adminGoodsService.adminGoodsSearch5(isSearch);
 			else if (searchNum == 6)// 판매량 많은 순, 조회수 많은 순 정렬
 				goodsList = adminGoodsService.adminGoodsSearch6(isSearch);
+			else
+				goodsList = adminGoodsService.goodsList(commandMap.getMap());
 
 			totalCount = goodsList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "goodsList", searchNum, isSearch);

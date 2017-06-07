@@ -77,6 +77,8 @@ public class AdminOrderController {
 				orderList = adminOrderService.adminOrderSearch5(isSearchMap);
 			else if (searchNum == 6)// 회원
 				orderList = adminOrderService.adminOrderSearch6(isSearchMap);
+			else
+				orderList = adminOrderService.allOrderList(commandMap.getMap());
 
 			totalCount = orderList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "orderList", searchNum, isSearch);

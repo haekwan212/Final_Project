@@ -95,17 +95,11 @@
 		<section class="col-xs-24 account-navWrap">
 			<nav class="account-nav">
 				<ul>
-					<li class="col-xs-8 col-sm-4 selected">
+					<li class="col-xs-8 col-sm-8 selected">
 						<a href="/SIRORAGI/notice/noticeList">공지사항</a>
 					</li>
-					<li class="col-xs-8 col-sm-4 ">
-						<a href="/node/event">이벤트</a>
-					</li>
-					<li class="col-xs-8 col-sm-4 ">
+					<li class="col-xs-8 col-sm-8 ">
 						<a href="/SIRORAGI//faq/faqList">FAQ</a>
-					</li>
-					<li class="col-xs-12 col-sm-4">
-						<a href="/service/member_benefit" target="modal" data-size="md" data-label="등급혜택 자세히 보기">회원혜택</a>
 					</li>
 					<li class="col-xs-12 col-sm-8">
 						<a href="/member/findid" target="modal" data-size="md" data-label="아이디/비밀번호 찾기">아이디/비밀번호 찾기</a>
