@@ -286,12 +286,32 @@
 				</td>
 				<!-- 쿠폰다운로드 부분은 payment페이지에서 삭제 -->
 				<td class="coupon">
-					<span class="button-label"><fmt:formatNumber value="${orderForm.TOTALPRICE / 100}" type="number" />원</span>
+					<c:choose>
+				<c:when test="${orderForm.GOODS_DCPRICE ne null}">
+					<span><fmt:formatNumber value="${orderForm.GOODS_DCPRICE * orderForm.EA / 100}" type="number" />원</span>
+				</c:when>
+				<c:otherwise>
+				<span><fmt:formatNumber value="${orderForm.TOTALPRICE / 100}" type="number" />원</span>
+				</c:otherwise>
+				</c:choose>
 				</td>
 				<td class="payment">
-					<span><fmt:formatNumber value="${orderForm.TOTALPRICE }" type="number" />원</span>
+				<c:choose>
+				<c:when test="${orderForm.GOODS_DCPRICE ne null}">
+				<del>${orderForm.GOODS_PRICE * orderForm.EA}원</del><br/>
+					<span><fmt:formatNumber value="${orderForm.GOODS_DCPRICE * orderForm.EA}" type="number" />원</span>
+				</c:when>
+				<c:otherwise>
+				<span><fmt:formatNumber value="${orderForm.TOTALPRICE }" type="number" />원</span>
+				</c:otherwise>
+				</c:choose>
 				</td>
 				<td class="sale">
+				<c:choose>
+				<c:when test="${orderForm.GOODS_DCPRICE ne null}">
+					<span><fmt:formatNumber value="${orderForm.TOTALPRICE - (orderForm.GOODS_DCPRICE * orderForm.EA)}" type="number" />원</span>
+				</c:when>
+				</c:choose>
 				</td>
 				<td class="delivery">
 					<span>2,500원</span>
@@ -304,9 +324,15 @@
 </div>
 				</div>
 			</section>
-		
 		<c:forEach var="orderForm"  items="${goods}" varStatus="stat">
-			<c:set var= "sum" value="${sum + orderForm.TOTALPRICE}"/>
+		<c:choose>
+		<c:when test="${orderForm.GOODS_DCPRICE ne null}">
+		<c:set var= "sum" value="${sum + (orderForm.GOODS_DCPRICE * orderForm.EA)}"/>
+		</c:when>
+		<c:otherwise>
+		<c:set var= "sum" value="${sum + orderForm.TOTALPRICE}"/>
+		</c:otherwise>
+		</c:choose>
 		</c:forEach>
 		<c:if test="${not empty sessionScope.MEMBER_ID}">
 		<div class="col-lg-25">
