@@ -24,8 +24,8 @@ public class MyPageDAO extends AbstractDAO {
 	 int selectReCount(String mem_num) throws Exception{
 		 return (int)selectOne("mypage.selectReCount", mem_num);
 	 }
-	 int selectTotalMoney(String mem_num) throws Exception{
-		 return (int)selectOne("mypage.selectTotalMoney", mem_num);
+	 String selectTotalMoney(String mem_num) throws Exception{
+		 return (String)selectOne("mypage.selectTotalMoney", mem_num);
 	 }
 	//개인 정보 수정
 	 void updateMyinfo(Map<String, Object> map) throws Exception{

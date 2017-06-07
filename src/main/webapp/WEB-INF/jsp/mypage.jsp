@@ -152,10 +152,14 @@ function tab(num){
 				</div>
 				<div class="item cash col-xs-8 col-md-6">
 				<div class="info">
+				<c:if test="${totalMoney eq null }">
 				<span>총  구입금액 : </span>
-				 <span>${totalMoney }원</span>
-				
-				
+				 <span>0원</span>
+				</c:if>
+				<c:if test="${totalMoney ne null }">
+				<span>총  구입금액 : </span>
+				 <span>${totalMoney}원</span>
+				 </c:if>
 				</div>
 				</div>
 				<div class="item coupon col-xs-8 col-md-6">

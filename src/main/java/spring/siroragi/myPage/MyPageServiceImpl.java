@@ -34,7 +34,7 @@ public class MyPageServiceImpl implements MyPageService{
 		return myPageDAO.selectReCount(mem_num);
 	}
 	@Override
-	public int selectTotalMoney(String mem_num) throws Exception {
+	public String selectTotalMoney(String mem_num) throws Exception {
 		return myPageDAO.selectTotalMoney(mem_num);
 	}
 	@Override

@@ -90,13 +90,13 @@ if('${message}' != ""){
 						<!-- guide//end -->
 						<div class="item col-xs-24 col-sm-offset-6 col-sm-12 col-lg-offset-4 col-lg-16">
 
-							<form method="get" action="../mypage/orderlist">
+							<form action="/SIRORAGI/noMemberOrderList" method='post'>
 								<div class="input">
 									<div class="email">
-										<input type="text" id="ml-email" name="email" class="xx-control" placeholder="이메일" required="">
+										<input type="text" id="ml-email" name="BUYER_EMAIL" class="xx-control" placeholder="이메일" required="">
 									</div>
 									<div class="mobile">
-										<input type="text" id="ml-mobile" name="mobile" class="xx-control" placeholder="핸드폰번호" required="">
+										<input type="text" id="ml-mobile" name="BUYER_NUMBER" class="xx-control" placeholder="핸드폰번호" required="">
 									</div>
 								</div>
 								<!-- input//end -->

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +27,18 @@ public class OrderController {
 	@Resource(name = "orderService")
 	private OrderService orderService;
 
+	@RequestMapping(value="/noMemberOrderList", method=RequestMethod.POST)
+	public ModelAndView noMemberOrderList(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		System.out.println("비회원넘어오는값:"+commandMap.getMap().toString());
+		List<Map<String, Object>> list = orderService.noMemberOrderList(commandMap.getMap());
+		System.out.println("비회원구매리스트:"+list);
+		mv.setViewName("noMemberOrderList");
+		return mv;
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "order")
 	public ModelAndView orderForm(CommandMap commandMap, HttpServletRequest request) throws Exception {
@@ -676,24 +689,26 @@ public class OrderController {
 
 		}
 
-		int usePoint=Integer.parseInt((String)commandMap.getMap().get("usePoint"));
-		System.out.println("야야"+usePoint);
-		//int totalpoint =Integer.parseInt(goods_total[0]); 
-		
-		if(usePoint!=0)
-		{
-		System.out.println("포인트가 0이 아닌것들만 적립내역DB에 들어가거라");
-		
-		int POINT_POINT=-(usePoint);
-		
-		System.out.println("POINT_POINT"+POINT_POINT);
+		if (commandMap.getMap().get("usePoint") != "") {
+			int usePoint = Integer.parseInt((String) commandMap.getMap().get("usePoint"));
+			System.out.println("야야" + usePoint);
+			// int totalpoint =Integer.parseInt(goods_total[0]);
 
-		commandMap.getMap().put("POINT_POINT", POINT_POINT);
+			if (usePoint != 0) {
+				System.out.println("포인트가 0이 아닌것들만 적립내역DB에 들어가거라");
 
-		orderService.updatePoint(commandMap.getMap());
+				int POINT_POINT = -(usePoint);
 
+				System.out.println("POINT_POINT" + POINT_POINT);
+
+				commandMap.getMap().put("POINT_POINT", POINT_POINT);
+
+				orderService.updatePoint(commandMap.getMap());
+
+			}
+			
+			mv.addObject("usePoint", usePoint);
 		}
-
 
 		mv.addObject("ORDER_CODE", ORDER_CODE);
 		mv.addObject("BUYER_NUMBER", commandMap.get("BUYER_NUMBER"));
@@ -706,7 +721,7 @@ public class OrderController {
 		mv.addObject("DELIVERY_MESSAGE", commandMap.get("DELIVERY_MESSAGE"));
 		mv.addObject("RECEIVER_PHONE", commandMap.get("RECEIVER_NUMBER"));
 
-		mv.addObject("usePoint", usePoint);
+		
 		mv.setViewName("orderEnd");
 
 		return mv;
