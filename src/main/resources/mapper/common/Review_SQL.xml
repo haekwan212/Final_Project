@@ -15,6 +15,27 @@
 			#{REVIEW_CONTENT}, SYSDATE, #{REVIEW_GRADE}, #{REVIEW_TITLE})
 		]]>
 	</insert>
+	
+		<insert id="reviewPoint" parameterType="hashMap" >
+	<![CDATA[
+		INSERT INTO POINT 
+		(
+			MEMBER_NUMBER, 
+			POINT_CONTENT, 
+			POINT_POINT, 
+			POINT_DATE, 
+			POINT_NUMBER
+		)
+		VALUES 
+		( 
+			#{MEMBER_NUMBER}, 
+			'리뷰 적립금', 
+			100, 
+			SYSDATE, 
+			POINT_NUMBER_SEQ.NEXTVAL
+		)		
+	]]>
+	</insert>
 
 	<update id="insertReviewImage" parameterType="hashmap">
 		<![CDATA[
