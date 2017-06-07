@@ -135,10 +135,6 @@
 	
 	
 		<!-- 카테고리별 -->
-	<definition name="basic" template="/WEB-INF/jsp/layout/basic.jsp">
-		<put-attribute name="body" value="/WEB-INF/jsp/layout/admin/container.jsp" />
-	</definition>
-	
  	<definition name="goodsCategory" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/goods/goodsCategory.jsp" />
 	</definition>
