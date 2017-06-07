@@ -27,22 +27,21 @@ public class OrderController {
 	@Resource(name = "orderService")
 	private OrderService orderService;
 
-	@RequestMapping(value="/noMemberOrderList", method=RequestMethod.POST)
-	public ModelAndView noMemberOrderList(CommandMap commandMap) throws Exception{
-		
+	@RequestMapping(value = "/noMemberOrderList", method = RequestMethod.POST)
+	public ModelAndView noMemberOrderList(CommandMap commandMap) throws Exception {
+
 		ModelAndView mv = new ModelAndView();
-		System.out.println("비회원넘어오는값:"+commandMap.getMap().toString());
+		System.out.println("비회원넘어오는값:" + commandMap.getMap().toString());
 		List<Map<String, Object>> list = orderService.noMemberOrderList(commandMap.getMap());
-		for(int i  = 0 ; list.size()>i; i++){
-			System.out.println("리스트"+i+"번째"+list.get(i).toString());
+		for (int i = 0; list.size() > i; i++) {
+			System.out.println("리스트" + i + "번째" + list.get(i).toString());
 		}
-		System.out.println("비회원구매리스트:"+list);
+		System.out.println("비회원구매리스트:" + list);
 		mv.addObject("list", list);
 		mv.setViewName("noMemberOrderList");
 		return mv;
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "order")
 	public ModelAndView orderForm(CommandMap commandMap, HttpServletRequest request) throws Exception {
@@ -480,12 +479,12 @@ public class OrderController {
 			}
 
 			System.out.println("goods : " + goods);
-			
+
 			mv.addObject("goods_kinds_number", goods_kinds_number[i]);
 			mv.addObject("ea", ea[i]);
 			mv.addObject("GOODS_NUMBER", goods_number[i]);
-			
-			System.out.println("goods_kinds_number : " +  goods_kinds_number[i]);
+
+			System.out.println("goods_kinds_number : " + goods_kinds_number[i]);
 			System.out.println("ea : " + ea[i]);
 			System.out.println("GOODS_NUMBER : " + goods_number[i]);
 		}
@@ -501,29 +500,31 @@ public class OrderController {
 		System.out.println("guestName : " + commandMap.get("guestName"));
 		System.out.println("guestPhone : " + commandMap.get("guestPhone"));
 
-		/*mv.addObject("GOODS_NUMBER", session.getAttribute("GOODS_NUMBER"));*/
+		/*
+		 * mv.addObject("GOODS_NUMBER", session.getAttribute("GOODS_NUMBER"));
+		 */
 		mv.addObject("goods", goods);
 
 		// sale조건 충족하는지 볼것
 		Calendar today = Calendar.getInstance();
 		Date d = new Date(today.getTimeInMillis());
 
-		System.out.println("asdf" + goods.get(0).get("GOODS_SALEDATE"));
-		if (goods.get(0).get("GOODS_SALEDATE") != null && goods.get(0).get("GOODS_DCPRICE") != null) {
-			// sale태그 조건
-			Date dDay = (Date) goods.get(0).get("GOODS_SALEDATE");
-			if (dDay.getTime() < d.getTime()) {
-				System.out.println("거쳤다1");
-				goods.remove("GOODS_SALEDATE");
-				goods.remove("GOODS_DCPRICE");
-			} else {
-				System.out.println("거쳤다2");
-				goods.get(0).put("TOTALPRICE", goods.get(0).get("TOTALDCPRICE"));
+		for (int i = 0; i < goods_kinds_number.length; i++) {
+			System.out.println("asdf" + goods.get(i).get("GOODS_SALEDATE"));
+			if (goods.get(i).get("GOODS_SALEDATE") != null && goods.get(i).get("GOODS_DCPRICE") != null) {
+				// sale태그 조건
+				Date dDay = (Date) goods.get(i).get("GOODS_SALEDATE");
+				if (dDay.getTime() < d.getTime()) {
+					System.out.println("거쳤다1");
+					goods.remove("GOODS_SALEDATE");
+					goods.remove("GOODS_DCPRICE");
+				} else {
+					System.out.println("거쳤다2");
+					goods.get(i).put("TOTALPRICE", goods.get(i).get("TOTALDCPRICE"));
+				}
 			}
 		}
 		// sale 끝
-
-
 
 		mv.addObject("RECEIVER_NAME", commandMap.get("RECEIVER_NAME"));
 		mv.addObject("RECEIVER_ZIPCODE", commandMap.get("RECEIVER_ZIPCODE"));
@@ -593,6 +594,8 @@ public class OrderController {
 		System.out.println("굿스토탈 " + goods_total[0]);
 		String[] goods_number = request.getParameterValues("GOODS_NUMBER");
 
+		int total = 0;
+
 		for (int i = 0; i < goods_kinds_number.length; i++) {
 
 			commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
@@ -607,6 +610,7 @@ public class OrderController {
 
 			System.out.println("goods : " + goods);
 
+			total += Integer.parseInt((String) goods_total[i]);
 		}
 
 		Date d = new Date();
@@ -717,14 +721,14 @@ public class OrderController {
 				orderService.updatePoint(commandMap.getMap());
 
 			}
-			
+
 			mv.addObject("usePoint", usePoint);
 		}
 
 		mv.addObject("ORDER_CODE", ORDER_CODE);
 		mv.addObject("BUYER_NUMBER", commandMap.get("BUYER_NUMBER"));
 		// mv.addObject("TOTALPRICE", commandMap.get("TOTALPRICE"));
-		mv.addObject("TOTALPRICE", goods_total[0]);
+		mv.addObject("TOTALPRICE", total);
 		mv.addObject("RECEIVER_NAME", commandMap.get("RECEIVER_NAME"));
 		mv.addObject("RECEIVER_ZIPCODE", commandMap.get("RECEIVER_ZIPCODE"));
 		mv.addObject("RECEIVER_ADDRESS1", commandMap.get("RECEIVER_ADDRESS1"));
@@ -732,7 +736,6 @@ public class OrderController {
 		mv.addObject("DELIVERY_MESSAGE", commandMap.get("DELIVERY_MESSAGE"));
 		mv.addObject("RECEIVER_PHONE", commandMap.get("RECEIVER_NUMBER"));
 
-		
 		mv.setViewName("orderEnd");
 
 		return mv;

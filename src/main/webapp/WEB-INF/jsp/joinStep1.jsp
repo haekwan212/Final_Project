@@ -35,9 +35,8 @@
 					</div>
 					<div class="section-body">
 						<p>핸드폰 인증은 정보를 저장하지 않습니다. 입력하신 핸드폰으로 전송받은 인증 번호를 입력해서 인증을 받는 방법입니다.</p>
-						<a href="../member/modal_hp" class="button" target="modal" data-size="sm" data-label="안심체크(휴대폰) 인증">
-							<span class="button-label">휴대폰 인증</span>
-						</a>
+						<p>※현재는 서비스를 지원하지 않습니다.</p>
+						
 					</div>
 				</div>
 			</section>

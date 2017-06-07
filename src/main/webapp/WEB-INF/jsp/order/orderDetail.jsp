@@ -199,7 +199,6 @@
 				<th class="info-caption">&nbsp;</th>
 				<th class="coupon">적립 포인트</th>
 				<th class="payment">상품 금액</th>
-				<th class="sale">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 				<th class="delivery">배송비</th>
 			</tr>
 		</thead>
@@ -228,9 +227,11 @@
 					<span class="button-label"><fmt:formatNumber value="${orderDetail.TOTALPRICE / 100}" type="number" />원</span>
 				</td>
 				<td class="payment">
-					<span><fmt:formatNumber value="${orderDetail.TOTALPRICE }" type="number" />원</span>
-				</td>
-				<td class="sale">
+					<c:choose>
+				<c:when test="${orderDetail.TOTALPRICE ne null}">
+					<span><fmt:formatNumber value="${orderDetail.TOTALPRICE}" type="number" />원</span>
+				</c:when>
+				</c:choose>
 				</td>
 				<td class="delivery">
 					<span>2,500원</span>
@@ -243,7 +244,6 @@
 </div>
 				</div>
 			</section>
-			
 			<!-- product-thumbnail//end -->
 		</div>
 
@@ -267,7 +267,7 @@
 										<strong>상품 금액</strong>
 									</div>
 									<div>
-										<em><fmt:formatNumber value="${goodsPrice }" type="number" />원</em>
+										<em><fmt:formatNumber value="${sum }" type="number" />원</em>
 									</div>
 								</div>
 								<div class="item col-xs-12">

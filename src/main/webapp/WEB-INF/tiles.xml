@@ -187,7 +187,7 @@
       <put-attribute name="body" value="/WEB-INF/jsp/faq/faq.jsp"/>
 	</definition>
 	
-	<definition name="noticeList" extends="common">
+	<definition name="noticeList" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/notice/noticeList.jsp"/>
 	</definition>
 	<definition name="noticeDetail" extends="common">
