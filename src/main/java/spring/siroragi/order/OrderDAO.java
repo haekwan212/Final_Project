@@ -1,17 +1,21 @@
 package spring.siroragi.order;
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import spring.kh.siroragi.AbstractDAO;
+
 @Repository("orderDAO")
-public class OrderDAO {
+public class OrderDAO extends AbstractDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-
+	
+	
 	public Map<String, Object> orderMember(Map<String, Object> map) throws Exception {
 		return sqlSession.selectOne("order.orderMember", map);
 	}
@@ -44,7 +48,10 @@ public class OrderDAO {
 	public Map<String, Object> sessionCartList(Map<String, Object> map) throws Exception {
 		return sqlSession.selectOne("order.sessionCartList", map);
 	}
-
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> noMemberOrderList(Map<String, Object> map) throws Exception {
+		return (List<Map<String, Object>>)selectList("order.noMemberOrderList", map);
+	}
 	// 주문하기 폼으로 이동(상세보기페이지에서 이동.한 상품만 결제)
 
 	// 주문시 로그인 확인하고 로그인 폼으로 이동(비회원 로그인폼도 포함)

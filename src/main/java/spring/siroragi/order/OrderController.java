@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +27,18 @@ public class OrderController {
 	@Resource(name = "orderService")
 	private OrderService orderService;
 
+	@RequestMapping(value="/noMemberOrderList", method=RequestMethod.POST)
+	public ModelAndView noMemberOrderList(CommandMap commandMap) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		System.out.println("비회원넘어오는값:"+commandMap.getMap().toString());
+		List<Map<String, Object>> list = orderService.noMemberOrderList(commandMap.getMap());
+		System.out.println("비회원구매리스트:"+list);
+		mv.setViewName("noMemberOrderList");
+		return mv;
+	}
+	
+	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "order")
 	public ModelAndView orderForm(CommandMap commandMap, HttpServletRequest request) throws Exception {

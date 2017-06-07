@@ -223,6 +223,9 @@
 	<definition name="orderLogin" extends="common2">
 		<put-attribute name="body" value="/WEB-INF/jsp/order/orderLogin.jsp"/>
 	</definition>
+	<definition name="noMemberOrderList" extends="common2">
+		<put-attribute name="body" value="/WEB-INF/jsp/noOrderList.jsp"/>
+	</definition>
 
 </tiles-definitions>	
 	

@@ -1,5 +1,6 @@
 package spring.siroragi.order;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -51,6 +52,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Map<String, Object> sessionCartList(Map<String, Object> map) throws Exception {
 		return orderDAO.sessionCartList(map);
+	}
+	
+	@Override
+	public List<Map<String, Object>> noMemberOrderList(Map<String, Object> map) throws Exception {
+		return orderDAO.noMemberOrderList(map);
 	}
 
 }

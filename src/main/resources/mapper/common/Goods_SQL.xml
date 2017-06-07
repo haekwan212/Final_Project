@@ -195,10 +195,6 @@
 			<if test="sale == 301">
 				<![CDATA[ where DCPERSENT<=30 or (DCPERSENT>50 and DCPERSENT<=80) ]]>
 			</if>
-
-
-		 
-		 
 	</select>
 	
 	<select id="goodsNew" parameterType="hashmap" resultType="hashmap">

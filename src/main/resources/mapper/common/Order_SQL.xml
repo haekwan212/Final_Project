@@ -211,6 +211,11 @@ K.GOODS_SELLCOUNT = K.GOODS_SELLCOUNT+'${ORDER_AMOUNT}'
 			ORDER BY A.CART_REGDATE DESC, A.GOODS_NUMBER ASC
 		]]>
 	</select>
+	<select id="noMemberOrderList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		SELECT * FROM GOODS A, ORDERLIST D, DELIVERY C WHERE C.BUYER_EMAIL = #{BUYER_EMAIL} AND C.BUYER_NUMBER = #{BUYER_NUMBER} AND D.ORDER_CODE = C.ORDER_CODE AND A.GOODS_NUMBER = D.GOODS_NUMBER 
+		]]>
+	</select>
 	
 		<select id="sessionCartList" parameterType="hashmap" resultType="hashmap">
 		<![CDATA[

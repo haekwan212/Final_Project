@@ -1,5 +1,6 @@
 package spring.siroragi.order;
 
+import java.util.List;
 import java.util.Map;
 
 public interface OrderService {
@@ -19,6 +20,8 @@ public interface OrderService {
 	Map<String, Object> selectCartOrder(Map<String, Object> map) throws Exception;
 
 	Map<String, Object> sessionCartList(Map<String, Object> map) throws Exception;
+	
+	List<Map<String, Object>> noMemberOrderList(Map<String, Object> map) throws Exception;
 
 	// 주문하기 폼으로 이동(상세보기페이지에서 이동.한 상품만 결제)
 
