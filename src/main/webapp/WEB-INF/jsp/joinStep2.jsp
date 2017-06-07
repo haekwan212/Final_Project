@@ -615,7 +615,7 @@ $(".auto_mail").change(function() {
 					<button type="submit" id="validateBtn" class="button large" onclick="javascript:checkSubmit()">
 						<span class="button-label">회원가입</span>
 					</button>
-					<script type="text/javascript">
+					<!-- <script type="text/javascript">
 					function checkSubmit(){
 						var frm = document.frm.MEMBER_BIRTHDAY;
 						if(frm.value.length != 8){
@@ -626,7 +626,7 @@ $(".auto_mail").change(function() {
 							document.frm.submit();
 						}
 					}
-					</script>
+					</script> -->
 				</div>
 				<!--section-foot//end-->
 			</section>
