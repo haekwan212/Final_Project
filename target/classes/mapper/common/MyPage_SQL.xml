@@ -41,15 +41,15 @@
 						]]>
 		</select>
 		
-		<select id="selectTotalMoney" parameterType="String" resultType="int">
+		<select id="selectTotalMoney" parameterType="String" resultType="String">
 		<![CDATA[
-				select sum(GOODS_TOTAL) as totalPrice from orderlist where member_number = #{MEMBER_NUMBER}
+				select sum(GOODS_TOTAL) as totalPrice from orderlist where member_number = #{MEMBER_NUMBER} and goods_state in ('구매확정', '교환신청', '반품신청')
 						]]>
 		</select>
 		
 		<select id="checkTotalMoney" parameterType="String" resultType="int">
 			<![CDATA[
-				select count(*) from orderlist where member_number = #{member_number} and goods_state = '구매확정'
+				select count(*) from orderlist where member_number = #{member_number} and goods_state in ('구매확정', '교환신청', '반품신청') 
 			]]>
 		</select>
 		
@@ -63,8 +63,10 @@
 		
 		<select id="selectOrderList" parameterType="String" resultType="hashmap">
 		<![CDATA[
-		SELECT * FROM (SELECT * FROM ORDERLIST NATURAL JOIN GOODS) A WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND NOT GOODS_STATE = '반품신청' AND NOT GOODS_STATE = '반품완료' 
-		AND NOT GOODS_STATE = '교환신청' AND NOT GOODS_STATE = '교환완료' ORDER BY ORDER_DATE DESC
+		select A.GOODS_TOTAL, A.ORDER_NUMBER, A.GOODS_NUMBER, C.GOODS_NAME, A.ORDER_DATE, A.GOODS_STATE, A.ORDER_CODE, A.DELIVERY_STATE, A.GOODS_PAY_STATE, C.GOODS_THUMBNAIL 
+		from orderlist A, GOODS C WHERE 
+   		MEMBER_NUMBER = #{MEMBER_NUMBER} AND NOT A.GOODS_STATE IN ('반품신청', '반품완료', '교환신청', '교환완료') AND A.GOODS_NUMBER = C.GOODS_NUMBER 
+    	GROUP BY A.GOODS_TOTAL,  A.ORDER_NUMBER, C.GOODS_THUMBNAIL , A.GOODS_NUMBER, C.GOODS_NAME, A.ORDER_DATE, A.GOODS_STATE, A.ORDER_CODE, A.DELIVERY_STATE, A.GOODS_PAY_STATE ORDER BY A.ORDER_DATE DESC
 		]]>
 		</select>
 		
@@ -104,25 +106,25 @@
 		
 		<update id="cancelOrder" parameterType="hashmap">
 		<![CDATA[
-		UPDATE ORDERLIST SET GOODS_STATE = '주문취소' ,GOODS_PAY_STATE = '결제취소', DELIVERY_STATE = '배송취소' WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND ORDER_NUMBER = #{ORDER_NUMBER}
+		UPDATE ORDERLIST SET GOODS_STATE = '주문취소' ,GOODS_PAY_STATE = '결제취소', DELIVERY_STATE = '배송취소' WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND ORDER_CODE = #{ORDER_CODE}
 		]]>
 		</update>
 		
 		<update id="confirmOrder" parameterType="hashmap">
 		<![CDATA[
-		UPDATE ORDERLIST SET GOODS_STATE = '구매확정' WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND ORDER_NUMBER = #{ORDER_NUMBER}
+		UPDATE ORDERLIST SET GOODS_STATE = '구매확정' WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND ORDER_CODE = #{ORDER_CODE}
 		]]>
 		</update>
 		
 		<update id="updateReturn" parameterType="hashmap">
 		<![CDATA[
-		UPDATE ORDERLIST SET GOODS_STATE = '반품신청' WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND ORDER_NUMBER = #{ORDER_NUMBER}
+		UPDATE ORDERLIST SET GOODS_STATE = '반품신청' WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND ORDER_CODE = #{ORDER_CODE}
 		]]>
 		</update>
 		
 		<update id="updateExchange" parameterType="hashmap">
 		<![CDATA[
-		UPDATE ORDERLIST SET GOODS_STATE = '교환신청' WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND ORDER_NUMBER = #{ORDER_NUMBER}
+		UPDATE ORDERLIST SET GOODS_STATE = '교환신청' WHERE MEMBER_NUMBER = #{MEMBER_NUMBER} AND ORDER_CODE = #{ORDER_CODE}
 		]]>
 		</update>
 		

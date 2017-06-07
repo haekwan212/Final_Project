@@ -2,7 +2,50 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="account-order-list">
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script>
+$( document ).ready(function() {
+	$('#tb01').rowspan(2);
+	$('#tb01').rowspan(3);
+	$('#tb01').rowspan(4);
+	$('#tb01').rowspan(5);
+	$('#tb01').rowspan(6);
+	$('#tb01').rowspan(7);
+	$('#tb01').rowspan(8);
+});
+$.fn.rowspan = function(colIdx, isStats) {       
+	return this.each(function(){      
+		var that;     
+		$('tr', this).each(function(row) {      
+			$('td:eq('+colIdx+')', this).filter(':visible').each(function(col) {
+				
+				if ($(this).html() == $(that).html()
+					&& (!isStats 
+							|| isStats && $(this).prev().html() == $(that).prev().html()
+							)
+					) {            
+					rowspan = $(that).attr("rowspan") || 1;
+					rowspan = Number(rowspan)+1;
+
+					$(that).attr("rowspan",rowspan);
+					
+					// do your action for the colspan cell here            
+					$(this).hide();
+					
+					//$(this).remove(); 
+					// do your action for the old cell here
+					
+				} else {            
+					that = this;         
+				}          
+				
+				// set the that if not already set
+				that = (that == null) ? this : that;      
+			});     
+		});    
+	});  
+}; 
+</script>
 	<div class="account-order-list">
 			<section class="order-list section box-shadow">
 				<div class="section-head left border">
@@ -10,7 +53,6 @@
 				</div>
 				<!-- section-head//end -->
 				<div class="section-body">
-
 					<div class="table-responsive">
 						<table class="table" id="tb01">
 							<thead>
@@ -44,9 +86,10 @@
 									<strong class="brand">SIRORAGI</strong>
 									<em class="name">${order.GOODS_NAME}*${order.ORDER_AMOUNT}개</em>
 									</td>
+									<td class="payment">${order.GOODS_TOTAL }원/무통장입금</td>
 									<td class="date">${order.ORDER_DATE}</td>
 									<td class="number" id="order">${order.ORDER_CODE }</td>
-									<td class="payment">${order.GOODS_TOTAL }원/무통장입금</td>
+
 									<td class="delivery">${order.DELIVERY_STATE }</td>
 									<td class="situation">${order.GOODS_PAY_STATE }</td>
 									<c:choose>
@@ -64,7 +107,7 @@
 									<c:when test="${order.GOODS_STATE eq '구매확정' }">
 									<td>
 									<div class="section-foot">
-									<a class="button" target="modal" data-size="md" data-label="반품신청" href="/SIRORAGI/returnlist/form?ORDER_NUMBER=${order.ORDER_NUMBER }&ORDER_CODE=${order.ORDER_CODE}">
+									<a class="button" target="modal" data-size="md" data-label="반품신청" href="/SIRORAGI/returnlist/form?ORDER_CODE=${order.ORDER_CODE}">
 									<span class="button-label">반품신청</span>
 									</a>
 									</div>
@@ -122,4 +165,5 @@
 					</div>
 				</div>
 			</section>
+		</div>
 		</div>

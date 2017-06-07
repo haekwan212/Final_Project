@@ -19,11 +19,6 @@
 	<!-- step-panels//end -->
 	<div class="register-privacy">
 		<form  method="post" name="frm">
-		<input type="hidden" name="mode" value="register">
-		<input type="hidden" name="rurl" value="register_ok">
-		<input type="hidden" name="chkid">
-		<input type="hidden" name="ipin_strDupInfo" value="">
-
 			<div class="agreement-terms row">
 				<section class="col-xs-24 col-sm-12">
 					<div class="box-shadow">
@@ -505,7 +500,7 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 		</div>
 		<div class="col-lg-21 col-md-20">
 			<div class="input-box">
-			<input type="text" id="sample6_postcode" name="MEMBER_ZIPCODE" disabled="disabled" label="우편번호" value="" maxlength="6" required="">
+			<input type="text" id="sample6_postcode"  name="MEMBER_ZIPCODE" disabled="disabled" label="우편번호" value="" maxlength="6" required="">
 				<span class="button button-dimmed" onclick="sample6_execDaumPostcode()">주소 찾기</span>
 			</div>
 			<input type="text" id="sample6_address" class="xx-control" name="MEMBER_ADDRESS1" label="주소" disabled="disabled" value="" size="48" readonly="" required="">
@@ -521,23 +516,6 @@ b) 사망으로 인한 회원 자격상실의 경우에는 회원 사망일에 �
 		<div class="col-lg-21 col-md-20">
 			<div class="input-box">
 					<input type="text" id="input-birth01" name="MEMBER_BIRTHDAY" value="" maxlength="8" placeholder="예)19000101" class="xx-control" required="">
-			</div>
-		</div>
-	</li>
-	<li class="physical input-placeholder">
-		<div class="item-label col-lg-3 col-md-4">
-			<label for="input-physical01">
-				<strong>* 키/몸무게</strong>
-			</label>
-		</div>
-		<div class="col-lg-21 col-md-20">
-			<div class="input-box">
-				<div class="item">
-					<input type="text" id="input-physical01" class="xx-control" name="height" value="" maxlength="3" placeholder="cm" required="">
-				</div>
-				<div class="item">
-					<input type="text" id="input-physical02" class="xx-control" name="weight" value="" maxlength="3" placeholder="kg" required="">
-				</div>
 			</div>
 		</div>
 	</li>

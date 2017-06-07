@@ -19,6 +19,7 @@
 							<thead>
 								<tr>
 									<th class="info-img">상품 정보</th>
+									<th class="info-caption"></th>
 									<th class="date">주문 일자</th>
 									<th class="number">주문 번호</th>
 									<th class="payment">결제 금액/방법</th>
@@ -37,16 +38,19 @@
 							<tbody>
 							<c:forEach items="${list }" var="order">
 									<tr>
+									<td class="number" id="order">${order.ORDER_CODE }</td>
 									<td class="info-img"><a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${order.GOODS_NUMBER }">
 									<img img_layer="/SIRORAGI/file/goodsFile/${order.GOODS_THUMBNAIL}" goodsno="${order.GOODS_NUMBER }" src="/SIRORAGI/file/goodsFile/${order.GOODS_THUMBNAIL}" class="img-responsive"></a>
 									<input type="hidden" id="order" value="${order.ORDER_NUMBER}" name="order">
 									</td>
 									<td class="info-caption">
 									<strong class="brand">SIRORAGI</strong>
-									<em class="name">${order.GOODS_NAME}*${order.ORDER_AMOUNT}개</em>
+									<em class="name">${order.GOODS_NAME}</em>
+									<div class="option">
+									<em>${order.GOODS_KINDS_NUMBER } / ${order.ORDER_AMOUNT}개</em>
+									</div>
 									</td>
 									<td class="date">${order.ORDER_DATE}</td>
-									<td class="number" id="order">${order.ORDER_CODE }</td>
 									<td class="payment">${order.GOODS_TOTAL }원/무통장입금</td>
 									<td class="delivery">${order.DELIVERY_STATE }</td>
 									<td class="situation">${order.GOODS_PAY_STATE }</td>

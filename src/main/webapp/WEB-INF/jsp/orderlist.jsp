@@ -4,23 +4,23 @@
  	<% request.setCharacterEncoding("utf-8"); %>
  	<% response.setContentType("text/html; charset=utf-8"); %>
  	<script>
-function pay_update(order_code,flag){
-	var order_code = order_code;
-	var en_flag = encodeURIComponent(flag);
-	var mem_num = ${sessionScope.MEMBER_NUMBER};
-if(confirm("정말 주문취소 하시겠습니까?") == true){
-	$.ajax({
-		url: "/SIRORAGI/orderlist/payUpdate",
-		data : {"ORDER_NUMBER": order_code, "MEMBER_NUMBER":mem_num, "flag":en_flag},
-		type: "get",
-		async:false,
-		success : function(data){
-			$("#account-contentsWrap").html(data);
-		}
-	})}else{
-		return;
-	}
-}
+ 	function update(order_code,flag){
+ 		var order_code = order_code;
+ 		var en_flag = encodeURIComponent(flag);
+ 		var mem_num = ${sessionScope.MEMBER_NUMBER};
+ 	if(confirm("정말 주문취소 하시겠습니까?") == true){
+ 		$.ajax({
+ 			url: "/SIRORAGI/orderlist/payUpdate",
+ 			data : {"ORDER_CODE": order_code, "MEMBER_NUMBER":mem_num, "flag":en_flag},
+ 			type: "get",
+ 			async:false,
+ 			success : function(data){
+ 				$("#account-contentsWrap").html(data);
+ 			}
+ 		})}else{
+ 			return;
+ 		}
+ 	}
 function pay_update2(order_code,flag){
 	var order_code = order_code;
 	var en_flag = encodeURIComponent(flag);
@@ -28,7 +28,7 @@ function pay_update2(order_code,flag){
 if(confirm("구매확정 하시겠습니까?") == true){
 	$.ajax({
 		url: "/SIRORAGI/orderlist/payUpdate",
-		data : {"ORDER_NUMBER": order_code, "MEMBER_NUMBER":mem_num, "flag":en_flag},
+		data : {"ORDER_CODE": order_code, "MEMBER_NUMBER":mem_num, "flag":en_flag},
 		type: "get",
 		async:false,
 		success : function(data){
@@ -38,6 +38,47 @@ if(confirm("구매확정 하시겠습니까?") == true){
 		return;
 	}
 }
+$( document ).ready(function() {
+	$('#tb01').rowspan(2);
+	$('#tb01').rowspan(3);
+	$('#tb01').rowspan(4);
+	$('#tb01').rowspan(5);
+	$('#tb01').rowspan(6);
+	$('#tb01').rowspan(7);
+	$('#tb01').rowspan(8);
+});
+$.fn.rowspan = function(colIdx, isStats) {       
+	return this.each(function(){      
+		var that;     
+		$('tr', this).each(function(row) {      
+			$('td:eq('+colIdx+')', this).filter(':visible').each(function(col) {
+				
+				if ($(this).html() == $(that).html()
+					&& (!isStats 
+							|| isStats && $(this).prev().html() == $(that).prev().html()
+							)
+					) {            
+					rowspan = $(that).attr("rowspan") || 1;
+					rowspan = Number(rowspan)+1;
+
+					$(that).attr("rowspan",rowspan);
+					
+					// do your action for the colspan cell here            
+					$(this).hide();
+					
+					//$(this).remove(); 
+					// do your action for the old cell here
+					
+				} else {            
+					that = this;         
+				}          
+				
+				// set the that if not already set
+				that = (that == null) ? this : that;      
+			});     
+		});    
+	});  
+}; 
  	</script>
 <div class="account-order-list">
 			<section class="order-list section box-shadow">
@@ -70,33 +111,33 @@ if(confirm("구매확정 하시겠습니까?") == true){
 							<c:forEach items="${list }" var="order">
 									<tr>
 									<td class="info-img"><a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${order.GOODS_NUMBER }">
-									<img img_layer="/SIRORAGI/file/goodsFile/${order.GOODS_THUMBNAIL}" goodsno="${order.GOODS_NUMBER }" src="/SIRORAGI/file/goodsFile/${order.GOODS_THUMBNAIL}" class="img-responsive"></a>
+									<img img_layer="/SIRORAGI/file/goodsfile/${order.GOODS_THUMBNAIL}" goodsno="${order.GOODS_NUMBER }" src="/SIRORAGI/file/goodsfile/${order.GOODS_THUMBNAIL}" class="img-responsive"></a>
 									<input type="hidden" id="order" value="${order.ORDER_NUMBER}" name="order">
 									</td>
 									<td class="info-caption">
 									<strong class="brand">SIRORAGI</strong>
 									<em class="name">${order.GOODS_NAME}*${order.ORDER_AMOUNT}개</em>
 									</td>
+									<td class="payment">${order.GOODS_TOTAL }원/무통장입금</td>
 									<td class="date">${order.ORDER_DATE}</td>
 									<td class="number" id="order">${order.ORDER_CODE }</td>
-									<td class="payment">${order.GOODS_TOTAL }원/무통장입금</td>
 									<td class="delivery">${order.DELIVERY_STATE }</td>
-									<td class="situation">${order.GOODS_PAY_STATE }</td>
+									<td class="situation"><div style='display: none;'>${order.ORDER_CODE}</div>${order.GOODS_PAY_STATE }</td>
 									<c:choose>
 									<c:when test="${order.GOODS_STATE eq '주문취소'}">
-									<td class="situation"><font color='red'>${order.GOODS_STATE }</font></td>
+									<td class="situation"><div style='display: none;'>${order.ORDER_CODE}</div><font color='red'>${order.GOODS_STATE }</font></td>
 									</c:when>
 									<c:when test="${order.GOODS_STATE eq '반품신청' or order.GOODS_STATE eq '교환신청'}">
-									<td class="situation"><font color='orange'>${order.GOODS_STATE }</font></td>
+									<td class="situation"><div style='display: none;'>${order.ORDER_CODE}</div><font color='orange'>${order.GOODS_STATE }</font></td>
 									</c:when>
 									<c:otherwise>
-									<td class="situation"><font color='green'>${order.GOODS_STATE }</font></td>
+									<td class="situation"><div style='display: none;'>${order.ORDER_CODE}</div><font color='green'>${order.GOODS_STATE }</font></td>
 									</c:otherwise>
 									</c:choose>
 									<c:choose>
 									<c:when test="${order.DELIVERY_STATE eq '결제대기' or order.DELIVERY_STATE eq '배송준비중' }">
 									<td class="action">
-									<input type="button" id="flag" class="btn btn-danger" onclick='javascript:pay_update(${order.ORDER_NUMBER},"구매취소")'  value="구매취소">
+									<input type="button" id="flag" class="btn btn-danger" onclick='update("${order.ORDER_CODE}","구매취소")'  value="구매취소">
 									</td>
 									</c:when>
 									<c:when test="${order.GOODS_STATE eq '구매확정' or order.GOODS_STATE eq '주문취소'}">
@@ -105,7 +146,7 @@ if(confirm("구매확정 하시겠습니까?") == true){
 									</c:when>
 									<c:when test="${order.DELIVERY_STATE eq '배송완료' and order.GOODS_PAY_STATE eq '결제완료'}">
 									<td class="action">
-									<input type="button" id="flag" class="btn btn-success" onclick='javascript:pay_update2(${order.ORDER_NUMBER},"구매확정")'  value="구매확정">
+									<input type="button" id="flag" class="btn btn-success" onclick='pay_update2("${order.ORDER_CODE}","구매확정")'  value="구매확정">
 									</td>
 									</c:when>
 									</c:choose>
@@ -148,11 +189,6 @@ if(confirm("구매확정 하시겠습니까?") == true){
 							<li><span>후기 작성 완료 :</span> 상품에 대한 후기 등록이 완료되었고, 후기작성으로 추가 적립금이 지급된 상태</li>
 						</ul>
 					</div>
-				</div>
-				<div class="section-foot">
-					<a class="button col-xs-offset-6 col-xs-12 col-md-offset-9 col-md-6" href="/mypage/selfpay">
-						<span class="button-label">부분결제 바로가기</span>
-					</a>
 				</div>
 			</section>
 		</div>

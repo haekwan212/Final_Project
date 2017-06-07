@@ -48,12 +48,12 @@ public class MyPageController {
 		int selectBuycount = mypageService.selectBuyCount(mem_num);
 		int selectExCount = mypageService.selectExCount(mem_num);
 		int selectReCount = mypageService.selectReCount(mem_num);
-		int checkTotalMoney = mypageService.checkTotalMoney(mem_num);
-		if(checkTotalMoney>0){
-		int selectTotalMoney = mypageService.selectTotalMoney(mem_num);
-		mv.addObject("totalMoney", selectTotalMoney);
+		String selectTotalMoney = mypageService.selectTotalMoney(mem_num);
+		System.out.println(selectTotalMoney);
+		if(!selectTotalMoney.equals(null) || selectTotalMoney.isEmpty()){
+			mv.addObject("totalMoney", selectTotalMoney);
 		}else{
-		mv.addObject("totalMoney", null);	
+			mv.addObject("totalMoney","0");
 		}
 		mv.setViewName("mypage");
 		Map<String, Object> sumPoint = pointService.sumPoint(commandMap.getMap());
@@ -170,8 +170,6 @@ public class MyPageController {
 	public ModelAndView exchangelistForm(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("modal_exchangeForm");
 		String orderCode = commandMap.get("ORDER_CODE").toString();
-		String orderNumber = commandMap.get("ORDER_NUMBER").toString();
-		mv.addObject("ORDER_NUMBER", orderNumber);
 		mv.addObject("ORDER_CODE", orderCode);
 		System.out.println(orderCode);
 		return mv;
@@ -206,9 +204,7 @@ public class MyPageController {
 	@ResponseBody
 	public ModelAndView returnlistForm(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("modal_returnForm");
-		String orderNumber = commandMap.get("ORDER_NUMBER").toString();
 		String orderCode = commandMap.get("ORDER_CODE").toString();
-		mv.addObject("ORDER_NUMBER", orderNumber);
 		mv.addObject("ORDER_CODE", orderCode);
 		System.out.println(orderCode);
 		return mv;
