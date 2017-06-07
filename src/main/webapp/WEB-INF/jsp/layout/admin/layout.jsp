@@ -84,7 +84,7 @@
                             <a href="#"style="background: #e7e7e7;"><i class="fa fa-dashboard fa-fw"></i>회원관리<span class="fa arrow">▼</span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/SIRORAGI/admin/memberList">- 회원목록</a>
+                                    <a href="/SIRORAGI/admin/memberList?onOff=0&searchNum=0&isSearch=">- 회원목록</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -48,11 +48,13 @@ public class MyPageController {
 		int selectBuycount = mypageService.selectBuyCount(mem_num);
 		int selectExCount = mypageService.selectExCount(mem_num);
 		int selectReCount = mypageService.selectReCount(mem_num);
-		String selectTotalMoney = mypageService.selectTotalMoney(mem_num);
- 
-		if(selectTotalMoney.equals(null))
-			mv.addObject("totalMoney", selectTotalMoney);
-		
+		int checkTotalMoney = mypageService.checkTotalMoney(mem_num);
+		if(checkTotalMoney>0){
+		int selectTotalMoney = mypageService.selectTotalMoney(mem_num);
+		mv.addObject("totalMoney", selectTotalMoney);
+		}else{
+		mv.addObject("totalMoney", null);	
+		}
 		mv.setViewName("mypage");
 		Map<String, Object> sumPoint = pointService.sumPoint(commandMap.getMap());
 		mv.addObject("sumPoint", sumPoint.get("SUM"));
@@ -61,7 +63,6 @@ public class MyPageController {
 		mv.addObject("buyCount", selectBuycount);
 		mv.addObject("ExCount", selectExCount);
 		mv.addObject("ReCount", selectReCount);
-
 		return mv;
 	}
 	

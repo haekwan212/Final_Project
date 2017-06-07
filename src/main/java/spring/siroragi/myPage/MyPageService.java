@@ -13,7 +13,9 @@ public interface MyPageService {
 	
 	int selectReCount(String mem_num) throws Exception;
 	
-	String selectTotalMoney(String mem_num) throws Exception;
+	int selectTotalMoney(String mem_num) throws Exception;
+	
+	int checkTotalMoney(String mem_num) throws Exception;
 	
 	void updateMyinfo(Map<String, Object> map) throws Exception;
 	// 비밀번호 변경

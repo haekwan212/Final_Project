@@ -33,6 +33,9 @@ public class OrderController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("비회원넘어오는값:"+commandMap.getMap().toString());
 		List<Map<String, Object>> list = orderService.noMemberOrderList(commandMap.getMap());
+		for(int i  = 0 ; list.size()>i; i++){
+			System.out.println("리스트"+i+"번째"+list.get(i).toString());
+		}
 		System.out.println("비회원구매리스트:"+list);
 		mv.setViewName("noMemberOrderList");
 		return mv;
@@ -476,7 +479,14 @@ public class OrderController {
 			}
 
 			System.out.println("goods : " + goods);
-
+			
+			mv.addObject("goods_kinds_number", goods_kinds_number[i]);
+			mv.addObject("ea", ea[i]);
+			mv.addObject("GOODS_NUMBER", goods_number[i]);
+			
+			System.out.println("goods_kinds_number : " +  goods_kinds_number[i]);
+			System.out.println("ea : " + ea[i]);
+			System.out.println("GOODS_NUMBER : " + goods_number[i]);
 		}
 
 		mv.addObject("guestEmail", commandMap.get("guestEmail"));
@@ -490,7 +500,7 @@ public class OrderController {
 		System.out.println("guestName : " + commandMap.get("guestName"));
 		System.out.println("guestPhone : " + commandMap.get("guestPhone"));
 
-		mv.addObject("GOODS_NUMBER", session.getAttribute("GOODS_NUMBER"));
+		/*mv.addObject("GOODS_NUMBER", session.getAttribute("GOODS_NUMBER"));*/
 		mv.addObject("goods", goods);
 
 		// sale조건 충족하는지 볼것
@@ -512,8 +522,7 @@ public class OrderController {
 		}
 		// sale 끝
 
-		mv.addObject("goods_kinds_number", goods_kinds_number);
-		mv.addObject("ea", ea);
+
 
 		mv.addObject("RECEIVER_NAME", commandMap.get("RECEIVER_NAME"));
 		mv.addObject("RECEIVER_ZIPCODE", commandMap.get("RECEIVER_ZIPCODE"));
@@ -659,6 +668,7 @@ public class OrderController {
 			commandMap.put("GOODS_KINDS_NUMBER", goods_kinds_number[i]);
 			commandMap.put("ORDER_AMOUNT", ea[i]);
 			commandMap.put("GOODS_TOTAL", goods_total[i]);
+			commandMap.put("GOODS_NUMBER", goods_number[i]);
 
 			System.out.println("GOODS_NUMBER : " + commandMap.get("GOODS_NUMBER"));
 			System.out.println("GOODS_KINDS_NUMBER : " + commandMap.get("GOODS_KINDS_NUMBER"));

@@ -46,7 +46,13 @@
 				select sum(GOODS_TOTAL) as totalPrice from orderlist where member_number = #{MEMBER_NUMBER}
 						]]>
 		</select>
-
+		
+		<select id="checkTotalMoney" parameterType="String" resultType="int">
+			<![CDATA[
+				select count(*) from orderlist where member_number = #{member_number} and goods_state = '구매확정'
+			]]>
+		</select>
+		
 		<select id="selectReviewList" parameterType="String" resultType="hashmap">
 		<![CDATA[
 		select A.REVIEW_NUMBER, A.GOODS_NUMBER, A.GOODS_NAME, A.GOODS_THUMBNAIL, A.REVIEW_TITLE, A.REVIEW_REGDATE, 

@@ -18,7 +18,7 @@
 	</section>
 	<!-- step-panels//end -->
 	<div class="register-privacy">
-		<form action="/SIRORAGI/joinComplete" method="post">
+		<form  method="post" name="frm">
 		<input type="hidden" name="mode" value="register">
 		<input type="hidden" name="rurl" value="register_ok">
 		<input type="hidden" name="chkid">
@@ -612,9 +612,21 @@ $(".auto_mail").change(function() {
 
 </script>
 				<div class="section-foot">
-					<button type="submit" id="validateBtn" class="button large">
+					<button type="submit" id="validateBtn" class="button large" onclick="javascript:checkSubmit()">
 						<span class="button-label">회원가입</span>
 					</button>
+					<script type="text/javascript">
+					function checkSubmit(){
+						var frm = document.frm.MEMBER_BIRTHDAY;
+						if(frm.value.length != 8){
+							alert('생년월일을 확인해주세요');
+							frm.focus();
+						}else{
+							document.frm.action="/SIRORAGI/joinComplete";
+							document.frm.submit();
+						}
+					}
+					</script>
 				</div>
 				<!--section-foot//end-->
 			</section>
