@@ -33,6 +33,9 @@ public class OrderController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("비회원넘어오는값:"+commandMap.getMap().toString());
 		List<Map<String, Object>> list = orderService.noMemberOrderList(commandMap.getMap());
+		for(int i  = 0 ; list.size()>i; i++){
+			System.out.println("리스트"+i+"번째"+list.get(i).toString());
+		}
 		System.out.println("비회원구매리스트:"+list);
 		mv.setViewName("noMemberOrderList");
 		return mv;

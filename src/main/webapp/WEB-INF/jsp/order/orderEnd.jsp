@@ -40,9 +40,18 @@
 			</div>
 			<div class="section-foot">
 				<div class="button-group">
+				<c:choose>
+					<c:when test="${sessionScope.MEMBER_ID ne null }">
 					<a href="/SIRORAGI/mypage#orderlist" class="button large">
 						<span class="button-label">주문 확인</span>
 					</a>
+					</c:when>
+					<c:otherwise>
+						<a href="/SIRORAGI/loginForm" class="button large">
+						<span class="button-label">주문 확인</span>
+					</a>
+					</c:otherwise>
+				</c:choose>
 					<a href="/SIRORAGI/main" class="button button-dimmed large">
 						<span class="button-label">쇼핑 계속</span>
 					</a>
