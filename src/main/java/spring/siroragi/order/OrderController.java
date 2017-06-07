@@ -37,6 +37,7 @@ public class OrderController {
 			System.out.println("리스트"+i+"번째"+list.get(i).toString());
 		}
 		System.out.println("비회원구매리스트:"+list);
+		mv.addObject("list", list);
 		mv.setViewName("noMemberOrderList");
 		return mv;
 	}

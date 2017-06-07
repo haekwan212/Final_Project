@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container">
 <h3 style="margin:20px 0;">비회원 주문내역</h3>
 
@@ -18,18 +19,72 @@
 							<thead>
 								<tr>
 									<th class="info-img">상품 정보</th>
-									<th class="info-caption">&nbsp;</th>
 									<th class="date">주문 일자</th>
 									<th class="number">주문 번호</th>
 									<th class="payment">결제 금액/방법</th>
 									<th class="delivery">배송 정보</th>
-									<th class="situation">진행 현황</th>
-									<th class="action">구매 결정</th>
+									<th class="situation">결제 상태</th>
+									<th class="situation">주문 상태</th>
+									<th class="situation">구매 결정</th>								
 								</tr>
 							</thead>
+							<c:choose>
+							<c:when test="${list eq null }">
 							<tbody>
-								<!--  -->
-								<tr class="confirm-payment"><!-- 진행현황상태가 입금확인일때 confirm-payment클래스명 붙여줌 -->
+							</tbody>
+							</c:when>
+							<c:otherwise>
+							<tbody>
+							<c:forEach items="${list }" var="order">
+									<tr>
+									<td class="info-img"><a href="/SIRORAGI/goodsDetail?GOODS_NUMBER=${order.GOODS_NUMBER }">
+									<img img_layer="/SIRORAGI/file/goodsFile/${order.GOODS_THUMBNAIL}" goodsno="${order.GOODS_NUMBER }" src="/SIRORAGI/file/goodsFile/${order.GOODS_THUMBNAIL}" class="img-responsive"></a>
+									<input type="hidden" id="order" value="${order.ORDER_NUMBER}" name="order">
+									</td>
+									<td class="info-caption">
+									<strong class="brand">SIRORAGI</strong>
+									<em class="name">${order.GOODS_NAME}*${order.ORDER_AMOUNT}개</em>
+									</td>
+									<td class="date">${order.ORDER_DATE}</td>
+									<td class="number" id="order">${order.ORDER_CODE }</td>
+									<td class="payment">${order.GOODS_TOTAL }원/무통장입금</td>
+									<td class="delivery">${order.DELIVERY_STATE }</td>
+									<td class="situation">${order.GOODS_PAY_STATE }</td>
+									<c:choose>
+									<c:when test="${order.GOODS_STATE eq '주문취소'}">
+									<td class="situation"><font color='red'>${order.GOODS_STATE }</font></td>
+									</c:when>
+									<c:when test="${order.GOODS_STATE eq '반품신청' or order.GOODS_STATE eq '교환신청'}">
+									<td class="situation"><font color='orange'>${order.GOODS_STATE }</font></td>
+									</c:when>
+									<c:otherwise>
+									<td class="situation"><font color='green'>${order.GOODS_STATE }</font></td>
+									</c:otherwise>
+									</c:choose>
+									<c:choose>
+									<c:when test="${order.DELIVERY_STATE eq '결제대기' or order.DELIVERY_STATE eq '배송준비중' }">
+									<td class="action">
+									<input type="button" id="flag" class="btn btn-danger" onclick='javascript:pay_update(${order.ORDER_NUMBER},"구매취소")'  value="구매취소">
+									</td>
+									</c:when>
+									<c:when test="${order.GOODS_STATE eq '구매확정' or order.GOODS_STATE eq '주문취소'}">
+									<td class="action">
+									</td>
+									</c:when>
+									<c:when test="${order.DELIVERY_STATE eq '배송완료' and order.GOODS_PAY_STATE eq '결제완료'}">
+									<td class="action">
+									<input type="button" id="flag" class="btn btn-success" onclick='javascript:pay_update2(${order.ORDER_NUMBER},"구매확정")'  value="구매확정">
+									</td>
+									</c:when>
+									</c:choose>
+									</tr>
+							</c:forEach>	
+							</tbody>
+							</c:otherwise>
+							</c:choose>
+							<!-- tbody>
+								
+								<tr class="confirm-payment">진행현황상태가 입금확인일때 confirm-payment클래스명 붙여줌
 									<td class="info-img">
 										<a href="../goods/1495762831"><img src="http://pic.styleindex.co.kr/g/s/149/1495762831"></a>
 									</td>
@@ -60,8 +115,8 @@
 										</a>
 									</td>
 								</tr>
-								<!--  -->
-							</tbody>
+								
+							</tbody> -->
 						</table>
 					</div>
 					<!-- table-responsive//end -->

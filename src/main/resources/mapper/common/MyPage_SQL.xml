@@ -41,7 +41,7 @@
 						]]>
 		</select>
 		
-		<select id="selectTotalMoney" parameterType="String" resultType="String">
+		<select id="selectTotalMoney" parameterType="String" resultType="int">
 		<![CDATA[
 				select sum(GOODS_TOTAL) as totalPrice from orderlist where member_number = #{MEMBER_NUMBER}
 						]]>
