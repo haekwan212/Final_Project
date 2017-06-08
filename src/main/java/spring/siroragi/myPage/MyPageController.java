@@ -37,6 +37,7 @@ public class MyPageController {
 	@Resource(name="pointService")
 	private PointService pointService;
 
+	@SuppressWarnings("null")
 	@RequestMapping(value="/mypage")
 	public ModelAndView mypageForm(CommandMap commandMap, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -48,11 +49,13 @@ public class MyPageController {
 		int selectBuycount = mypageService.selectBuyCount(mem_num);
 		int selectExCount = mypageService.selectExCount(mem_num);
 		int selectReCount = mypageService.selectReCount(mem_num);
+		int selectToCount=mypageService.checkTotalMoney(mem_num);
+		if(selectToCount>0){
 		String selectTotalMoney = mypageService.selectTotalMoney(mem_num);
 		System.out.println(selectTotalMoney);
-		if(!selectTotalMoney.equals(null) || selectTotalMoney.isEmpty()){
 			mv.addObject("totalMoney", selectTotalMoney);
-		}else{
+		}
+		else{
 			mv.addObject("totalMoney","0");
 		}
 		mv.setViewName("mypage");
